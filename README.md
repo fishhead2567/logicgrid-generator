@@ -8,7 +8,8 @@ then *proves the narrative still means the same puzzle*.
 Zero runtime dependencies. Everything is deterministic in a single integer seed.
 
 ```bash
-pip install -e .                      # or: pip install -e '.[llm,dev]'
+pip install -e .                      # extras: llm, play, dev
+                                      # (quoting for extras differs by shell -- see Playing them)
 logicgrid gen --count 50 --out puzzles
 logicgrid stats puzzles
 ```
@@ -260,10 +261,18 @@ set through the Batches API at half price.
 ## Playing them
 
 ```bash
-pip install -e '.[play]'
 logicgrid-play puzzles                 # start at the first puzzle
 logicgrid-play puzzles --puzzle 34     # or by number, name or substring
 logicgrid-play puzzles --list          # just list what is there
+```
+
+Installing the extra, which needs `textual`. The quotes are only there to stop
+bash and zsh globbing `[play]`, so the right form depends on your shell:
+
+```bash
+pip install -e '.[play]'    # bash / zsh, including Git Bash
+pip install -e ".[play]"    # PowerShell
+pip install -e .[play]      # cmd.exe -- it treats ' as a literal character
 ```
 
 A Textual TUI (`src/puzzleplay/`). **Chosen over a web app because it has to be
