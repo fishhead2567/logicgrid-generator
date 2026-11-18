@@ -15,14 +15,18 @@ dependencies = []
 
 [project.optional-dependencies]
 llm = ["anthropic>=0.40"]
-dev = ["pytest>=8.0"]
+play = ["textual>=8.0"]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.24", "textual>=8.0", "textual-dev>=1.7"]
 
 [project.scripts]
 logicgrid = "logicgrid.cli:main"
+logicgrid-play = "puzzleplay.app:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/logicgrid"]
+packages = ["src/logicgrid", "src/puzzleplay"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

@@ -257,6 +257,61 @@ set through the Batches API at half price.
 
 ---
 
+## Playing them
+
+```bash
+pip install -e '.[play]'
+logicgrid-play puzzles                 # start at the first puzzle
+logicgrid-play puzzles --puzzle 34     # or by number, name or substring
+logicgrid-play puzzles --list          # just list what is there
+```
+
+A Textual TUI (`src/puzzleplay/`). **Chosen over a web app because it has to be
+playable over SSH**: it runs in the session you are already in, with no port
+forwarding, no firewall hole and nothing to reconnect for. Textual ships a test
+pilot, so unlike curses it stays genuinely testable — `tests/test_play_app.py`
+drives the real widgets with real keypresses.
+
+Layout: a tab per pair of categories, each a grid with a cell cursor; the clue
+list beside it; the answer sheet below. A status line always names the cell you
+are on — which is what lets the grid columns stay narrow enough to fit a
+terminal.
+
+| key | |
+|---|---|
+| arrows / mouse | move the cell cursor |
+| `]` `[` | next / previous grid |
+| `o` | these two go together |
+| `x` | these two do not |
+| `space` | cycle `.` → `O` → `x` → `.` |
+| `backspace` | clear the cell |
+| `u` | undo |
+| `c` | check my work so far |
+| `a` | toggle assist |
+| `n` `p` | next / previous puzzle |
+| `s` | reveal the solution |
+| `?` | help |
+
+Finishing the answer sheet announces itself: **SOLVED** if every placing is
+right, or *"not quite — N marks are wrong"* if not. `c` checks at any point and
+names the offending cells.
+
+### Only your own marks are stored
+
+Circling a cell forces x's across its row and column, and assist can chain
+further. None of that is stored as if you had marked it — the board keeps *your*
+marks and recomputes the closure on every change. So changing your mind about a
+cell withdraws everything that followed from it, rather than leaving behind x's
+nothing supports any more. It also makes undo a snapshot and makes toggling
+assist a pure recompute.
+
+Assist is off by default. Row-and-column elimination is bookkeeping the rules
+force, so that is always on; transitivity and last-cell-standing are real
+deductions, so they stay opt-in — otherwise the program is solving the puzzle,
+not you.
+
+---
+
 ## CLI
 
 | Command | What it does |
@@ -288,6 +343,11 @@ src/logicgrid/
   extract.py       extractor prompt, schema and lenient decoding
   verify.py        the four gates, consensus drift, retry loop
   cli.py
+src/puzzleplay/      the terminal player (Textual)
+  board.py           the solving chart: your marks, plus what they force
+  library.py         puzzle discovery
+  render.py          clue / answer / help panels
+  app.py             the app, bindings and layout
 scripts/calibrate.py
 tests/
 puzzles/           50 generated puzzles + index.md
@@ -315,7 +375,7 @@ bespoke propagator.
 ## Tests
 
 ```bash
-python -m pytest            # 208 passed, 3 skipped
+python -m pytest            # 270 passed, 3 skipped
 ```
 
 - `test_penny_dell_sample.py` — the published sample puzzle: our engine finds
@@ -330,6 +390,10 @@ python -m pytest            # 208 passed, 3 skipped
   tightening, dropped facts, the gap off-by-one, renamed cast, lost cast member,
   and the two consensus-only cases. These are what justify spending money on the
   pipeline.
+- `test_board.py` / `test_play_app.py` — the player: forced bookkeeping,
+  refused conflicts, editing a cell withdrawing what it forced, assist
+  soundness, and a full playthrough of a real puzzle driven by nothing but
+  cursor keys and `o`, ending in the solved banner.
 - `test_pipeline.py` — the whole narrate → extract → verify → retry loop driven
   by canned replies, again offline: prompts assemble, the narrator prompt does
   not leak the solution, a wrong clue count is rejected, a failure really does
