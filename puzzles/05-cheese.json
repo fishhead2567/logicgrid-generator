@@ -1,0 +1,161 @@
+{
+  "pid": "f136fe730fc1",
+  "title": "The Cheesemongers' Standoff",
+  "theme": "cheese",
+  "blurb": "A case of opinionated cheeses, their equally opinionated makers, and one display that has begun to smell like a political scandal.",
+  "profile": "gentle",
+  "rating": 1,
+  "score": 2.285,
+  "seed": 2026172615031,
+  "spec": {
+    "difficulty": "gentle",
+    "seed": 2026172615031
+  },
+  "schema": {
+    "spine": "price",
+    "entity_noun": "wheel",
+    "entity_noun_plural": "wheels",
+    "categories": [
+      {
+        "name": "price",
+        "label": "Price",
+        "items": [
+          "$3",
+          "$5",
+          "$7",
+          "$9"
+        ],
+        "ordered": true,
+        "values": [
+          3,
+          5,
+          7,
+          9
+        ],
+        "unit": "$",
+        "noun": "price",
+        "cmp_less": "cheaper",
+        "cmp_more": "dearer",
+        "step_noun": "price step"
+      },
+      {
+        "name": "cheese",
+        "label": "Cheese",
+        "items": [
+          "Saltpans",
+          "Oakmoss",
+          "Bellringer",
+          "Winter Tarn"
+        ],
+        "ordered": false,
+        "noun": "cheese"
+      },
+      {
+        "name": "rind",
+        "label": "Rind",
+        "items": [
+          "a cloth-bound rind",
+          "a natural rind",
+          "a washed rind",
+          "a waxed rind"
+        ],
+        "ordered": false,
+        "noun": "rind"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "cheese:Saltpans",
+          "b": "price:$7"
+        },
+        {
+          "kind": "link",
+          "a": "price:$7",
+          "b": "rind:a natural rind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "cheese:Winter Tarn",
+          "b": "rind:a waxed rind"
+        },
+        {
+          "kind": "link",
+          "a": "cheese:Winter Tarn",
+          "b": "price:$3"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "cheese:Bellringer",
+          "b": "rind:a cloth-bound rind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "price:$5",
+          "b": "rind:a washed rind"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "price": [
+      "$3",
+      "$5",
+      "$7",
+      "$9"
+    ],
+    "cheese": [
+      "Winter Tarn",
+      "Bellringer",
+      "Saltpans",
+      "Oakmoss"
+    ],
+    "rind": [
+      "a waxed rind",
+      "a cloth-bound rind",
+      "a natural rind",
+      "a washed rind"
+    ]
+  },
+  "stats": {
+    "atoms": 6,
+    "numbered_clues": 4,
+    "kinds": {
+      "link": 5,
+      "not_link": 1
+    },
+    "positives": 5,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 2,
+    "max_technique": "bijection",
+    "steps": 12,
+    "tier_counts": {
+      "direct": 6,
+      "bijection": 6
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 8
+  }
+}

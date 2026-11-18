@@ -1,0 +1,223 @@
+{
+  "pid": "5cd29d0e27b7",
+  "title": "A Bad Week at the Pinhole Observatory",
+  "theme": "observatory",
+  "blurb": "The Pinhole Amateur Astronomical Society has one good telescope and a great many strong opinions about who may point it where.",
+  "profile": "moderate",
+  "rating": 3,
+  "score": 5.355,
+  "seed": 2026172765492,
+  "spec": {
+    "difficulty": "moderate",
+    "seed": 2026172765492
+  },
+  "schema": {
+    "spine": "day",
+    "entity_noun": "session",
+    "entity_noun_plural": "sessions",
+    "categories": [
+      {
+        "name": "day",
+        "label": "Day",
+        "items": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "ordered": true,
+        "noun": "day",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "day"
+      },
+      {
+        "name": "target",
+        "label": "Observed",
+        "items": [
+          "Saturn's rings",
+          "a variable star",
+          "the Andromeda galaxy",
+          "a lunar occultation",
+          "a comet fragment"
+        ],
+        "ordered": false,
+        "noun": "target"
+      },
+      {
+        "name": "mishap",
+        "label": "Mishap",
+        "items": [
+          "a seized mount",
+          "a flat battery",
+          "a dropped lens cap",
+          "a neighbour's floodlight",
+          "an unexpected cloud bank"
+        ],
+        "ordered": false,
+        "noun": "mishap"
+      },
+      {
+        "name": "snack",
+        "label": "Thermos contents",
+        "items": [
+          "barley water",
+          "bone broth",
+          "cocoa",
+          "oxtail soup",
+          "stewed tea"
+        ],
+        "ordered": false,
+        "noun": "thermos"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "snack:bone broth",
+          "b": "target:a lunar occultation"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "snack:stewed tea",
+          "b": "target:a comet fragment",
+          "same": true
+        },
+        {
+          "kind": "adjacent",
+          "a": "mishap:a seized mount",
+          "b": "target:a comet fragment"
+        },
+        {
+          "kind": "link",
+          "a": "snack:oxtail soup",
+          "b": "target:a comet fragment"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "day:Monday",
+          "b": "mishap:a flat battery"
+        },
+        {
+          "kind": "adjacent",
+          "a": "mishap:a flat battery",
+          "b": "target:a variable star"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "day:Wednesday",
+          "b": "mishap:a dropped lens cap"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "target:Saturn's rings",
+          "b": "mishap:a dropped lens cap"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "mishap:an unexpected cloud bank",
+          "b": "snack:barley water",
+          "k": 4,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "target:a variable star",
+          "b": "mishap:a neighbour's floodlight"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "day": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "target": [
+      "a variable star",
+      "a comet fragment",
+      "Saturn's rings",
+      "the Andromeda galaxy",
+      "a lunar occultation"
+    ],
+    "mishap": [
+      "a seized mount",
+      "a flat battery",
+      "a neighbour's floodlight",
+      "a dropped lens cap",
+      "an unexpected cloud bank"
+    ],
+    "snack": [
+      "barley water",
+      "oxtail soup",
+      "cocoa",
+      "stewed tea",
+      "bone broth"
+    ]
+  },
+  "stats": {
+    "atoms": 10,
+    "numbered_clues": 7,
+    "kinds": {
+      "link": 2,
+      "parity": 1,
+      "adjacent": 2,
+      "immediately_before": 3,
+      "gap": 1,
+      "before": 1
+    },
+    "positives": 2,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 33,
+    "tier_counts": {
+      "direct": 6,
+      "bijection": 16,
+      "order": 11
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}

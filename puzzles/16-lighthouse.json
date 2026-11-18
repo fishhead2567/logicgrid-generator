@@ -1,0 +1,188 @@
+{
+  "pid": "604c15777ca6",
+  "title": "The Saltmarsh Light Rotation",
+  "theme": "lighthouse",
+  "blurb": "The lighthouses along the Saltmarsh coast share a single relief keeper roster, and the logbooks have become a scholarly mess.",
+  "profile": "easy",
+  "rating": 3,
+  "score": 5.13,
+  "seed": 2026172702140,
+  "spec": {
+    "difficulty": "easy",
+    "seed": 2026172702140
+  },
+  "schema": {
+    "spine": "day",
+    "entity_noun": "shift",
+    "entity_noun_plural": "shifts",
+    "categories": [
+      {
+        "name": "day",
+        "label": "Day",
+        "items": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday"
+        ],
+        "ordered": true,
+        "noun": "day",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "day"
+      },
+      {
+        "name": "keeper",
+        "label": "Keeper",
+        "items": [
+          "Barnaby",
+          "Perpetua",
+          "Hollis",
+          "Lucian"
+        ],
+        "ordered": false,
+        "noun": "keeper"
+      },
+      {
+        "name": "chore",
+        "label": "Logged chore",
+        "items": [
+          "whitewashing the base",
+          "rebedding the storm glass",
+          "splicing the hoist rope",
+          "repainting the gallery"
+        ],
+        "ordered": false,
+        "noun": "chore"
+      },
+      {
+        "name": "weather",
+        "label": "Weather noted",
+        "items": [
+          "a gale",
+          "sea fog",
+          "sleet",
+          "drizzle"
+        ],
+        "ordered": false,
+        "noun": "weather"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "keeper:Lucian",
+          "b": "weather:drizzle"
+        },
+        {
+          "kind": "between",
+          "a": "chore:repainting the gallery",
+          "b": "keeper:Barnaby",
+          "c": "weather:drizzle"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "day:Wednesday",
+          "b": "chore:splicing the hoist rope",
+          "c": "weather:sea fog"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "chore:splicing the hoist rope",
+          "b": "weather:a gale"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "chore:whitewashing the base",
+          "b": "day:Thursday"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "day:Tuesday",
+          "b": "weather:a gale"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "keeper:Perpetua",
+          "b": "chore:repainting the gallery"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "day": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday"
+    ],
+    "keeper": [
+      "Lucian",
+      "Perpetua",
+      "Hollis",
+      "Barnaby"
+    ],
+    "chore": [
+      "whitewashing the base",
+      "splicing the hoist rope",
+      "repainting the gallery",
+      "rebedding the storm glass"
+    ],
+    "weather": [
+      "drizzle",
+      "sleet",
+      "a gale",
+      "sea fog"
+    ]
+  },
+  "stats": {
+    "atoms": 7,
+    "numbered_clues": 5,
+    "kinds": {
+      "link": 1,
+      "between": 2,
+      "immediately_before": 2,
+      "before": 1,
+      "not_link": 1
+    },
+    "positives": 1,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 26,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 11,
+      "order": 12
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 12
+  }
+}

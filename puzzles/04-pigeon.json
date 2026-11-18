@@ -1,0 +1,166 @@
+{
+  "pid": "5a84c8f6c609",
+  "title": "Andy's Swiftest Birds",
+  "theme": "pigeon",
+  "blurb": "Andy races pigeons, and each bird is bred for a different combination of stubbornness and speed.",
+  "profile": "gentle",
+  "rating": 1,
+  "score": 2.585,
+  "seed": 2026172607112,
+  "spec": {
+    "difficulty": "gentle",
+    "seed": 2026172607112
+  },
+  "schema": {
+    "spine": "distance",
+    "entity_noun": "race",
+    "entity_noun_plural": "races",
+    "categories": [
+      {
+        "name": "distance",
+        "label": "Distance",
+        "items": [
+          "200 miles",
+          "300 miles",
+          "400 miles",
+          "500 miles"
+        ],
+        "ordered": true,
+        "values": [
+          200,
+          300,
+          400,
+          500
+        ],
+        "unit_suffix": " miles",
+        "noun": "distance",
+        "cmp_less": "shorter",
+        "cmp_more": "longer",
+        "step_noun": "hundred miles"
+      },
+      {
+        "name": "breed",
+        "label": "Breed",
+        "items": [
+          "a Vandenabeele",
+          "a Van Loon",
+          "a Delbar",
+          "a Janssen"
+        ],
+        "ordered": false,
+        "noun": "breed"
+      },
+      {
+        "name": "loft",
+        "label": "Loft",
+        "items": [
+          "the garage loft",
+          "the orchard loft",
+          "the allotment loft",
+          "the canal loft"
+        ],
+        "ordered": false,
+        "noun": "loft"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "breed:a Janssen",
+          "b": "distance:200 miles"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "breed:a Vandenabeele",
+          "b": "loft:the canal loft"
+        },
+        {
+          "kind": "link",
+          "a": "breed:a Vandenabeele",
+          "b": "distance:300 miles"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "breed:a Delbar",
+          "b": "loft:the orchard loft"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "breed:a Van Loon",
+          "b": "distance:500 miles"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "distance:400 miles",
+          "b": "loft:the garage loft"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "distance": [
+      "200 miles",
+      "300 miles",
+      "400 miles",
+      "500 miles"
+    ],
+    "breed": [
+      "a Janssen",
+      "a Vandenabeele",
+      "a Van Loon",
+      "a Delbar"
+    ],
+    "loft": [
+      "the garage loft",
+      "the canal loft",
+      "the allotment loft",
+      "the orchard loft"
+    ]
+  },
+  "stats": {
+    "atoms": 6,
+    "numbered_clues": 5,
+    "kinds": {
+      "link": 4,
+      "not_link": 2
+    },
+    "positives": 4,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 2,
+    "max_technique": "bijection",
+    "steps": 15,
+    "tier_counts": {
+      "direct": 6,
+      "bijection": 9
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 8
+  }
+}

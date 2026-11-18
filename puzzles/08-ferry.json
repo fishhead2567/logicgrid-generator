@@ -1,0 +1,171 @@
+{
+  "pid": "ed9fb1307098",
+  "title": "The Crossings to Inverlaig",
+  "theme": "ferry",
+  "blurb": "The Inverlaig ferry runs a full day of crossings in theory, and a variable number in practice.",
+  "profile": "gentle",
+  "rating": 2,
+  "score": 4.14,
+  "seed": 2026172638788,
+  "spec": {
+    "difficulty": "gentle",
+    "seed": 2026172638788
+  },
+  "schema": {
+    "spine": "time",
+    "entity_noun": "crossing",
+    "entity_noun_plural": "crossings",
+    "categories": [
+      {
+        "name": "time",
+        "label": "Start time",
+        "items": [
+          "8 a.m.",
+          "9 a.m.",
+          "10 a.m.",
+          "11 a.m.",
+          "noon"
+        ],
+        "ordered": true,
+        "noun": "start time",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "hour"
+      },
+      {
+        "name": "skipper",
+        "label": "Skipper",
+        "items": [
+          "Senga",
+          "Eilidh",
+          "Calla",
+          "Tormod",
+          "Fearghas"
+        ],
+        "ordered": false,
+        "noun": "skipper"
+      },
+      {
+        "name": "cargo",
+        "label": "Notable cargo",
+        "items": [
+          "a consignment of bees",
+          "a church organ",
+          "a film crew and no permits",
+          "a refrigerated van",
+          "a wedding party"
+        ],
+        "ordered": false,
+        "noun": "cargo"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "skipper:Eilidh",
+          "b": "time:11 a.m."
+        },
+        {
+          "kind": "link",
+          "a": "cargo:a refrigerated van",
+          "b": "time:11 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "skipper:Calla",
+          "b": "cargo:a film crew and no permits"
+        },
+        {
+          "kind": "link",
+          "a": "skipper:Calla",
+          "b": "time:10 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "cargo:a wedding party",
+          "b": "skipper:Tormod"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "cargo:a refrigerated van",
+          "b": "skipper:Senga"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "cargo:a church organ",
+          "b": "skipper:Tormod"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "time": [
+      "8 a.m.",
+      "9 a.m.",
+      "10 a.m.",
+      "11 a.m.",
+      "noon"
+    ],
+    "skipper": [
+      "Eilidh",
+      "Tormod",
+      "Calla",
+      "Senga",
+      "Fearghas"
+    ],
+    "cargo": [
+      "a church organ",
+      "a wedding party",
+      "a consignment of bees",
+      "a refrigerated van",
+      "a film crew and no permits"
+    ]
+  },
+  "stats": {
+    "atoms": 7,
+    "numbered_clues": 5,
+    "kinds": {
+      "before": 3,
+      "link": 4
+    },
+    "positives": 4,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 24,
+    "tier_counts": {
+      "direct": 6,
+      "bijection": 13,
+      "order": 5
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 10
+  }
+}

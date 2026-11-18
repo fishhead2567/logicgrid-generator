@@ -1,0 +1,226 @@
+{
+  "pid": "1f743b265280",
+  "title": "A Fortnight at the Little Vesper Theatre",
+  "theme": "puppet",
+  "blurb": "The Little Vesper Theatre seats forty people and employs a company of puppeteers who will not be in the same room together.",
+  "profile": "hard",
+  "rating": 5,
+  "score": 9.1244,
+  "seed": 2026172844682,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026172844682
+  },
+  "schema": {
+    "spine": "slot",
+    "entity_noun": "performance",
+    "entity_noun_plural": "performances",
+    "categories": [
+      {
+        "name": "slot",
+        "label": "Running order",
+        "items": [
+          "slot one",
+          "slot two",
+          "slot three",
+          "slot four",
+          "slot five"
+        ],
+        "ordered": true,
+        "noun": "slot",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "slot"
+      },
+      {
+        "name": "puppeteer",
+        "label": "Puppeteer",
+        "items": [
+          "Quentin",
+          "Halima",
+          "Stellan",
+          "Josefa",
+          "Mirabel"
+        ],
+        "ordered": false,
+        "noun": "puppeteer"
+      },
+      {
+        "name": "play",
+        "label": "Play",
+        "items": [
+          "Hollowmas",
+          "The Glass Tide",
+          "The Clockwork Orchard",
+          "Winterling",
+          "Six Spoons"
+        ],
+        "ordered": false,
+        "noun": "play"
+      },
+      {
+        "name": "music",
+        "label": "Accompaniment",
+        "items": [
+          "a bowed psaltery",
+          "a hurdy-gurdy",
+          "a pump organ",
+          "a glass harmonica",
+          "two kettle drums"
+        ],
+        "ordered": false,
+        "noun": "accompaniment"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "play:The Glass Tide",
+          "b": "puppeteer:Halima",
+          "c": "puppeteer:Josefa"
+        },
+        {
+          "kind": "between",
+          "a": "puppeteer:Halima",
+          "b": "play:Hollowmas",
+          "c": "slot:slot four"
+        },
+        {
+          "kind": "before",
+          "a": "slot:slot four",
+          "b": "puppeteer:Stellan"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "puppeteer:Quentin",
+          "b": "slot:slot four"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "music:a hurdy-gurdy",
+              "b": "puppeteer:Josefa"
+            },
+            {
+              "kind": "immediately_before",
+              "a": "slot:slot three",
+              "b": "music:a bowed psaltery"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "music:a glass harmonica",
+          "b": "slot:slot two"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "music:a pump organ",
+          "b": "play:Winterling"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "play:Six Spoons",
+          "b": "puppeteer:Halima",
+          "same": false
+        },
+        {
+          "kind": "distinct",
+          "members": [
+            "music:a hurdy-gurdy",
+            "play:Six Spoons",
+            "puppeteer:Mirabel"
+          ]
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "slot": [
+      "slot one",
+      "slot two",
+      "slot three",
+      "slot four",
+      "slot five"
+    ],
+    "puppeteer": [
+      "Mirabel",
+      "Halima",
+      "Quentin",
+      "Josefa",
+      "Stellan"
+    ],
+    "play": [
+      "Hollowmas",
+      "The Clockwork Orchard",
+      "The Glass Tide",
+      "Winterling",
+      "Six Spoons"
+    ],
+    "music": [
+      "a glass harmonica",
+      "a hurdy-gurdy",
+      "a pump organ",
+      "a bowed psaltery",
+      "two kettle drums"
+    ]
+  },
+  "stats": {
+    "atoms": 9,
+    "numbered_clues": 6,
+    "kinds": {
+      "between": 2,
+      "before": 1,
+      "immediately_before": 3,
+      "or": 1,
+      "parity": 1,
+      "distinct": 1
+    },
+    "positives": 0,
+    "compounds": 1
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 36,
+    "tier_counts": {
+      "bijection": 18,
+      "order": 16,
+      "disjunction": 2
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}

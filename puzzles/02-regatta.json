@@ -1,0 +1,161 @@
+{
+  "pid": "2ac653cf75bc",
+  "title": "The Mudflat Regatta",
+  "theme": "regatta",
+  "blurb": "The Mudflat Regatta is rowed over a course that is only a course at high tide, which is where most of the trouble starts.",
+  "profile": "gentle",
+  "rating": 1,
+  "score": 3.97,
+  "seed": 2026172591274,
+  "spec": {
+    "difficulty": "gentle",
+    "seed": 2026172591274
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "entry",
+    "entity_noun_plural": "entries",
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place"
+      },
+      {
+        "name": "crew",
+        "label": "Crew",
+        "items": [
+          "the Brickworks crew",
+          "the Customs crew",
+          "the Creamery crew",
+          "the Tannery crew"
+        ],
+        "ordered": false,
+        "noun": "crew"
+      },
+      {
+        "name": "colours",
+        "label": "Colours",
+        "items": [
+          "mustard and black",
+          "navy with a white band",
+          "lilac and bronze",
+          "pink and cream"
+        ],
+        "ordered": false,
+        "noun": "colours"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "crew:the Tannery crew",
+          "b": "place:third"
+        },
+        {
+          "kind": "link",
+          "a": "colours:navy with a white band",
+          "b": "crew:the Tannery crew"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "colours:lilac and bronze",
+          "b": "crew:the Customs crew"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "colours:mustard and black",
+          "b": "place:fourth"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "crew:the Brickworks crew",
+          "b": "place:second"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "crew:the Customs crew",
+          "b": "colours:mustard and black"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth"
+    ],
+    "crew": [
+      "the Customs crew",
+      "the Creamery crew",
+      "the Tannery crew",
+      "the Brickworks crew"
+    ],
+    "colours": [
+      "lilac and bronze",
+      "mustard and black",
+      "navy with a white band",
+      "pink and cream"
+    ]
+  },
+  "stats": {
+    "atoms": 6,
+    "numbered_clues": 5,
+    "kinds": {
+      "link": 3,
+      "before": 2,
+      "not_link": 1
+    },
+    "positives": 3,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 18,
+    "tier_counts": {
+      "direct": 4,
+      "bijection": 10,
+      "order": 4
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 8
+  }
+}

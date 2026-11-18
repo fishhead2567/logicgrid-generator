@@ -1,0 +1,960 @@
+"""Theme packs: the raw material puzzles are dressed in.
+
+A theme supplies a **spine** (the ordered axis everything else is pinned to) and
+four **axes** of flavour.  Each axis offers more items than any puzzle needs, so
+the generator can sample a different cast from the same theme on a different
+seed.
+
+Two invariants are enforced by :func:`Theme.build`:
+
+* every item name in a built puzzle is globally unique, so a clue can say
+  "Marigold" without also saying which category that is -- which removes a
+  large class of LLM ambiguity in the narrative round-trip;
+* the spine is ordered, so positional clues are always available.
+
+Spines are shared between themes.  A numeric spine (prices, distances) unlocks
+arithmetic clues but suppresses gap/parity clues, because "two price-slots
+apart" is a horrible thing to say in prose and an easy thing to mistranslate.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from random import Random
+from typing import Sequence
+
+from .model import Category, PuzzleError, Schema
+
+# ---------------------------------------------------------------------------
+# spines
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True, slots=True)
+class SpineSpec:
+    """An ordered axis. Puzzles take a prefix of ``items`` (and ``values``)."""
+
+    name: str
+    label: str
+    noun: str
+    items: tuple[str, ...]
+    cmp_less: str = "earlier"
+    cmp_more: str = "later"
+    step_noun: str = ""
+    values: tuple[float, ...] | None = None
+    unit: str = ""
+    unit_suffix: str = ""
+    allow_gap: bool = True
+    allow_parity: bool = True
+
+    def build(self, size: int) -> Category:
+        if size > len(self.items):
+            raise PuzzleError(
+                f"spine {self.name!r} has {len(self.items)} items, need {size}"
+            )
+        return Category(
+            name=self.name,
+            label=self.label,
+            items=self.items[:size],
+            ordered=True,
+            values=self.values[:size] if self.values is not None else None,
+            unit=self.unit,
+            unit_suffix=self.unit_suffix,
+            noun=self.noun,
+            cmp_less=self.cmp_less,
+            cmp_more=self.cmp_more,
+            step_noun=self.step_noun or self.noun,
+        )
+
+
+WEEKDAYS = SpineSpec(
+    name="day",
+    label="Day",
+    noun="day",
+    items=("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"),
+    cmp_less="earlier",
+    cmp_more="later",
+    step_noun="day",
+)
+
+MONTHS = SpineSpec(
+    name="month",
+    label="Month",
+    noun="month",
+    items=("January", "February", "March", "April", "May", "June"),
+    cmp_less="earlier",
+    cmp_more="later",
+    step_noun="month",
+)
+
+PLACINGS = SpineSpec(
+    name="place",
+    label="Placing",
+    noun="placing",
+    items=("first", "second", "third", "fourth", "fifth", "sixth"),
+    cmp_less="better",
+    cmp_more="worse",
+    step_noun="place",
+)
+
+SLOTS = SpineSpec(
+    name="slot",
+    label="Running order",
+    noun="slot",
+    items=(
+        "slot one",
+        "slot two",
+        "slot three",
+        "slot four",
+        "slot five",
+        "slot six",
+    ),
+    cmp_less="earlier",
+    cmp_more="later",
+    step_noun="slot",
+)
+
+MORNINGS = SpineSpec(
+    name="time",
+    label="Start time",
+    noun="start time",
+    items=("8 a.m.", "9 a.m.", "10 a.m.", "11 a.m.", "noon", "1 p.m."),
+    cmp_less="earlier",
+    cmp_more="later",
+    step_noun="hour",
+)
+
+SHELVES = SpineSpec(
+    name="shelf",
+    label="Shelf",
+    noun="shelf",
+    items=(
+        "the bottom shelf",
+        "the second shelf",
+        "the third shelf",
+        "the fourth shelf",
+        "the fifth shelf",
+        "the top shelf",
+    ),
+    cmp_less="lower",
+    cmp_more="higher",
+    step_noun="shelf",
+)
+
+PRICES = SpineSpec(
+    name="price",
+    label="Price",
+    noun="price",
+    items=("$3", "$5", "$7", "$9", "$11", "$13"),
+    cmp_less="cheaper",
+    cmp_more="dearer",
+    step_noun="price step",
+    values=(3, 5, 7, 9, 11, 13),
+    unit="$",
+    allow_gap=False,
+    allow_parity=False,
+)
+
+DISTANCES = SpineSpec(
+    name="distance",
+    label="Distance",
+    noun="distance",
+    items=("200 miles", "300 miles", "400 miles", "500 miles", "600 miles", "700 miles"),
+    cmp_less="shorter",
+    cmp_more="longer",
+    step_noun="hundred miles",
+    values=(200, 300, 400, 500, 600, 700),
+    unit_suffix=" miles",
+    allow_gap=False,
+    allow_parity=False,
+)
+
+ENTRY_FEES = SpineSpec(
+    name="fee",
+    label="Entry fee",
+    noun="entry fee",
+    items=("$2", "$4", "$6", "$8", "$10", "$12"),
+    cmp_less="cheaper",
+    cmp_more="dearer",
+    step_noun="fee step",
+    values=(2, 4, 6, 8, 10, 12),
+    unit="$",
+    allow_gap=False,
+    allow_parity=False,
+)
+
+SPINES = {
+    s.name: s
+    for s in (WEEKDAYS, MONTHS, PLACINGS, SLOTS, MORNINGS, SHELVES, PRICES, DISTANCES, ENTRY_FEES)
+}
+
+
+# ---------------------------------------------------------------------------
+# themes
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True, slots=True)
+class Axis:
+    """One non-spine category, with a pool to sample items from."""
+
+    name: str
+    label: str
+    noun: str
+    pool: tuple[str, ...]
+
+    def build(self, items: Sequence[str]) -> Category:
+        return Category(
+            name=self.name,
+            label=self.label,
+            items=tuple(items),
+            noun=self.noun,
+        )
+
+
+@dataclass(frozen=True, slots=True)
+class Theme:
+    """A complete setting: a title, a cast, a spine and some flavour axes."""
+
+    slug: str
+    title: str
+    entity_noun: str
+    #: One or two sentences of setting, handed to the narrator as raw material.
+    blurb: str
+    spine: SpineSpec
+    axes: tuple[Axis, ...]
+    entity_noun_plural: str = ""
+
+    def max_categories(self) -> int:
+        return 1 + len(self.axes)
+
+    def max_items(self) -> int:
+        return min([len(self.spine.items)] + [len(a.pool) for a in self.axes])
+
+    def build(self, categories: int, items: int, rng: Random) -> Schema:
+        """Sample a concrete schema of the requested shape."""
+        if categories < 2 or categories > self.max_categories():
+            raise PuzzleError(
+                f"theme {self.slug!r} supports 2..{self.max_categories()} categories, "
+                f"got {categories}"
+            )
+        if items > self.max_items():
+            raise PuzzleError(
+                f"theme {self.slug!r} supports up to {self.max_items()} items, got {items}"
+            )
+        spine = self.spine.build(items)
+        chosen = rng.sample(list(self.axes), categories - 1)
+        # Keep a stable presentation order (the pack's own order).
+        order = {a.name: i for i, a in enumerate(self.axes)}
+        chosen.sort(key=lambda a: order[a.name])
+        cats = [spine]
+        for axis in chosen:
+            picked = rng.sample(list(axis.pool), items)
+            cats.append(axis.build(picked))
+        return Schema(
+            cats,
+            spine.name,
+            entity_noun=self.entity_noun,
+            entity_noun_plural=self.entity_noun_plural,
+        )
+
+
+def _axis(name: str, label: str, noun: str, *pool: str) -> Axis:
+    return Axis(name=name, label=label, noun=noun, pool=pool)
+
+
+THEMES: tuple[Theme, ...] = (
+    Theme(
+        slug="county_fair",
+        title="The Hollow Creek Pie Judging",
+        entity_noun="entry",
+        entity_noun_plural="entries",
+        blurb=(
+            "The Hollow Creek county fair runs its pie judging with more ceremony "
+            "than the state legislature."
+        ),
+        spine=PLACINGS,
+        axes=(
+            _axis("baker", "Baker", "baker", "Odette", "Bramwell", "Loretta",
+                  "Caspian", "Marigold", "Thaddeus", "Winnie"),
+            _axis("filling", "Filling", "filling", "rhubarb", "sour cherry",
+                  "pecan", "buttermilk", "green tomato", "blackberry", "mincemeat"),
+            _axis("county", "Home county", "county", "Fenwick", "Ardmore",
+                  "Little Pell", "Hobbs Bend", "Quarry Hill", "Sweetwater", "Dunmore"),
+            _axis("crust", "Crust", "crust", "a lattice top", "a braided edge",
+                  "a crumb topping", "a fluted rim", "a cut-out star top",
+                  "a double crust", "a fork-crimped edge"),
+        ),
+    ),
+    Theme(
+        slug="lighthouse",
+        title="The Saltmarsh Light Rotation",
+        entity_noun="shift",
+        entity_noun_plural="shifts",
+        blurb=(
+            "The lighthouses along the Saltmarsh coast share a single relief keeper "
+            "roster, and the logbooks have become a scholarly mess."
+        ),
+        spine=WEEKDAYS,
+        axes=(
+            _axis("keeper", "Keeper", "keeper", "Hollis", "Perpetua", "Emmerich",
+                  "Saoirse", "Barnaby", "Clementine", "Lucian"),
+            _axis("light", "Lighthouse", "lighthouse", "Gannet Rock", "Cold Harbour",
+                  "Mawes Point", "Siren Shoal", "Blackwater Bar", "Thimble Reef",
+                  "Pelter Head"),
+            _axis("chore", "Logged chore", "chore", "regrinding the lens",
+                  "repainting the gallery", "splicing the hoist rope",
+                  "overhauling the foghorn", "rebedding the storm glass",
+                  "whitewashing the base", "rewiring the beacon"),
+            _axis("weather", "Weather noted", "weather", "sleet", "sea fog",
+                  "a flat calm", "a gale", "hail", "thunder", "drizzle"),
+        ),
+    ),
+    Theme(
+        slug="bookshop",
+        title="Mrs Pell's Impossible Shelves",
+        entity_noun="listing",
+        entity_noun_plural="listings",
+        blurb=(
+            "Mrs Pell's secondhand bookshop shelves by a system she alone "
+            "understands, and she has gone to Margate for a fortnight."
+        ),
+        spine=SHELVES,
+        axes=(
+            _axis("book", "Volume", "volume", "a water-stained atlas",
+                  "a beekeeping manual", "a book of sea shanties",
+                  "a Latin primer", "a guide to fungi", "a treatise on clocks",
+                  "an album of pressed ferns"),
+            _axis("buyer", "Buyer", "buyer", "Ottoline", "Rodrigo", "Fenella",
+                  "Augustus", "Verity", "Ignatius", "Sybilla"),
+            _axis("bookmark", "Found inside", "keepsake", "a tram ticket",
+                  "a pressed violet", "a laundry list", "a lock of hair",
+                  "a pawn ticket", "a recipe for quince jelly", "a postcard from Hull"),
+            _axis("price_tag", "Pencilled price", "price", "ninepence",
+                  "one and six", "two shillings", "half a crown", "four shillings",
+                  "seven and six", "a guinea"),
+        ),
+    ),
+    Theme(
+        slug="balloon",
+        title="The Thistledown Balloon Ascent",
+        entity_noun="balloon",
+        entity_noun_plural="balloons",
+        blurb=(
+            "The Thistledown Ascent is less a race than a slow argument conducted "
+            "at two thousand feet."
+        ),
+        spine=MORNINGS,
+        axes=(
+            _axis("pilot", "Pilot", "pilot", "Isolde", "Grover", "Anneliese",
+                  "Montague", "Delphine", "Horatio", "Rosalind"),
+            _axis("envelope", "Envelope", "envelope", "the striped envelope",
+                  "the saffron envelope", "the kingfisher envelope",
+                  "the patchwork envelope", "the oxblood envelope",
+                  "the silver envelope", "the moss-green envelope"),
+            _axis("landing", "Landed at", "landing site", "a cricket pitch",
+                  "a flooded quarry", "a cabbage field", "a caravan park",
+                  "a railway siding", "a golf course bunker", "a reservoir bank"),
+            _axis("ballast", "Ballast", "ballast", "sandbags", "pea gravel",
+                  "bottled water", "lead shot", "rock salt", "iron filings",
+                  "dried beans"),
+        ),
+    ),
+    Theme(
+        slug="observatory",
+        title="A Bad Week at the Pinhole Observatory",
+        entity_noun="session",
+        entity_noun_plural="sessions",
+        blurb=(
+            "The Pinhole Amateur Astronomical Society has one good telescope and "
+            "a great many strong opinions about who may point it where."
+        ),
+        spine=WEEKDAYS,
+        axes=(
+            _axis("astronomer", "Astronomer", "astronomer", "Niamh", "Ptolemy",
+                  "Ingrid", "Cornelius", "Beatrix", "Dmitri", "Sunniva"),
+            _axis("target", "Observed", "target", "the Crab Nebula",
+                  "a lunar occultation", "Saturn's rings", "a variable star",
+                  "the Andromeda galaxy", "a comet fragment", "sunspots"),
+            _axis("mishap", "Mishap", "mishap", "a dewed-up eyepiece",
+                  "a dropped lens cap", "a seized mount", "a neighbour's floodlight",
+                  "a flat battery", "a cracked filter", "an unexpected cloud bank"),
+            _axis("snack", "Thermos contents", "thermos", "oxtail soup",
+                  "stewed tea", "cocoa", "mulled cider", "black coffee",
+                  "barley water", "bone broth"),
+        ),
+    ),
+    Theme(
+        slug="pigeon",
+        title="Andy's Swiftest Birds",
+        entity_noun="race",
+        entity_noun_plural="races",
+        blurb=(
+            "Andy races pigeons, and each bird is bred for a different "
+            "combination of stubbornness and speed."
+        ),
+        spine=DISTANCES,
+        axes=(
+            _axis("bird", "Pigeon", "pigeon", "Cadwallader", "Pip", "Hieronymus",
+                  "Dot", "Alabaster", "Nutmeg", "Grimsby"),
+            _axis("plumage", "Plumage", "plumage", "slate blue", "chequered black",
+                  "mealy red", "pied white", "grizzle", "dun", "bronze"),
+            _axis("breed", "Breed", "breed", "a Janssen", "a Busschaert",
+                  "a Delbar", "a Sion", "a Stichelbaut", "a Vandenabeele",
+                  "a Van Loon"),
+            _axis("loft", "Loft", "loft", "the orchard loft", "the gable loft",
+                  "the garage loft", "the canal loft", "the allotment loft",
+                  "the stable loft", "the chapel loft"),
+        ),
+    ),
+    Theme(
+        slug="cheese",
+        title="The Cheesemongers' Standoff",
+        entity_noun="wheel",
+        entity_noun_plural="wheels",
+        blurb=(
+            "A case of opinionated cheeses, their equally opinionated makers, and one "
+            "display that has begun to smell like a political scandal."
+        ),
+        spine=PRICES,
+        axes=(
+            _axis("cheese", "Cheese", "cheese", "Fenland Blue", "Oakmoss",
+                  "Winter Tarn", "Bellringer", "Saltpans", "Glebe Farmhouse",
+                  "Old Thrashing"),
+            _axis("maker", "Maker", "maker", "Ambrose", "Sigrid", "Teodoro",
+                  "Hepzibah", "Lachlan", "Perdita", "Olubunmi"),
+            _axis("rind", "Rind", "rind", "a cloth-bound rind", "a washed rind",
+                  "an ash-coated rind", "a nettle-wrapped rind",
+                  "a waxed rind", "a natural rind", "a cider-washed rind"),
+            _axis("age", "Aged for", "ageing", "three weeks", "two months",
+                  "five months", "nine months", "fourteen months",
+                  "two years", "thirty months"),
+        ),
+    ),
+    Theme(
+        slug="radio",
+        title="The Graveyard Shift at WPKX",
+        entity_noun="programme",
+        entity_noun_plural="programmes",
+        blurb=(
+            "Nobody at WPKX has met anyone on the overnight schedule, which is "
+            "how the station likes it."
+        ),
+        spine=SLOTS,
+        axes=(
+            _axis("host", "Host", "host", "Dustin Crowe", "Maribel Sosa",
+                  "Gideon Park", "Nadia Vell", "Arlo Finch", "Bea Okonjo",
+                  "Rusty Lamarr"),
+            _axis("show", "Show", "show", "Night Freight", "The Sleepless Hour",
+                  "Static & Sons", "Coffee and Regrets", "The Long Haul",
+                  "Owls Calling", "Signal Fade"),
+            _axis("genre", "Format", "format", "trucker country",
+                  "obscure jazz", "listener call-ins", "forgotten soul",
+                  "radio plays", "lost surf rock", "church organ recordings"),
+            _axis("sponsor", "Sponsor", "sponsor", "a mattress warehouse",
+                  "a bail bondsman", "a chain of car washes", "a psychic hotline",
+                  "a taxidermist", "a discount dentist", "a storage facility"),
+        ),
+    ),
+    Theme(
+        slug="allotment",
+        title="Plot Wars on the Ashcombe Allotments",
+        entity_noun="entry",
+        entity_noun_plural="entries",
+        blurb=(
+            "The Ashcombe allotment committee has been locked in a slow war over "
+            "compost, shade and the correct way to stake a bean."
+        ),
+        spine=PLACINGS,
+        axes=(
+            _axis("holder", "Plot-holder", "plot-holder", "Ewan", "Rosamund",
+                  "Kasimir", "Philippa", "Obadiah", "Senga", "Alphonse"),
+            _axis("crop", "Prize crop", "crop", "a marrow", "a rhubarb crown",
+                  "a row of leeks", "a pumpkin", "a bed of beetroot",
+                  "a runner bean", "a cauliflower"),
+            _axis("plot", "Plot", "plot", "plot 2", "plot 7", "plot 11",
+                  "plot 14", "plot 19", "plot 23", "plot 31"),
+            _axis("shed", "Shed", "shed", "a tar-paper shed", "a greenhouse",
+                  "a converted privy", "a corrugated lean-to",
+                  "an upturned boat", "a brick bothy", "a tarpaulin frame"),
+        ),
+    ),
+    Theme(
+        slug="clockmaker",
+        title="A Benchful of Clocks, and No Agreement",
+        entity_noun="repair job",
+        entity_noun_plural="repair jobs",
+        blurb=(
+            "Mr Halloran repairs clocks. Those on the bench are all insisting on a "
+            "different hour."
+        ),
+        spine=SHELVES,
+        axes=(
+            _axis("clock", "Clock", "clock", "a carriage clock", "a cuckoo clock",
+                  "a ship's chronometer", "a longcase clock",
+                  "a mantel clock under glass", "a station clock",
+                  "an anniversary clock"),
+            _axis("owner", "Owner", "owner", "Ms Abernathy", "Dr Vasquez",
+                  "Father Brennan", "Mrs Oyelaran", "Captain Mott",
+                  "Miss Trevelyan", "Mr Dziedzic"),
+            _axis("fault", "Fault", "fault", "a snapped mainspring",
+                  "a worn escape wheel", "a bent pendulum rod",
+                  "a seized fusee", "a cracked suspension spring",
+                  "a missing click spring", "a gummed-up pivot"),
+            _axis("chime", "Chime", "chime", "Westminster", "a single strike",
+                  "Whittington", "a bell and gong", "a cuckoo call",
+                  "a ship's bell", "no chime at all"),
+        ),
+    ),
+    Theme(
+        slug="regatta",
+        title="The Mudflat Regatta",
+        entity_noun="entry",
+        entity_noun_plural="entries",
+        blurb=(
+            "The Mudflat Regatta is rowed over a course that is only a course at "
+            "high tide, which is where most of the trouble starts."
+        ),
+        spine=PLACINGS,
+        axes=(
+            _axis("crew", "Crew", "crew", "the Tannery crew", "the Brickworks crew",
+                  "the Seminary crew", "the Gasworks crew", "the Customs crew",
+                  "the Almshouse crew", "the Creamery crew"),
+            _axis("stroke", "Stroke", "stroke", "Ondine", "Bartholomew",
+                  "Maeve", "Crispin", "Yusuf", "Thomasina", "Everard"),
+            _axis("boat", "Boat", "boat", "the Dauntless", "the Wet Hen",
+                  "the Peregrine", "the Mudlark", "the Obstinate",
+                  "the Gilded Eel", "the Last Resort"),
+            _axis("colours", "Colours", "colours", "mustard and black",
+                  "cherry and grey", "bottle green", "pink and cream",
+                  "navy with a white band", "scarlet", "lilac and bronze"),
+        ),
+    ),
+    Theme(
+        slug="beekeeper",
+        title="The Honey Show Scandal",
+        entity_noun="exhibit",
+        entity_noun_plural="exhibits",
+        blurb=(
+            "The annual honey show has been judged, and at least two people are "
+            "writing letters about it."
+        ),
+        spine=ENTRY_FEES,
+        axes=(
+            _axis("keeper", "Beekeeper", "beekeeper", "Wilhelmina", "Fausto",
+                  "Breda", "Ezekiel", "Antonina", "Mungo", "Priya"),
+            _axis("honey", "Honey", "honey", "heather honey", "lime blossom honey",
+                  "borage honey", "chestnut honey", "clover honey",
+                  "ivy honey", "sea lavender honey"),
+            _axis("hive", "Hive type", "hive", "a national hive", "a WBC hive",
+                  "a Warre hive", "a top-bar hive", "a Langstroth hive",
+                  "a skep", "a long deep hive"),
+            _axis("verdict", "Judge's note", "note", "crystallised early",
+                  "exemplary clarity", "a trace of wax", "slightly over-filtered",
+                  "an overbearing aroma", "a cloudy jar", "an unlabelled lid"),
+        ),
+    ),
+    Theme(
+        slug="puppet",
+        title="A Fortnight at the Little Vesper Theatre",
+        entity_noun="performance",
+        entity_noun_plural="performances",
+        blurb=(
+            "The Little Vesper Theatre seats forty people and employs a company of "
+            "puppeteers who will not be in the same room together."
+        ),
+        spine=SLOTS,
+        axes=(
+            _axis("puppeteer", "Puppeteer", "puppeteer", "Lorcan", "Mirabel",
+                  "Stellan", "Josefa", "Quentin", "Halima", "Bowen"),
+            _axis("puppet", "Lead puppet", "puppet", "a tin soldier",
+                  "a moth queen", "a one-eyed cat", "a drowned sailor",
+                  "a paper crane", "a brass magistrate", "a shepherd boy"),
+            _axis("play", "Play", "play", "The Drowned Bell", "Winterling",
+                  "Six Spoons", "The Clockwork Orchard", "Marrowbone",
+                  "The Glass Tide", "Hollowmas"),
+            _axis("music", "Accompaniment", "accompaniment", "a hurdy-gurdy",
+                  "a musical saw", "a prepared piano", "a bowed psaltery",
+                  "a pump organ", "two kettle drums", "a glass harmonica"),
+        ),
+    ),
+    Theme(
+        slug="tea",
+        title="The Blind Tasting at Pemberton's",
+        entity_noun="tasting",
+        entity_noun_plural="tastings",
+        blurb=(
+            "Pemberton's holds a blind tasting each spring. The tasters are blind "
+            "to the tea; the tea is not blind to them."
+        ),
+        spine=MORNINGS,
+        axes=(
+            _axis("taster", "Taster", "taster", "Ignatia", "Rolf", "Chidi",
+                  "Marguerite", "Soren", "Yolanda", "Bertrand"),
+            _axis("tea", "Tea", "tea", "a smoked Lapsang", "a first-flush Darjeeling",
+                  "a roasted oolong", "a pressed pu-erh", "a silver needle white",
+                  "a Keemun", "a Nilgiri frost"),
+            _axis("note", "Tasting note", "note", "wet slate", "stewed apricot",
+                  "pine smoke", "hay and honey", "iron filings",
+                  "bruised peach", "cold butter"),
+            _axis("cup", "Cup", "cup", "a chipped blue cup", "a bone china cup",
+                  "a pewter beaker", "a glass tumbler", "an enamel mug",
+                  "a lacquered bowl", "a stoneware cup"),
+        ),
+    ),
+    Theme(
+        slug="kite",
+        title="The Wind Is Free, the Field Is Not",
+        entity_noun="entry",
+        entity_noun_plural="entries",
+        blurb=(
+            "The Dunnage Kite Festival charges by the kite, which has produced "
+            "some creative definitions of 'one kite'."
+        ),
+        spine=ENTRY_FEES,
+        axes=(
+            _axis("flier", "Flier", "flier", "Aurelio", "Tansy", "Gunnar",
+                  "Ifeoma", "Blaise", "Morwenna", "Kipling"),
+            _axis("kite", "Kite", "kite", "a box kite", "a delta wing",
+                  "a seven-metre centipede", "a paper sled kite",
+                  "a rokkaku fighter", "a parafoil", "a hand-painted dragon"),
+            _axis("mishap", "Mishap", "mishap", "a tangled line",
+                  "a snapped spar", "a tree", "a sudden lull",
+                  "a trespassing dog", "a lost tail", "a power line scare"),
+            _axis("line", "Line", "line", "waxed cotton", "braided dacron",
+                  "nylon twine", "fishing monofilament", "hemp cord",
+                  "kevlar thread", "parcel string"),
+        ),
+    ),
+    Theme(
+        slug="mushroom",
+        title="The Foragers of Thorn Bottom",
+        entity_noun="outing",
+        entity_noun_plural="outings",
+        blurb=(
+            "The Thorn Bottom foraging club keeps meticulous records, chiefly so "
+            "that blame can be apportioned later."
+        ),
+        spine=WEEKDAYS,
+        axes=(
+            _axis("forager", "Forager", "forager", "Ottokar", "Eilish", "Ramiro",
+                  "Guinevere", "Tobias", "Annika", "Solomon"),
+            _axis("find", "Find", "find", "a hen of the woods", "a horn of plenty",
+                  "a parasol mushroom", "a cauliflower fungus",
+                  "a saffron milk cap", "a chicken of the woods", "a penny bun"),
+            _axis("wood", "Wood", "wood", "Hangman's Copse", "Bell Wood",
+                  "the Larches", "Dovecote Wood", "Scrag End",
+                  "the Old Deer Park", "Nettlebed"),
+            _axis("basket", "Basket", "basket", "a wicker trug", "a canvas satchel",
+                  "a tin pail", "a willow creel", "a string bag",
+                  "an upturned hat", "a wooden box"),
+        ),
+    ),
+    Theme(
+        slug="archive",
+        title="The Mislabelled Drawers",
+        entity_noun="drawer",
+        entity_noun_plural="drawers",
+        blurb=(
+            "The Vance Municipal Archive was reorganised in 1974 by somebody who "
+            "has since left no forwarding address."
+        ),
+        spine=SHELVES,
+        axes=(
+            _axis("archivist", "Archivist", "archivist", "Ms Okafor",
+                  "Mr Ravensworth", "Dr Lindqvist", "Ms Bhattacharya",
+                  "Mr Pelletier", "Ms Castellano", "Dr Mwangi"),
+            _axis("holding", "Holding", "holding", "the harbour dredging reports",
+                  "a box of unopened wills", "the smallpox ledgers",
+                  "a set of tram timetables", "the workhouse admissions book",
+                  "a folder of libel writs", "the lost property register"),
+            _axis("decade", "Decade", "decade", "the 1830s", "the 1860s",
+                  "the 1890s", "the 1910s", "the 1940s", "the 1950s",
+                  "the 1970s"),
+            _axis("damage", "Condition", "condition", "foxed", "water-damaged",
+                  "mouse-chewed", "fire-scorched", "immaculate",
+                  "over-repaired with tape", "bound upside down"),
+        ),
+    ),
+    Theme(
+        slug="chess",
+        title="The Ravelston Chess Club Ladder",
+        entity_noun="entry",
+        entity_noun_plural="entries",
+        blurb=(
+            "The Ravelston Chess Club ladder is recalculated monthly and disputed "
+            "continuously."
+        ),
+        spine=PLACINGS,
+        axes=(
+            _axis("player", "Player", "player", "Yevgenia", "Dermot", "Adaeze",
+                  "Casimir", "Birgitta", "Olumide", "Hieronyma"),
+            _axis("opening", "Favourite opening", "opening", "the Dutch Defence",
+                  "the Catalan", "the Vienna Game", "the Scandinavian",
+                  "the Grunfeld", "the London System", "the Bird's Opening"),
+            _axis("clock", "Clock", "clock", "a wooden analogue clock",
+                  "a borrowed digital clock", "a chipped BHB clock",
+                  "a phone app", "a hotel alarm clock", "no clock at all",
+                  "a tournament DGT clock"),
+            _axis("habit", "Table habit", "habit", "humming",
+                  "rearranging the captured pieces", "leaving between moves",
+                  "narrating in a whisper", "eating boiled sweets",
+                  "writing notation in pencil", "removing their shoes"),
+        ),
+    ),
+    Theme(
+        slug="ferry",
+        title="The Crossings to Inverlaig",
+        entity_noun="crossing",
+        entity_noun_plural="crossings",
+        blurb=(
+            "The Inverlaig ferry runs a full day of crossings in theory, and a "
+            "variable number in practice."
+        ),
+        spine=MORNINGS,
+        axes=(
+            _axis("skipper", "Skipper", "skipper", "Eilidh", "Murdo", "Calla",
+                  "Fearghas", "Tormod", "Senga", "Ruaridh"),
+            _axis("cargo", "Notable cargo", "cargo", "a church organ",
+                  "nineteen sheep", "a wedding party", "a refrigerated van",
+                  "a brass band", "a consignment of bees",
+                  "a film crew and no permits"),
+            _axis("vessel", "Vessel", "vessel", "the Siller Grey",
+                  "the Kelpie", "the Steadfast", "the Broch Maid",
+                  "the Ailsa Belle", "the Three Brothers", "the Tern"),
+            _axis("delay", "Delay blamed on", "reason", "fog", "a slipway repair",
+                  "a missing deckhand", "a fouled propeller",
+                  "the tide", "a passenger's dog", "paperwork"),
+        ),
+    ),
+    Theme(
+        slug="knitting",
+        title="The Ashfold Knitting Circle",
+        entity_noun="member",
+        entity_noun_plural="members",
+        blurb=(
+            "The Ashfold Knitting Circle meets weekly and has not agreed on "
+            "anything since 1998."
+        ),
+        spine=WEEKDAYS,
+        axes=(
+            _axis("knitter", "Knitter", "knitter", "Ebba", "Lionel", "Nkechi",
+                  "Wilhelm", "Serafina", "Angus", "Maudie"),
+            _axis("project", "Project", "project", "a fisherman's gansey",
+                  "a shawl of impossible lace", "a pair of argyle socks",
+                  "a dog coat", "a Fair Isle tam", "a cable-knit blanket",
+                  "a tea cosy shaped like a hen"),
+            _axis("yarn", "Yarn", "yarn", "undyed Shetland", "hand-spun alpaca",
+                  "recycled sari silk", "oily Guernsey wool",
+                  "mohair of great expense", "mill-end acrylic",
+                  "nettle fibre"),
+            _axis("snag", "Setback", "setback", "a dropped stitch in row nine",
+                  "running out of dye lot", "a cat", "a misread chart",
+                  "a broken circular needle", "unexplained shrinkage",
+                  "losing the pattern entirely"),
+        ),
+    ),
+    Theme(
+        slug="jam",
+        title="Preserves, and the Preservation of Grudges",
+        entity_noun="exhibit",
+        entity_noun_plural="exhibits",
+        blurb=(
+            "The preserves tent is the most competitive building at the show, and "
+            "the only one with a locked door."
+        ),
+        spine=PRICES,
+        axes=(
+            _axis("entrant", "Entrant", "entrant", "Drusilla", "Emeka", "Harriet",
+                  "Stanislaw", "Ottilie", "Rafferty", "Bernadette"),
+            _axis("preserve", "Preserve", "preserve", "quince jelly",
+                  "damson cheese", "green walnut pickle", "rosehip syrup",
+                  "medlar jam", "sloe and apple butter", "hot pepper jelly"),
+            _axis("jar", "Jar", "jar", "a squat kilner", "a recycled honey jar",
+                  "a hexagonal jar", "a tall french jar",
+                  "a jar with a cloth lid", "a sealed crock", "an unlabelled jar"),
+            _axis("secret", "Secret ingredient", "ingredient", "a bay leaf",
+                  "a splash of gin", "black pepper", "orange zest",
+                  "a spoon of treacle", "star anise", "nothing whatsoever"),
+        ),
+    ),
+    Theme(
+        slug="aquarium",
+        title="The Night Shift at Coldwater Hall",
+        entity_noun="shift",
+        entity_noun_plural="shifts",
+        blurb=(
+            "Coldwater Hall Aquarium keeps a night rota of tanks, and one keeper who "
+            "is definitely feeding the wrong things."
+        ),
+        spine=SLOTS,
+        axes=(
+            _axis("keeper", "Keeper", "keeper", "Marisol", "Oskar", "Chiamaka",
+                  "Fitzwilliam", "Agnetha", "Bartolo", "Rhiannon"),
+            _axis("tank", "Tank", "tank", "the kelp tank", "the jellyfish column",
+                  "the touch pool", "the deep reef", "the estuary tank",
+                  "the seahorse nursery", "the octopus enclosure"),
+            _axis("feed", "Feed", "feed", "brine shrimp", "chopped squid",
+                  "frozen krill", "live mysis", "nori sheets",
+                  "mussel meat", "a gelatine cube of unclear provenance"),
+            _axis("incident", "Logged incident", "incident", "a cracked viewing pane",
+                  "an escapee", "a failed chiller", "an algal bloom",
+                  "a blocked skimmer", "a visitor's dropped phone",
+                  "an unexplained pH swing"),
+        ),
+    ),
+    Theme(
+        slug="karaoke",
+        title="Tuesday Night at the Dented Bell",
+        entity_noun="turn",
+        entity_noun_plural="turns",
+        blurb=(
+            "The Dented Bell runs karaoke on Tuesdays. Attendance is loyal; "
+            "talent is not."
+        ),
+        spine=SLOTS,
+        axes=(
+            _axis("singer", "Singer", "singer", "Deshawn", "Pernilla", "Vikram",
+                  "Caitriona", "Bogdan", "Annalise", "Mercy"),
+            _axis("song", "Song", "song", "a power ballad",
+                  "a novelty country number", "an eight-minute prog epic",
+                  "a disco standard", "a maudlin folk song",
+                  "a rap performed entirely from memory", "a sea shanty"),
+            _axis("drink", "Drink", "drink", "a pint of mild", "a lime and soda",
+                  "a double whisky", "a cider in a plastic cup",
+                  "a glass of the house red", "a rum and coke", "tap water"),
+            _axis("reception", "Reception", "reception", "a standing ovation",
+                  "polite silence", "a singalong", "one heckler",
+                  "the landlord cutting the power", "scattered applause",
+                  "a request for an encore nobody wanted"),
+        ),
+    ),
+    Theme(
+        slug="sandcastle",
+        title="The Grindle Bay Sandcastle Open",
+        entity_noun="entry",
+        entity_noun_plural="entries",
+        blurb=(
+            "The Grindle Bay Open is judged at four o'clock, whatever the tide is "
+            "doing."
+        ),
+        spine=PLACINGS,
+        axes=(
+            _axis("builder", "Builder", "builder", "Juniper", "Aleksy", "Temperance",
+                  "Khalid", "Fenwick", "Bronagh", "Hartley"),
+            _axis("build", "Build", "build", "a moated keep",
+                  "a scale model of the pier", "a sleeping dragon",
+                  "a cathedral with flying buttresses", "a hollow lighthouse",
+                  "a recumbent walrus", "a spiral ziggurat"),
+            _axis("tool", "Chief tool", "tool", "a cake slice", "a soup spoon",
+                  "a paint scraper", "a bucket with no handle",
+                  "a pastry brush", "bare hands", "a child's rake"),
+            _axis("ruin", "Undone by", "cause", "the incoming tide",
+                  "a loose dog", "a gull", "a cricket ball",
+                  "structural overreach", "a sudden shower", "a rival's elbow"),
+        ),
+    ),
+    Theme(
+        slug="train",
+        title="The Loft Layout Dispute",
+        entity_noun="member",
+        entity_noun_plural="members",
+        blurb=(
+            "The members of the model railway society share one loft layout and a "
+            "deep well of resentment."
+        ),
+        spine=SHELVES,
+        axes=(
+            _axis("modeller", "Modeller", "modeller", "Cuthbert", "Lavinia",
+                  "Abiodun", "Hendrik", "Rosamond", "Gilbert", "Esperanza"),
+            _axis("stock", "Rolling stock", "stock", "a brass pannier tank",
+                  "a kit-built brake van", "a rake of milk tankers",
+                  "an unpainted shunter", "a gleaming Pacific",
+                  "a scratch-built crane wagon", "a battered autocoach"),
+            _axis("scenery", "Scenery", "scenery", "a cardboard viaduct",
+                  "a flocked cutting", "a plaster tunnel mouth",
+                  "a coal staithe", "a working level crossing",
+                  "a sheet of static grass", "a river of resin"),
+            _axis("grievance", "Grievance", "grievance", "the timetable",
+                  "the wiring", "somebody else's couplings",
+                  "the choice of era", "the position of the fiddle yard",
+                  "the lighting", "a missing screwdriver"),
+        ),
+    ),
+    Theme(
+        slug="orchid",
+        title="The Orchid House Reckoning",
+        entity_noun="entry",
+        entity_noun_plural="entries",
+        blurb=(
+            "The orchid house at Fenn Park is shared by its growers, each convinced "
+            "the others are overwatering."
+        ),
+        spine=MONTHS,
+        axes=(
+            _axis("grower", "Grower", "grower", "Leocadia", "Ambrose",
+                  "Nkiruka", "Sigismund", "Rowena", "Taavi", "Columbine"),
+            _axis("orchid", "Orchid", "orchid", "a moth orchid",
+                  "a slipper orchid", "a vanilla vine", "a dancing lady",
+                  "a jewel orchid", "a ghost orchid", "a bucket orchid"),
+            _axis("mix", "Potting mix", "mix", "bark chip", "sphagnum moss",
+                  "perlite and charcoal", "coconut husk", "lava rock",
+                  "tree fern fibre", "bare root on cork"),
+            _axis("pest", "Pest", "pest", "scale insects", "mealybug",
+                  "thrips", "fungus gnats", "red spider mite",
+                  "a persistent slug", "root rot"),
+        ),
+    ),
+    Theme(
+        slug="detective",
+        title="The Case of the Missing Trowel",
+        entity_noun="member",
+        entity_noun_plural="members",
+        blurb=(
+            "The Marchmont Mutual Improvement Society has taken on the case of "
+            "the missing trowel with a seriousness it has never shown a book."
+        ),
+        spine=MORNINGS,
+        axes=(
+            _axis("sleuth", "Investigator", "investigator", "Hortensia",
+                  "Barnabas", "Ngozi", "Leopold", "Ariadne", "Fergus", "Immaculata"),
+            _axis("theory", "Theory", "theory", "an inside job",
+                  "a magpie", "a clerical error", "the postman",
+                  "a jealous rival", "nothing happened at all",
+                  "a conspiracy of two"),
+            _axis("clue", "Clue produced", "clue", "a bootprint",
+                  "a torn receipt", "a smell of creosote",
+                  "an anonymous note", "a dropped glove",
+                  "a tyre mark", "an unexplained hole"),
+            _axis("alibi", "Alibi", "alibi", "the dentist", "a long bath",
+                  "choir practice", "a bus replacement service",
+                  "a locked greenhouse", "watching the snooker",
+                  "no alibi whatsoever"),
+        ),
+    ),
+)
+
+THEMES_BY_SLUG = {t.slug: t for t in THEMES}
+
+
+def theme(slug: str) -> Theme:
+    try:
+        return THEMES_BY_SLUG[slug]
+    except KeyError:
+        raise KeyError(
+            f"unknown theme {slug!r}; choose from {sorted(THEMES_BY_SLUG)}"
+        ) from None
+
+
+def themes_for(categories: int, items: int, numeric: bool | None = None) -> list[Theme]:
+    """Themes that can supply the requested shape."""
+    out = []
+    for t in THEMES:
+        if t.max_categories() < categories or t.max_items() < items:
+            continue
+        if numeric is True and t.spine.values is None:
+            continue
+        if numeric is False and t.spine.values is not None:
+            continue
+        out.append(t)
+    return out

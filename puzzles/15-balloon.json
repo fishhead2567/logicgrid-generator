@@ -1,0 +1,183 @@
+{
+  "pid": "09f6ecfb0659",
+  "title": "The Thistledown Balloon Ascent",
+  "theme": "balloon",
+  "blurb": "The Thistledown Ascent is less a race than a slow argument conducted at two thousand feet.",
+  "profile": "easy",
+  "rating": 3,
+  "score": 4.93,
+  "seed": 2026172694221,
+  "spec": {
+    "difficulty": "easy",
+    "seed": 2026172694221
+  },
+  "schema": {
+    "spine": "time",
+    "entity_noun": "balloon",
+    "entity_noun_plural": "balloons",
+    "categories": [
+      {
+        "name": "time",
+        "label": "Start time",
+        "items": [
+          "8 a.m.",
+          "9 a.m.",
+          "10 a.m.",
+          "11 a.m."
+        ],
+        "ordered": true,
+        "noun": "start time",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "hour"
+      },
+      {
+        "name": "pilot",
+        "label": "Pilot",
+        "items": [
+          "Grover",
+          "Delphine",
+          "Rosalind",
+          "Horatio"
+        ],
+        "ordered": false,
+        "noun": "pilot"
+      },
+      {
+        "name": "envelope",
+        "label": "Envelope",
+        "items": [
+          "the saffron envelope",
+          "the striped envelope",
+          "the kingfisher envelope",
+          "the silver envelope"
+        ],
+        "ordered": false,
+        "noun": "envelope"
+      },
+      {
+        "name": "ballast",
+        "label": "Ballast",
+        "items": [
+          "dried beans",
+          "pea gravel",
+          "lead shot",
+          "rock salt"
+        ],
+        "ordered": false,
+        "noun": "ballast"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "ballast:lead shot",
+          "b": "time:11 a.m."
+        },
+        {
+          "kind": "adjacent",
+          "a": "pilot:Rosalind",
+          "b": "time:11 a.m."
+        }
+      ]
+    },
+    {
+      "style": "but_not",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "envelope:the saffron envelope",
+          "b": "time:9 a.m."
+        },
+        {
+          "kind": "link",
+          "a": "ballast:rock salt",
+          "b": "time:9 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "envelope:the striped envelope",
+          "b": "pilot:Horatio"
+        },
+        {
+          "kind": "between",
+          "a": "pilot:Delphine",
+          "b": "ballast:dried beans",
+          "c": "envelope:the striped envelope"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "envelope:the kingfisher envelope",
+          "b": "pilot:Delphine"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "time": [
+      "8 a.m.",
+      "9 a.m.",
+      "10 a.m.",
+      "11 a.m."
+    ],
+    "pilot": [
+      "Grover",
+      "Delphine",
+      "Rosalind",
+      "Horatio"
+    ],
+    "envelope": [
+      "the kingfisher envelope",
+      "the silver envelope",
+      "the striped envelope",
+      "the saffron envelope"
+    ],
+    "ballast": [
+      "dried beans",
+      "rock salt",
+      "pea gravel",
+      "lead shot"
+    ]
+  },
+  "stats": {
+    "atoms": 7,
+    "numbered_clues": 4,
+    "kinds": {
+      "link": 2,
+      "adjacent": 1,
+      "not_link": 1,
+      "before": 1,
+      "between": 1,
+      "immediately_before": 1
+    },
+    "positives": 2,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 23,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 11,
+      "order": 9
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 12
+  }
+}

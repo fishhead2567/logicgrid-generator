@@ -1,0 +1,13 @@
+# The Mudflat Regatta
+
+Five entries contested this year's Mudflat Regatta, rowed over a course that is only a course at high tide, which is where most of the trouble started. The results sheet records four things about each entry: its placing, its crew, its boat and its colours. The placings, listed from best to worst, are first, second, third, fourth and fifth. The crews are the Brickworks crew; the Seminary crew; the Gasworks crew; the Creamery crew; the Customs crew. The boats are the Mudlark; the Wet Hen; the Last Resort; the Dauntless; the Obstinate. The colours are cherry and grey; mustard and black; navy with a white band; bottle green; lilac and bronze. Within each of those four categories, every item belongs to a different entry, so each placing, each crew, each boat and each set of colours is used exactly once. The harbourmaster's notes below, scribbled between squalls, are all you have to go on.
+
+## Clues
+
+1. The Last Resort finished exactly one place away from the entry that placed second, the Dauntless was the entry that placed second, and second place came somewhere between navy with a white band and the Creamery crew in the order of finish.
+2. The Wet Hen finished somewhere between the entry in mustard and black and the entry that placed fifth, and the entry in navy with a white band placed better than fifth.
+3. At least one of the following holds, and perhaps both: the entry in lilac and bronze finished exactly one place away from the entry that placed fifth; the Brickworks crew finished exactly one place away from the entry that placed fifth.
+4. The Customs crew finished exactly one place away from the entry that placed fourth.
+5. The entry in mustard and black, the Gasworks crew and the entry that placed first are three different entries, and the Last Resort was rowed by neither the Gasworks crew nor the Customs crew.
+6. The entry in bottle green placed better than the Last Resort.
+7. The Seminary crew placed immediately better than the Mudlark, with no placing in between.

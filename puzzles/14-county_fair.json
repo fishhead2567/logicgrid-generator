@@ -1,0 +1,189 @@
+{
+  "pid": "b49583c97e83",
+  "title": "The Hollow Creek Pie Judging",
+  "theme": "county_fair",
+  "blurb": "The Hollow Creek county fair runs its pie judging with more ceremony than the state legislature.",
+  "profile": "easy",
+  "rating": 3,
+  "score": 4.93,
+  "seed": 2026172686302,
+  "spec": {
+    "difficulty": "easy",
+    "seed": 2026172686302
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "entry",
+    "entity_noun_plural": "entries",
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place"
+      },
+      {
+        "name": "filling",
+        "label": "Filling",
+        "items": [
+          "rhubarb",
+          "sour cherry",
+          "blackberry",
+          "buttermilk"
+        ],
+        "ordered": false,
+        "noun": "filling"
+      },
+      {
+        "name": "county",
+        "label": "Home county",
+        "items": [
+          "Ardmore",
+          "Little Pell",
+          "Sweetwater",
+          "Dunmore"
+        ],
+        "ordered": false,
+        "noun": "county"
+      },
+      {
+        "name": "crust",
+        "label": "Crust",
+        "items": [
+          "a lattice top",
+          "a cut-out star top",
+          "a fluted rim",
+          "a double crust"
+        ],
+        "ordered": false,
+        "noun": "crust"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "place:second",
+          "b": "crust:a lattice top"
+        },
+        {
+          "kind": "link",
+          "a": "county:Ardmore",
+          "b": "crust:a lattice top"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "filling:rhubarb",
+          "b": "crust:a cut-out star top"
+        },
+        {
+          "kind": "link",
+          "a": "county:Dunmore",
+          "b": "filling:rhubarb"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "place:first",
+          "b": "county:Little Pell"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "place:first",
+          "b": "crust:a double crust"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "filling:blackberry",
+          "b": "place:second"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "place:third",
+          "b": "filling:buttermilk"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth"
+    ],
+    "filling": [
+      "blackberry",
+      "rhubarb",
+      "sour cherry",
+      "buttermilk"
+    ],
+    "county": [
+      "Sweetwater",
+      "Dunmore",
+      "Ardmore",
+      "Little Pell"
+    ],
+    "crust": [
+      "a fluted rim",
+      "a double crust",
+      "a lattice top",
+      "a cut-out star top"
+    ]
+  },
+  "stats": {
+    "atoms": 8,
+    "numbered_clues": 5,
+    "kinds": {
+      "immediately_before": 3,
+      "link": 2,
+      "before": 3
+    },
+    "positives": 2,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 23,
+    "tier_counts": {
+      "direct": 4,
+      "bijection": 12,
+      "order": 7
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 12
+  }
+}

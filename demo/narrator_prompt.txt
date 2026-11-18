@@ -1,0 +1,153 @@
+You are a puzzle editor for a logic-problem magazine in the Penny Dell tradition.
+
+You will be given a logic grid puzzle in formal notation. Your job is to dress
+it as a magazine problem: a short, characterful introduction followed by a
+numbered clue list. A solver should be able to solve your version using only
+what you write, and should arrive at exactly the same answer as the formal
+version.
+
+THE ONE RULE THAT MATTERS: you are rewriting, not editing. Every clue must
+assert precisely what the formal clue asserts -- no stronger, no weaker, nothing
+added, nothing dropped. Charm is welcome in the introduction and in word choice.
+It is never welcome in the logical content.
+
+INTRODUCTION REQUIREMENTS
+
+The introduction carries logical weight. It must state, in flowing prose:
+  - how many subjects there are;
+  - every category, with its complete list of members, spelled exactly as
+    given;
+  - that within each category every member belongs to a different subject
+    (each is used exactly once);
+  - for any category marked as ordered, the order its members are listed in.
+Anything else in the introduction must be pure scene-setting that constrains
+nothing. If a solver could deduce a single cell from your backstory, the
+backstory is wrong.
+
+CLUE REQUIREMENTS
+
+  - Produce exactly as many numbered clues as you are given, in the same order.
+  - Each numbered clue expresses exactly the facts listed under it -- all of
+    them, and nothing more. Where a clue bundles several facts, keep them
+    together in one numbered clue, as printed puzzles do.
+  - Use the member names exactly as spelled in the category lists. Do not
+    shorten, pluralise, re-case, translate or nickname them. "Mrs Abernathy"
+    does not become "Abernathy".
+  - Never reveal or hint at the answer. Never write a clue that explains a
+    deduction ("so X must be Y"). Never cross-reference clue numbers.
+  - Do not number facts within a clue or add parenthetical notes to the solver.
+
+TRAPS -- these are the specific ways narration goes wrong. Read the gloss under
+each clue and obey it:
+
+  - "earlier/before" means STRICTLY earlier by any amount. Do NOT write
+    "just before", "right before", "immediately", or "the next".
+  - "immediately before" means exactly one step, in that direction only. Do not
+    reverse the two subjects.
+  - "next to / adjacent" is SYMMETRIC: one step apart, direction unspecified.
+    Do not write "just after", which picks a direction.
+  - "between" is exclusive and the two outer subjects are UNORDERED. Do not
+    imply which of them comes first, and do not make the gaps definite.
+  - a gap of N means the positions DIFFER by N -- "N apart", "N later". It does
+    NOT mean "N in between", which would be N+1. This off-by-one is the single
+    most common mistake. Prefer the words "apart" or "later".
+  - "if X then Y" asserts nothing when X is false, and does NOT assert the
+    converse. Do not write it as "X exactly when Y".
+  - "either X or Y" is INCLUSIVE -- possibly both. Do not write "but not both".
+  - "not both X and Y" permits neither. Do not write it as "exactly one of".
+  - a negative clue stays negative. "A is not with B" must not become "A is
+    with someone else, perhaps C".
+
+Return your answer in the required JSON format.
+
+======================================================================
+TASK
+======================================================================
+
+SETTING (raw material -- rewrite freely): The Mudflat Regatta is rowed over a course that is only a course at high tide, which is where most of the trouble starts.
+WORKING TITLE: The Mudflat Regatta
+
+SUBJECTS: 5 entries. Each has exactly one member of every category below, and within a category each member belongs to a different entry.
+
+CATEGORIES (use these spellings verbatim):
+  Placing  [ORDERED, listed better to worse]
+    first, second, third, fourth, fifth
+  Crew
+    the Brickworks crew, the Seminary crew, the Gasworks crew, the Creamery crew, the Customs crew
+  Boat
+    the Mudlark, the Wet Hen, the Last Resort, the Dauntless, the Obstinate
+  Colours
+    cherry and grey, mustard and black, navy with a white band, bottle green, lilac and bronze
+
+The ordered category is 'Placing'. Positional clues refer to it. Its 5 values are the only positions that exist.
+
+CLUES -- produce exactly 7 numbered clues:
+
+  Clue 1:
+    FACT [adjacent]: The Last Resort and second are next to each other in placing order, in one order or the other.
+      MEANS EXACTLY: the Last Resort and second are exactly one place apart in placing order. Which one comes first is NOT specified -- keep it symmetric and do not imply a direction.
+    FACT [link]: The Dauntless goes with second.
+      MEANS EXACTLY: The entity whose Boat is the Dauntless is the SAME entity as the one whose Placing is second.
+    FACT [between]: Second falls somewhere between navy with a white band and the Creamery crew in placing order.
+      MEANS EXACTLY: In placing order, second is strictly after one of navy with a white band/the Creamery crew and strictly before the other. Which of navy with a white band and the Creamery crew is the earlier one is NOT specified. 'Between' is exclusive: second is neither of them. The gaps may be any size.
+
+  Clue 2:
+    FACT [between]: The Wet Hen falls somewhere between mustard and black and fifth in placing order.
+      MEANS EXACTLY: In placing order, the Wet Hen is strictly after one of mustard and black/fifth and strictly before the other. Which of mustard and black and fifth is the earlier one is NOT specified. 'Between' is exclusive: the Wet Hen is neither of them. The gaps may be any size.
+    FACT [before]: Navy with a white band's placing is better than fifth.
+      MEANS EXACTLY: navy with a white band is STRICTLY better than fifth in placing order. The gap may be any size -- do NOT imply they are adjacent or immediately consecutive.
+
+  Clue 3:
+    FACT [or]: At least one of the following holds, and possibly more than one: (a) Lilac and bronze and fifth are next to each other in placing order, in one order or the other. (b) The Brickworks crew and fifth are next to each other in placing order, in one order or the other.
+      MEANS EXACTLY: AT LEAST ONE of the following is true (an inclusive 'or' -- it is fine if more than one is true, and the clue does not say which):
+      - lilac and bronze and fifth are exactly one place apart in placing order. Which one comes first is NOT specified -- keep it symmetric and do not imply a direction.
+      - the Brickworks crew and fifth are exactly one place apart in placing order. Which one comes first is NOT specified -- keep it symmetric and do not imply a direction.
+
+  Clue 4:
+    FACT [adjacent]: The Customs crew and fourth are next to each other in placing order, in one order or the other.
+      MEANS EXACTLY: the Customs crew and fourth are exactly one place apart in placing order. Which one comes first is NOT specified -- keep it symmetric and do not imply a direction.
+
+  Clue 5:
+    FACT [distinct]: Mustard and black, the Gasworks crew and first are three different entries.
+      MEANS EXACTLY: No two of these refer to the same entity: mustard and black, the Gasworks crew, first. This asserts mutual non-identity only; it says nothing about order.
+    FACT [not_link]: The Last Resort does not go with the Gasworks crew.
+      MEANS EXACTLY: The entity whose Boat is the Last Resort is NOT the same entity as the one whose Crew is the Gasworks crew.
+    FACT [not_link]: The Last Resort does not go with the Customs crew.
+      MEANS EXACTLY: The entity whose Boat is the Last Resort is NOT the same entity as the one whose Crew is the Customs crew.
+
+  Clue 6:
+    FACT [before]: Bottle green's placing is better than the Last Resort's placing.
+      MEANS EXACTLY: bottle green is STRICTLY better than the Last Resort in placing order. The gap may be any size -- do NOT imply they are adjacent or immediately consecutive.
+
+  Clue 7:
+    FACT [immediately_before]: The Seminary crew's placing is immediately better than the Mudlark's placing, with no placing in between.
+      MEANS EXACTLY: the Mudlark is exactly ONE place after the Seminary crew; they are consecutive placings in that specific direction (the Seminary crew first). Direction matters -- do not reverse it.
+
+======================================================================
+Reply with ONLY a JSON object matching this schema:
+{
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "A short, inviting title for the puzzle."
+    },
+    "introduction": {
+      "type": "string",
+      "description": "One or two paragraphs. Must name the subject count, every category with its full member list, and the one-each condition. Scene-setting must constrain nothing."
+    },
+    "clues": {
+      "type": "array",
+      "description": "The numbered clues as plain sentences, in the given order, without leading numbers.",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "title",
+    "introduction",
+    "clues"
+  ],
+  "additionalProperties": false
+}

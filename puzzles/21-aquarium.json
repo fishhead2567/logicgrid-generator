@@ -1,0 +1,234 @@
+{
+  "pid": "9bf6b156c99a",
+  "title": "The Night Shift at Coldwater Hall",
+  "theme": "aquarium",
+  "blurb": "Coldwater Hall Aquarium keeps a night rota of tanks, and one keeper who is definitely feeding the wrong things.",
+  "profile": "moderate",
+  "rating": 4,
+  "score": 5.515,
+  "seed": 2026172741735,
+  "spec": {
+    "difficulty": "moderate",
+    "seed": 2026172741735
+  },
+  "schema": {
+    "spine": "slot",
+    "entity_noun": "shift",
+    "entity_noun_plural": "shifts",
+    "categories": [
+      {
+        "name": "slot",
+        "label": "Running order",
+        "items": [
+          "slot one",
+          "slot two",
+          "slot three",
+          "slot four",
+          "slot five"
+        ],
+        "ordered": true,
+        "noun": "slot",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "slot"
+      },
+      {
+        "name": "keeper",
+        "label": "Keeper",
+        "items": [
+          "Marisol",
+          "Chiamaka",
+          "Oskar",
+          "Fitzwilliam",
+          "Rhiannon"
+        ],
+        "ordered": false,
+        "noun": "keeper"
+      },
+      {
+        "name": "tank",
+        "label": "Tank",
+        "items": [
+          "the touch pool",
+          "the deep reef",
+          "the octopus enclosure",
+          "the jellyfish column",
+          "the seahorse nursery"
+        ],
+        "ordered": false,
+        "noun": "tank"
+      },
+      {
+        "name": "incident",
+        "label": "Logged incident",
+        "items": [
+          "an algal bloom",
+          "an unexplained pH swing",
+          "a visitor's dropped phone",
+          "a failed chiller",
+          "an escapee"
+        ],
+        "ordered": false,
+        "noun": "incident"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "incident:an escapee",
+          "b": "slot:slot two"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "incident:an escapee",
+          "b": "tank:the touch pool"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "tank:the seahorse nursery",
+          "b": "keeper:Oskar",
+          "c": "slot:slot five"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "incident:a failed chiller",
+          "b": "tank:the octopus enclosure",
+          "k": 3,
+          "rel": "eq"
+        },
+        {
+          "kind": "between",
+          "a": "tank:the octopus enclosure",
+          "b": "keeper:Marisol",
+          "c": "slot:slot four"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "keeper:Rhiannon",
+          "b": "slot:slot one",
+          "k": 4,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "incident:a visitor's dropped phone",
+          "b": "keeper:Fitzwilliam"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "distinct",
+          "members": [
+            "incident:an unexplained pH swing",
+            "keeper:Rhiannon",
+            "tank:the jellyfish column"
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "incident:a visitor's dropped phone",
+          "b": "tank:the deep reef"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "keeper:Fitzwilliam",
+          "b": "tank:the touch pool"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "slot": [
+      "slot one",
+      "slot two",
+      "slot three",
+      "slot four",
+      "slot five"
+    ],
+    "keeper": [
+      "Marisol",
+      "Fitzwilliam",
+      "Oskar",
+      "Chiamaka",
+      "Rhiannon"
+    ],
+    "tank": [
+      "the jellyfish column",
+      "the octopus enclosure",
+      "the touch pool",
+      "the seahorse nursery",
+      "the deep reef"
+    ],
+    "incident": [
+      "an algal bloom",
+      "an escapee",
+      "an unexplained pH swing",
+      "a visitor's dropped phone",
+      "a failed chiller"
+    ]
+  },
+  "stats": {
+    "atoms": 10,
+    "numbered_clues": 8,
+    "kinds": {
+      "link": 1,
+      "immediately_before": 2,
+      "between": 2,
+      "gap": 2,
+      "not_link": 2,
+      "distinct": 1
+    },
+    "positives": 1,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 37,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 22,
+      "order": 12
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}

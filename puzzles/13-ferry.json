@@ -1,0 +1,183 @@
+{
+  "pid": "4f8f847e661d",
+  "title": "The Crossings to Inverlaig",
+  "theme": "ferry",
+  "blurb": "The Inverlaig ferry runs a full day of crossings in theory, and a variable number in practice.",
+  "profile": "easy",
+  "rating": 3,
+  "score": 4.62,
+  "seed": 2026172783112,
+  "spec": {
+    "difficulty": "easy",
+    "seed": 2026172783112
+  },
+  "schema": {
+    "spine": "time",
+    "entity_noun": "crossing",
+    "entity_noun_plural": "crossings",
+    "categories": [
+      {
+        "name": "time",
+        "label": "Start time",
+        "items": [
+          "8 a.m.",
+          "9 a.m.",
+          "10 a.m.",
+          "11 a.m.",
+          "noon"
+        ],
+        "ordered": true,
+        "noun": "start time",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "hour"
+      },
+      {
+        "name": "skipper",
+        "label": "Skipper",
+        "items": [
+          "Ruaridh",
+          "Senga",
+          "Calla",
+          "Fearghas",
+          "Murdo"
+        ],
+        "ordered": false,
+        "noun": "skipper"
+      },
+      {
+        "name": "vessel",
+        "label": "Vessel",
+        "items": [
+          "the Siller Grey",
+          "the Steadfast",
+          "the Three Brothers",
+          "the Tern",
+          "the Broch Maid"
+        ],
+        "ordered": false,
+        "noun": "vessel"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "skipper:Calla",
+          "b": "time:11 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "time:10 a.m.",
+          "b": "vessel:the Three Brothers"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "vessel:the Siller Grey",
+          "b": "time:9 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "time:10 a.m.",
+          "b": "vessel:the Tern"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "time:11 a.m.",
+          "b": "skipper:Murdo"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "skipper:Fearghas",
+          "b": "vessel:the Tern"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "skipper:Senga",
+          "b": "vessel:the Broch Maid"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "time": [
+      "8 a.m.",
+      "9 a.m.",
+      "10 a.m.",
+      "11 a.m.",
+      "noon"
+    ],
+    "skipper": [
+      "Senga",
+      "Ruaridh",
+      "Fearghas",
+      "Calla",
+      "Murdo"
+    ],
+    "vessel": [
+      "the Siller Grey",
+      "the Broch Maid",
+      "the Three Brothers",
+      "the Tern",
+      "the Steadfast"
+    ]
+  },
+  "stats": {
+    "atoms": 7,
+    "numbered_clues": 7,
+    "kinds": {
+      "link": 2,
+      "before": 2,
+      "immediately_before": 1,
+      "adjacent": 2
+    },
+    "positives": 2,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 26,
+    "tier_counts": {
+      "direct": 2,
+      "bijection": 17,
+      "order": 7
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 10
+  }
+}

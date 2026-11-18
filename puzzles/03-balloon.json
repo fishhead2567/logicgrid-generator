@@ -1,0 +1,172 @@
+{
+  "pid": "9dd7edb34f24",
+  "title": "The Thistledown Balloon Ascent",
+  "theme": "balloon",
+  "blurb": "The Thistledown Ascent is less a race than a slow argument conducted at two thousand feet.",
+  "profile": "gentle",
+  "rating": 2,
+  "score": 4.14,
+  "seed": 2026172599193,
+  "spec": {
+    "difficulty": "gentle",
+    "seed": 2026172599193
+  },
+  "schema": {
+    "spine": "time",
+    "entity_noun": "balloon",
+    "entity_noun_plural": "balloons",
+    "categories": [
+      {
+        "name": "time",
+        "label": "Start time",
+        "items": [
+          "8 a.m.",
+          "9 a.m.",
+          "10 a.m.",
+          "11 a.m.",
+          "noon"
+        ],
+        "ordered": true,
+        "noun": "start time",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "hour"
+      },
+      {
+        "name": "envelope",
+        "label": "Envelope",
+        "items": [
+          "the moss-green envelope",
+          "the striped envelope",
+          "the patchwork envelope",
+          "the kingfisher envelope",
+          "the silver envelope"
+        ],
+        "ordered": false,
+        "noun": "envelope"
+      },
+      {
+        "name": "ballast",
+        "label": "Ballast",
+        "items": [
+          "lead shot",
+          "pea gravel",
+          "dried beans",
+          "sandbags",
+          "rock salt"
+        ],
+        "ordered": false,
+        "noun": "ballast"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "ballast:dried beans",
+          "b": "time:11 a.m."
+        },
+        {
+          "kind": "link",
+          "a": "envelope:the moss-green envelope",
+          "b": "time:11 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "envelope:the kingfisher envelope",
+          "b": "time:10 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "ballast:lead shot",
+          "b": "envelope:the silver envelope"
+        },
+        {
+          "kind": "link",
+          "a": "ballast:pea gravel",
+          "b": "envelope:the silver envelope"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "ballast:sandbags",
+          "b": "envelope:the patchwork envelope"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "envelope:the silver envelope",
+          "b": "ballast:sandbags"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "time": [
+      "8 a.m.",
+      "9 a.m.",
+      "10 a.m.",
+      "11 a.m.",
+      "noon"
+    ],
+    "envelope": [
+      "the striped envelope",
+      "the silver envelope",
+      "the kingfisher envelope",
+      "the moss-green envelope",
+      "the patchwork envelope"
+    ],
+    "ballast": [
+      "lead shot",
+      "pea gravel",
+      "dried beans",
+      "rock salt",
+      "sandbags"
+    ]
+  },
+  "stats": {
+    "atoms": 7,
+    "numbered_clues": 5,
+    "kinds": {
+      "immediately_before": 2,
+      "link": 4,
+      "before": 1
+    },
+    "positives": 4,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 17,
+    "tier_counts": {
+      "direct": 6,
+      "bijection": 5,
+      "order": 6
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 10
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "pid": "04c3bbd982d4",
+  "title": "The Mudflat Regatta",
+  "theme": "regatta",
+  "blurb": "The Mudflat Regatta is rowed over a course that is only a course at high tide, which is where most of the trouble starts.",
+  "profile": "hard",
+  "rating": 5,
+  "score": 8.5792,
+  "seed": 2026173012763,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026173012763
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "entry",
+    "entity_noun_plural": "entries",
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth",
+          "fifth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place"
+      },
+      {
+        "name": "crew",
+        "label": "Crew",
+        "items": [
+          "the Brickworks crew",
+          "the Seminary crew",
+          "the Gasworks crew",
+          "the Creamery crew",
+          "the Customs crew"
+        ],
+        "ordered": false,
+        "noun": "crew"
+      },
+      {
+        "name": "boat",
+        "label": "Boat",
+        "items": [
+          "the Mudlark",
+          "the Wet Hen",
+          "the Last Resort",
+          "the Dauntless",
+          "the Obstinate"
+        ],
+        "ordered": false,
+        "noun": "boat"
+      },
+      {
+        "name": "colours",
+        "label": "Colours",
+        "items": [
+          "cherry and grey",
+          "mustard and black",
+          "navy with a white band",
+          "bottle green",
+          "lilac and bronze"
+        ],
+        "ordered": false,
+        "noun": "colours"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "boat:the Last Resort",
+          "b": "place:second"
+        },
+        {
+          "kind": "link",
+          "a": "boat:the Dauntless",
+          "b": "place:second"
+        },
+        {
+          "kind": "between",
+          "a": "place:second",
+          "b": "colours:navy with a white band",
+          "c": "crew:the Creamery crew"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "boat:the Wet Hen",
+          "b": "colours:mustard and black",
+          "c": "place:fifth"
+        },
+        {
+          "kind": "before",
+          "a": "colours:navy with a white band",
+          "b": "place:fifth"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "colours:lilac and bronze",
+              "b": "place:fifth"
+            },
+            {
+              "kind": "adjacent",
+              "a": "crew:the Brickworks crew",
+              "b": "place:fifth"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "crew:the Customs crew",
+          "b": "place:fourth"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "distinct",
+          "members": [
+            "colours:mustard and black",
+            "crew:the Gasworks crew",
+            "place:first"
+          ]
+        },
+        {
+          "kind": "not_link",
+          "a": "boat:the Last Resort",
+          "b": "crew:the Gasworks crew"
+        },
+        {
+          "kind": "not_link",
+          "a": "boat:the Last Resort",
+          "b": "crew:the Customs crew"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "colours:bottle green",
+          "b": "boat:the Last Resort"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "crew:the Seminary crew",
+          "b": "boat:the Mudlark"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth",
+      "fifth"
+    ],
+    "crew": [
+      "the Brickworks crew",
+      "the Gasworks crew",
+      "the Creamery crew",
+      "the Seminary crew",
+      "the Customs crew"
+    ],
+    "boat": [
+      "the Obstinate",
+      "the Dauntless",
+      "the Last Resort",
+      "the Wet Hen",
+      "the Mudlark"
+    ],
+    "colours": [
+      "navy with a white band",
+      "bottle green",
+      "mustard and black",
+      "lilac and bronze",
+      "cherry and grey"
+    ]
+  },
+  "stats": {
+    "atoms": 12,
+    "numbered_clues": 7,
+    "kinds": {
+      "adjacent": 2,
+      "link": 1,
+      "between": 2,
+      "before": 2,
+      "or": 1,
+      "distinct": 1,
+      "not_link": 2,
+      "immediately_before": 1
+    },
+    "positives": 1,
+    "compounds": 1
+  },
+  "solve": null
+}

@@ -1,0 +1,312 @@
+{
+  "pid": "4dc1f7cdbec8",
+  "title": "The Grindle Bay Sandcastle Open",
+  "theme": "sandcastle",
+  "blurb": "The Grindle Bay Open is judged at four o'clock, whatever the tide is doing.",
+  "profile": "hard",
+  "rating": 6,
+  "score": 9.7172,
+  "seed": 2026173004844,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026173004844
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "entry",
+    "entity_noun_plural": "entries",
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth",
+          "fifth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place"
+      },
+      {
+        "name": "builder",
+        "label": "Builder",
+        "items": [
+          "Hartley",
+          "Fenwick",
+          "Juniper",
+          "Khalid",
+          "Aleksy"
+        ],
+        "ordered": false,
+        "noun": "builder"
+      },
+      {
+        "name": "build",
+        "label": "Build",
+        "items": [
+          "a hollow lighthouse",
+          "a sleeping dragon",
+          "a cathedral with flying buttresses",
+          "a moated keep",
+          "a recumbent walrus"
+        ],
+        "ordered": false,
+        "noun": "build"
+      },
+      {
+        "name": "tool",
+        "label": "Chief tool",
+        "items": [
+          "a cake slice",
+          "a paint scraper",
+          "a soup spoon",
+          "a child's rake",
+          "a pastry brush"
+        ],
+        "ordered": false,
+        "noun": "tool"
+      },
+      {
+        "name": "ruin",
+        "label": "Undone by",
+        "items": [
+          "structural overreach",
+          "a loose dog",
+          "a gull",
+          "a rival's elbow",
+          "a cricket ball"
+        ],
+        "ordered": false,
+        "noun": "cause"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "place:fourth",
+          "b": "tool:a paint scraper"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "place:second",
+          "b": "ruin:a loose dog",
+          "k": 3,
+          "rel": "eq"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "build:a sleeping dragon",
+          "b": "place:second"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "place:fifth",
+          "b": "tool:a cake slice",
+          "k": 4,
+          "rel": "eq"
+        },
+        {
+          "kind": "gap",
+          "a": "place:fifth",
+          "b": "tool:a child's rake",
+          "k": 2,
+          "rel": "eq"
+        },
+        {
+          "kind": "between",
+          "a": "builder:Khalid",
+          "b": "ruin:a gull",
+          "c": "tool:a cake slice"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "place:first",
+          "b": "ruin:a rival's elbow",
+          "same": false
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "build:a recumbent walrus",
+              "b": "builder:Khalid"
+            },
+            {
+              "kind": "immediately_before",
+              "a": "place:fourth",
+              "b": "build:a moated keep"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "ruin:a cricket ball",
+          "b": "builder:Hartley",
+          "c": "place:third"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "builder:Juniper",
+          "b": "place:second"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "not_link",
+            "a": "build:a recumbent walrus",
+            "b": "place:fourth"
+          },
+          "y": {
+            "kind": "not_link",
+            "a": "build:a sleeping dragon",
+            "b": "tool:a pastry brush"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "place:fourth",
+          "b": "tool:a cake slice",
+          "c": "tool:a pastry brush"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "build:a moated keep",
+          "b": "builder:Aleksy"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "build:a hollow lighthouse",
+          "b": "builder:Fenwick"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth",
+      "fifth"
+    ],
+    "builder": [
+      "Juniper",
+      "Khalid",
+      "Fenwick",
+      "Aleksy",
+      "Hartley"
+    ],
+    "build": [
+      "a sleeping dragon",
+      "a hollow lighthouse",
+      "a cathedral with flying buttresses",
+      "a recumbent walrus",
+      "a moated keep"
+    ],
+    "tool": [
+      "a cake slice",
+      "a soup spoon",
+      "a child's rake",
+      "a paint scraper",
+      "a pastry brush"
+    ],
+    "ruin": [
+      "structural overreach",
+      "a rival's elbow",
+      "a gull",
+      "a cricket ball",
+      "a loose dog"
+    ]
+  },
+  "stats": {
+    "atoms": 14,
+    "numbered_clues": 11,
+    "kinds": {
+      "link": 1,
+      "gap": 3,
+      "immediately_before": 2,
+      "between": 3,
+      "parity": 1,
+      "or": 1,
+      "not_both": 1,
+      "adjacent": 1,
+      "not_link": 1
+    },
+    "positives": 1,
+    "compounds": 2
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 44,
+    "tier_counts": {
+      "direct": 2,
+      "bijection": 25,
+      "order": 15,
+      "disjunction": 2
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

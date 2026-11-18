@@ -1,0 +1,316 @@
+{
+  "pid": "ad5c617866a4",
+  "title": "The Cheesemongers' Standoff",
+  "theme": "cheese",
+  "blurb": "A case of opinionated cheeses, their equally opinionated makers, and one display that has begun to smell like a political scandal.",
+  "profile": "hard",
+  "rating": 6,
+  "score": 10.1105,
+  "seed": 2026172892196,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026172892196
+  },
+  "schema": {
+    "spine": "price",
+    "entity_noun": "wheel",
+    "entity_noun_plural": "wheels",
+    "categories": [
+      {
+        "name": "price",
+        "label": "Price",
+        "items": [
+          "$3",
+          "$5",
+          "$7",
+          "$9",
+          "$11"
+        ],
+        "ordered": true,
+        "values": [
+          3,
+          5,
+          7,
+          9,
+          11
+        ],
+        "unit": "$",
+        "noun": "price",
+        "cmp_less": "cheaper",
+        "cmp_more": "dearer",
+        "step_noun": "price step"
+      },
+      {
+        "name": "cheese",
+        "label": "Cheese",
+        "items": [
+          "Old Thrashing",
+          "Winter Tarn",
+          "Oakmoss",
+          "Glebe Farmhouse",
+          "Saltpans"
+        ],
+        "ordered": false,
+        "noun": "cheese"
+      },
+      {
+        "name": "maker",
+        "label": "Maker",
+        "items": [
+          "Sigrid",
+          "Teodoro",
+          "Hepzibah",
+          "Lachlan",
+          "Perdita"
+        ],
+        "ordered": false,
+        "noun": "maker"
+      },
+      {
+        "name": "rind",
+        "label": "Rind",
+        "items": [
+          "an ash-coated rind",
+          "a natural rind",
+          "a nettle-wrapped rind",
+          "a cider-washed rind",
+          "a cloth-bound rind"
+        ],
+        "ordered": false,
+        "noun": "rind"
+      },
+      {
+        "name": "age",
+        "label": "Aged for",
+        "items": [
+          "five months",
+          "two years",
+          "nine months",
+          "two months",
+          "thirty months"
+        ],
+        "ordered": false,
+        "noun": "ageing"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "price:$9",
+          "b": "maker:Hepzibah"
+        },
+        {
+          "kind": "distinct",
+          "members": [
+            "age:five months",
+            "price:$9",
+            "rind:a cloth-bound rind"
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "age:five months",
+              "b": "price:$7"
+            },
+            {
+              "kind": "immediately_before",
+              "a": "rind:an ash-coated rind",
+              "b": "cheese:Old Thrashing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "maker:Teodoro",
+          "b": "price:$5",
+          "c": "rind:a nettle-wrapped rind"
+        },
+        {
+          "kind": "before",
+          "a": "maker:Teodoro",
+          "b": "rind:a natural rind"
+        },
+        {
+          "kind": "between",
+          "a": "age:five months",
+          "b": "rind:a cloth-bound rind",
+          "c": "rind:a nettle-wrapped rind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "age:thirty months",
+          "b": "maker:Sigrid",
+          "c": "price:$11"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "cheese:Oakmoss",
+          "b": "age:two years"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "age:nine months",
+          "b": "rind:an ash-coated rind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "maker:Lachlan",
+          "b": "rind:a cloth-bound rind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "age:nine months",
+          "b": "cheese:Oakmoss"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "rind:a cider-washed rind",
+          "b": "cheese:Saltpans"
+        },
+        {
+          "kind": "before",
+          "a": "age:nine months",
+          "b": "cheese:Saltpans"
+        },
+        {
+          "kind": "between",
+          "a": "rind:a natural rind",
+          "b": "age:nine months",
+          "c": "cheese:Glebe Farmhouse"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "immediately_before",
+              "a": "rind:an ash-coated rind",
+              "b": "maker:Perdita"
+            },
+            {
+              "kind": "link",
+              "a": "age:thirty months",
+              "b": "rind:a nettle-wrapped rind"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "price": [
+      "$3",
+      "$5",
+      "$7",
+      "$9",
+      "$11"
+    ],
+    "cheese": [
+      "Oakmoss",
+      "Winter Tarn",
+      "Saltpans",
+      "Old Thrashing",
+      "Glebe Farmhouse"
+    ],
+    "maker": [
+      "Sigrid",
+      "Lachlan",
+      "Teodoro",
+      "Perdita",
+      "Hepzibah"
+    ],
+    "rind": [
+      "a cloth-bound rind",
+      "a cider-washed rind",
+      "an ash-coated rind",
+      "a natural rind",
+      "a nettle-wrapped rind"
+    ],
+    "age": [
+      "two months",
+      "nine months",
+      "five months",
+      "thirty months",
+      "two years"
+    ]
+  },
+  "stats": {
+    "atoms": 15,
+    "numbered_clues": 10,
+    "kinds": {
+      "immediately_before": 3,
+      "distinct": 1,
+      "or": 2,
+      "between": 4,
+      "before": 3,
+      "not_link": 2
+    },
+    "positives": 0,
+    "compounds": 2
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 54,
+    "tier_counts": {
+      "direct": 2,
+      "bijection": 26,
+      "order": 23,
+      "disjunction": 3
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

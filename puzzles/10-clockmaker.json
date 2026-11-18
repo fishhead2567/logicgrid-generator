@@ -1,0 +1,190 @@
+{
+  "pid": "48344831bdb4",
+  "title": "A Benchful of Clocks, and No Agreement",
+  "theme": "clockmaker",
+  "blurb": "Mr Halloran repairs clocks. Those on the bench are all insisting on a different hour.",
+  "profile": "easy",
+  "rating": 3,
+  "score": 5.13,
+  "seed": 2026172654626,
+  "spec": {
+    "difficulty": "easy",
+    "seed": 2026172654626
+  },
+  "schema": {
+    "spine": "shelf",
+    "entity_noun": "repair job",
+    "entity_noun_plural": "repair jobs",
+    "categories": [
+      {
+        "name": "shelf",
+        "label": "Shelf",
+        "items": [
+          "the bottom shelf",
+          "the second shelf",
+          "the third shelf",
+          "the fourth shelf"
+        ],
+        "ordered": true,
+        "noun": "shelf",
+        "cmp_less": "lower",
+        "cmp_more": "higher",
+        "step_noun": "shelf"
+      },
+      {
+        "name": "clock",
+        "label": "Clock",
+        "items": [
+          "a ship's chronometer",
+          "a cuckoo clock",
+          "a station clock",
+          "a mantel clock under glass"
+        ],
+        "ordered": false,
+        "noun": "clock"
+      },
+      {
+        "name": "owner",
+        "label": "Owner",
+        "items": [
+          "Dr Vasquez",
+          "Mr Dziedzic",
+          "Captain Mott",
+          "Miss Trevelyan"
+        ],
+        "ordered": false,
+        "noun": "owner"
+      },
+      {
+        "name": "chime",
+        "label": "Chime",
+        "items": [
+          "a cuckoo call",
+          "Westminster",
+          "no chime at all",
+          "Whittington"
+        ],
+        "ordered": false,
+        "noun": "chime"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "clock:a cuckoo clock",
+          "b": "shelf:the second shelf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "owner:Miss Trevelyan",
+          "b": "shelf:the second shelf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "shelf:the bottom shelf",
+          "b": "owner:Dr Vasquez"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "chime:Whittington",
+          "b": "clock:a ship's chronometer"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "chime:Westminster",
+          "b": "clock:a cuckoo clock"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "chime:a cuckoo call",
+          "b": "clock:a station clock"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "owner:Captain Mott",
+          "b": "chime:a cuckoo call"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "shelf": [
+      "the bottom shelf",
+      "the second shelf",
+      "the third shelf",
+      "the fourth shelf"
+    ],
+    "clock": [
+      "a mantel clock under glass",
+      "a cuckoo clock",
+      "a station clock",
+      "a ship's chronometer"
+    ],
+    "owner": [
+      "Miss Trevelyan",
+      "Dr Vasquez",
+      "Captain Mott",
+      "Mr Dziedzic"
+    ],
+    "chime": [
+      "Westminster",
+      "no chime at all",
+      "Whittington",
+      "a cuckoo call"
+    ]
+  },
+  "stats": {
+    "atoms": 7,
+    "numbered_clues": 6,
+    "kinds": {
+      "link": 1,
+      "before": 1,
+      "immediately_before": 4,
+      "adjacent": 1
+    },
+    "positives": 1,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 23,
+    "tier_counts": {
+      "direct": 1,
+      "bijection": 12,
+      "order": 10
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 12
+  }
+}

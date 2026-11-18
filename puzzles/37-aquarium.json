@@ -1,0 +1,305 @@
+{
+  "pid": "ff2c7b2c0402",
+  "title": "The Night Shift at Coldwater Hall",
+  "theme": "aquarium",
+  "blurb": "Coldwater Hall Aquarium keeps a night rota of tanks, and one keeper who is definitely feeding the wrong things.",
+  "profile": "hard",
+  "rating": 6,
+  "score": 10.5935,
+  "seed": 2026172868439,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026172868439
+  },
+  "schema": {
+    "spine": "slot",
+    "entity_noun": "shift",
+    "entity_noun_plural": "shifts",
+    "categories": [
+      {
+        "name": "slot",
+        "label": "Running order",
+        "items": [
+          "slot one",
+          "slot two",
+          "slot three",
+          "slot four",
+          "slot five"
+        ],
+        "ordered": true,
+        "noun": "slot",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "slot"
+      },
+      {
+        "name": "keeper",
+        "label": "Keeper",
+        "items": [
+          "Bartolo",
+          "Fitzwilliam",
+          "Rhiannon",
+          "Oskar",
+          "Chiamaka"
+        ],
+        "ordered": false,
+        "noun": "keeper"
+      },
+      {
+        "name": "tank",
+        "label": "Tank",
+        "items": [
+          "the seahorse nursery",
+          "the jellyfish column",
+          "the estuary tank",
+          "the deep reef",
+          "the octopus enclosure"
+        ],
+        "ordered": false,
+        "noun": "tank"
+      },
+      {
+        "name": "feed",
+        "label": "Feed",
+        "items": [
+          "frozen krill",
+          "chopped squid",
+          "nori sheets",
+          "a gelatine cube of unclear provenance",
+          "live mysis"
+        ],
+        "ordered": false,
+        "noun": "feed"
+      },
+      {
+        "name": "incident",
+        "label": "Logged incident",
+        "items": [
+          "an algal bloom",
+          "an escapee",
+          "an unexplained pH swing",
+          "a failed chiller",
+          "a cracked viewing pane"
+        ],
+        "ordered": false,
+        "noun": "incident"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "incident:an escapee",
+          "b": "slot:slot three"
+        },
+        {
+          "kind": "between",
+          "a": "slot:slot three",
+          "b": "keeper:Rhiannon",
+          "c": "tank:the octopus enclosure"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "feed:chopped squid",
+          "b": "slot:slot five",
+          "k": 4,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "link",
+              "a": "keeper:Bartolo",
+              "b": "slot:slot one"
+            },
+            {
+              "kind": "parity",
+              "a": "feed:frozen krill",
+              "b": "tank:the deep reef",
+              "same": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "incident:an algal bloom",
+          "b": "slot:slot four",
+          "c": "tank:the estuary tank"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "feed:nori sheets",
+          "b": "tank:the jellyfish column",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "incident:an algal bloom",
+          "b": "feed:live mysis"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "link",
+              "a": "incident:an algal bloom",
+              "b": "keeper:Bartolo"
+            },
+            {
+              "kind": "parity",
+              "a": "keeper:Chiamaka",
+              "b": "tank:the seahorse nursery",
+              "same": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "incident:an unexplained pH swing",
+              "b": "keeper:Bartolo"
+            },
+            {
+              "kind": "link",
+              "a": "incident:a cracked viewing pane",
+              "b": "tank:the seahorse nursery"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "tank:the seahorse nursery",
+          "b": "incident:a failed chiller"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "tank:the seahorse nursery",
+          "b": "incident:an unexplained pH swing"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "keeper:Fitzwilliam",
+          "b": "tank:the estuary tank",
+          "k": 4,
+          "rel": "eq"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "slot": [
+      "slot one",
+      "slot two",
+      "slot three",
+      "slot four",
+      "slot five"
+    ],
+    "keeper": [
+      "Rhiannon",
+      "Chiamaka",
+      "Oskar",
+      "Bartolo",
+      "Fitzwilliam"
+    ],
+    "tank": [
+      "the estuary tank",
+      "the seahorse nursery",
+      "the deep reef",
+      "the octopus enclosure",
+      "the jellyfish column"
+    ],
+    "feed": [
+      "chopped squid",
+      "nori sheets",
+      "live mysis",
+      "a gelatine cube of unclear provenance",
+      "frozen krill"
+    ],
+    "incident": [
+      "a cracked viewing pane",
+      "an algal bloom",
+      "an unexplained pH swing",
+      "an escapee",
+      "a failed chiller"
+    ]
+  },
+  "stats": {
+    "atoms": 12,
+    "numbered_clues": 10,
+    "kinds": {
+      "adjacent": 1,
+      "between": 2,
+      "gap": 3,
+      "or": 3,
+      "immediately_before": 2,
+      "before": 1
+    },
+    "positives": 0,
+    "compounds": 3
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 54,
+    "tier_counts": {
+      "bijection": 27,
+      "order": 22,
+      "disjunction": 5
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

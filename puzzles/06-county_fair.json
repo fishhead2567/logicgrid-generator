@@ -1,0 +1,161 @@
+{
+  "pid": "5fc5504ad617",
+  "title": "The Hollow Creek Pie Judging",
+  "theme": "county_fair",
+  "blurb": "The Hollow Creek county fair runs its pie judging with more ceremony than the state legislature.",
+  "profile": "gentle",
+  "rating": 1,
+  "score": 3.67,
+  "seed": 2026172622950,
+  "spec": {
+    "difficulty": "gentle",
+    "seed": 2026172622950
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "entry",
+    "entity_noun_plural": "entries",
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place"
+      },
+      {
+        "name": "filling",
+        "label": "Filling",
+        "items": [
+          "mincemeat",
+          "sour cherry",
+          "buttermilk",
+          "green tomato"
+        ],
+        "ordered": false,
+        "noun": "filling"
+      },
+      {
+        "name": "county",
+        "label": "Home county",
+        "items": [
+          "Fenwick",
+          "Quarry Hill",
+          "Ardmore",
+          "Sweetwater"
+        ],
+        "ordered": false,
+        "noun": "county"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "county:Ardmore",
+          "b": "place:second"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "place:second",
+          "b": "county:Sweetwater"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "filling:mincemeat",
+          "b": "place:second"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "filling:buttermilk",
+          "b": "place:third"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "county:Fenwick",
+          "b": "filling:sour cherry"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "filling:green tomato",
+          "b": "place:first"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth"
+    ],
+    "filling": [
+      "sour cherry",
+      "mincemeat",
+      "buttermilk",
+      "green tomato"
+    ],
+    "county": [
+      "Fenwick",
+      "Ardmore",
+      "Sweetwater",
+      "Quarry Hill"
+    ]
+  },
+  "stats": {
+    "atoms": 6,
+    "numbered_clues": 5,
+    "kinds": {
+      "link": 4,
+      "immediately_before": 1,
+      "not_link": 1
+    },
+    "positives": 4,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 15,
+    "tier_counts": {
+      "direct": 5,
+      "bijection": 9,
+      "order": 1
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 8
+  }
+}

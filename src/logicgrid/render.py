@@ -1,0 +1,209 @@
+"""Rendering: canonical puzzle text, solving charts and solution pages.
+
+The *canonical* rendering is deliberately plain.  Its job is to be impossible to
+misread, not to be charming -- phase 2 hands it to a narrator whose job is the
+charm, and the round-trip gate compares meaning, not prose.  So where elegance
+and precision conflict here, precision wins every time.
+
+:func:`canonical_intro` is the one piece of flavour text that carries logical
+weight, exactly as Penny Dell's own solving guide warns: "All the information you
+need ... is given in the introduction and clues."  It states the cast, the
+categories and the all-different conditions, and nothing else.
+"""
+
+from __future__ import annotations
+
+from typing import Sequence
+
+from .clues import Atom
+from .model import Clue, Schema, Solution
+
+
+def _lower_first(text: str) -> str:
+    return text[0].lower() + text[1:] if text else text
+
+
+def _listify(items: Sequence[str], conj: str = "and") -> str:
+    items = list(items)
+    if not items:
+        return ""
+    if len(items) == 1:
+        return items[0]
+    return ", ".join(items[:-1]) + f" {conj} {items[-1]}"
+
+
+def clue_text(clue: Clue, schema: Schema) -> str:
+    """Render one numbered clue, joining its atoms in the bundle's style."""
+    parts = [a.render(schema) for a in clue.atoms]
+    if len(parts) == 1:
+        return parts[0]
+    if clue.style in ("but_not", "and"):
+        joiner = ", but " if clue.style == "but_not" else ", and "
+        head = parts[0].rstrip(".")
+        tail = joiner.join(_lower_first(p.rstrip(".")) for p in parts[1:])
+        return f"{head}{joiner}{tail}."
+    return " ".join(parts)
+
+
+def canonical_intro(puzzle) -> str:
+    """The logically load-bearing introduction.
+
+    Everything a solver is entitled to assume before reading clue 1: how many
+    entities there are, what the categories are, which items are in play, and
+    that each item is used exactly once.
+    """
+    schema = puzzle.schema
+    n = schema.size
+    noun = schema.entity_noun_plural
+    lines = [
+        f"There are {n} {noun}. Each has exactly one {schema.spine.noun} "
+        f"and one item from every other category below, and within each "
+        f"category every item belongs to a different {schema.entity_noun}."
+    ]
+    for cat in schema.categories:
+        marker = " (listed in order)" if cat.ordered else ""
+        lines.append(f"- **{cat.label}**{marker}: {_listify(list(cat.items))}.")
+    if schema.spine.ordered:
+        sp = schema.spine
+        lines.append(
+            f"The {sp.step_plural} above are listed in order, from "
+            f"{sp.items[0]} to {sp.items[-1]}."
+        )
+    return "\n".join(lines)
+
+
+def clue_glosses(puzzle) -> list[dict]:
+    """Per-clue pedantic semantics, for a narrator that must not drift.
+
+    Each entry pairs the canonical sentence with an explicit statement of what
+    the clue does *and does not* assert -- the direction of an ordering, the
+    symmetry of an adjacency, the exclusivity of a "between".
+    """
+    schema = puzzle.schema
+    out = []
+    for i, clue in enumerate(puzzle.clues, start=1):
+        out.append(
+            {
+                "number": i,
+                "canonical": clue_text(clue, schema),
+                "atoms": [
+                    {
+                        "kind": a.kind,
+                        "canonical": a.render(schema),
+                        "gloss": a.gloss(schema),
+                        "json": a.to_json(),
+                    }
+                    for a in clue.atoms
+                ],
+            }
+        )
+    return out
+
+
+def solving_chart(puzzle, pairs: bool = True) -> str:
+    """Blank pairwise grids, the Penny Dell way: `.` for yes, `X` for no."""
+    schema = puzzle.schema
+    cats = schema.categories
+    blocks: list[str] = []
+    todo = []
+    for i in range(len(cats)):
+        for j in range(i + 1, len(cats)):
+            todo.append((cats[i], cats[j]))
+            if not pairs:
+                break
+    for left, right in todo:
+        header = "| | " + " | ".join(right.items) + " |"
+        sep = "|---" * (len(right.items) + 1) + "|"
+        rows = [f"| **{item}** |" + " |" * len(right.items) for item in left.items]
+        blocks.append(
+            f"*{left.label} vs {right.label}*\n\n"
+            + "\n".join([header, sep, *rows])
+        )
+    return "\n\n".join(blocks)
+
+
+def solution_table(puzzle) -> str:
+    schema = puzzle.schema
+    cats = schema.categories
+    header = "| " + " | ".join(c.label for c in cats) + " |"
+    sep = "|---" * len(cats) + "|"
+    rows = []
+    for p in schema.positions:
+        entity = puzzle.solution.entity(p)
+        rows.append("| " + " | ".join(entity[c.name] for c in cats) + " |")
+    return "\n".join([header, sep, *rows])
+
+
+def walkthrough(puzzle, limit: int = 40) -> str:
+    """The deduction trace, as a numbered explanation."""
+    if puzzle.report is None:
+        return "_(no solve trace recorded)_"
+    lines = []
+    for i, step in enumerate(puzzle.report.trace[:limit], start=1):
+        lines.append(f"{i}. {step.describe(puzzle.schema)}")
+    if len(puzzle.report.trace) > limit:
+        lines.append(f"_... and {len(puzzle.report.trace) - limit} further steps._")
+    return "\n".join(lines)
+
+
+def to_markdown(
+    puzzle,
+    *,
+    solution: bool = True,
+    chart: bool = True,
+    trace: bool = False,
+) -> str:
+    """A complete puzzle page."""
+    schema = puzzle.schema
+    stats = puzzle.stats()
+    head = [
+        f"# {puzzle.title}",
+        "",
+        f"*{puzzle.blurb}*",
+        "",
+        f"**Difficulty** {puzzle.rating}/7 ({puzzle.profile}) &nbsp;&nbsp; "
+        f"**Grid** {len(schema.categories)} x {schema.size} &nbsp;&nbsp; "
+        f"**Clues** {len(puzzle.clues)} &nbsp;&nbsp; "
+        f"**id** `{puzzle.pid}`",
+        "",
+        "## Introduction",
+        "",
+        canonical_intro(puzzle),
+        "",
+        "## Clues",
+        "",
+    ]
+    for i, clue in enumerate(puzzle.clues, start=1):
+        head.append(f"{i}. {clue_text(clue, schema)}")
+    if chart:
+        head += ["", "## Solving chart", "", solving_chart(puzzle)]
+    if solution:
+        head += ["", "## Solution", "", solution_table(puzzle)]
+    if trace:
+        head += ["", "## How it falls out", "", walkthrough(puzzle)]
+    head += [
+        "",
+        "---",
+        "",
+        f"<sub>seed `{puzzle.seed}` &middot; score {puzzle.score} &middot; "
+        f"atoms {stats['atoms']} &middot; positives {stats['positives']} &middot; "
+        f"solved by {puzzle.report.max_technique if puzzle.report else 'n/a'}</sub>",
+    ]
+    return "\n".join(head)
+
+
+def to_text(puzzle, *, solution: bool = False) -> str:
+    """Plain text, for terminals and for feeding to an LLM."""
+    schema = puzzle.schema
+    out = [puzzle.title, "=" * len(puzzle.title), "", puzzle.blurb, ""]
+    intro = canonical_intro(puzzle).replace("**", "").replace("- ", "  - ")
+    out += [intro, "", "CLUES", "-----"]
+    for i, clue in enumerate(puzzle.clues, start=1):
+        out.append(f"{i:>2}. {clue_text(clue, schema)}")
+    if solution:
+        out += ["", "SOLUTION", "--------"]
+        for p in schema.positions:
+            entity = puzzle.solution.entity(p)
+            bits = ", ".join(f"{c.label}: {entity[c.name]}" for c in schema.categories)
+            out.append(f"  {bits}")
+    return "\n".join(out)

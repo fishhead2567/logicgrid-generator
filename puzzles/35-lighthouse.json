@@ -1,0 +1,277 @@
+{
+  "pid": "83588c00d8df",
+  "title": "The Saltmarsh Light Rotation",
+  "theme": "lighthouse",
+  "blurb": "The lighthouses along the Saltmarsh coast share a single relief keeper roster, and the logbooks have become a scholarly mess.",
+  "profile": "hard",
+  "rating": 5,
+  "score": 9.1942,
+  "seed": 2026172852601,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026172852601
+  },
+  "schema": {
+    "spine": "day",
+    "entity_noun": "shift",
+    "entity_noun_plural": "shifts",
+    "categories": [
+      {
+        "name": "day",
+        "label": "Day",
+        "items": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "ordered": true,
+        "noun": "day",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "day"
+      },
+      {
+        "name": "keeper",
+        "label": "Keeper",
+        "items": [
+          "Barnaby",
+          "Clementine",
+          "Hollis",
+          "Lucian",
+          "Saoirse"
+        ],
+        "ordered": false,
+        "noun": "keeper"
+      },
+      {
+        "name": "light",
+        "label": "Lighthouse",
+        "items": [
+          "Thimble Reef",
+          "Gannet Rock",
+          "Siren Shoal",
+          "Pelter Head",
+          "Blackwater Bar"
+        ],
+        "ordered": false,
+        "noun": "lighthouse"
+      },
+      {
+        "name": "chore",
+        "label": "Logged chore",
+        "items": [
+          "splicing the hoist rope",
+          "repainting the gallery",
+          "regrinding the lens",
+          "rebedding the storm glass",
+          "overhauling the foghorn"
+        ],
+        "ordered": false,
+        "noun": "chore"
+      },
+      {
+        "name": "weather",
+        "label": "Weather noted",
+        "items": [
+          "a flat calm",
+          "sea fog",
+          "hail",
+          "sleet",
+          "a gale"
+        ],
+        "ordered": false,
+        "noun": "weather"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "day:Monday",
+          "b": "light:Siren Shoal"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "chore:repainting the gallery",
+          "b": "weather:sea fog",
+          "k": 4,
+          "rel": "eq"
+        },
+        {
+          "kind": "between",
+          "a": "chore:splicing the hoist rope",
+          "b": "day:Wednesday",
+          "c": "weather:sea fog"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "day:Tuesday",
+              "b": "chore:regrinding the lens"
+            },
+            {
+              "kind": "link",
+              "a": "chore:repainting the gallery",
+              "b": "light:Pelter Head"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "distinct",
+          "members": [
+            "day:Tuesday",
+            "keeper:Saoirse",
+            "weather:sleet"
+          ]
+        },
+        {
+          "kind": "between",
+          "a": "weather:a gale",
+          "b": "chore:regrinding the lens",
+          "c": "keeper:Saoirse"
+        },
+        {
+          "kind": "parity",
+          "a": "chore:regrinding the lens",
+          "b": "light:Pelter Head",
+          "same": true
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "distinct",
+          "members": [
+            "keeper:Lucian",
+            "light:Siren Shoal",
+            "weather:hail"
+          ]
+        },
+        {
+          "kind": "distinct",
+          "members": [
+            "keeper:Barnaby",
+            "light:Thimble Reef",
+            "weather:hail"
+          ]
+        },
+        {
+          "kind": "between",
+          "a": "chore:overhauling the foghorn",
+          "b": "keeper:Lucian",
+          "c": "light:Pelter Head"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "light:Blackwater Bar",
+          "b": "keeper:Clementine"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "light:Thimble Reef",
+          "b": "chore:splicing the hoist rope"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "day": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "keeper": [
+      "Saoirse",
+      "Lucian",
+      "Clementine",
+      "Hollis",
+      "Barnaby"
+    ],
+    "light": [
+      "Siren Shoal",
+      "Blackwater Bar",
+      "Thimble Reef",
+      "Gannet Rock",
+      "Pelter Head"
+    ],
+    "chore": [
+      "repainting the gallery",
+      "rebedding the storm glass",
+      "overhauling the foghorn",
+      "splicing the hoist rope",
+      "regrinding the lens"
+    ],
+    "weather": [
+      "a flat calm",
+      "a gale",
+      "sleet",
+      "hail",
+      "sea fog"
+    ]
+  },
+  "stats": {
+    "atoms": 12,
+    "numbered_clues": 7,
+    "kinds": {
+      "link": 1,
+      "gap": 1,
+      "between": 3,
+      "or": 1,
+      "distinct": 3,
+      "parity": 1,
+      "immediately_before": 2
+    },
+    "positives": 1,
+    "compounds": 1
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 57,
+    "tier_counts": {
+      "direct": 1,
+      "bijection": 38,
+      "order": 17,
+      "disjunction": 1
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "pid": "aebd43993ebc",
+  "title": "Tuesday Night at the Dented Bell",
+  "theme": "karaoke",
+  "blurb": "The Dented Bell runs karaoke on Tuesdays. Attendance is loyal; talent is not.",
+  "profile": "expert",
+  "rating": 7,
+  "score": 15.1415,
+  "seed": 2026173020682,
+  "spec": {
+    "difficulty": "expert",
+    "seed": 2026173020682
+  },
+  "schema": {
+    "spine": "slot",
+    "entity_noun": "turn",
+    "entity_noun_plural": "turns",
+    "categories": [
+      {
+        "name": "slot",
+        "label": "Running order",
+        "items": [
+          "slot one",
+          "slot two",
+          "slot three",
+          "slot four",
+          "slot five"
+        ],
+        "ordered": true,
+        "noun": "slot",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "slot"
+      },
+      {
+        "name": "singer",
+        "label": "Singer",
+        "items": [
+          "Pernilla",
+          "Annalise",
+          "Mercy",
+          "Caitriona",
+          "Vikram"
+        ],
+        "ordered": false,
+        "noun": "singer"
+      },
+      {
+        "name": "song",
+        "label": "Song",
+        "items": [
+          "a sea shanty",
+          "a rap performed entirely from memory",
+          "a disco standard",
+          "an eight-minute prog epic",
+          "a novelty country number"
+        ],
+        "ordered": false,
+        "noun": "song"
+      },
+      {
+        "name": "drink",
+        "label": "Drink",
+        "items": [
+          "tap water",
+          "a double whisky",
+          "a glass of the house red",
+          "a pint of mild",
+          "a lime and soda"
+        ],
+        "ordered": false,
+        "noun": "drink"
+      },
+      {
+        "name": "reception",
+        "label": "Reception",
+        "items": [
+          "a request for an encore nobody wanted",
+          "the landlord cutting the power",
+          "a standing ovation",
+          "polite silence",
+          "a singalong"
+        ],
+        "ordered": false,
+        "noun": "reception"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "slot:slot two",
+              "b": "reception:a singalong"
+            },
+            {
+              "kind": "before",
+              "a": "song:a sea shanty",
+              "b": "reception:polite silence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "slot:slot one",
+          "b": "singer:Annalise"
+        },
+        {
+          "kind": "not_link",
+          "a": "reception:the landlord cutting the power",
+          "b": "singer:Annalise"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "immediately_before",
+              "a": "singer:Vikram",
+              "b": "song:an eight-minute prog epic"
+            },
+            {
+              "kind": "link",
+              "a": "reception:a request for an encore nobody wanted",
+              "b": "slot:slot four"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "reception:a standing ovation",
+          "b": "drink:a pint of mild"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "drink:tap water",
+          "b": "reception:the landlord cutting the power"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "reception:polite silence",
+          "b": "drink:a lime and soda"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "singer:Caitriona",
+              "b": "song:a novelty country number"
+            },
+            {
+              "kind": "before",
+              "a": "song:a novelty country number",
+              "b": "singer:Caitriona"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "drink:a double whisky",
+          "b": "song:a disco standard"
+        },
+        {
+          "kind": "adjacent",
+          "a": "reception:polite silence",
+          "b": "song:a disco standard"
+        },
+        {
+          "kind": "gap",
+          "a": "drink:a double whisky",
+          "b": "song:an eight-minute prog epic",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "reception:the landlord cutting the power",
+          "b": "song:an eight-minute prog epic"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "reception:polite silence",
+          "b": "singer:Pernilla",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "singer:Pernilla",
+          "b": "song:a rap performed entirely from memory"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "drink:a glass of the house red",
+          "b": "singer:Caitriona"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "slot": [
+      "slot one",
+      "slot two",
+      "slot three",
+      "slot four",
+      "slot five"
+    ],
+    "singer": [
+      "Pernilla",
+      "Annalise",
+      "Vikram",
+      "Mercy",
+      "Caitriona"
+    ],
+    "song": [
+      "a novelty country number",
+      "a rap performed entirely from memory",
+      "a disco standard",
+      "an eight-minute prog epic",
+      "a sea shanty"
+    ],
+    "drink": [
+      "tap water",
+      "a double whisky",
+      "a pint of mild",
+      "a glass of the house red",
+      "a lime and soda"
+    ],
+    "reception": [
+      "a request for an encore nobody wanted",
+      "a standing ovation",
+      "the landlord cutting the power",
+      "polite silence",
+      "a singalong"
+    ]
+  },
+  "stats": {
+    "atoms": 15,
+    "numbered_clues": 12,
+    "kinds": {
+      "or": 3,
+      "immediately_before": 3,
+      "not_link": 2,
+      "before": 3,
+      "adjacent": 2,
+      "gap": 2
+    },
+    "positives": 0,
+    "compounds": 3
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 6,
+    "max_technique": "trial",
+    "steps": 65,
+    "tier_counts": {
+      "direct": 2,
+      "bijection": 25,
+      "order": 34,
+      "disjunction": 3,
+      "trial": 1
+    },
+    "trial_eliminations": 1,
+    "unknown_cells": 20
+  }
+}

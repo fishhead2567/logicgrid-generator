@@ -1,0 +1,234 @@
+{
+  "pid": "20af1e5095ce",
+  "title": "The Crossings to Inverlaig",
+  "theme": "ferry",
+  "blurb": "The Inverlaig ferry runs a full day of crossings in theory, and a variable number in practice.",
+  "profile": "moderate",
+  "rating": 3,
+  "score": 5.355,
+  "seed": 2026172749654,
+  "spec": {
+    "difficulty": "moderate",
+    "seed": 2026172749654
+  },
+  "schema": {
+    "spine": "time",
+    "entity_noun": "crossing",
+    "entity_noun_plural": "crossings",
+    "categories": [
+      {
+        "name": "time",
+        "label": "Start time",
+        "items": [
+          "8 a.m.",
+          "9 a.m.",
+          "10 a.m.",
+          "11 a.m.",
+          "noon"
+        ],
+        "ordered": true,
+        "noun": "start time",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "hour"
+      },
+      {
+        "name": "skipper",
+        "label": "Skipper",
+        "items": [
+          "Fearghas",
+          "Eilidh",
+          "Murdo",
+          "Calla",
+          "Senga"
+        ],
+        "ordered": false,
+        "noun": "skipper"
+      },
+      {
+        "name": "cargo",
+        "label": "Notable cargo",
+        "items": [
+          "a film crew and no permits",
+          "a refrigerated van",
+          "nineteen sheep",
+          "a consignment of bees",
+          "a church organ"
+        ],
+        "ordered": false,
+        "noun": "cargo"
+      },
+      {
+        "name": "delay",
+        "label": "Delay blamed on",
+        "items": [
+          "a fouled propeller",
+          "a passenger's dog",
+          "a slipway repair",
+          "fog",
+          "a missing deckhand"
+        ],
+        "ordered": false,
+        "noun": "reason"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "skipper:Calla",
+          "b": "cargo:a consignment of bees",
+          "c": "time:9 a.m."
+        },
+        {
+          "kind": "link",
+          "a": "cargo:a consignment of bees",
+          "b": "delay:a slipway repair"
+        },
+        {
+          "kind": "link",
+          "a": "cargo:a film crew and no permits",
+          "b": "time:9 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "skipper:Murdo",
+          "b": "cargo:nineteen sheep",
+          "c": "time:noon"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "skipper:Eilidh",
+          "b": "cargo:a church organ",
+          "c": "time:10 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "delay:a missing deckhand",
+          "b": "time:10 a.m."
+        },
+        {
+          "kind": "not_link",
+          "a": "delay:a missing deckhand",
+          "b": "skipper:Senga"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "delay:a fouled propeller",
+          "b": "time:10 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "delay:a passenger's dog",
+          "b": "time:8 a.m.",
+          "k": 4,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "cargo:a church organ",
+          "b": "skipper:Fearghas"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "skipper:Senga",
+          "b": "cargo:a consignment of bees"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "time": [
+      "8 a.m.",
+      "9 a.m.",
+      "10 a.m.",
+      "11 a.m.",
+      "noon"
+    ],
+    "skipper": [
+      "Senga",
+      "Eilidh",
+      "Calla",
+      "Murdo",
+      "Fearghas"
+    ],
+    "cargo": [
+      "a church organ",
+      "a film crew and no permits",
+      "nineteen sheep",
+      "a consignment of bees",
+      "a refrigerated van"
+    ],
+    "delay": [
+      "a fouled propeller",
+      "a missing deckhand",
+      "fog",
+      "a slipway repair",
+      "a passenger's dog"
+    ]
+  },
+  "stats": {
+    "atoms": 11,
+    "numbered_clues": 8,
+    "kinds": {
+      "between": 3,
+      "link": 2,
+      "before": 2,
+      "not_link": 3,
+      "gap": 1
+    },
+    "positives": 2,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 35,
+    "tier_counts": {
+      "direct": 7,
+      "bijection": 16,
+      "order": 12
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}

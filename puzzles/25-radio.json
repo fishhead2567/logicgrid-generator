@@ -1,0 +1,228 @@
+{
+  "pid": "28c6e43e510b",
+  "title": "The Graveyard Shift at WPKX",
+  "theme": "radio",
+  "blurb": "Nobody at WPKX has met anyone on the overnight schedule, which is how the station likes it.",
+  "profile": "moderate",
+  "rating": 3,
+  "score": 5.355,
+  "seed": 2026172773411,
+  "spec": {
+    "difficulty": "moderate",
+    "seed": 2026172773411
+  },
+  "schema": {
+    "spine": "slot",
+    "entity_noun": "programme",
+    "entity_noun_plural": "programmes",
+    "categories": [
+      {
+        "name": "slot",
+        "label": "Running order",
+        "items": [
+          "slot one",
+          "slot two",
+          "slot three",
+          "slot four",
+          "slot five"
+        ],
+        "ordered": true,
+        "noun": "slot",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "slot"
+      },
+      {
+        "name": "host",
+        "label": "Host",
+        "items": [
+          "Rusty Lamarr",
+          "Dustin Crowe",
+          "Bea Okonjo",
+          "Arlo Finch",
+          "Maribel Sosa"
+        ],
+        "ordered": false,
+        "noun": "host"
+      },
+      {
+        "name": "genre",
+        "label": "Format",
+        "items": [
+          "lost surf rock",
+          "obscure jazz",
+          "forgotten soul",
+          "radio plays",
+          "church organ recordings"
+        ],
+        "ordered": false,
+        "noun": "format"
+      },
+      {
+        "name": "sponsor",
+        "label": "Sponsor",
+        "items": [
+          "a discount dentist",
+          "a mattress warehouse",
+          "a bail bondsman",
+          "a psychic hotline",
+          "a taxidermist"
+        ],
+        "ordered": false,
+        "noun": "sponsor"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "sponsor:a taxidermist",
+          "b": "host:Rusty Lamarr",
+          "c": "slot:slot five"
+        },
+        {
+          "kind": "distinct",
+          "members": [
+            "genre:church organ recordings",
+            "host:Bea Okonjo",
+            "sponsor:a taxidermist"
+          ]
+        },
+        {
+          "kind": "link",
+          "a": "genre:church organ recordings",
+          "b": "slot:slot two"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "genre:radio plays",
+          "b": "host:Bea Okonjo"
+        },
+        {
+          "kind": "distinct",
+          "members": [
+            "genre:radio plays",
+            "host:Maribel Sosa",
+            "sponsor:a bail bondsman"
+          ]
+        },
+        {
+          "kind": "before",
+          "a": "genre:obscure jazz",
+          "b": "sponsor:a bail bondsman"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "host:Rusty Lamarr",
+          "b": "slot:slot two"
+        },
+        {
+          "kind": "not_link",
+          "a": "slot:slot two",
+          "b": "sponsor:a discount dentist"
+        },
+        {
+          "kind": "not_link",
+          "a": "host:Dustin Crowe",
+          "b": "slot:slot two"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "genre:forgotten soul",
+          "b": "slot:slot five"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "sponsor:a psychic hotline",
+          "b": "host:Arlo Finch"
+        },
+        {
+          "kind": "adjacent",
+          "a": "slot:slot four",
+          "b": "sponsor:a psychic hotline"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "slot": [
+      "slot one",
+      "slot two",
+      "slot three",
+      "slot four",
+      "slot five"
+    ],
+    "host": [
+      "Rusty Lamarr",
+      "Maribel Sosa",
+      "Bea Okonjo",
+      "Arlo Finch",
+      "Dustin Crowe"
+    ],
+    "genre": [
+      "obscure jazz",
+      "church organ recordings",
+      "radio plays",
+      "forgotten soul",
+      "lost surf rock"
+    ],
+    "sponsor": [
+      "a discount dentist",
+      "a mattress warehouse",
+      "a psychic hotline",
+      "a taxidermist",
+      "a bail bondsman"
+    ]
+  },
+  "stats": {
+    "atoms": 12,
+    "numbered_clues": 5,
+    "kinds": {
+      "between": 1,
+      "distinct": 2,
+      "link": 2,
+      "before": 1,
+      "immediately_before": 3,
+      "not_link": 2,
+      "adjacent": 1
+    },
+    "positives": 2,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 42,
+    "tier_counts": {
+      "direct": 6,
+      "bijection": 27,
+      "order": 9
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}

@@ -1,0 +1,277 @@
+{
+  "pid": "813c08ef9486",
+  "title": "The Mudflat Regatta",
+  "theme": "regatta",
+  "blurb": "The Mudflat Regatta is rowed over a course that is only a course at high tide, which is where most of the trouble starts.",
+  "profile": "expert",
+  "rating": 7,
+  "score": 15.5754,
+  "seed": 2026172971386,
+  "spec": {
+    "difficulty": "expert",
+    "seed": 2026172971386
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "entry",
+    "entity_noun_plural": "entries",
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth",
+          "fifth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place"
+      },
+      {
+        "name": "crew",
+        "label": "Crew",
+        "items": [
+          "the Gasworks crew",
+          "the Seminary crew",
+          "the Brickworks crew",
+          "the Customs crew",
+          "the Tannery crew"
+        ],
+        "ordered": false,
+        "noun": "crew"
+      },
+      {
+        "name": "stroke",
+        "label": "Stroke",
+        "items": [
+          "Yusuf",
+          "Thomasina",
+          "Crispin",
+          "Ondine",
+          "Maeve"
+        ],
+        "ordered": false,
+        "noun": "stroke"
+      },
+      {
+        "name": "boat",
+        "label": "Boat",
+        "items": [
+          "the Peregrine",
+          "the Mudlark",
+          "the Last Resort",
+          "the Gilded Eel",
+          "the Obstinate"
+        ],
+        "ordered": false,
+        "noun": "boat"
+      },
+      {
+        "name": "colours",
+        "label": "Colours",
+        "items": [
+          "mustard and black",
+          "bottle green",
+          "lilac and bronze",
+          "navy with a white band",
+          "scarlet"
+        ],
+        "ordered": false,
+        "noun": "colours"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "stroke:Crispin",
+          "b": "boat:the Obstinate"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "stroke:Ondine",
+          "b": "crew:the Tannery crew"
+        },
+        {
+          "kind": "between",
+          "a": "colours:navy with a white band",
+          "b": "boat:the Obstinate",
+          "c": "stroke:Ondine"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "colours:lilac and bronze",
+          "b": "boat:the Peregrine"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "link",
+              "a": "colours:bottle green",
+              "b": "crew:the Seminary crew"
+            },
+            {
+              "kind": "link",
+              "a": "crew:the Brickworks crew",
+              "b": "stroke:Thomasina"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "colours:bottle green",
+          "b": "crew:the Customs crew"
+        },
+        {
+          "kind": "between",
+          "a": "boat:the Gilded Eel",
+          "b": "colours:mustard and black",
+          "c": "crew:the Customs crew"
+        },
+        {
+          "kind": "distinct",
+          "members": [
+            "colours:bottle green",
+            "crew:the Customs crew",
+            "stroke:Maeve"
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "distinct",
+          "members": [
+            "colours:lilac and bronze",
+            "crew:the Tannery crew",
+            "stroke:Maeve"
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "colours:mustard and black",
+          "b": "boat:the Mudlark"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "crew:the Gasworks crew",
+          "b": "stroke:Thomasina",
+          "same": false
+        },
+        {
+          "kind": "immediately_before",
+          "a": "colours:scarlet",
+          "b": "crew:the Gasworks crew"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth",
+      "fifth"
+    ],
+    "crew": [
+      "the Brickworks crew",
+      "the Tannery crew",
+      "the Gasworks crew",
+      "the Customs crew",
+      "the Seminary crew"
+    ],
+    "stroke": [
+      "Ondine",
+      "Crispin",
+      "Maeve",
+      "Thomasina",
+      "Yusuf"
+    ],
+    "boat": [
+      "the Last Resort",
+      "the Mudlark",
+      "the Gilded Eel",
+      "the Obstinate",
+      "the Peregrine"
+    ],
+    "colours": [
+      "mustard and black",
+      "scarlet",
+      "navy with a white band",
+      "lilac and bronze",
+      "bottle green"
+    ]
+  },
+  "stats": {
+    "atoms": 12,
+    "numbered_clues": 8,
+    "kinds": {
+      "before": 2,
+      "immediately_before": 3,
+      "between": 2,
+      "or": 1,
+      "adjacent": 1,
+      "distinct": 2,
+      "parity": 1
+    },
+    "positives": 0,
+    "compounds": 1
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 6,
+    "max_technique": "trial",
+    "steps": 59,
+    "tier_counts": {
+      "bijection": 25,
+      "order": 27,
+      "disjunction": 3,
+      "subset": 2,
+      "trial": 2
+    },
+    "trial_eliminations": 2,
+    "unknown_cells": 20
+  }
+}

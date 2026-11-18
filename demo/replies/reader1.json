@@ -1,0 +1,187 @@
+{
+  "subject_count": 5,
+  "categories": [
+    {
+      "label": "placing",
+      "members": ["first", "second", "third", "fourth", "fifth"],
+      "ordered": true
+    },
+    {
+      "label": "crew",
+      "members": ["Brickworks crew", "Seminary crew", "Gasworks crew", "Creamery crew", "Customs crew"],
+      "ordered": false
+    },
+    {
+      "label": "boat",
+      "members": ["Mudlark", "Wet Hen", "Last Resort", "Dauntless", "Obstinate"],
+      "ordered": false
+    },
+    {
+      "label": "colours",
+      "members": ["cherry and grey", "mustard and black", "navy with a white band", "bottle green", "lilac and bronze"],
+      "ordered": false
+    }
+  ],
+  "clues": [
+    {
+      "number": 1,
+      "facts": [
+        {
+          "kind": "adjacent",
+          "args": ["Last Resort", "second"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        },
+        {
+          "kind": "link",
+          "args": ["Dauntless", "second"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        },
+        {
+          "kind": "between",
+          "args": ["second", "navy with a white band", "Creamery crew"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "facts": [
+        {
+          "kind": "between",
+          "args": ["Wet Hen", "mustard and black", "fifth"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        },
+        {
+          "kind": "before",
+          "args": ["navy with a white band", "fifth"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "facts": [
+        {
+          "kind": "or",
+          "args": [],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": [
+            {
+              "kind": "adjacent",
+              "args": ["lilac and bronze", "fifth"],
+              "k": 0,
+              "rel": "none",
+              "op": "none",
+              "same": false
+            },
+            {
+              "kind": "adjacent",
+              "args": ["Brickworks crew", "fifth"],
+              "k": 0,
+              "rel": "none",
+              "op": "none",
+              "same": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "facts": [
+        {
+          "kind": "adjacent",
+          "args": ["Customs crew", "fourth"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "facts": [
+        {
+          "kind": "distinct",
+          "args": ["mustard and black", "Gasworks crew", "first"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        },
+        {
+          "kind": "not_link",
+          "args": ["Last Resort", "Gasworks crew"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        },
+        {
+          "kind": "not_link",
+          "args": ["Last Resort", "Customs crew"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "facts": [
+        {
+          "kind": "before",
+          "args": ["bottle green", "Last Resort"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "facts": [
+        {
+          "kind": "immediately_before",
+          "args": ["Seminary crew", "Mudlark"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        }
+      ]
+    }
+  ]
+}

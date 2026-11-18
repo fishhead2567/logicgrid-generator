@@ -1,0 +1,188 @@
+{
+  "pid": "9996ef4afd32",
+  "title": "The Mudflat Regatta",
+  "theme": "regatta",
+  "blurb": "The Mudflat Regatta is rowed over a course that is only a course at high tide, which is where most of the trouble starts.",
+  "profile": "easy",
+  "rating": 3,
+  "score": 4.62,
+  "seed": 2026172919517,
+  "spec": {
+    "difficulty": "easy",
+    "seed": 2026172919517
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "entry",
+    "entity_noun_plural": "entries",
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth",
+          "fifth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place"
+      },
+      {
+        "name": "stroke",
+        "label": "Stroke",
+        "items": [
+          "Everard",
+          "Bartholomew",
+          "Yusuf",
+          "Ondine",
+          "Maeve"
+        ],
+        "ordered": false,
+        "noun": "stroke"
+      },
+      {
+        "name": "boat",
+        "label": "Boat",
+        "items": [
+          "the Gilded Eel",
+          "the Wet Hen",
+          "the Mudlark",
+          "the Last Resort",
+          "the Peregrine"
+        ],
+        "ordered": false,
+        "noun": "boat"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "place:fifth",
+          "b": "stroke:Ondine"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "boat:the Mudlark",
+          "b": "place:second"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "place:first",
+          "b": "stroke:Everard"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "place:second",
+          "b": "boat:the Wet Hen"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "boat:the Last Resort",
+          "b": "place:third"
+        },
+        {
+          "kind": "not_link",
+          "a": "boat:the Last Resort",
+          "b": "stroke:Maeve"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "stroke:Bartholomew",
+          "b": "place:fourth"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "place:fourth",
+          "b": "boat:the Gilded Eel"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth",
+      "fifth"
+    ],
+    "stroke": [
+      "Maeve",
+      "Everard",
+      "Bartholomew",
+      "Yusuf",
+      "Ondine"
+    ],
+    "boat": [
+      "the Peregrine",
+      "the Mudlark",
+      "the Wet Hen",
+      "the Last Resort",
+      "the Gilded Eel"
+    ]
+  },
+  "stats": {
+    "atoms": 8,
+    "numbered_clues": 7,
+    "kinds": {
+      "link": 2,
+      "immediately_before": 4,
+      "adjacent": 1,
+      "not_link": 1
+    },
+    "positives": 2,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 20,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 12,
+      "order": 5
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 10
+  }
+}

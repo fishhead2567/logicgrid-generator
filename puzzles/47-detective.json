@@ -1,0 +1,354 @@
+{
+  "pid": "1db7affd0d05",
+  "title": "The Case of the Missing Trowel",
+  "theme": "detective",
+  "blurb": "The Marchmont Mutual Improvement Society has taken on the case of the missing trowel with a seriousness it has never shown a book.",
+  "profile": "expert",
+  "rating": 7,
+  "score": 16.5412,
+  "seed": 2026172947629,
+  "spec": {
+    "difficulty": "expert",
+    "seed": 2026172947629
+  },
+  "schema": {
+    "spine": "time",
+    "entity_noun": "member",
+    "entity_noun_plural": "members",
+    "categories": [
+      {
+        "name": "time",
+        "label": "Start time",
+        "items": [
+          "8 a.m.",
+          "9 a.m.",
+          "10 a.m.",
+          "11 a.m.",
+          "noon",
+          "1 p.m."
+        ],
+        "ordered": true,
+        "noun": "start time",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "hour"
+      },
+      {
+        "name": "sleuth",
+        "label": "Investigator",
+        "items": [
+          "Fergus",
+          "Ariadne",
+          "Hortensia",
+          "Immaculata",
+          "Ngozi",
+          "Barnabas"
+        ],
+        "ordered": false,
+        "noun": "investigator"
+      },
+      {
+        "name": "theory",
+        "label": "Theory",
+        "items": [
+          "a clerical error",
+          "an inside job",
+          "a jealous rival",
+          "a conspiracy of two",
+          "nothing happened at all",
+          "a magpie"
+        ],
+        "ordered": false,
+        "noun": "theory"
+      },
+      {
+        "name": "clue",
+        "label": "Clue produced",
+        "items": [
+          "a tyre mark",
+          "a torn receipt",
+          "a smell of creosote",
+          "an unexplained hole",
+          "a bootprint",
+          "a dropped glove"
+        ],
+        "ordered": false,
+        "noun": "clue"
+      },
+      {
+        "name": "alibi",
+        "label": "Alibi",
+        "items": [
+          "the dentist",
+          "watching the snooker",
+          "choir practice",
+          "a long bath",
+          "a locked greenhouse",
+          "no alibi whatsoever"
+        ],
+        "ordered": false,
+        "noun": "alibi"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "clue:a smell of creosote",
+          "b": "time:1 p.m."
+        },
+        {
+          "kind": "adjacent",
+          "a": "sleuth:Fergus",
+          "b": "time:1 p.m."
+        },
+        {
+          "kind": "adjacent",
+          "a": "clue:a smell of creosote",
+          "b": "sleuth:Ariadne"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "sleuth:Immaculata",
+          "b": "theory:a magpie"
+        },
+        {
+          "kind": "not_link",
+          "a": "alibi:a locked greenhouse",
+          "b": "sleuth:Immaculata"
+        },
+        {
+          "kind": "parity",
+          "a": "theory:a magpie",
+          "b": "time:9 a.m.",
+          "same": false
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "clue:an unexplained hole",
+          "b": "theory:a clerical error",
+          "c": "time:8 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "theory:a clerical error",
+          "b": "time:11 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "clue:a smell of creosote",
+              "b": "time:8 a.m."
+            },
+            {
+              "kind": "link",
+              "a": "alibi:no alibi whatsoever",
+              "b": "clue:a smell of creosote"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "alibi:a long bath",
+          "b": "sleuth:Fergus",
+          "c": "theory:nothing happened at all"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "alibi:the dentist",
+          "b": "sleuth:Fergus"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "clue:a dropped glove",
+          "b": "alibi:choir practice"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "immediately_before",
+              "a": "sleuth:Hortensia",
+              "b": "theory:a conspiracy of two"
+            },
+            {
+              "kind": "link",
+              "a": "clue:a torn receipt",
+              "b": "theory:a clerical error"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "clue:a bootprint",
+          "b": "sleuth:Immaculata"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "gap",
+              "a": "clue:a dropped glove",
+              "b": "theory:a jealous rival",
+              "k": 3,
+              "rel": "eq"
+            },
+            {
+              "kind": "link",
+              "a": "alibi:the dentist",
+              "b": "sleuth:Ngozi"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "alibi:watching the snooker",
+          "b": "theory:a magpie",
+          "same": true
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "clue:a tyre mark",
+          "b": "sleuth:Barnabas"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "time": [
+      "8 a.m.",
+      "9 a.m.",
+      "10 a.m.",
+      "11 a.m.",
+      "noon",
+      "1 p.m."
+    ],
+    "sleuth": [
+      "Ngozi",
+      "Barnabas",
+      "Hortensia",
+      "Immaculata",
+      "Fergus",
+      "Ariadne"
+    ],
+    "theory": [
+      "a jealous rival",
+      "nothing happened at all",
+      "a clerical error",
+      "a conspiracy of two",
+      "a magpie",
+      "an inside job"
+    ],
+    "clue": [
+      "a tyre mark",
+      "an unexplained hole",
+      "a bootprint",
+      "a dropped glove",
+      "a smell of creosote",
+      "a torn receipt"
+    ],
+    "alibi": [
+      "watching the snooker",
+      "a locked greenhouse",
+      "a long bath",
+      "the dentist",
+      "no alibi whatsoever",
+      "choir practice"
+    ]
+  },
+  "stats": {
+    "atoms": 17,
+    "numbered_clues": 13,
+    "kinds": {
+      "immediately_before": 2,
+      "adjacent": 5,
+      "not_link": 1,
+      "parity": 2,
+      "between": 2,
+      "or": 3,
+      "before": 2
+    },
+    "positives": 0,
+    "compounds": 3
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 6,
+    "max_technique": "trial",
+    "steps": 73,
+    "tier_counts": {
+      "direct": 1,
+      "bijection": 41,
+      "order": 23,
+      "disjunction": 5,
+      "trial": 3
+    },
+    "trial_eliminations": 3,
+    "unknown_cells": 24
+  }
+}

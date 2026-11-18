@@ -1,0 +1,362 @@
+{
+  "pid": "d2fc01264968",
+  "title": "The Cheesemongers' Standoff",
+  "theme": "cheese",
+  "blurb": "A case of opinionated cheeses, their equally opinionated makers, and one display that has begun to smell like a political scandal.",
+  "profile": "hard",
+  "rating": 6,
+  "score": 11.0347,
+  "seed": 2026172828844,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026172828844
+  },
+  "schema": {
+    "spine": "price",
+    "entity_noun": "wheel",
+    "entity_noun_plural": "wheels",
+    "categories": [
+      {
+        "name": "price",
+        "label": "Price",
+        "items": [
+          "$3",
+          "$5",
+          "$7",
+          "$9",
+          "$11"
+        ],
+        "ordered": true,
+        "values": [
+          3,
+          5,
+          7,
+          9,
+          11
+        ],
+        "unit": "$",
+        "noun": "price",
+        "cmp_less": "cheaper",
+        "cmp_more": "dearer",
+        "step_noun": "price step"
+      },
+      {
+        "name": "cheese",
+        "label": "Cheese",
+        "items": [
+          "Old Thrashing",
+          "Fenland Blue",
+          "Oakmoss",
+          "Bellringer",
+          "Glebe Farmhouse"
+        ],
+        "ordered": false,
+        "noun": "cheese"
+      },
+      {
+        "name": "maker",
+        "label": "Maker",
+        "items": [
+          "Teodoro",
+          "Ambrose",
+          "Lachlan",
+          "Olubunmi",
+          "Hepzibah"
+        ],
+        "ordered": false,
+        "noun": "maker"
+      },
+      {
+        "name": "rind",
+        "label": "Rind",
+        "items": [
+          "a cloth-bound rind",
+          "a cider-washed rind",
+          "a washed rind",
+          "a waxed rind",
+          "a nettle-wrapped rind"
+        ],
+        "ordered": false,
+        "noun": "rind"
+      },
+      {
+        "name": "age",
+        "label": "Aged for",
+        "items": [
+          "two months",
+          "five months",
+          "thirty months",
+          "two years",
+          "three weeks"
+        ],
+        "ordered": false,
+        "noun": "ageing"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "cheese:Bellringer",
+          "b": "rind:a washed rind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "cheese:Fenland Blue",
+          "b": "price:$9"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "cheese:Old Thrashing",
+          "b": "age:five months",
+          "c": "price:$11"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "price:$9",
+          "b": "rind:a cider-washed rind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "cheese:Bellringer",
+              "b": "price:$7"
+            },
+            {
+              "kind": "before",
+              "a": "rind:a nettle-wrapped rind",
+              "b": "cheese:Glebe Farmhouse"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "distinct",
+          "members": [
+            "age:two months",
+            "price:$7",
+            "rind:a waxed rind"
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "age:thirty months",
+          "b": "price:$3"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "immediately_before",
+            "a": "price:$5",
+            "b": "age:five months"
+          },
+          "y": {
+            "kind": "link",
+            "a": "cheese:Fenland Blue",
+            "b": "rind:a cloth-bound rind"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "cheese:Bellringer",
+              "b": "rind:a cloth-bound rind"
+            },
+            {
+              "kind": "link",
+              "a": "cheese:Old Thrashing",
+              "b": "rind:a nettle-wrapped rind"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "age:three weeks",
+          "b": "rind:a cloth-bound rind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "age:two months",
+              "b": "maker:Teodoro"
+            },
+            {
+              "kind": "adjacent",
+              "a": "maker:Ambrose",
+              "b": "rind:a washed rind"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "cheese:Old Thrashing",
+          "b": "maker:Ambrose"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "distinct",
+          "members": [
+            "cheese:Bellringer",
+            "maker:Olubunmi",
+            "rind:a nettle-wrapped rind"
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "rind:a washed rind",
+          "b": "cheese:Oakmoss"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "age:three weeks",
+          "b": "cheese:Oakmoss"
+        },
+        {
+          "kind": "between",
+          "a": "age:two years",
+          "b": "maker:Hepzibah",
+          "c": "rind:a washed rind"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "price": [
+      "$3",
+      "$5",
+      "$7",
+      "$9",
+      "$11"
+    ],
+    "cheese": [
+      "Bellringer",
+      "Oakmoss",
+      "Fenland Blue",
+      "Old Thrashing",
+      "Glebe Farmhouse"
+    ],
+    "maker": [
+      "Lachlan",
+      "Olubunmi",
+      "Ambrose",
+      "Teodoro",
+      "Hepzibah"
+    ],
+    "rind": [
+      "a washed rind",
+      "a cloth-bound rind",
+      "a nettle-wrapped rind",
+      "a waxed rind",
+      "a cider-washed rind"
+    ],
+    "age": [
+      "three weeks",
+      "thirty months",
+      "five months",
+      "two years",
+      "two months"
+    ]
+  },
+  "stats": {
+    "atoms": 16,
+    "numbered_clues": 14,
+    "kinds": {
+      "link": 1,
+      "adjacent": 3,
+      "between": 2,
+      "before": 2,
+      "or": 3,
+      "distinct": 2,
+      "not_both": 1,
+      "immediately_before": 2
+    },
+    "positives": 1,
+    "compounds": 4
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 60,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 28,
+      "order": 20,
+      "disjunction": 9
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

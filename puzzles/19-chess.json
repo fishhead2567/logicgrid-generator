@@ -1,0 +1,212 @@
+{
+  "pid": "699e7962de70",
+  "title": "The Ravelston Chess Club Ladder",
+  "theme": "chess",
+  "blurb": "The Ravelston Chess Club ladder is recalculated monthly and disputed continuously.",
+  "profile": "moderate",
+  "rating": 3,
+  "score": 5.355,
+  "seed": 2026172725897,
+  "spec": {
+    "difficulty": "moderate",
+    "seed": 2026172725897
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "entry",
+    "entity_noun_plural": "entries",
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth",
+          "fifth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place"
+      },
+      {
+        "name": "player",
+        "label": "Player",
+        "items": [
+          "Hieronyma",
+          "Olumide",
+          "Yevgenia",
+          "Birgitta",
+          "Adaeze"
+        ],
+        "ordered": false,
+        "noun": "player"
+      },
+      {
+        "name": "clock",
+        "label": "Clock",
+        "items": [
+          "a tournament DGT clock",
+          "a chipped BHB clock",
+          "a borrowed digital clock",
+          "a hotel alarm clock",
+          "a phone app"
+        ],
+        "ordered": false,
+        "noun": "clock"
+      },
+      {
+        "name": "habit",
+        "label": "Table habit",
+        "items": [
+          "leaving between moves",
+          "removing their shoes",
+          "rearranging the captured pieces",
+          "eating boiled sweets",
+          "narrating in a whisper"
+        ],
+        "ordered": false,
+        "noun": "habit"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "habit:leaving between moves",
+          "b": "place:second"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "habit:narrating in a whisper",
+          "b": "place:fourth"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "distinct",
+          "members": [
+            "clock:a hotel alarm clock",
+            "habit:rearranging the captured pieces",
+            "player:Adaeze"
+          ]
+        },
+        {
+          "kind": "immediately_before",
+          "a": "habit:rearranging the captured pieces",
+          "b": "clock:a phone app"
+        },
+        {
+          "kind": "between",
+          "a": "player:Yevgenia",
+          "b": "habit:rearranging the captured pieces",
+          "c": "place:third"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "clock:a borrowed digital clock",
+          "b": "player:Birgitta",
+          "k": 4,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "clock:a tournament DGT clock",
+          "b": "player:Birgitta",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "habit:eating boiled sweets",
+          "b": "player:Olumide"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth",
+      "fifth"
+    ],
+    "player": [
+      "Birgitta",
+      "Yevgenia",
+      "Hieronyma",
+      "Olumide",
+      "Adaeze"
+    ],
+    "clock": [
+      "a chipped BHB clock",
+      "a phone app",
+      "a hotel alarm clock",
+      "a tournament DGT clock",
+      "a borrowed digital clock"
+    ],
+    "habit": [
+      "rearranging the captured pieces",
+      "leaving between moves",
+      "eating boiled sweets",
+      "narrating in a whisper",
+      "removing their shoes"
+    ]
+  },
+  "stats": {
+    "atoms": 8,
+    "numbered_clues": 6,
+    "kinds": {
+      "link": 2,
+      "distinct": 1,
+      "immediately_before": 2,
+      "between": 1,
+      "gap": 2
+    },
+    "positives": 2,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 35,
+    "tier_counts": {
+      "direct": 2,
+      "bijection": 21,
+      "order": 12
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}

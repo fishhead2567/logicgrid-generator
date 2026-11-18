@@ -1,0 +1,243 @@
+{
+  "pid": "5e39809fcbb6",
+  "title": "The Thistledown Balloon Ascent",
+  "theme": "balloon",
+  "blurb": "The Thistledown Ascent is less a race than a slow argument conducted at two thousand feet.",
+  "profile": "moderate",
+  "rating": 4,
+  "score": 5.515,
+  "seed": 2026172781330,
+  "spec": {
+    "difficulty": "moderate",
+    "seed": 2026172781330
+  },
+  "schema": {
+    "spine": "time",
+    "entity_noun": "balloon",
+    "entity_noun_plural": "balloons",
+    "categories": [
+      {
+        "name": "time",
+        "label": "Start time",
+        "items": [
+          "8 a.m.",
+          "9 a.m.",
+          "10 a.m.",
+          "11 a.m.",
+          "noon"
+        ],
+        "ordered": true,
+        "noun": "start time",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "hour"
+      },
+      {
+        "name": "pilot",
+        "label": "Pilot",
+        "items": [
+          "Rosalind",
+          "Grover",
+          "Anneliese",
+          "Montague",
+          "Horatio"
+        ],
+        "ordered": false,
+        "noun": "pilot"
+      },
+      {
+        "name": "envelope",
+        "label": "Envelope",
+        "items": [
+          "the saffron envelope",
+          "the moss-green envelope",
+          "the silver envelope",
+          "the patchwork envelope",
+          "the oxblood envelope"
+        ],
+        "ordered": false,
+        "noun": "envelope"
+      },
+      {
+        "name": "ballast",
+        "label": "Ballast",
+        "items": [
+          "bottled water",
+          "pea gravel",
+          "sandbags",
+          "dried beans",
+          "iron filings"
+        ],
+        "ordered": false,
+        "noun": "ballast"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "ballast:bottled water",
+          "b": "envelope:the patchwork envelope"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "envelope:the saffron envelope",
+          "b": "time:9 a.m."
+        },
+        {
+          "kind": "distinct",
+          "members": [
+            "ballast:dried beans",
+            "pilot:Anneliese",
+            "time:9 a.m."
+          ]
+        },
+        {
+          "kind": "adjacent",
+          "a": "envelope:the saffron envelope",
+          "b": "pilot:Montague"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "time:10 a.m.",
+          "b": "ballast:pea gravel"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "envelope:the moss-green envelope",
+          "b": "time:11 a.m."
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "pilot:Anneliese",
+          "b": "time:9 a.m.",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "distinct",
+          "members": [
+            "ballast:sandbags",
+            "pilot:Horatio",
+            "time:9 a.m."
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "time:8 a.m.",
+          "b": "pilot:Rosalind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "pilot:Rosalind",
+          "b": "ballast:iron filings"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "envelope:the silver envelope",
+          "b": "pilot:Horatio"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "time": [
+      "8 a.m.",
+      "9 a.m.",
+      "10 a.m.",
+      "11 a.m.",
+      "noon"
+    ],
+    "pilot": [
+      "Grover",
+      "Montague",
+      "Horatio",
+      "Rosalind",
+      "Anneliese"
+    ],
+    "envelope": [
+      "the saffron envelope",
+      "the patchwork envelope",
+      "the moss-green envelope",
+      "the silver envelope",
+      "the oxblood envelope"
+    ],
+    "ballast": [
+      "sandbags",
+      "bottled water",
+      "dried beans",
+      "pea gravel",
+      "iron filings"
+    ]
+  },
+  "stats": {
+    "atoms": 11,
+    "numbered_clues": 9,
+    "kinds": {
+      "link": 1,
+      "before": 3,
+      "distinct": 2,
+      "adjacent": 2,
+      "immediately_before": 2,
+      "gap": 1
+    },
+    "positives": 1,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 41,
+    "tier_counts": {
+      "direct": 1,
+      "bijection": 26,
+      "order": 14
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}
