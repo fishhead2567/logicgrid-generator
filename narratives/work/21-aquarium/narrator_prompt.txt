@@ -26,10 +26,21 @@ backstory is wrong.
 
 CLUE REQUIREMENTS
 
-  - Produce exactly as many numbered clues as you are given, in the same order.
-  - Each numbered clue expresses exactly the facts listed under it -- all of
-    them, and nothing more. Where a clue bundles several facts, keep them
-    together in one numbered clue, as printed puzzles do.
+You are given a flat list of numbered FACTS. That numbering is bookkeeping, not
+a template: what has to survive is the set of facts, not its arrangement.
+
+  - Every fact must appear somewhere in your clue list. Losing one makes the
+    puzzle unsolvable, and is the worst thing you can do.
+  - Add nothing. A fact a solver could read out of your prose that is not in
+    the list is just as damaging as a missing one.
+  - GROUP THEM AS A MAGAZINE WOULD. Combine facts that share a subject into one
+    numbered clue, and order the clues however reads best. Printed puzzles
+    routinely carry two or three facts under one number -- "Anne was married on
+    Monday, but not to Wally" is one clue holding two facts. Use that freedom;
+    a clue list that flows is the point of the exercise.
+  - Do not over-merge. Two or three facts to a clue reads well; six becomes a
+    paragraph the solver has to parse twice. Keep each numbered clue to about
+    one or two sentences.
   - Use the member names exactly as spelled in the category lists. Do not
     shorten, pluralise, re-case, translate or nickname them. "Mrs Abernathy"
     does not become "Abernathy".
@@ -81,51 +92,43 @@ CATEGORIES (use these spellings verbatim):
 
 The ordered category is 'Running order'. Positional clues refer to it. Its 5 values are the only positions that exist.
 
-CLUES -- produce exactly 10 numbered clues:
+FACTS -- all 12 of these must appear. Group them into roughly 4 to 12 numbered clues, however reads best:
 
-  Clue 1:
-    FACT [link]: The keeper who tends the touch pool works slot five.
-      MEANS EXACTLY: The entity whose Running order is slot five is the SAME entity as the one whose Tank is the touch pool.
+  FACT 1 [link]: The keeper who tends the touch pool works slot five.
+    MEANS EXACTLY: The entity whose Running order is slot five is the SAME entity as the one whose Tank is the touch pool.
 
-  Clue 2:
-    FACT [not_link]: The keeper who feeds nori sheets does not work slot three.
-      MEANS EXACTLY: The entity whose Feed is nori sheets is NOT the same entity as the one whose Running order is slot three.
+  FACT 2 [not_link]: The keeper who feeds nori sheets does not work slot three.
+    MEANS EXACTLY: The entity whose Feed is nori sheets is NOT the same entity as the one whose Running order is slot three.
 
-  Clue 3:
-    FACT [adjacent]: The keeper who feeds chopped squid and slot one are exactly one slot apart in slot order, in one direction or the other.
-      MEANS EXACTLY: chopped squid and slot one are exactly one slot apart in slot order. Which one comes first is NOT specified -- keep it symmetric and do not imply a direction.
+  FACT 3 [adjacent]: The keeper who feeds chopped squid and slot one are exactly one slot apart in slot order, in one direction or the other.
+    MEANS EXACTLY: chopped squid and slot one are exactly one slot apart in slot order. Which one comes first is NOT specified -- keep it symmetric and do not imply a direction.
 
-  Clue 4:
-    FACT [not_link]: The keeper who feeds mussel meat does not work slot five.
-      MEANS EXACTLY: The entity whose Feed is mussel meat is NOT the same entity as the one whose Running order is slot five.
+  FACT 4 [not_link]: The keeper who feeds mussel meat does not work slot five.
+    MEANS EXACTLY: The entity whose Feed is mussel meat is NOT the same entity as the one whose Running order is slot five.
 
-  Clue 5:
-    FACT [immediately_before]: Slot one is exactly one slot earlier than Fitzwilliam, with no slot in between.
-      MEANS EXACTLY: Fitzwilliam is exactly ONE slot after slot one; they are consecutive slots in that specific direction (slot one first). Direction matters -- do not reverse it.
+  FACT 5 [immediately_before]: Slot one is exactly one slot earlier than Fitzwilliam, with no slot in between.
+    MEANS EXACTLY: Fitzwilliam is exactly ONE slot after slot one; they are consecutive slots in that specific direction (slot one first). Direction matters -- do not reverse it.
 
-  Clue 6:
-    FACT [before]: The keeper who feeds live mysis is earlier than the keeper who tends the deep reef in slot order.
-      MEANS EXACTLY: live mysis is STRICTLY earlier than the deep reef in slot order. The gap may be any size -- do NOT imply they are adjacent or immediately consecutive.
-    FACT [before]: The keeper who tends the deep reef is earlier than Marisol in slot order.
-      MEANS EXACTLY: the deep reef is STRICTLY earlier than Marisol in slot order. The gap may be any size -- do NOT imply they are adjacent or immediately consecutive.
+  FACT 6 [before]: The keeper who feeds live mysis is earlier than the keeper who tends the deep reef in slot order.
+    MEANS EXACTLY: live mysis is STRICTLY earlier than the deep reef in slot order. The gap may be any size -- do NOT imply they are adjacent or immediately consecutive.
 
-  Clue 7:
-    FACT [before]: The keeper who feeds chopped squid is earlier than the keeper who tends the kelp tank in slot order.
-      MEANS EXACTLY: chopped squid is STRICTLY earlier than the kelp tank in slot order. The gap may be any size -- do NOT imply they are adjacent or immediately consecutive.
+  FACT 7 [before]: The keeper who tends the deep reef is earlier than Marisol in slot order.
+    MEANS EXACTLY: the deep reef is STRICTLY earlier than Marisol in slot order. The gap may be any size -- do NOT imply they are adjacent or immediately consecutive.
 
-  Clue 8:
-    FACT [before]: The keeper who feeds live mysis is earlier than Chiamaka in slot order.
-      MEANS EXACTLY: live mysis is STRICTLY earlier than Chiamaka in slot order. The gap may be any size -- do NOT imply they are adjacent or immediately consecutive.
+  FACT 8 [before]: The keeper who feeds chopped squid is earlier than the keeper who tends the kelp tank in slot order.
+    MEANS EXACTLY: chopped squid is STRICTLY earlier than the kelp tank in slot order. The gap may be any size -- do NOT imply they are adjacent or immediately consecutive.
 
-  Clue 9:
-    FACT [adjacent]: The keeper who feeds mussel meat and Rhiannon are exactly one slot apart in slot order, in one direction or the other.
-      MEANS EXACTLY: mussel meat and Rhiannon are exactly one slot apart in slot order. Which one comes first is NOT specified -- keep it symmetric and do not imply a direction.
-    FACT [before]: Chiamaka is earlier than the keeper who feeds mussel meat in slot order.
-      MEANS EXACTLY: Chiamaka is STRICTLY earlier than mussel meat in slot order. The gap may be any size -- do NOT imply they are adjacent or immediately consecutive.
+  FACT 9 [before]: The keeper who feeds live mysis is earlier than Chiamaka in slot order.
+    MEANS EXACTLY: live mysis is STRICTLY earlier than Chiamaka in slot order. The gap may be any size -- do NOT imply they are adjacent or immediately consecutive.
 
-  Clue 10:
-    FACT [adjacent]: The keeper who feeds mussel meat and the keeper who tends the jellyfish column are exactly one slot apart in slot order, in one direction or the other.
-      MEANS EXACTLY: mussel meat and the jellyfish column are exactly one slot apart in slot order. Which one comes first is NOT specified -- keep it symmetric and do not imply a direction.
+  FACT 10 [adjacent]: The keeper who feeds mussel meat and Rhiannon are exactly one slot apart in slot order, in one direction or the other.
+    MEANS EXACTLY: mussel meat and Rhiannon are exactly one slot apart in slot order. Which one comes first is NOT specified -- keep it symmetric and do not imply a direction.
+
+  FACT 11 [before]: Chiamaka is earlier than the keeper who feeds mussel meat in slot order.
+    MEANS EXACTLY: Chiamaka is STRICTLY earlier than mussel meat in slot order. The gap may be any size -- do NOT imply they are adjacent or immediately consecutive.
+
+  FACT 12 [adjacent]: The keeper who feeds mussel meat and the keeper who tends the jellyfish column are exactly one slot apart in slot order, in one direction or the other.
+    MEANS EXACTLY: mussel meat and the jellyfish column are exactly one slot apart in slot order. Which one comes first is NOT specified -- keep it symmetric and do not imply a direction.
 
 ======================================================================
 Reply with ONLY a JSON object matching this schema, no prose and no code fence:

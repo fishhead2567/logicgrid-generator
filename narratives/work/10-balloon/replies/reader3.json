@@ -1,0 +1,67 @@
+{
+  "subject_count": 4,
+  "categories": [
+    {
+      "label": "start time",
+      "members": ["8am", "9am", "10am", "11am"],
+      "ordered": true
+    },
+    {
+      "label": "pilot",
+      "members": ["Anneliese", "Montague", "Rosalind", "Delphine"],
+      "ordered": false
+    },
+    {
+      "label": "landing place",
+      "members": ["reservoir bank", "golf course bunker", "railway siding", "caravan park"],
+      "ordered": false
+    },
+    {
+      "label": "ballast",
+      "members": ["dried beans", "sandbags", "iron filings", "lead shot"],
+      "ordered": false
+    }
+  ],
+  "clues": [
+    {
+      "number": 1,
+      "facts": [
+        {"kind": "link", "args": ["golf course bunker", "10am"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
+        {"kind": "not_link", "args": ["golf course bunker", "Anneliese"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 2,
+      "facts": [
+        {"kind": "before", "args": ["dried beans", "golf course bunker"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
+        {"kind": "not_link", "args": ["dried beans", "railway siding"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 3,
+      "facts": [
+        {"kind": "link", "args": ["Montague", "sandbags"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 4,
+      "facts": [
+        {"kind": "before", "args": ["9am", "reservoir bank"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 5,
+      "facts": [
+        {"kind": "not_link", "args": ["caravan park", "9am"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
+        {"kind": "not_link", "args": ["caravan park", "Anneliese"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 6,
+      "facts": [
+        {"kind": "before", "args": ["10am", "Delphine"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
+        {"kind": "not_link", "args": ["Delphine", "iron filings"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+      ]
+    }
+  ]
+}

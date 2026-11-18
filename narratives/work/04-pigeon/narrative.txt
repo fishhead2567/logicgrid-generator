@@ -1,10 +1,9 @@
 Andy's Swiftest Birds
 
-Andy will tell anyone who lingers by his loft that breeding a racing pigeon is a matter of balancing stubbornness against speed, and he has four birds to prove it. The pigeons are named Alabaster, Nutmeg, Hieronymus and Cadwallader. Each one is entered at a different race distance, and the four distances, listed here from shorter to longer, are 200 miles, 300 miles, 400 miles and 500 miles. Each bird also descends from a different strain: a Delbar, a Janssen, a Stichelbaut and a Sion. Within each of these three lists, every entry belongs to a different pigeon, so each name, each distance and each strain is used exactly once.
+Andy keeps four racing pigeons, and he will happily tell anyone who stands still long enough that no two of them are alike in temper or in stride. Each bird is entered at its own race distance, and the four distances, listed from shorter to longer, are 200 miles, 300 miles, 400 miles, and 500 miles. The birds answer to the names Alabaster, Nutmeg, Hieronymus, and Cadwallader, and each one descends from a different bloodline: a Delbar, a Janssen, a Stichelbaut, and a Sion. Every name, every distance, and every bloodline belongs to exactly one of the four pigeons, so each is used once and once only. From the clues below, work out which bird flies which distance and which bloodline it comes from.
 
 Clues:
-1. Cadwallader flies 200 miles.
-2. Alabaster descends from a Sion and flies 300 miles.
-3. Hieronymus descends from a Janssen.
-4. Nutmeg does not fly 500 miles.
-5. The pigeon that descends from a Delbar does not fly 400 miles.
+1. The pigeon that descends from a Sion and the bird entered at 200 miles are entered at distances exactly one hundred miles apart, in one direction or the other.
+2. Cadwallader flies 200 miles, and the pigeon that descends from a Delbar flies 200 miles as well.
+3. The pigeon that descends from a Stichelbaut flies 400 miles.
+4. Alabaster descends from a Sion, and Nutmeg is not the bird entered at 500 miles.

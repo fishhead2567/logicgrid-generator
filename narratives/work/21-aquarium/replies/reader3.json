@@ -2,23 +2,23 @@
   "subject_count": 5,
   "categories": [
     {
-      "label": "Running order",
-      "members": ["slot one", "slot two", "slot three", "slot four", "slot five"],
-      "ordered": true
-    },
-    {
-      "label": "Keepers",
+      "label": "keeper",
       "members": ["Oskar", "Marisol", "Chiamaka", "Rhiannon", "Fitzwilliam"],
       "ordered": false
     },
     {
-      "label": "Tank",
+      "label": "slot",
+      "members": ["slot one", "slot two", "slot three", "slot four", "slot five"],
+      "ordered": true
+    },
+    {
+      "label": "tank",
       "members": ["jellyfish column", "touch pool", "deep reef", "seahorse nursery", "kelp tank"],
       "ordered": false
     },
     {
-      "label": "Feed",
-      "members": ["live mysis", "a gelatine cube of unclear provenance", "mussel meat", "nori sheets", "chopped squid"],
+      "label": "feed",
+      "members": ["live mysis", "gelatine cube", "mussel meat", "nori sheets", "chopped squid"],
       "ordered": false
     }
   ],
@@ -26,63 +26,48 @@
     {
       "number": 1,
       "facts": [
-        {"kind": "link", "args": ["touch pool", "slot five"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+        {"kind": "link", "args": ["touch pool", "slot five"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
+        {"kind": "not_link", "args": ["mussel meat", "slot five"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
       ]
     },
     {
       "number": 2,
       "facts": [
-        {"kind": "not_link", "args": ["nori sheets", "slot three"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+        {"kind": "immediately_before", "args": ["slot one", "Fitzwilliam"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
       ]
     },
     {
       "number": 3,
       "facts": [
-        {"kind": "adjacent", "args": ["chopped squid", "slot one"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+        {"kind": "before", "args": ["live mysis", "deep reef"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
+        {"kind": "before", "args": ["live mysis", "Chiamaka"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
       ]
     },
     {
       "number": 4,
       "facts": [
-        {"kind": "not_link", "args": ["mussel meat", "slot five"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+        {"kind": "before", "args": ["deep reef", "Marisol"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
       ]
     },
     {
       "number": 5,
       "facts": [
-        {"kind": "immediately_before", "args": ["slot one", "Fitzwilliam"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+        {"kind": "adjacent", "args": ["chopped squid", "slot one"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
+        {"kind": "before", "args": ["chopped squid", "kelp tank"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
       ]
     },
     {
       "number": 6,
       "facts": [
-        {"kind": "before", "args": ["live mysis", "deep reef"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
-        {"kind": "before", "args": ["deep reef", "Marisol"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+        {"kind": "before", "args": ["Chiamaka", "mussel meat"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
+        {"kind": "adjacent", "args": ["mussel meat", "Rhiannon"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
+        {"kind": "adjacent", "args": ["mussel meat", "jellyfish column"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
       ]
     },
     {
       "number": 7,
       "facts": [
-        {"kind": "before", "args": ["chopped squid", "kelp tank"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
-      ]
-    },
-    {
-      "number": 8,
-      "facts": [
-        {"kind": "before", "args": ["live mysis", "Chiamaka"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
-      ]
-    },
-    {
-      "number": 9,
-      "facts": [
-        {"kind": "adjacent", "args": ["mussel meat", "Rhiannon"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
-        {"kind": "before", "args": ["Chiamaka", "mussel meat"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
-      ]
-    },
-    {
-      "number": 10,
-      "facts": [
-        {"kind": "adjacent", "args": ["mussel meat", "jellyfish column"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+        {"kind": "not_link", "args": ["nori sheets", "slot three"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
       ]
     }
   ]

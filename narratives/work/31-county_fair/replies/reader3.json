@@ -1,0 +1,101 @@
+{
+  "subject_count": 5,
+  "categories": [
+    {
+      "label": "baker",
+      "members": ["Odette", "Bramwell", "Marigold", "Winnie", "Thaddeus"],
+      "ordered": false
+    },
+    {
+      "label": "placing",
+      "members": ["first", "second", "third", "fourth", "fifth"],
+      "ordered": true
+    },
+    {
+      "label": "filling",
+      "members": ["pecan", "green tomato", "rhubarb", "mincemeat", "sour cherry"],
+      "ordered": false
+    },
+    {
+      "label": "home county",
+      "members": ["Quarry Hill", "Little Pell", "Fenwick", "Dunmore", "Hobbs Bend"],
+      "ordered": false
+    },
+    {
+      "label": "crust",
+      "members": ["cut-out star top", "fork-crimped edge", "fluted rim", "crumb topping", "lattice top"],
+      "ordered": false
+    }
+  ],
+  "clues": [
+    {
+      "number": 1,
+      "facts": [
+        {"kind": "before", "args": ["third", "fork-crimped edge"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 2,
+      "facts": [
+        {"kind": "immediately_before", "args": ["Thaddeus", "cut-out star top"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
+        {"kind": "gap", "args": ["Thaddeus", "mincemeat"], "k": 4, "rel": "eq", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 3,
+      "facts": [
+        {"kind": "before", "args": ["Thaddeus", "lattice top"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 4,
+      "facts": [
+        {"kind": "not_link", "args": ["cut-out star top", "green tomato"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 5,
+      "facts": [
+        {"kind": "gap", "args": ["Odette", "pecan"], "k": 4, "rel": "eq", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 6,
+      "facts": [
+        {"kind": "gap", "args": ["Bramwell", "crumb topping"], "k": 3, "rel": "eq", "op": "none", "same": false, "sub": []},
+        {"kind": "immediately_before", "args": ["Bramwell", "Dunmore"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 7,
+      "facts": [
+        {"kind": "immediately_before", "args": ["Fenwick", "sour cherry"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
+        {"kind": "immediately_before", "args": ["sour cherry", "Dunmore"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 8,
+      "facts": [
+        {"kind": "between", "args": ["Quarry Hill", "Winnie", "lattice top"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []},
+        {"kind": "adjacent", "args": ["Winnie", "rhubarb"], "k": 0, "rel": "none", "op": "none", "same": false, "sub": []}
+      ]
+    },
+    {
+      "number": 9,
+      "facts": [
+        {
+          "kind": "or",
+          "args": [],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": [
+            {"kind": "link", "args": ["Marigold", "Quarry Hill"], "k": 0, "rel": "none", "op": "none", "same": false},
+            {"kind": "parity", "args": ["Hobbs Bend", "sour cherry"], "k": 0, "rel": "none", "op": "none", "same": true}
+          ]
+        }
+      ]
+    }
+  ]
+}

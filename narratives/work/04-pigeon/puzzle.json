@@ -5,7 +5,7 @@
   "blurb": "Andy races pigeons, and each bird is bred for a different combination of stubbornness and speed.",
   "profile": "gentle",
   "rating": 1,
-  "score": 2.585,
+  "score": 3.67,
   "seed": 2026172607112,
   "spec": {
     "difficulty": "gentle",
@@ -73,6 +73,11 @@
       "style": "sentences",
       "atoms": [
         {
+          "kind": "adjacent",
+          "a": "breed:a Sion",
+          "b": "distance:200 miles"
+        },
+        {
           "kind": "link",
           "a": "bird:Cadwallader",
           "b": "distance:200 miles"
@@ -84,13 +89,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "bird:Alabaster",
-          "b": "breed:a Sion"
-        },
-        {
-          "kind": "link",
-          "a": "bird:Alabaster",
-          "b": "distance:300 miles"
+          "a": "breed:a Delbar",
+          "b": "distance:200 miles"
         }
       ]
     },
@@ -99,8 +99,18 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "bird:Hieronymus",
-          "b": "breed:a Janssen"
+          "a": "breed:a Stichelbaut",
+          "b": "distance:400 miles"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "bird:Alabaster",
+          "b": "breed:a Sion"
         }
       ]
     },
@@ -111,16 +121,6 @@
           "kind": "not_link",
           "a": "bird:Nutmeg",
           "b": "distance:500 miles"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "not_link",
-          "a": "breed:a Delbar",
-          "b": "distance:400 miles"
         }
       ]
     }
@@ -149,8 +149,9 @@
     "atoms": 6,
     "numbered_clues": 5,
     "kinds": {
+      "adjacent": 1,
       "link": 4,
-      "not_link": 2
+      "not_link": 1
     },
     "positives": 4,
     "compounds": 0

@@ -42,6 +42,7 @@ from .render import (
     answer_block,
     cell_label,
     clue_block,
+    narrative_block,
     progress_label,
     short_labels,
 )
@@ -108,11 +109,18 @@ class PlayApp(App[None]):
         ("n", "next_puzzle", "next"),
         ("p", "prev_puzzle", "prev"),
         ("s", "reveal", "reveal"),
+        ("t", "toggle_text", "narrative/canonical"),
         ("question_mark", "help", "help"),
         ("q", "quit", "quit"),
     ]
 
-    def __init__(self, library: Library, index: int = 0, assist: bool = False) -> None:
+    def __init__(
+        self,
+        library: Library,
+        index: int = 0,
+        assist: bool = False,
+        canonical: bool = False,
+    ) -> None:
         super().__init__()
         self.library = library
         self.index = index % len(library)
@@ -121,6 +129,11 @@ class PlayApp(App[None]):
         self.board = Board(self.puzzle, assist=assist)
         self._tabs: dict[str, tuple[str, str]] = {}
         self._announced = False
+        self.narration = None
+        #: Read the canonical clue text rather than the narrative. Worth having
+        #: even when a narrative exists: it is the exact wording the puzzle was
+        #: built from, so it settles any doubt about what a clue means.
+        self.show_canonical = canonical
 
     # -- layout ----------------------------------------------------------
     def compose(self) -> ComposeResult:
@@ -159,12 +172,18 @@ class PlayApp(App[None]):
         """
         self.puzzle = self.library.puzzle(self.index)
         self.board = Board(self.puzzle, assist=self.start_assist)
+        self.narration = self.library.narration(self.index)
         self._announced = False
         schema = self.board.schema
         self.title = self.puzzle.title
+        tag = ""
+        if self.narration is not None:
+            tag = " - narrative" if not self.show_canonical else " - canonical"
+            if self.narration.flagged:
+                tag += "*"
         self.sub_title = (
             f"{self.index + 1}/{len(self.library)} - {self.puzzle.profile} "
-            f"{self.puzzle.rating}/7 - {len(schema.categories)}x{schema.size}"
+            f"{self.puzzle.rating}/7 - {len(schema.categories)}x{schema.size}{tag}"
         )
 
         tabs = self.query_one("#grids", TabbedContent)
@@ -198,9 +217,17 @@ class PlayApp(App[None]):
         if first is not None:
             tabs.active = first
 
-        self.query_one("#clues", Static).update(clue_block(self.puzzle, width=56))
+        self._refresh_text()
         self._refresh()
         self.call_after_refresh(self._focus_table)
+
+    def _refresh_text(self) -> None:
+        """Show the narrative where there is one, else the canonical clues."""
+        panel = self.query_one("#clues", Static)
+        if self.narration is not None and not self.show_canonical:
+            panel.update(narrative_block(self.narration, width=56))
+        else:
+            panel.update(clue_block(self.puzzle, width=56))
 
     def _focus_table(self) -> None:
         table = self._active_table()
@@ -440,6 +467,29 @@ class PlayApp(App[None]):
     def action_prev_grid(self) -> None:
         self._step_grid(-1)
 
+    def action_toggle_text(self) -> None:
+        if self.narration is None:
+            self._banner(
+                "no verified narrative for this puzzle -- showing the "
+                "canonical clues"
+            )
+            return
+        self.show_canonical = not self.show_canonical
+        self._refresh_text()
+        schema = self.board.schema
+        tag = " - canonical" if self.show_canonical else " - narrative"
+        if self.narration.flagged and not self.show_canonical:
+            tag += "*"
+        self.sub_title = (
+            f"{self.index + 1}/{len(self.library)} - {self.puzzle.profile} "
+            f"{self.puzzle.rating}/7 - {len(schema.categories)}x{schema.size}{tag}"
+        )
+        self._banner(
+            "showing the canonical clue text"
+            if self.show_canonical
+            else "showing the narrative"
+        )
+
     def action_help(self) -> None:
         self.push_screen(HelpScreen())
 
@@ -468,6 +518,15 @@ def build_parser() -> argparse.ArgumentParser:
     )
     ap.add_argument("--puzzle", help="start on this puzzle (number, name or substring)")
     ap.add_argument(
+        "--narratives",
+        help="folder of verified narratives (default: ./narratives beside the puzzles)",
+    )
+    ap.add_argument(
+        "--canonical",
+        action="store_true",
+        help="start on the canonical clue text even where a narrative exists",
+    )
+    ap.add_argument(
         "--assist",
         action="store_true",
         help="chain deductions automatically from the start",
@@ -479,7 +538,7 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     try:
-        library = Library.load(args.path)
+        library = Library.load(args.path, args.narratives)
         index = library.find(args.puzzle) if args.puzzle else 0
     except LibraryError as exc:
         print(f"error: {exc}", file=sys.stderr)
@@ -487,13 +546,21 @@ def main(argv: list[str] | None = None) -> int:
     if args.list:
         for i, path in enumerate(library.paths, start=1):
             puzzle = library.puzzle(i - 1)
+            narrated = "N" if library.narration(i - 1) is not None else " "
             print(
-                f"{i:>3}. {path.stem:<22} {puzzle.profile:<9} {puzzle.rating}/7  "
+                f"{i:>3}. {narrated} {path.stem:<22} {puzzle.profile:<9} "
+                f"{puzzle.rating}/7  "
                 f"{len(puzzle.schema.categories)}x{puzzle.schema.size}  "
                 f"{puzzle.title}"
             )
+        narrated = library.narrated_count()
+        if narrated:
+            print()
+            print(f"{narrated}/{len(library)} have a verified narrative (N)")
         return 0
-    PlayApp(library, index=index, assist=args.assist).run()
+    PlayApp(
+        library, index=index, assist=args.assist, canonical=args.canonical
+    ).run()
     return 0
 
 

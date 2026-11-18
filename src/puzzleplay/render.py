@@ -84,6 +84,31 @@ def clue_block(puzzle, width: int = 52) -> str:
     return "\n".join(out).rstrip()
 
 
+def narrative_block(narration, width: int = 52) -> str:
+    """The narrative version: an introduction and its numbered clues.
+
+    Logically identical to :func:`clue_block` -- the round-trip gate proved
+    independent readers recover the same puzzle from it -- but grouped and
+    worded the way a magazine would.
+    """
+    out: list[str] = []
+    if narration.title:
+        out += fill(narration.title.upper(), width=width).splitlines() + [""]
+    for para in narration.introduction.split("\n"):
+        if para.strip():
+            out += fill(para.strip(), width=width).splitlines()
+    out.append("")
+    for i, clue in enumerate(narration.clues, start=1):
+        out += fill(
+            clue.strip(),
+            width=width,
+            initial_indent=f"{i:>2}. ",
+            subsequent_indent="    ",
+        ).splitlines()
+        out.append("")
+    return "\n".join(out).rstrip()
+
+
 def answer_block(board: Board) -> str:
     """The answer sheet: one row per spine position, '?' where unplaced."""
     schema = board.schema
@@ -133,6 +158,7 @@ HELP = """\
                     r                      reset this puzzle
                     n / p                  next / previous puzzle
                     s                      reveal the solution
+                    t                      narrative / canonical clue text
                     ?                      this help
                     q                      quit
 

@@ -199,10 +199,33 @@ def test_narrator_reply_decodes(puzzle):
     assert "1. Odette was judged on Monday." in narrative.to_text()
 
 
-def test_wrong_clue_count_is_rejected(puzzle):
-    """A narrator that merges or splits clues must not pass silently."""
-    with pytest.raises(ValueError, match="3 clues, expected 4"):
-        parse_reply(puzzle, _narrator_reply(GOOD_CLUES[:3]))
+def test_merging_facts_into_fewer_clues_is_allowed(puzzle):
+    """The clue count is deliberately not pinned to the original.
+
+    The gate compares the fact set the readers recover, not its arrangement, so
+    the narrator may group facts into clues that flow. Forcing one clue per
+    fact is what made the prose read like a list.
+    """
+    merged = [
+        "Odette was judged on Monday and baked the rhubarb pie.",
+        "Bramwell was judged on an earlier day than Loretta, who did not bake "
+        "the pecan pie.",
+    ]
+    narrative = parse_reply(puzzle, _narrator_reply(merged))
+    assert len(narrative.clues) == 2
+    assert len(puzzle.clues) == 4, "fewer clues than the original, on purpose"
+
+
+def test_more_clues_than_facts_is_rejected(puzzle):
+    """The one bound worth keeping: clues cannot outnumber the facts."""
+    facts = len(puzzle.atoms())
+    with pytest.raises(ValueError, match="for only"):
+        parse_reply(puzzle, _narrator_reply(["filler"] * (facts + 1)))
+
+
+def test_no_clues_at_all_is_rejected(puzzle):
+    with pytest.raises(ValueError, match="no clues"):
+        parse_reply(puzzle, _narrator_reply([]))
 
 
 def test_non_json_narrator_reply_is_rejected(puzzle):

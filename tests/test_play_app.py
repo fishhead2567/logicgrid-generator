@@ -109,7 +109,9 @@ async def test_clues_and_cast_are_on_screen(library):
     app = PlayApp(library)
     async with app.run_test() as pilot:
         await pilot.pause()
-        clues = str(app.query_one("#clues", Static).content)
+        # Collapse whitespace: the panel wraps to its width, so a multi-word
+        # item like "a sudden lull" can legitimately straddle two lines.
+        clues = " ".join(str(app.query_one("#clues", Static).content).split())
         for cat in app.board.schema.categories:
             for item in cat.items:
                 assert item in clues, f"{item} missing from the clue panel"
@@ -424,3 +426,134 @@ async def test_play_a_whole_puzzle_with_keystrokes_only(library):
         assert app.board.solved(), _status(app)
         assert "SOLVED" in _banner(app)
         assert "?" not in _answer(app)
+
+
+# ---------------------------------------------------------------------------
+# narrative versions
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture
+def narrated(tmp_path, library) -> Library:
+    """A library whose first puzzle has a published narrative beside it."""
+    narratives = tmp_path / "narratives"
+    narratives.mkdir()
+    stem = library.label(0)
+    (narratives / f"{stem}.json").write_text(
+        json.dumps(
+            {
+                "title": "A Narrated Title",
+                "introduction": "Four of them turned up. Work out who did what.",
+                "clues": [
+                    "The first narrated clue, holding two facts at once.",
+                    "The second narrated clue.",
+                ],
+                "verdict": "pass",
+            }
+        ),
+        encoding="utf-8",
+    )
+    return Library.load(PUZZLES, narratives)
+
+
+def test_narration_is_found_by_stem(narrated):
+    n = narrated.narration(0)
+    assert n is not None
+    assert n.title == "A Narrated Title"
+    assert len(n.clues) == 2
+    assert not n.flagged
+    assert narrated.narrated_count() == 1
+
+
+def test_puzzles_without_a_narrative_return_none(narrated):
+    assert narrated.narration(1) is None
+
+
+def test_no_narratives_folder_is_fine(library):
+    """The canonical clues are always there, so this must never be an error."""
+    bare = Library.load(PUZZLES, None)
+    if bare.narratives is None:
+        assert bare.narration(0) is None
+        assert bare.narrated_count() == 0
+
+
+def test_a_malformed_narrative_does_not_break_the_game(tmp_path, library):
+    narratives = tmp_path / "n"
+    narratives.mkdir()
+    (narratives / f"{library.label(0)}.json").write_text("{ not json", encoding="utf-8")
+    lib = Library.load(PUZZLES, narratives)
+    assert lib.narration(0) is None, "fall back to canonical, do not raise"
+
+
+def test_flagged_narratives_are_marked(tmp_path, library):
+    """pass_equivalent means the readers took different routes -- say so."""
+    narratives = tmp_path / "n"
+    narratives.mkdir()
+    (narratives / f"{library.label(0)}.json").write_text(
+        json.dumps(
+            {
+                "title": "T",
+                "introduction": "I",
+                "clues": ["c"],
+                "verdict": "pass_equivalent",
+            }
+        ),
+        encoding="utf-8",
+    )
+    assert Library.load(PUZZLES, narratives).narration(0).flagged
+
+
+async def test_app_shows_the_narrative_when_there_is_one(narrated):
+    app = PlayApp(narrated)
+    async with app.run_test() as pilot:
+        await pilot.pause()
+        clues = str(app.query_one("#clues", Static).content)
+        assert "A NARRATED TITLE" in clues
+        assert "The first narrated clue" in clues
+        assert "narrative" in app.sub_title
+
+
+async def test_t_toggles_to_the_canonical_text_and_back(narrated):
+    """The canonical wording is what the puzzle was built from, so keep it reachable."""
+    app = PlayApp(narrated)
+    async with app.run_test() as pilot:
+        await pilot.pause()
+        await pilot.press("t")
+        await pilot.pause()
+        clues = str(app.query_one("#clues", Static).content)
+        assert "A NARRATED TITLE" not in clues
+        assert "Determine each" in clues, "the canonical introduction"
+        assert "canonical" in app.sub_title
+        await pilot.press("t")
+        await pilot.pause()
+        assert "A NARRATED TITLE" in str(app.query_one("#clues", Static).content)
+
+
+async def test_canonical_flag_starts_on_the_canonical_text(narrated):
+    app = PlayApp(narrated, canonical=True)
+    async with app.run_test() as pilot:
+        await pilot.pause()
+        assert "A NARRATED TITLE" not in str(app.query_one("#clues", Static).content)
+
+
+async def test_toggle_says_so_when_there_is_no_narrative(library):
+    app = PlayApp(library)
+    async with app.run_test() as pilot:
+        await pilot.pause()
+        await pilot.press("t")
+        await pilot.pause()
+        assert "no verified narrative" in _banner(app)
+
+
+async def test_the_narrative_does_not_change_the_grid_or_the_answer(narrated):
+    """A narrative is a re-wording. The puzzle underneath is untouched."""
+    plain = PlayApp(Library.load(PUZZLES))
+    async with plain.run_test() as pilot:
+        await pilot.pause()
+        baseline = plain.board.solution.to_json()
+        shape = (len(plain.board.schema.categories), plain.board.schema.size)
+    app = PlayApp(narrated)
+    async with app.run_test() as pilot:
+        await pilot.pause()
+        assert app.board.solution.to_json() == baseline
+        assert (len(app.board.schema.categories), app.board.schema.size) == shape

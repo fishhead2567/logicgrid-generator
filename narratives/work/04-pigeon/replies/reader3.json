@@ -2,17 +2,17 @@
   "subject_count": 4,
   "categories": [
     {
-      "label": "Pigeon",
-      "members": ["Alabaster", "Nutmeg", "Hieronymus", "Cadwallader"],
-      "ordered": false
-    },
-    {
-      "label": "Distance",
+      "label": "distance",
       "members": ["200 miles", "300 miles", "400 miles", "500 miles"],
       "ordered": true
     },
     {
-      "label": "Strain",
+      "label": "name",
+      "members": ["Alabaster", "Nutmeg", "Hieronymus", "Cadwallader"],
+      "ordered": false
+    },
+    {
+      "label": "bloodline",
       "members": ["Delbar", "Janssen", "Stichelbaut", "Sion"],
       "ordered": false
     }
@@ -22,10 +22,10 @@
       "number": 1,
       "facts": [
         {
-          "kind": "link",
-          "args": ["Cadwallader", "200 miles"],
-          "k": 0,
-          "rel": "none",
+          "kind": "gap",
+          "args": ["Sion", "200 miles"],
+          "k": 1,
+          "rel": "eq",
           "op": "none",
           "same": false,
           "sub": []
@@ -37,7 +37,7 @@
       "facts": [
         {
           "kind": "link",
-          "args": ["Alabaster", "Sion"],
+          "args": ["Cadwallader", "200 miles"],
           "k": 0,
           "rel": "none",
           "op": "none",
@@ -46,7 +46,7 @@
         },
         {
           "kind": "link",
-          "args": ["Alabaster", "300 miles"],
+          "args": ["Delbar", "200 miles"],
           "k": 0,
           "rel": "none",
           "op": "none",
@@ -60,7 +60,7 @@
       "facts": [
         {
           "kind": "link",
-          "args": ["Hieronymus", "Janssen"],
+          "args": ["Stichelbaut", "400 miles"],
           "k": 0,
           "rel": "none",
           "op": "none",
@@ -73,22 +73,17 @@
       "number": 4,
       "facts": [
         {
-          "kind": "not_link",
-          "args": ["Nutmeg", "500 miles"],
+          "kind": "link",
+          "args": ["Alabaster", "Sion"],
           "k": 0,
           "rel": "none",
           "op": "none",
           "same": false,
           "sub": []
-        }
-      ]
-    },
-    {
-      "number": 5,
-      "facts": [
+        },
         {
           "kind": "not_link",
-          "args": ["Delbar", "400 miles"],
+          "args": ["Nutmeg", "500 miles"],
           "k": 0,
           "rel": "none",
           "op": "none",

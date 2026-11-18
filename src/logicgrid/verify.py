@@ -161,7 +161,11 @@ def _cast_check(extraction: Extraction, schema: Schema) -> Check:
     """
 
     def canon(name: str) -> str:
-        ref = schema.try_resolve(name)
+        # try_match, not try_resolve: a reader abbreviating a long name in its
+        # cast listing ("gelatine cube" for "a gelatine cube of unclear
+        # provenance") is not a narrative defect. An item the narrative really
+        # dropped still fails, since nothing would mention it at all.
+        ref = schema.try_match(name)
         return ref.item if ref else f"?{name}"
 
     want = {frozenset(c.items) for c in schema.categories}

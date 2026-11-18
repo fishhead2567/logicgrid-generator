@@ -389,6 +389,27 @@ class Schema:
             return self._by_item[item]
         return self._loose.get(_loose_key(item))
 
+    def try_match(self, item: str) -> Ref | None:
+        """Like :meth:`try_resolve`, but also accepts an unambiguous abbreviation.
+
+        Deliberately *not* used for the facts in a clue. There, a wrong name
+        changes the puzzle, so only case, spacing and a leading article are
+        forgiven. This looser form is for comparing a reader's *listing* of the
+        cast, where "gelatine cube" for "a gelatine cube of unclear provenance"
+        is abbreviation rather than renaming -- and where an item the narrative
+        genuinely dropped still fails, because nothing would mention it at all.
+        """
+        exact = self.try_resolve(item)
+        if exact is not None:
+            return exact
+        needle = _loose_key(item)
+        if len(needle) < 3:
+            return None
+        hits = [
+            ref for name, ref in self._loose.items() if needle in name
+        ]
+        return hits[0] if len(hits) == 1 else None
+
     def to_json(self) -> dict:
         return {
             "spine": self.spine_name,

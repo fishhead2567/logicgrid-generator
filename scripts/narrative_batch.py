@@ -28,7 +28,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from logicgrid.extract import build_request as extract_request  # noqa: E402
 from logicgrid.generate import Puzzle  # noqa: E402
-from logicgrid.narrate import build_request, parse_reply  # noqa: E402
+from logicgrid.narrate import Narrative, build_request, parse_reply  # noqa: E402
 from logicgrid.render import clue_text  # noqa: E402
 from logicgrid.verify import (  # noqa: E402
     consensus_drift,
@@ -93,6 +93,9 @@ def cmd_ingest(args: argparse.Namespace) -> int:
             continue
         (cell / "narrative.txt").write_text(narrative.to_text(), encoding="utf-8")
         (cell / "narrative.md").write_text(narrative.to_markdown(), encoding="utf-8")
+        (cell / "narrative.json").write_text(
+            json.dumps(narrative.to_json(), indent=2), encoding="utf-8"
+        )
         request = extract_request(narrative.to_text())
         # The reader's directory holds this file and nothing else, so
         # "independent reader" is a fact rather than an instruction.
@@ -102,7 +105,8 @@ def cmd_ingest(args: argparse.Namespace) -> int:
             encoding="utf-8",
         )
         print(
-            f"{cell.name:22s} {len(narrative.clues):2d} clues, "
+            f"{cell.name:22s} {len(narrative.clues):2d} clues "
+            f"(from {len(puzzle.clues)} canonical), "
             f"{len(narrative.to_text()):5d} chars -> readers/prompt.txt"
         )
     return 0
@@ -148,6 +152,22 @@ def cmd_judge(args: argparse.Namespace) -> int:
             ),
             encoding="utf-8",
         )
+        if verdict != "fail":
+            # Publish only what verified. A narrative nobody has checked back
+            # against the puzzle has no business being played.
+            ROOT.mkdir(parents=True, exist_ok=True)
+            narrative = Narrative.from_json(
+                json.loads((cell / "narrative.json").read_text(encoding="utf-8"))
+                if (cell / "narrative.json").exists()
+                else {"title": "", "introduction": "", "clues": []}
+            )
+            (ROOT / f"{cell.name}.json").write_text(
+                json.dumps(
+                    {**narrative.to_json(), "verdict": verdict, "pid": puzzle.pid},
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
         rows.append((cell, puzzle, readings, verdict, missing, extra, disagree))
 
     if not rows:

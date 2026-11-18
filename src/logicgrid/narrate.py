@@ -25,7 +25,8 @@ from dataclasses import dataclass
 from typing import Any, Mapping, Sequence
 
 from .llm import ModelConfig, Request
-from .render import canonical_intro, clue_glosses, clue_text
+from .csp import flatten
+from .render import canonical_intro, clue_text
 
 SYSTEM = """\
 You are a puzzle editor for a logic-problem magazine in the Penny Dell tradition.
@@ -56,10 +57,21 @@ backstory is wrong.
 
 CLUE REQUIREMENTS
 
-  - Produce exactly as many numbered clues as you are given, in the same order.
-  - Each numbered clue expresses exactly the facts listed under it -- all of
-    them, and nothing more. Where a clue bundles several facts, keep them
-    together in one numbered clue, as printed puzzles do.
+You are given a flat list of numbered FACTS. That numbering is bookkeeping, not
+a template: what has to survive is the set of facts, not its arrangement.
+
+  - Every fact must appear somewhere in your clue list. Losing one makes the
+    puzzle unsolvable, and is the worst thing you can do.
+  - Add nothing. A fact a solver could read out of your prose that is not in
+    the list is just as damaging as a missing one.
+  - GROUP THEM AS A MAGAZINE WOULD. Combine facts that share a subject into one
+    numbered clue, and order the clues however reads best. Printed puzzles
+    routinely carry two or three facts under one number -- "Anne was married on
+    Monday, but not to Wally" is one clue holding two facts. Use that freedom;
+    a clue list that flows is the point of the exercise.
+  - Do not over-merge. Two or three facts to a clue reads well; six becomes a
+    paragraph the solver has to parse twice. Keep each numbered clue to about
+    one or two sentences.
   - Use the member names exactly as spelled in the category lists. Do not
     shorten, pluralise, re-case, translate or nickname them. "Mrs Abernathy"
     does not become "Abernathy".
@@ -136,6 +148,16 @@ NARRATIVE_SCHEMA: dict[str, Any] = {
 }
 
 
+def clue_count_range(facts: int) -> tuple[int, int]:
+    """How many numbered clues a narrative holding ``facts`` facts should have.
+
+    Wide on purpose. The floor stops everything being crushed into three
+    paragraph-long clues; the ceiling is one clue per fact, which is what the
+    old one-to-one rule forced and what made the prose read like a list.
+    """
+    return max(1, (facts + 2) // 3), facts
+
+
 @dataclass(slots=True)
 class Narrative:
     """A narrated puzzle: what the solver (and the extractor) gets to see."""
@@ -209,13 +231,16 @@ def brief(puzzle) -> str:
             f"to it. Its {schema.size} values are the only positions that exist."
         )
     out.append("")
-    out.append(f"CLUES -- produce exactly {len(puzzle.clues)} numbered clues:")
-    for entry in clue_glosses(puzzle):
+    atoms = flatten(puzzle.clues)
+    low, high = clue_count_range(len(atoms))
+    out.append(
+        f"FACTS -- all {len(atoms)} of these must appear. Group them into "
+        f"roughly {low} to {high} numbered clues, however reads best:"
+    )
+    for i, atom in enumerate(atoms, start=1):
         out.append("")
-        out.append(f"  Clue {entry['number']}:")
-        for atom in entry["atoms"]:
-            out.append(f"    FACT [{atom['kind']}]: {atom['canonical']}")
-            out.append(f"      MEANS EXACTLY: {atom['gloss']}")
+        out.append(f"  FACT {i} [{atom.kind}]: {atom.render(schema)}")
+        out.append(f"    MEANS EXACTLY: {atom.gloss(schema)}")
     return "\n".join(out)
 
 
@@ -242,10 +267,20 @@ def parse_reply(puzzle, text: str, model: str = "", attempt: int = 1) -> Narrati
     for field in ("title", "introduction", "clues"):
         if field not in data:
             raise ValueError(f"narrator reply is missing {field!r}")
-    clues = [str(c) for c in data["clues"]]
-    if len(clues) != len(puzzle.clues):
+    clues = [str(c).strip() for c in data["clues"] if str(c).strip()]
+    # The clue count is deliberately NOT pinned to the original. The gate
+    # compares the fact set the readers recover, not its arrangement, so the
+    # narrator is free to merge facts into clues that flow -- which is what
+    # makes a clue list read like a magazine rather than a constraint dump.
+    # Only the absurd is rejected: no clues at all, or more clues than there
+    # are facts to put in them.
+    facts = len(flatten(puzzle.clues))
+    if not clues:
+        raise ValueError("narrator produced no clues")
+    if len(clues) > facts:
         raise ValueError(
-            f"narrator produced {len(clues)} clues, expected {len(puzzle.clues)}"
+            f"narrator produced {len(clues)} clues for only {facts} facts, so "
+            "at least one must be empty or invented"
         )
     return Narrative(
         pid=puzzle.pid,

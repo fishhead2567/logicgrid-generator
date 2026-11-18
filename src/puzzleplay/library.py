@@ -14,25 +14,82 @@ class LibraryError(RuntimeError):
 
 
 @dataclass(slots=True)
+class Narration:
+    """A verified narrative version of a puzzle, for reading in place of clues."""
+
+    title: str
+    introduction: str
+    clues: tuple[str, ...]
+    verdict: str = ""
+
+    @property
+    def flagged(self) -> bool:
+        """True when the readers recovered the puzzle by differing routes."""
+        return self.verdict == "pass_equivalent"
+
+
+@dataclass(slots=True)
 class Library:
-    """The puzzle files in a directory, in filename order."""
+    """The puzzle files in a directory, in filename order.
+
+    Optionally paired with a narratives directory. A narrative is only looked
+    for by stem, and only ``judge`` writes one there, so anything the player
+    offers has already been read back and verified against its puzzle.
+    """
 
     root: Path
     paths: list[Path]
+    narratives: Path | None = None
 
     @classmethod
-    def load(cls, root: str | Path) -> "Library":
+    def load(
+        cls, root: str | Path, narratives: str | Path | None = None
+    ) -> "Library":
         root = Path(root)
         if root.is_file():
-            return cls(root.parent, [root])
-        if not root.is_dir():
-            raise LibraryError(f"no such puzzle folder: {root}")
-        paths = sorted(p for p in root.glob("*.json") if not p.name.startswith("_"))
-        if not paths:
-            raise LibraryError(
-                f"no puzzle .json files in {root} -- run 'logicgrid gen' first"
+            paths, base = [root], root.parent
+        else:
+            if not root.is_dir():
+                raise LibraryError(f"no such puzzle folder: {root}")
+            paths = sorted(
+                p for p in root.glob("*.json") if not p.name.startswith("_")
             )
-        return cls(root, paths)
+            if not paths:
+                raise LibraryError(
+                    f"no puzzle .json files in {root} -- run 'logicgrid gen' first"
+                )
+            base = root
+        if narratives is None:
+            guess = base.parent / "narratives"
+            narratives = guess if guess.is_dir() else None
+        elif narratives is not None:
+            narratives = Path(narratives)
+            if not narratives.is_dir():
+                raise LibraryError(f"no such narratives folder: {narratives}")
+        return cls(base, paths, narratives)
+
+    def narration(self, index: int) -> Narration | None:
+        """The verified narrative for a puzzle, if one has been published."""
+        if self.narratives is None:
+            return None
+        path = self.narratives / f"{self.label(index)}.json"
+        if not path.exists():
+            return None
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            return Narration(
+                title=str(data["title"]),
+                introduction=str(data["introduction"]),
+                clues=tuple(str(c) for c in data["clues"]),
+                verdict=str(data.get("verdict", "")),
+            )
+        except (OSError, ValueError, KeyError):
+            # A malformed narrative is not worth failing a game over; the
+            # canonical clues are always there.
+            return None
+
+    def narrated_count(self) -> int:
+        return sum(1 for i in range(len(self)) if self.narration(i) is not None)
 
     def __len__(self) -> int:
         return len(self.paths)
