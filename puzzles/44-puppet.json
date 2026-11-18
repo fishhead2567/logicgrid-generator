@@ -1,11 +1,11 @@
 {
-  "pid": "0cf49e4879c1",
+  "pid": "43faff2d5910",
   "title": "A Fortnight at the Little Vesper Theatre",
   "theme": "puppet",
   "blurb": "The Little Vesper Theatre seats forty people and employs a company of puppeteers who will not be in the same room together.",
   "profile": "expert",
   "rating": 7,
-  "score": 15.9085,
+  "score": 15.8506,
   "seed": 2026173028601,
   "spec": {
     "difficulty": "expert",
@@ -13,8 +13,9 @@
   },
   "schema": {
     "spine": "slot",
-    "entity_noun": "performance",
-    "entity_noun_plural": "performances",
+    "entity_noun": "puppeteer",
+    "entity_noun_plural": "puppeteers",
+    "entity_animate": true,
     "categories": [
       {
         "name": "slot",
@@ -31,49 +32,53 @@
         "noun": "slot",
         "cmp_less": "earlier",
         "cmp_more": "later",
-        "step_noun": "slot"
+        "step_noun": "slot",
+        "verb": "performs in"
       },
       {
         "name": "puppeteer",
         "label": "Puppeteer",
         "items": [
-          "Mirabel",
-          "Stellan",
-          "Quentin",
           "Bowen",
-          "Lorcan",
-          "Halima"
+          "Halima",
+          "Stellan",
+          "Mirabel",
+          "Josefa",
+          "Lorcan"
         ],
         "ordered": false,
-        "noun": "puppeteer"
+        "noun": "puppeteer",
+        "subject": true
       },
       {
         "name": "puppet",
         "label": "Lead puppet",
         "items": [
-          "a drowned sailor",
-          "a brass magistrate",
-          "a moth queen",
           "a tin soldier",
           "a shepherd boy",
-          "a paper crane"
+          "a drowned sailor",
+          "a moth queen",
+          "a brass magistrate",
+          "a one-eyed cat"
         ],
         "ordered": false,
-        "noun": "puppet"
+        "noun": "puppet",
+        "verb": "works"
       },
       {
         "name": "play",
         "label": "Play",
         "items": [
           "Six Spoons",
+          "Hollowmas",
           "Marrowbone",
           "The Clockwork Orchard",
-          "Hollowmas",
-          "The Glass Tide",
+          "Winterling",
           "The Drowned Bell"
         ],
         "ordered": false,
-        "noun": "play"
+        "noun": "play",
+        "verb": "stages"
       },
       {
         "name": "music",
@@ -87,7 +92,8 @@
           "a pump organ"
         ],
         "ordered": false,
-        "noun": "accompaniment"
+        "noun": "accompaniment",
+        "verb": "is accompanied by"
       }
     ]
   },
@@ -96,103 +102,10 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "adjacent",
-          "a": "play:Six Spoons",
-          "b": "slot:slot two"
-        },
-        {
-          "kind": "adjacent",
-          "a": "play:Six Spoons",
-          "b": "puppet:a brass magistrate"
-        },
-        {
           "kind": "between",
-          "a": "slot:slot two",
-          "b": "puppet:a drowned sailor",
-          "c": "puppet:a shepherd boy"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "gap",
-          "a": "music:a bowed psaltery",
-          "b": "slot:slot five",
-          "k": 3,
-          "rel": "eq"
-        },
-        {
-          "kind": "parity",
-          "a": "puppeteer:Stellan",
-          "b": "slot:slot five",
-          "same": false
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "gap",
           "a": "play:The Drowned Bell",
           "b": "slot:slot five",
-          "k": 2,
-          "rel": "eq"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "distinct",
-          "members": [
-            "play:The Drowned Bell",
-            "puppet:a moth queen",
-            "slot:slot six"
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "immediately_before",
-          "a": "play:The Drowned Bell",
-          "b": "puppet:a shepherd boy"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "immediately_before",
-          "a": "puppeteer:Mirabel",
-          "b": "music:two kettle drums"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "music:a prepared piano",
-          "b": "puppeteer:Quentin"
-        },
-        {
-          "kind": "before",
-          "a": "play:The Clockwork Orchard",
-          "b": "music:a prepared piano"
-        },
-        {
-          "kind": "adjacent",
-          "a": "music:a prepared piano",
-          "b": "puppeteer:Bowen"
+          "c": "slot:slot one"
         }
       ]
     },
@@ -203,16 +116,124 @@
           "kind": "or",
           "options": [
             {
+              "kind": "before",
+              "a": "puppeteer:Mirabel",
+              "b": "music:a musical saw"
+            },
+            {
+              "kind": "before",
+              "a": "slot:slot four",
+              "b": "music:a pump organ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "music:a hurdy-gurdy",
+          "b": "slot:slot three",
+          "same": true
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "slot:slot two",
+          "b": "puppet:a moth queen"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "music:a musical saw",
+              "b": "puppet:a tin soldier"
+            },
+            {
               "kind": "gap",
-              "a": "music:a pump organ",
-              "b": "puppeteer:Halima",
-              "k": 3,
+              "a": "puppeteer:Lorcan",
+              "b": "slot:slot four",
+              "k": 2,
               "rel": "eq"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "music:a pump organ",
+          "b": "slot:slot two"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "music:a bowed psaltery",
+          "b": "puppet:a brass magistrate"
+        },
+        {
+          "kind": "between",
+          "a": "puppeteer:Mirabel",
+          "b": "puppet:a brass magistrate",
+          "c": "slot:slot two"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "slot:slot three",
+          "b": "music:a prepared piano",
+          "c": "puppeteer:Halima"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "puppet:a one-eyed cat",
+          "b": "slot:slot five"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "link",
+              "a": "play:The Drowned Bell",
+              "b": "slot:slot two"
             },
             {
               "kind": "not_link",
-              "a": "play:Hollowmas",
-              "b": "puppet:a moth queen"
+              "a": "puppet:a drowned sailor",
+              "b": "puppeteer:Bowen"
             }
           ]
         }
@@ -223,9 +244,9 @@
       "atoms": [
         {
           "kind": "between",
-          "a": "play:Marrowbone",
-          "b": "puppeteer:Halima",
-          "c": "puppeteer:Lorcan"
+          "a": "music:a prepared piano",
+          "b": "puppeteer:Lorcan",
+          "c": "slot:slot one"
         }
       ]
     },
@@ -233,10 +254,27 @@
       "style": "sentences",
       "atoms": [
         {
+          "kind": "gap",
+          "a": "play:Winterling",
+          "b": "puppeteer:Josefa",
+          "k": 5,
+          "rel": "eq"
+        },
+        {
           "kind": "between",
-          "a": "puppeteer:Quentin",
-          "b": "play:Marrowbone",
-          "c": "puppet:a paper crane"
+          "a": "puppet:a shepherd boy",
+          "b": "puppeteer:Josefa",
+          "c": "slot:slot four"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "music:two kettle drums",
+          "b": "slot:slot four"
         }
       ]
     },
@@ -245,8 +283,74 @@
       "atoms": [
         {
           "kind": "immediately_before",
-          "a": "play:Hollowmas",
-          "b": "music:a musical saw"
+          "a": "puppeteer:Josefa",
+          "b": "play:Marrowbone"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "puppeteer:Halima",
+          "b": "play:The Clockwork Orchard"
+        }
+      ]
+    },
+    {
+      "style": "and",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "music:a musical saw",
+          "b": "puppet:a brass magistrate"
+        },
+        {
+          "kind": "not_link",
+          "a": "play:The Clockwork Orchard",
+          "b": "puppet:a brass magistrate"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "music:a hurdy-gurdy",
+          "b": "play:Hollowmas",
+          "same": false
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "music:a hurdy-gurdy",
+              "b": "play:The Drowned Bell"
+            },
+            {
+              "kind": "before",
+              "a": "puppet:a one-eyed cat",
+              "b": "play:Marrowbone"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "puppet:a tin soldier",
+          "b": "music:two kettle drums"
         }
       ]
     }
@@ -261,28 +365,28 @@
       "slot six"
     ],
     "puppeteer": [
-      "Lorcan",
-      "Stellan",
-      "Bowen",
+      "Josefa",
+      "Halima",
       "Mirabel",
-      "Quentin",
-      "Halima"
+      "Bowen",
+      "Stellan",
+      "Lorcan"
     ],
     "puppet": [
-      "a drowned sailor",
-      "a brass magistrate",
       "a tin soldier",
       "a shepherd boy",
       "a moth queen",
-      "a paper crane"
+      "a brass magistrate",
+      "a drowned sailor",
+      "a one-eyed cat"
     ],
     "play": [
       "Six Spoons",
-      "The Clockwork Orchard",
-      "The Drowned Bell",
       "Marrowbone",
+      "The Drowned Bell",
       "Hollowmas",
-      "The Glass Tide"
+      "The Clockwork Orchard",
+      "Winterling"
     ],
     "music": [
       "a hurdy-gurdy",
@@ -294,33 +398,34 @@
     ]
   },
   "stats": {
-    "atoms": 16,
-    "numbered_clues": 11,
+    "atoms": 22,
+    "numbered_clues": 19,
     "kinds": {
+      "between": 5,
+      "or": 4,
+      "parity": 2,
+      "immediately_before": 2,
       "adjacent": 3,
-      "between": 3,
-      "gap": 2,
-      "parity": 1,
-      "distinct": 1,
-      "immediately_before": 3,
-      "before": 2,
-      "or": 1
+      "not_link": 3,
+      "gap": 1,
+      "before": 2
     },
     "positives": 0,
-    "compounds": 1
+    "compounds": 4
   },
   "solve": {
     "solved": true,
     "max_tier": 6,
     "max_technique": "trial",
-    "steps": 84,
+    "steps": 68,
     "tier_counts": {
-      "bijection": 42,
-      "order": 36,
+      "direct": 3,
+      "bijection": 33,
+      "order": 27,
       "disjunction": 4,
-      "trial": 2
+      "trial": 1
     },
-    "trial_eliminations": 2,
+    "trial_eliminations": 1,
     "unknown_cells": 24
   }
 }

@@ -19,56 +19,83 @@ from .clues import Atom
 from .model import Clue, Schema, Solution
 
 
-def _lower_first(text: str) -> str:
-    return text[0].lower() + text[1:] if text else text
-
-
 def _listify(items: Sequence[str], conj: str = "and") -> str:
+    """Join items, switching to semicolons when one of them contains "and".
+
+    "tree fern fibre, coconut husk, perlite and charcoal and lava rock" has no
+    unambiguous reading -- there is no telling where the fourth item starts.
+    Semicolons give it one.
+    """
     items = list(items)
     if not items:
         return ""
     if len(items) == 1:
         return items[0]
+    if any(f" {conj.split()[-1]} " in item or " and " in item for item in items):
+        return "; ".join(items[:-1]) + f"; {conj} {items[-1]}"
     return ", ".join(items[:-1]) + f" {conj} {items[-1]}"
 
 
 def clue_text(clue: Clue, schema: Schema) -> str:
-    """Render one numbered clue, joining its atoms in the bundle's style."""
-    parts = [a.render(schema) for a in clue.atoms]
-    if len(parts) == 1:
-        return parts[0]
-    if clue.style in ("but_not", "and"):
-        joiner = ", but " if clue.style == "but_not" else ", and "
-        head = parts[0].rstrip(".")
-        tail = joiner.join(_lower_first(p.rstrip(".")) for p in parts[1:])
-        return f"{head}{joiner}{tail}."
-    return " ".join(parts)
+    """Render one numbered clue as sentences.
+
+    Atoms are joined as separate sentences rather than stitched with ", but ".
+    Stitching meant lowercasing the second clause's first word, which quietly
+    mangled proper nouns -- "but leocadia does not ...". The narrative pass is
+    where clauses get combined gracefully; here, correctness wins.
+    """
+    return " ".join(a.render(schema) for a in clue.atoms)
+
+
+COUNT_WORDS = {
+    2: "Two", 3: "Three", 4: "Four", 5: "Five",
+    6: "Six", 7: "Seven", 8: "Eight",
+}
 
 
 def canonical_intro(puzzle) -> str:
-    """The logically load-bearing introduction.
+    """The logically load-bearing introduction, written as a task.
 
-    Everything a solver is entitled to assume before reading clue 1: how many
-    entities there are, what the categories are, which items are in play, and
-    that each item is used exactly once.
+    Everything a solver is entitled to assume before reading clue 1 -- how many
+    entities there are, the categories, the items in play, the order of the
+    ordered one, and that each item is used exactly once -- but phrased the way
+    a printed puzzle phrases it: *who* is involved and *what to work out*,
+    rather than a list of fields. Penny Dell's own guide is blunt that this
+    paragraph carries logical weight, so none of it is decoration.
     """
     schema = puzzle.schema
     n = schema.size
-    noun = schema.entity_noun_plural
-    lines = [
-        f"There are {n} {noun}. Each has exactly one {schema.spine.noun} "
-        f"and one item from every other category below, and within each "
-        f"category every item belongs to a different {schema.entity_noun}."
-    ]
-    for cat in schema.categories:
-        marker = " (listed in order)" if cat.ordered else ""
-        lines.append(f"- **{cat.label}**{marker}: {_listify(list(cat.items))}.")
-    if schema.spine.ordered:
-        sp = schema.spine
-        lines.append(
-            f"The {sp.step_plural} above are listed in order, from "
-            f"{sp.items[0]} to {sp.items[-1]}."
-        )
+    count = COUNT_WORDS.get(n, str(n))
+    subject = next((c for c in schema.categories if c.subject), None)
+    others = [c for c in schema.categories if c is not subject]
+    lines: list[str] = []
+
+    blurb = (getattr(puzzle, "blurb", "") or "").strip()
+    if blurb:
+        lines.append(blurb)
+
+    nouns = [c.noun or c.label.casefold() for c in others]
+    lines.append(
+        f"{count} {schema.entity_noun_plural} are involved. Determine each "
+        f"{schema.entity_noun}'s {_listify(nouns)}."
+    )
+
+    if subject is not None:
+        lines.append(f"- **{subject.label}**: {_listify(list(subject.items))}.")
+    for cat in others:
+        order = ""
+        if cat.ordered:
+            # The items are already printed in order, so name the direction
+            # rather than repeating the endpoints.
+            low = cat.cmp_less or "lower"
+            high = cat.cmp_more or "higher"
+            order = f" (listed from {low} to {high})"
+        lines.append(f"- **{cat.label}**{order}: {_listify(list(cat.items))}.")
+
+    lines.append(
+        f"Every {schema.entity_noun} has a different {_listify(nouns)}, so "
+        f"within each category every item is used exactly once."
+    )
     return "\n".join(lines)
 
 
@@ -158,8 +185,6 @@ def to_markdown(
     stats = puzzle.stats()
     head = [
         f"# {puzzle.title}",
-        "",
-        f"*{puzzle.blurb}*",
         "",
         f"**Difficulty** {puzzle.rating}/7 ({puzzle.profile}) &nbsp;&nbsp; "
         f"**Grid** {len(schema.categories)} x {schema.size} &nbsp;&nbsp; "

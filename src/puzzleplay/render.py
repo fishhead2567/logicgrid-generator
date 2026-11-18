@@ -8,6 +8,7 @@ assert on in tests.
 from __future__ import annotations
 
 from textwrap import fill
+from typing import Sequence
 
 from logicgrid.model import Ref
 from logicgrid.render import canonical_intro, clue_text
@@ -17,6 +18,48 @@ from .board import YES, Board
 MARK_YES = "O"
 MARK_NO = "x"
 MARK_OPEN = "."
+
+_ARTICLES = ("the ", "a ", "an ")
+
+
+def _strip_article(item: str) -> str:
+    low = item.casefold()
+    for article in _ARTICLES:
+        if low.startswith(article):
+            return item[len(article) :]
+    return item
+
+
+def short_labels(items: Sequence[str], cap: int = 10, floor: int = 3) -> list[str]:
+    """Shortest prefixes that still tell the items apart.
+
+    Column headers have to name the cross category -- bare 1..N is unreadable --
+    but full names do not fit a terminal. Leading articles are dropped first,
+    since "a fluted rim" and "a fork-crimped edge" share nothing useful up
+    front: stripped, three characters separate them.
+    """
+    bases = [_strip_article(i) for i in items]
+    # A prefix every item shares carries no information: "slot one", "slot two"
+    # become "one", "two" rather than "slot o", "slot tw".
+    if len(bases) > 1:
+        shared = 0
+        shortest = min(len(b) for b in bases)
+        while shared < shortest and len({b[shared].casefold() for b in bases}) == 1:
+            shared += 1
+        word = bases[0].rfind(" ", 0, shared + 1)
+        if word > 0 and all(len(b) - word - 1 >= 2 for b in bases):
+            bases = [b[word + 1 :] for b in bases]
+    out = []
+    for i, base in enumerate(bases):
+        others = [b for j, b in enumerate(bases) if j != i]
+        length = floor
+        while length < min(cap, len(base)):
+            prefix = base[:length].casefold()
+            if not any(o.casefold().startswith(prefix) for o in others):
+                break
+            length += 1
+        out.append(base[:length].strip())
+    return out
 
 
 def clue_block(puzzle, width: int = 52) -> str:
@@ -76,6 +119,7 @@ def progress_label(board: Board) -> str:
 HELP = """\
   MOVING            arrows or h/j/k/l      move the cell cursor
                     ] and [                next / previous grid
+                    1 - 9                  jump straight to a grid
                     mouse click            jump to a cell
 
   MARKING           o                      these two go together

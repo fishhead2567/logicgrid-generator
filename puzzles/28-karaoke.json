@@ -1,11 +1,11 @@
 {
-  "pid": "c70b56ef8e4b",
+  "pid": "436ea20afeef",
   "title": "Tuesday Night at the Dented Bell",
   "theme": "karaoke",
   "blurb": "The Dented Bell runs karaoke on Tuesdays. Attendance is loyal; talent is not.",
   "profile": "moderate",
-  "rating": 3,
-  "score": 5.355,
+  "rating": 4,
+  "score": 5.515,
   "seed": 2026172797168,
   "spec": {
     "difficulty": "moderate",
@@ -13,8 +13,9 @@
   },
   "schema": {
     "spine": "slot",
-    "entity_noun": "turn",
-    "entity_noun_plural": "turns",
+    "entity_noun": "singer",
+    "entity_noun_plural": "singers",
+    "entity_animate": true,
     "categories": [
       {
         "name": "slot",
@@ -30,33 +31,36 @@
         "noun": "slot",
         "cmp_less": "earlier",
         "cmp_more": "later",
-        "step_noun": "slot"
+        "step_noun": "slot",
+        "verb": "sings in"
       },
       {
         "name": "singer",
         "label": "Singer",
         "items": [
-          "Annalise",
           "Vikram",
+          "Annalise",
+          "Mercy",
           "Caitriona",
-          "Deshawn",
-          "Bogdan"
+          "Deshawn"
         ],
         "ordered": false,
-        "noun": "singer"
+        "noun": "singer",
+        "subject": true
       },
       {
         "name": "song",
         "label": "Song",
         "items": [
+          "a power ballad",
           "a rap performed entirely from memory",
           "a sea shanty",
-          "a power ballad",
           "a novelty country number",
           "an eight-minute prog epic"
         ],
         "ordered": false,
-        "noun": "song"
+        "noun": "song",
+        "verb": "performs"
       },
       {
         "name": "reception",
@@ -69,55 +73,18 @@
           "a request for an encore nobody wanted"
         ],
         "ordered": false,
-        "noun": "reception"
+        "noun": "reception",
+        "verb": "gets"
       }
     ]
   },
   "clues": [
     {
-      "style": "but_not",
+      "style": "sentences",
       "atoms": [
-        {
-          "kind": "not_link",
-          "a": "slot:slot three",
-          "b": "song:a power ballad"
-        },
         {
           "kind": "link",
           "a": "singer:Deshawn",
-          "b": "song:a power ballad"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "link",
-          "a": "reception:one heckler",
-          "b": "song:a rap performed entirely from memory"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "gap",
-          "a": "singer:Vikram",
-          "b": "song:a novelty country number",
-          "k": 2,
-          "rel": "eq"
-        },
-        {
-          "kind": "between",
-          "a": "slot:slot two",
-          "b": "singer:Vikram",
-          "c": "song:an eight-minute prog epic"
-        },
-        {
-          "kind": "adjacent",
-          "a": "reception:the landlord cutting the power",
           "b": "slot:slot two"
         }
       ]
@@ -126,29 +93,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "not_link",
-          "a": "reception:scattered applause",
-          "b": "singer:Caitriona"
-        },
-        {
-          "kind": "immediately_before",
-          "a": "reception:scattered applause",
-          "b": "song:a novelty country number"
-        },
-        {
-          "kind": "adjacent",
-          "a": "slot:slot one",
-          "b": "song:a novelty country number"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
           "kind": "gap",
-          "a": "singer:Bogdan",
-          "b": "slot:slot five",
+          "a": "reception:scattered applause",
+          "b": "slot:slot four",
           "k": 3,
           "rel": "eq"
         }
@@ -158,9 +105,104 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "before",
+          "kind": "adjacent",
+          "a": "slot:slot two",
+          "b": "song:an eight-minute prog epic"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "slot:slot five",
+          "b": "song:a rap performed entirely from memory",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "song:a power ballad",
+          "b": "reception:a singalong",
+          "c": "slot:slot two"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "slot:slot four",
+          "b": "singer:Caitriona"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "reception:scattered applause",
+          "b": "singer:Annalise",
+          "same": false
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "singer:Deshawn",
+          "b": "song:a sea shanty",
+          "c": "song:an eight-minute prog epic"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
           "a": "reception:a request for an encore nobody wanted",
-          "b": "slot:slot five"
+          "b": "song:a rap performed entirely from memory"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "reception:one heckler",
+          "b": "song:a rap performed entirely from memory"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "singer:Vikram",
+          "b": "song:a rap performed entirely from memory"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "singer:Deshawn",
+          "b": "reception:one heckler"
         }
       ]
     }
@@ -174,18 +216,18 @@
       "slot five"
     ],
     "singer": [
-      "Annalise",
-      "Bogdan",
-      "Caitriona",
       "Vikram",
-      "Deshawn"
+      "Deshawn",
+      "Mercy",
+      "Annalise",
+      "Caitriona"
     ],
     "song": [
       "an eight-minute prog epic",
       "a novelty country number",
-      "a sea shanty",
       "a rap performed entirely from memory",
-      "a power ballad"
+      "a power ballad",
+      "a sea shanty"
     ],
     "reception": [
       "scattered applause",
@@ -196,29 +238,30 @@
     ]
   },
   "stats": {
-    "atoms": 11,
-    "numbered_clues": 6,
+    "atoms": 12,
+    "numbered_clues": 12,
     "kinds": {
-      "not_link": 2,
-      "link": 2,
+      "link": 1,
       "gap": 2,
-      "between": 1,
       "adjacent": 2,
+      "between": 2,
       "immediately_before": 1,
+      "parity": 1,
+      "not_link": 2,
       "before": 1
     },
-    "positives": 2,
+    "positives": 1,
     "compounds": 0
   },
   "solve": {
     "solved": true,
     "max_tier": 3,
     "max_technique": "order",
-    "steps": 39,
+    "steps": 33,
     "tier_counts": {
-      "direct": 8,
-      "bijection": 22,
-      "order": 9
+      "direct": 3,
+      "bijection": 18,
+      "order": 12
     },
     "trial_eliminations": 0,
     "unknown_cells": 15

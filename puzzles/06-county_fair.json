@@ -1,5 +1,5 @@
 {
-  "pid": "5fc5504ad617",
+  "pid": "7aaf4179e86b",
   "title": "The Hollow Creek Pie Judging",
   "theme": "county_fair",
   "blurb": "The Hollow Creek county fair runs its pie judging with more ceremony than the state legislature.",
@@ -13,8 +13,9 @@
   },
   "schema": {
     "spine": "place",
-    "entity_noun": "entry",
-    "entity_noun_plural": "entries",
+    "entity_noun": "baker",
+    "entity_noun_plural": "bakers",
+    "entity_animate": true,
     "categories": [
       {
         "name": "place",
@@ -29,31 +30,34 @@
         "noun": "placing",
         "cmp_less": "better",
         "cmp_more": "worse",
-        "step_noun": "place"
+        "step_noun": "place",
+        "verb": "places"
+      },
+      {
+        "name": "baker",
+        "label": "Baker",
+        "items": [
+          "Thaddeus",
+          "Bramwell",
+          "Caspian",
+          "Marigold"
+        ],
+        "ordered": false,
+        "noun": "baker",
+        "subject": true
       },
       {
         "name": "filling",
         "label": "Filling",
         "items": [
-          "mincemeat",
+          "rhubarb",
+          "green tomato",
           "sour cherry",
-          "buttermilk",
-          "green tomato"
+          "blackberry"
         ],
         "ordered": false,
-        "noun": "filling"
-      },
-      {
-        "name": "county",
-        "label": "Home county",
-        "items": [
-          "Fenwick",
-          "Quarry Hill",
-          "Ardmore",
-          "Sweetwater"
-        ],
-        "ordered": false,
-        "noun": "county"
+        "noun": "filling",
+        "verb": "bakes"
       }
     ]
   },
@@ -63,13 +67,13 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "county:Ardmore",
+          "a": "filling:sour cherry",
           "b": "place:second"
         },
         {
           "kind": "immediately_before",
           "a": "place:second",
-          "b": "county:Sweetwater"
+          "b": "filling:blackberry"
         }
       ]
     },
@@ -78,7 +82,7 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "filling:mincemeat",
+          "a": "baker:Thaddeus",
           "b": "place:second"
         }
       ]
@@ -88,7 +92,7 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "filling:buttermilk",
+          "a": "baker:Caspian",
           "b": "place:third"
         }
       ]
@@ -98,8 +102,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "county:Fenwick",
-          "b": "filling:sour cherry"
+          "a": "baker:Bramwell",
+          "b": "filling:rhubarb"
         }
       ]
     },
@@ -108,7 +112,7 @@
       "atoms": [
         {
           "kind": "not_link",
-          "a": "filling:green tomato",
+          "a": "baker:Marigold",
           "b": "place:first"
         }
       ]
@@ -121,17 +125,17 @@
       "third",
       "fourth"
     ],
-    "filling": [
-      "sour cherry",
-      "mincemeat",
-      "buttermilk",
-      "green tomato"
+    "baker": [
+      "Bramwell",
+      "Thaddeus",
+      "Caspian",
+      "Marigold"
     ],
-    "county": [
-      "Fenwick",
-      "Ardmore",
-      "Sweetwater",
-      "Quarry Hill"
+    "filling": [
+      "rhubarb",
+      "sour cherry",
+      "blackberry",
+      "green tomato"
     ]
   },
   "stats": {

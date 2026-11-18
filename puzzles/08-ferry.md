@@ -1,93 +1,92 @@
 # The Crossings to Inverlaig
 
-*The Inverlaig ferry runs a full day of crossings in theory, and a variable number in practice.*
-
-**Difficulty** 2/7 (gentle) &nbsp;&nbsp; **Grid** 3 x 5 &nbsp;&nbsp; **Clues** 5 &nbsp;&nbsp; **id** `ed9fb1307098`
+**Difficulty** 2/7 (gentle) &nbsp;&nbsp; **Grid** 3 x 5 &nbsp;&nbsp; **Clues** 5 &nbsp;&nbsp; **id** `19304b56f314`
 
 ## Introduction
 
-There are 5 crossings. Each has exactly one start time and one item from every other category below, and within each category every item belongs to a different crossing.
-- **Start time** (listed in order): 8 a.m., 9 a.m., 10 a.m., 11 a.m. and noon.
-- **Skipper**: Senga, Eilidh, Calla, Tormod and Fearghas.
-- **Notable cargo**: a consignment of bees, a church organ, a film crew and no permits, a refrigerated van and a wedding party.
-The hours above are listed in order, from 8 a.m. to noon.
+The Inverlaig ferry runs a full day of crossings in theory, and a variable number in practice.
+Five skippers are involved. Determine each skipper's start time and reason.
+- **Skipper**: Eilidh, Fearghas, Ruaridh, Calla and Murdo.
+- **Start time** (listed from earlier to later): 8am, 9am, 10am, 11am and noon.
+- **Delay blamed on**: the tide, a passenger's dog, fog, paperwork and a slipway repair.
+Every skipper has a different start time and reason, so within each category every item is used exactly once.
 
 ## Clues
 
-1. Eilidh's start time is earlier than 11 a.m.. A refrigerated van goes with 11 a.m..
-2. Calla's start time is earlier than a film crew and no permits' start time. Calla goes with 10 a.m..
-3. A wedding party goes with Tormod.
-4. A refrigerated van goes with Senga.
-5. A church organ's start time is earlier than Tormod's start time.
+1. Fearghas is earlier than 11am in start time order. The skipper who blames paperwork sails at 11am.
+2. Ruaridh is earlier than the skipper who blames fog in start time order. Ruaridh sails at 10am.
+3. Calla blames a slipway repair.
+4. Eilidh blames paperwork.
+5. The skipper who blames a passenger's dog is earlier than Calla in start time order.
 
 ## Solving chart
 
 *Start time vs Skipper*
 
-| | Senga | Eilidh | Calla | Tormod | Fearghas |
+| | Eilidh | Fearghas | Ruaridh | Calla | Murdo |
 |---|---|---|---|---|---|
-| **8 a.m.** | | | | | |
-| **9 a.m.** | | | | | |
-| **10 a.m.** | | | | | |
-| **11 a.m.** | | | | | |
+| **8am** | | | | | |
+| **9am** | | | | | |
+| **10am** | | | | | |
+| **11am** | | | | | |
 | **noon** | | | | | |
 
-*Start time vs Notable cargo*
+*Start time vs Delay blamed on*
 
-| | a consignment of bees | a church organ | a film crew and no permits | a refrigerated van | a wedding party |
+| | the tide | a passenger's dog | fog | paperwork | a slipway repair |
 |---|---|---|---|---|---|
-| **8 a.m.** | | | | | |
-| **9 a.m.** | | | | | |
-| **10 a.m.** | | | | | |
-| **11 a.m.** | | | | | |
+| **8am** | | | | | |
+| **9am** | | | | | |
+| **10am** | | | | | |
+| **11am** | | | | | |
 | **noon** | | | | | |
 
-*Skipper vs Notable cargo*
+*Skipper vs Delay blamed on*
 
-| | a consignment of bees | a church organ | a film crew and no permits | a refrigerated van | a wedding party |
+| | the tide | a passenger's dog | fog | paperwork | a slipway repair |
 |---|---|---|---|---|---|
-| **Senga** | | | | | |
 | **Eilidh** | | | | | |
-| **Calla** | | | | | |
-| **Tormod** | | | | | |
 | **Fearghas** | | | | | |
+| **Ruaridh** | | | | | |
+| **Calla** | | | | | |
+| **Murdo** | | | | | |
 
 ## Solution
 
-| Start time | Skipper | Notable cargo |
+| Start time | Skipper | Delay blamed on |
 |---|---|---|
-| 8 a.m. | Eilidh | a church organ |
-| 9 a.m. | Tormod | a wedding party |
-| 10 a.m. | Calla | a consignment of bees |
-| 11 a.m. | Senga | a refrigerated van |
-| noon | Fearghas | a film crew and no permits |
+| 8am | Fearghas | a passenger's dog |
+| 9am | Calla | a slipway repair |
+| 10am | Ruaridh | the tide |
+| 11am | Eilidh | paperwork |
+| noon | Murdo | fog |
 
 ## How it falls out
 
-1. [direct] from clue 5 skipper:Calla: ruled out position(s) 1,2,4,5
-2. [direct] from clue 2 cargo:a refrigerated van: ruled out position(s) 1,2,3,5
-3. [direct] from clue 7 skipper:Senga: ruled out position(s) 1,2,3,5
-4. [bijection] cargo:a consignment of bees: ruled out position(s) 4
-5. [bijection] cargo:a church organ: ruled out position(s) 4
-6. [bijection] cargo:a film crew and no permits: ruled out position(s) 4
-7. [bijection] cargo:a wedding party: ruled out position(s) 4
-8. [bijection] skipper:Eilidh: ruled out position(s) 3,4
-9. [bijection] skipper:Tormod: ruled out position(s) 3,4
-10. [bijection] skipper:Fearghas: ruled out position(s) 3,4
-11. [direct] from clue 4 cargo:a wedding party: ruled out position(s) 3
-12. [order] from clue 6 skipper:Eilidh: ruled out position(s) 5
-13. [order] from clue 3 cargo:a film crew and no permits: ruled out position(s) 1,2,3
-14. [order] from clue 1 cargo:a church organ: ruled out position(s) 5
-15. [order] from clue 1 skipper:Tormod: ruled out position(s) 1
-16. [direct] from clue 4 cargo:a wedding party: ruled out position(s) 1
-17. [bijection] cargo:a consignment of bees: ruled out position(s) 5
-18. [bijection] cargo:a wedding party: ruled out position(s) 5
-19. [direct] from clue 4 skipper:Tormod: ruled out position(s) 5
-20. [order] from clue 1 cargo:a church organ: ruled out position(s) 2,3
-21. [bijection] cargo:a consignment of bees: ruled out position(s) 1,2
-22. [bijection] skipper:Eilidh: ruled out position(s) 2
-23. [bijection] skipper:Fearghas: ruled out position(s) 2
-24. [bijection] skipper:Fearghas: ruled out position(s) 1
+1. [direct] from clue 5 skipper:Ruaridh: ruled out position(s) 1,2,4,5
+2. [direct] from clue 2 delay:paperwork: ruled out position(s) 1,2,3,5
+3. [direct] from clue 7 skipper:Eilidh: ruled out position(s) 1,2,3,5
+4. [bijection] delay:the tide: ruled out position(s) 4
+5. [bijection] delay:a passenger's dog: ruled out position(s) 4
+6. [bijection] delay:fog: ruled out position(s) 4
+7. [bijection] delay:a slipway repair: ruled out position(s) 4
+8. [bijection] skipper:Fearghas: ruled out position(s) 3,4
+9. [bijection] skipper:Calla: ruled out position(s) 3,4
+10. [bijection] skipper:Murdo: ruled out position(s) 3,4
+11. [direct] from clue 4 delay:a slipway repair: ruled out position(s) 3
+12. [order] from clue 6 skipper:Fearghas: ruled out position(s) 5
+13. [order] from clue 3 delay:fog: ruled out position(s) 1,2,3
+14. [order] from clue 1 delay:a passenger's dog: ruled out position(s) 5
+15. [order] from clue 1 skipper:Calla: ruled out position(s) 1
+16. [direct] from clue 4 delay:a slipway repair: ruled out position(s) 1
+17. [bijection] delay:the tide: ruled out position(s) 5
+18. [bijection] delay:a slipway repair: ruled out position(s) 5
+19. [direct] from clue 4 skipper:Calla: ruled out position(s) 5
+20. [order] from clue 1 delay:a passenger's dog: ruled out position(s) 2,3
+21. [bijection] delay:the tide: ruled out position(s) 1,2
+22. [bijection] skipper:Fearghas: ruled out position(s) 2
+23. [bijection] skipper:Murdo: ruled out position(s) 2
+24. [bijection] skipper:Murdo: ruled out position(s) 1
 
 ---
 

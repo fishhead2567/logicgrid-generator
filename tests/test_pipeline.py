@@ -301,7 +301,8 @@ def test_canonical_narrative_is_a_usable_control(puzzle):
     for cat in puzzle.schema.categories:
         for item in cat.items:
             assert item in text, item
-    assert "There are 3 entries" in text
+    assert "Three entries are involved" in text
+    assert "Determine each entry's" in text
 
 
 # ---------------------------------------------------------------------------

@@ -1,0 +1,345 @@
+{
+  "pid": "fa96355e3237",
+  "title": "The Crossings to Inverlaig",
+  "theme": "ferry",
+  "blurb": "The Inverlaig ferry runs a full day of crossings in theory, and a variable number in practice.",
+  "profile": "hard",
+  "rating": 6,
+  "score": 9.8372,
+  "seed": 2026172996925,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026172996925
+  },
+  "schema": {
+    "spine": "time",
+    "entity_noun": "skipper",
+    "entity_noun_plural": "skippers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "time",
+        "label": "Start time",
+        "items": [
+          "8am",
+          "9am",
+          "10am",
+          "11am",
+          "noon"
+        ],
+        "ordered": true,
+        "noun": "start time",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "hour",
+        "verb": "sails at"
+      },
+      {
+        "name": "skipper",
+        "label": "Skipper",
+        "items": [
+          "Tormod",
+          "Eilidh",
+          "Murdo",
+          "Calla",
+          "Senga"
+        ],
+        "ordered": false,
+        "noun": "skipper",
+        "subject": true
+      },
+      {
+        "name": "cargo",
+        "label": "Notable cargo",
+        "items": [
+          "a brass band",
+          "a refrigerated van",
+          "a consignment of bees",
+          "a film crew and no permits",
+          "a wedding party"
+        ],
+        "ordered": false,
+        "noun": "cargo",
+        "verb": "carries"
+      },
+      {
+        "name": "vessel",
+        "label": "Vessel",
+        "items": [
+          "the Tern",
+          "the Broch Maid",
+          "the Three Brothers",
+          "the Kelpie",
+          "the Siller Grey"
+        ],
+        "ordered": false,
+        "noun": "vessel",
+        "verb": "commands"
+      },
+      {
+        "name": "delay",
+        "label": "Delay blamed on",
+        "items": [
+          "paperwork",
+          "a fouled propeller",
+          "a slipway repair",
+          "a passenger's dog",
+          "the tide"
+        ],
+        "ordered": false,
+        "noun": "reason",
+        "verb": "blames"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "before",
+            "a": "delay:a passenger's dog",
+            "b": "time:10am"
+          },
+          "y": {
+            "kind": "link",
+            "a": "skipper:Tormod",
+            "b": "time:noon"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "link",
+              "a": "cargo:a film crew and no permits",
+              "b": "vessel:the Tern"
+            },
+            {
+              "kind": "parity",
+              "a": "skipper:Tormod",
+              "b": "time:noon",
+              "same": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "time:8am",
+          "b": "vessel:the Tern",
+          "k": 4,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "skipper:Senga",
+          "b": "delay:a passenger's dog",
+          "c": "time:noon"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "cargo:a refrigerated van",
+          "b": "time:9am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "skipper:Calla",
+          "b": "time:9am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "delay:a fouled propeller",
+          "b": "cargo:a wedding party",
+          "c": "vessel:the Broch Maid"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "delay:a passenger's dog",
+          "b": "vessel:the Siller Grey",
+          "same": false
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "vessel:the Broch Maid",
+          "b": "cargo:a consignment of bees"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "delay:a fouled propeller",
+          "b": "vessel:the Kelpie"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "delay:the tide",
+          "b": "skipper:Murdo"
+        },
+        {
+          "kind": "before",
+          "a": "skipper:Murdo",
+          "b": "vessel:the Kelpie"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "delay:paperwork",
+          "b": "vessel:the Kelpie"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "delay:paperwork",
+          "b": "skipper:Calla",
+          "same": true
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "cargo:a brass band",
+          "b": "skipper:Eilidh"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "delay:a passenger's dog",
+          "b": "vessel:the Three Brothers"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "time": [
+      "8am",
+      "9am",
+      "10am",
+      "11am",
+      "noon"
+    ],
+    "skipper": [
+      "Calla",
+      "Murdo",
+      "Tormod",
+      "Senga",
+      "Eilidh"
+    ],
+    "cargo": [
+      "a refrigerated van",
+      "a film crew and no permits",
+      "a consignment of bees",
+      "a brass band",
+      "a wedding party"
+    ],
+    "vessel": [
+      "the Siller Grey",
+      "the Broch Maid",
+      "the Three Brothers",
+      "the Kelpie",
+      "the Tern"
+    ],
+    "delay": [
+      "the tide",
+      "a passenger's dog",
+      "a fouled propeller",
+      "a slipway repair",
+      "paperwork"
+    ]
+  },
+  "stats": {
+    "atoms": 16,
+    "numbered_clues": 15,
+    "kinds": {
+      "not_both": 1,
+      "or": 1,
+      "gap": 1,
+      "between": 2,
+      "not_link": 1,
+      "immediately_before": 5,
+      "parity": 2,
+      "before": 2,
+      "adjacent": 1
+    },
+    "positives": 0,
+    "compounds": 2
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 55,
+    "tier_counts": {
+      "direct": 1,
+      "bijection": 23,
+      "order": 29,
+      "disjunction": 2
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

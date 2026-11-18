@@ -61,6 +61,10 @@ from .themes import THEMES, Theme, theme as get_theme, themes_for
 #: Sentinel for "inherit from the profile" on an int override.
 INHERIT = -1
 
+#: Roughly two printed lines. A numbered clue longer than this stops being
+#: readable, however few facts it holds.
+MAX_CLUE_CHARS = 190
+
 
 @dataclass(frozen=True, slots=True)
 class PuzzleSpec:
@@ -521,15 +525,23 @@ def bundle(
         compound = head.kind in TIER_C_KINDS
         if prof.max_bundle > 1 and not compound and rng.random() < 0.55:
             shared = set(head.refs())
+            length = len(head.render(schema))
             for other in list(remaining):
                 if len(group) >= prof.max_bundle:
                     break
                 if other.kind in TIER_C_KINDS:
                     continue
+                # Clauses led by a descriptor ("the puppeteer who stages
+                # Marrowbone") are long, so cap the bundle by how much text it
+                # actually produces rather than by a fixed number of facts.
+                extra = len(other.render(schema))
+                if length + extra > MAX_CLUE_CHARS:
+                    continue
                 if set(other.refs()) & shared:
                     group.append(other)
                     remaining.remove(other)
                     shared |= set(other.refs())
+                    length += extra
         clues.append(Clue(tuple(group), _style_for(group)))
 
     # A gentle bias towards opening with concrete anchors, as printed puzzles do.

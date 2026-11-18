@@ -1,0 +1,338 @@
+{
+  "pid": "b966e5803151",
+  "title": "The Night Shift at Coldwater Hall",
+  "theme": "aquarium",
+  "blurb": "Coldwater Hall Aquarium keeps a night rota of tanks, and one keeper who is definitely feeding the wrong things.",
+  "profile": "hard",
+  "rating": 6,
+  "score": 10.2083,
+  "seed": 2026172860520,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026172860520
+  },
+  "schema": {
+    "spine": "slot",
+    "entity_noun": "keeper",
+    "entity_noun_plural": "keepers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "slot",
+        "label": "Running order",
+        "items": [
+          "slot one",
+          "slot two",
+          "slot three",
+          "slot four",
+          "slot five"
+        ],
+        "ordered": true,
+        "noun": "slot",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "slot",
+        "verb": "works"
+      },
+      {
+        "name": "keeper",
+        "label": "Keeper",
+        "items": [
+          "Rhiannon",
+          "Oskar",
+          "Fitzwilliam",
+          "Chiamaka",
+          "Marisol"
+        ],
+        "ordered": false,
+        "noun": "keeper",
+        "subject": true
+      },
+      {
+        "name": "tank",
+        "label": "Tank",
+        "items": [
+          "the deep reef",
+          "the seahorse nursery",
+          "the estuary tank",
+          "the kelp tank",
+          "the touch pool"
+        ],
+        "ordered": false,
+        "noun": "tank",
+        "verb": "tends"
+      },
+      {
+        "name": "feed",
+        "label": "Feed",
+        "items": [
+          "a gelatine cube of unclear provenance",
+          "frozen krill",
+          "brine shrimp",
+          "nori sheets",
+          "mussel meat"
+        ],
+        "ordered": false,
+        "noun": "feed",
+        "verb": "feeds"
+      },
+      {
+        "name": "incident",
+        "label": "Logged incident",
+        "items": [
+          "an algal bloom",
+          "a failed chiller",
+          "an unexplained pH swing",
+          "a cracked viewing pane",
+          "a visitor's dropped phone"
+        ],
+        "ordered": false,
+        "noun": "incident",
+        "verb": "logs"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "slot:slot four",
+              "b": "incident:a visitor's dropped phone"
+            },
+            {
+              "kind": "gap",
+              "a": "feed:mussel meat",
+              "b": "slot:slot two",
+              "k": 2,
+              "rel": "eq"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "slot:slot two",
+          "b": "incident:a visitor's dropped phone",
+          "c": "keeper:Rhiannon"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "incident:a visitor's dropped phone",
+          "b": "slot:slot five",
+          "same": false
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "slot:slot five",
+              "b": "tank:the touch pool"
+            },
+            {
+              "kind": "immediately_before",
+              "a": "incident:a failed chiller",
+              "b": "feed:mussel meat"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "incident:a cracked viewing pane",
+          "b": "slot:slot two"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "tank:the deep reef",
+          "b": "slot:slot four"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "tank:the kelp tank",
+              "b": "feed:brine shrimp"
+            },
+            {
+              "kind": "link",
+              "a": "keeper:Chiamaka",
+              "b": "tank:the deep reef"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "tank:the estuary tank",
+          "b": "feed:frozen krill",
+          "c": "keeper:Oskar"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "feed:nori sheets",
+          "b": "incident:an unexplained pH swing"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "tank:the touch pool",
+          "b": "incident:a visitor's dropped phone"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "incident:an unexplained pH swing",
+          "b": "keeper:Chiamaka"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "keeper:Oskar",
+          "b": "tank:the seahorse nursery"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "feed:frozen krill",
+          "b": "tank:the seahorse nursery"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "keeper:Fitzwilliam",
+          "b": "tank:the estuary tank"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "slot": [
+      "slot one",
+      "slot two",
+      "slot three",
+      "slot four",
+      "slot five"
+    ],
+    "keeper": [
+      "Rhiannon",
+      "Marisol",
+      "Fitzwilliam",
+      "Oskar",
+      "Chiamaka"
+    ],
+    "tank": [
+      "the touch pool",
+      "the estuary tank",
+      "the deep reef",
+      "the kelp tank",
+      "the seahorse nursery"
+    ],
+    "feed": [
+      "frozen krill",
+      "a gelatine cube of unclear provenance",
+      "nori sheets",
+      "mussel meat",
+      "brine shrimp"
+    ],
+    "incident": [
+      "a cracked viewing pane",
+      "an unexplained pH swing",
+      "a failed chiller",
+      "a visitor's dropped phone",
+      "an algal bloom"
+    ]
+  },
+  "stats": {
+    "atoms": 14,
+    "numbered_clues": 14,
+    "kinds": {
+      "or": 3,
+      "between": 2,
+      "parity": 1,
+      "adjacent": 3,
+      "immediately_before": 1,
+      "before": 3,
+      "not_link": 1
+    },
+    "positives": 0,
+    "compounds": 3
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 60,
+    "tier_counts": {
+      "direct": 1,
+      "bijection": 33,
+      "order": 23,
+      "disjunction": 3
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

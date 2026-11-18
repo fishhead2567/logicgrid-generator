@@ -1,145 +1,142 @@
 # The Blind Tasting at Pemberton's
 
-*Pemberton's holds a blind tasting each spring. The tasters are blind to the tea; the tea is not blind to them.*
-
-**Difficulty** 4/7 (moderate) &nbsp;&nbsp; **Grid** 4 x 5 &nbsp;&nbsp; **Clues** 8 &nbsp;&nbsp; **id** `b9d36185280e`
+**Difficulty** 4/7 (moderate) &nbsp;&nbsp; **Grid** 4 x 5 &nbsp;&nbsp; **Clues** 9 &nbsp;&nbsp; **id** `5a255b2d0dd9`
 
 ## Introduction
 
-There are 5 tastings. Each has exactly one start time and one item from every other category below, and within each category every item belongs to a different tasting.
-- **Start time** (listed in order): 8 a.m., 9 a.m., 10 a.m., 11 a.m. and noon.
-- **Tea**: a roasted oolong, a Keemun, a first-flush Darjeeling, a smoked Lapsang and a pressed pu-erh.
-- **Tasting note**: pine smoke, iron filings, hay and honey, bruised peach and stewed apricot.
-- **Cup**: a bone china cup, a pewter beaker, an enamel mug, a lacquered bowl and a glass tumbler.
-The hours above are listed in order, from 8 a.m. to noon.
+Pemberton's holds a blind tasting each spring. The tasters are blind to the tea; the tea is not blind to them.
+Five tasters are involved. Determine each taster's start time, note and cup.
+- **Taster**: Yolanda, Marguerite, Chidi, Rolf and Soren.
+- **Start time** (listed from earlier to later): 8am, 9am, 10am, 11am and noon.
+- **Tasting note**: wet slate; stewed apricot; pine smoke; hay and honey; and bruised peach.
+- **Cup**: a glass tumbler, a bone china cup, a pewter beaker, an enamel mug and a stoneware cup.
+Every taster has a different start time, note and cup, so within each category every item is used exactly once.
 
 ## Clues
 
-1. Bruised peach goes with 9 a.m..
-2. A smoked Lapsang's start time is immediately earlier than 10 a.m., with no start time in between.
-3. A glass tumbler and 8 a.m. are exactly two hours apart in start time order. A glass tumbler does not go with a Keemun.
-4. A pressed pu-erh and 9 a.m. both sit at odd-numbered hours or both at even-numbered hours.
-5. One of a lacquered bowl and hay and honey sits at an odd-numbered start time and the other at an even-numbered start time. A lacquered bowl does not go with a pressed pu-erh.
-6. Iron filings' start time is earlier than a first-flush Darjeeling's start time.
-7. A bone china cup and a pressed pu-erh are next to each other in start time order, in one order or the other.
-8. A pewter beaker falls somewhere between pine smoke and a pressed pu-erh in start time order.
+1. Soren reports pine smoke. 9am falls somewhere between the taster who reports pine smoke and the taster who reports wet slate in start time order. Yolanda does not report wet slate.
+2. Chidi does not taste at 8am.
+3. The taster who drinks from a pewter beaker is exactly one hour earlier than noon, with no start time in between.
+4. The taster who reports pine smoke and 10am are exactly one hour apart in start time order, in one direction or the other.
+5. Rolf is earlier than the taster who drinks from a glass tumbler in start time order.
+6. The taster who drinks from a stoneware cup and Soren are exactly one hour apart in start time order, in one direction or the other.
+7. The taster who drinks from a stoneware cup and Rolf are exactly one hour apart in start time order, in one direction or the other.
+8. Yolanda is earlier than the taster who reports bruised peach in start time order.
+9. The taster who drinks from a bone china cup falls somewhere between the taster who reports stewed apricot and the taster who reports wet slate in start time order.
 
 ## Solving chart
 
-*Start time vs Tea*
+*Start time vs Taster*
 
-| | a roasted oolong | a Keemun | a first-flush Darjeeling | a smoked Lapsang | a pressed pu-erh |
+| | Yolanda | Marguerite | Chidi | Rolf | Soren |
 |---|---|---|---|---|---|
-| **8 a.m.** | | | | | |
-| **9 a.m.** | | | | | |
-| **10 a.m.** | | | | | |
-| **11 a.m.** | | | | | |
+| **8am** | | | | | |
+| **9am** | | | | | |
+| **10am** | | | | | |
+| **11am** | | | | | |
 | **noon** | | | | | |
 
 *Start time vs Tasting note*
 
-| | pine smoke | iron filings | hay and honey | bruised peach | stewed apricot |
+| | wet slate | stewed apricot | pine smoke | hay and honey | bruised peach |
 |---|---|---|---|---|---|
-| **8 a.m.** | | | | | |
-| **9 a.m.** | | | | | |
-| **10 a.m.** | | | | | |
-| **11 a.m.** | | | | | |
+| **8am** | | | | | |
+| **9am** | | | | | |
+| **10am** | | | | | |
+| **11am** | | | | | |
 | **noon** | | | | | |
 
 *Start time vs Cup*
 
-| | a bone china cup | a pewter beaker | an enamel mug | a lacquered bowl | a glass tumbler |
+| | a glass tumbler | a bone china cup | a pewter beaker | an enamel mug | a stoneware cup |
 |---|---|---|---|---|---|
-| **8 a.m.** | | | | | |
-| **9 a.m.** | | | | | |
-| **10 a.m.** | | | | | |
-| **11 a.m.** | | | | | |
+| **8am** | | | | | |
+| **9am** | | | | | |
+| **10am** | | | | | |
+| **11am** | | | | | |
 | **noon** | | | | | |
 
-*Tea vs Tasting note*
+*Taster vs Tasting note*
 
-| | pine smoke | iron filings | hay and honey | bruised peach | stewed apricot |
+| | wet slate | stewed apricot | pine smoke | hay and honey | bruised peach |
 |---|---|---|---|---|---|
-| **a roasted oolong** | | | | | |
-| **a Keemun** | | | | | |
-| **a first-flush Darjeeling** | | | | | |
-| **a smoked Lapsang** | | | | | |
-| **a pressed pu-erh** | | | | | |
+| **Yolanda** | | | | | |
+| **Marguerite** | | | | | |
+| **Chidi** | | | | | |
+| **Rolf** | | | | | |
+| **Soren** | | | | | |
 
-*Tea vs Cup*
+*Taster vs Cup*
 
-| | a bone china cup | a pewter beaker | an enamel mug | a lacquered bowl | a glass tumbler |
+| | a glass tumbler | a bone china cup | a pewter beaker | an enamel mug | a stoneware cup |
 |---|---|---|---|---|---|
-| **a roasted oolong** | | | | | |
-| **a Keemun** | | | | | |
-| **a first-flush Darjeeling** | | | | | |
-| **a smoked Lapsang** | | | | | |
-| **a pressed pu-erh** | | | | | |
+| **Yolanda** | | | | | |
+| **Marguerite** | | | | | |
+| **Chidi** | | | | | |
+| **Rolf** | | | | | |
+| **Soren** | | | | | |
 
 *Tasting note vs Cup*
 
-| | a bone china cup | a pewter beaker | an enamel mug | a lacquered bowl | a glass tumbler |
+| | a glass tumbler | a bone china cup | a pewter beaker | an enamel mug | a stoneware cup |
 |---|---|---|---|---|---|
+| **wet slate** | | | | | |
+| **stewed apricot** | | | | | |
 | **pine smoke** | | | | | |
-| **iron filings** | | | | | |
 | **hay and honey** | | | | | |
 | **bruised peach** | | | | | |
-| **stewed apricot** | | | | | |
 
 ## Solution
 
-| Start time | Tea | Tasting note | Cup |
+| Start time | Taster | Tasting note | Cup |
 |---|---|---|---|
-| 8 a.m. | a Keemun | pine smoke | a lacquered bowl |
-| 9 a.m. | a smoked Lapsang | bruised peach | a pewter beaker |
-| 10 a.m. | a roasted oolong | iron filings | a glass tumbler |
-| 11 a.m. | a pressed pu-erh | hay and honey | an enamel mug |
-| noon | a first-flush Darjeeling | stewed apricot | a bone china cup |
+| 8am | Marguerite | wet slate | an enamel mug |
+| 9am | Rolf | hay and honey | a bone china cup |
+| 10am | Yolanda | stewed apricot | a stoneware cup |
+| 11am | Soren | pine smoke | a pewter beaker |
+| noon | Chidi | bruised peach | a glass tumbler |
 
 ## How it falls out
 
-1. [direct] from clue 3 note:bruised peach: ruled out position(s) 1,3,4,5
-2. [bijection] note:pine smoke: ruled out position(s) 2
-3. [bijection] note:iron filings: ruled out position(s) 2
-4. [bijection] note:hay and honey: ruled out position(s) 2
-5. [bijection] note:stewed apricot: ruled out position(s) 2
-6. [order] from clue 10 cup:a pewter beaker: ruled out position(s) 1,5
-7. [order] from clue 8 note:iron filings: ruled out position(s) 5
-8. [order] from clue 8 tea:a first-flush Darjeeling: ruled out position(s) 1
-9. [order] from clue 5 tea:a smoked Lapsang: ruled out position(s) 1,3,4,5
-10. [order] from clue 4 cup:a glass tumbler: ruled out position(s) 1,2,4,5
-11. [order] from clue 1 tea:a pressed pu-erh: ruled out position(s) 1,3,5
-12. [order] from clue 10 note:pine smoke: ruled out position(s) 3
-13. [order] from clue 9 cup:a bone china cup: ruled out position(s) 2,4
-14. [direct] from clue 2 tea:a Keemun: ruled out position(s) 3
-15. [bijection] cup:a bone china cup: ruled out position(s) 3
-16. [bijection] cup:a pewter beaker: ruled out position(s) 3
-17. [bijection] cup:an enamel mug: ruled out position(s) 3
-18. [bijection] cup:a lacquered bowl: ruled out position(s) 3
-19. [bijection] tea:a roasted oolong: ruled out position(s) 2
-20. [bijection] tea:a Keemun: ruled out position(s) 2
-21. [bijection] tea:a first-flush Darjeeling: ruled out position(s) 2
-22. [bijection] tea:a pressed pu-erh: ruled out position(s) 2
-23. [direct] from clue 6 cup:a lacquered bowl: ruled out position(s) 4
-24. [order] from clue 10 cup:a pewter beaker: ruled out position(s) 4
-25. [order] from clue 10 note:pine smoke: ruled out position(s) 4,5
-26. [order] from clue 9 cup:a bone china cup: ruled out position(s) 1
-27. [bijection] cup:an enamel mug: ruled out position(s) 2,5
-28. [bijection] cup:a lacquered bowl: ruled out position(s) 2,5
-29. [bijection] cup:an enamel mug: ruled out position(s) 1
-30. [bijection] note:iron filings: ruled out position(s) 1
-31. [bijection] note:hay and honey: ruled out position(s) 1
-32. [bijection] note:stewed apricot: ruled out position(s) 1
-33. [bijection] tea:a roasted oolong: ruled out position(s) 4
-34. [bijection] tea:a Keemun: ruled out position(s) 4
-35. [bijection] tea:a first-flush Darjeeling: ruled out position(s) 4
-36. [order] from clue 8 tea:a first-flush Darjeeling: ruled out position(s) 3
-37. [order] from clue 7 note:hay and honey: ruled out position(s) 3,5
-38. [bijection] note:iron filings: ruled out position(s) 4
-39. [bijection] note:stewed apricot: ruled out position(s) 4
-40. [bijection] note:stewed apricot: ruled out position(s) 3
-_... and 3 further steps._
+1. [direct] from clue 5 taster:Chidi: ruled out position(s) 1
+2. [order] from clue 10 cup:a pewter beaker: ruled out position(s) 1,2,3,5
+3. [order] from clue 9 taster:Yolanda: ruled out position(s) 5
+4. [order] from clue 9 note:bruised peach: ruled out position(s) 1
+5. [order] from clue 8 note:pine smoke: ruled out position(s) 1,3,5
+6. [order] from clue 6 taster:Rolf: ruled out position(s) 5
+7. [order] from clue 6 cup:a glass tumbler: ruled out position(s) 1
+8. [order] from clue 3 note:pine smoke: ruled out position(s) 2
+9. [order] from clue 3 note:wet slate: ruled out position(s) 2,3,4,5
+10. [order] from clue 1 cup:a bone china cup: ruled out position(s) 1,5
+11. [order] from clue 1 note:stewed apricot: ruled out position(s) 1,2
+12. [direct] from clue 7 taster:Yolanda: ruled out position(s) 1
+13. [order] from clue 9 note:bruised peach: ruled out position(s) 2
+14. [direct] from clue 2 taster:Soren: ruled out position(s) 1,2,3,5
+15. [order] from clue 11 cup:a stoneware cup: ruled out position(s) 1,2,4
+16. [order] from clue 4 taster:Rolf: ruled out position(s) 1,3
+17. [order] from clue 6 cup:a glass tumbler: ruled out position(s) 2
+18. [bijection] cup:a glass tumbler: ruled out position(s) 4
+19. [bijection] cup:a bone china cup: ruled out position(s) 4
+20. [bijection] cup:an enamel mug: ruled out position(s) 4
+21. [bijection] cup:an enamel mug: ruled out position(s) 2,3,5
+22. [bijection] note:stewed apricot: ruled out position(s) 4
+23. [bijection] note:hay and honey: ruled out position(s) 1,4
+24. [bijection] note:bruised peach: ruled out position(s) 4
+25. [bijection] note:hay and honey: ruled out position(s) 3,5
+26. [bijection] taster:Yolanda: ruled out position(s) 4
+27. [bijection] taster:Marguerite: ruled out position(s) 4
+28. [bijection] taster:Chidi: ruled out position(s) 4
+29. [bijection] taster:Rolf: ruled out position(s) 4
+30. [bijection] taster:Marguerite: ruled out position(s) 2,3,5
+31. [order] from clue 4 cup:a stoneware cup: ruled out position(s) 5
+32. [bijection] cup:a glass tumbler: ruled out position(s) 3
+33. [bijection] cup:a bone china cup: ruled out position(s) 3
+34. [bijection] taster:Yolanda: ruled out position(s) 2
+35. [bijection] taster:Chidi: ruled out position(s) 2
+36. [bijection] taster:Chidi: ruled out position(s) 3
+37. [order] from clue 9 note:bruised peach: ruled out position(s) 3
+38. [bijection] note:stewed apricot: ruled out position(s) 5
 
 ---
 
-<sub>seed `2026172805087` &middot; score 5.515 &middot; atoms 10 &middot; positives 1 &middot; solved by order</sub>
+<sub>seed `2026172805087` &middot; score 5.515 &middot; atoms 11 &middot; positives 1 &middot; solved by order</sub>

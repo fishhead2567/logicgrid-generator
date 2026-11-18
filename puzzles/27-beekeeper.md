@@ -1,33 +1,34 @@
 # The Honey Show Scandal
 
-*The annual honey show has been judged, and at least two people are writing letters about it.*
-
-**Difficulty** 3/7 (moderate) &nbsp;&nbsp; **Grid** 4 x 5 &nbsp;&nbsp; **Clues** 7 &nbsp;&nbsp; **id** `1117445c02f0`
+**Difficulty** 4/7 (moderate) &nbsp;&nbsp; **Grid** 4 x 5 &nbsp;&nbsp; **Clues** 9 &nbsp;&nbsp; **id** `610c7b4ed97e`
 
 ## Introduction
 
-There are 5 exhibits. Each has exactly one entry fee and one item from every other category below, and within each category every item belongs to a different exhibit.
-- **Entry fee** (listed in order): $2, $4, $6, $8 and $10.
-- **Honey**: sea lavender honey, chestnut honey, clover honey, lime blossom honey and borage honey.
+The annual honey show has been judged, and at least two people are writing letters about it.
+Five beekeepers are involved. Determine each beekeeper's entry fee, hive and note.
+- **Beekeeper**: Breda, Ezekiel, Antonina, Fausto and Priya.
+- **Entry fee** (listed from cheaper to dearer): $2, $4, $6, $8 and $10.
 - **Hive type**: a long deep hive, a Langstroth hive, a skep, a WBC hive and a Warre hive.
 - **Judge's note**: an unlabelled lid, a trace of wax, crystallised early, a cloudy jar and an overbearing aroma.
-The fee steps above are listed in order, from $2 to $10.
+Every beekeeper has a different entry fee, hive and note, so within each category every item is used exactly once.
 
 ## Clues
 
-1. $10 goes with borage honey.
-2. A Warre hive and crystallised early are next to each other in entry fee order, in one order or the other. Sea lavender honey goes with crystallised early.
-3. $2 is immediately cheaper than a Warre hive's entry fee, with no entry fee in between. A trace of wax falls somewhere between $2 and a skep in entry fee order. An overbearing aroma falls somewhere between $6 and a skep in entry fee order.
-4. $4 and chestnut honey are next to each other in entry fee order, in one order or the other.
-5. A WBC hive falls somewhere between $8 and an unlabelled lid in entry fee order.
-6. Clover honey's entry fee is immediately cheaper than a skep's entry fee, with no entry fee in between.
-7. Sea lavender honey falls somewhere between a long deep hive and a cloudy jar in entry fee order.
+1. The beekeeper who keeps a Warre hive is cheaper than the beekeeper who has a jar noted as crystallised early in entry fee order. The beekeeper who keeps a Warre hive pays $4.
+2. Breda falls somewhere between $2 and $8 in entry fee order.
+3. Antonina is exactly one fee step cheaper than $10, with no entry fee in between.
+4. The beekeeper who has a jar noted as an overbearing aroma and $10 are exactly one fee step apart in entry fee order, in one direction or the other.
+5. Fausto is exactly one fee step cheaper than $6, with no entry fee in between.
+6. The beekeeper who keeps a Langstroth hive falls somewhere between $10 and Ezekiel in entry fee order.
+7. The beekeeper who has a jar noted as crystallised early is cheaper than the beekeeper who keeps a skep in entry fee order.
+8. The beekeeper who has a jar noted as a trace of wax is exactly one fee step cheaper than the beekeeper who keeps a WBC hive, with no entry fee in between.
+9. The beekeeper who keeps a skep does not have a jar noted as an unlabelled lid.
 
 ## Solving chart
 
-*Entry fee vs Honey*
+*Entry fee vs Beekeeper*
 
-| | sea lavender honey | chestnut honey | clover honey | lime blossom honey | borage honey |
+| | Breda | Ezekiel | Antonina | Fausto | Priya |
 |---|---|---|---|---|---|
 | **$2** | | | | | |
 | **$4** | | | | | |
@@ -55,25 +56,25 @@ The fee steps above are listed in order, from $2 to $10.
 | **$8** | | | | | |
 | **$10** | | | | | |
 
-*Honey vs Hive type*
+*Beekeeper vs Hive type*
 
 | | a long deep hive | a Langstroth hive | a skep | a WBC hive | a Warre hive |
 |---|---|---|---|---|---|
-| **sea lavender honey** | | | | | |
-| **chestnut honey** | | | | | |
-| **clover honey** | | | | | |
-| **lime blossom honey** | | | | | |
-| **borage honey** | | | | | |
+| **Breda** | | | | | |
+| **Ezekiel** | | | | | |
+| **Antonina** | | | | | |
+| **Fausto** | | | | | |
+| **Priya** | | | | | |
 
-*Honey vs Judge's note*
+*Beekeeper vs Judge's note*
 
 | | an unlabelled lid | a trace of wax | crystallised early | a cloudy jar | an overbearing aroma |
 |---|---|---|---|---|---|
-| **sea lavender honey** | | | | | |
-| **chestnut honey** | | | | | |
-| **clover honey** | | | | | |
-| **lime blossom honey** | | | | | |
-| **borage honey** | | | | | |
+| **Breda** | | | | | |
+| **Ezekiel** | | | | | |
+| **Antonina** | | | | | |
+| **Fausto** | | | | | |
+| **Priya** | | | | | |
 
 *Hive type vs Judge's note*
 
@@ -87,51 +88,55 @@ The fee steps above are listed in order, from $2 to $10.
 
 ## Solution
 
-| Entry fee | Honey | Hive type | Judge's note |
+| Entry fee | Beekeeper | Hive type | Judge's note |
 |---|---|---|---|
-| $2 | chestnut honey | a long deep hive | an unlabelled lid |
-| $4 | lime blossom honey | a Warre hive | a trace of wax |
-| $6 | sea lavender honey | a WBC hive | crystallised early |
-| $8 | clover honey | a Langstroth hive | an overbearing aroma |
-| $10 | borage honey | a skep | a cloudy jar |
+| $2 | Ezekiel | a long deep hive | an unlabelled lid |
+| $4 | Fausto | a Warre hive | a trace of wax |
+| $6 | Breda | a WBC hive | crystallised early |
+| $8 | Antonina | a Langstroth hive | an overbearing aroma |
+| $10 | Priya | a skep | a cloudy jar |
 
 ## How it falls out
 
-1. [direct] from clue 2 honey:borage honey: ruled out position(s) 1,2,3,4
-2. [bijection] honey:sea lavender honey: ruled out position(s) 5
-3. [bijection] honey:chestnut honey: ruled out position(s) 5
-4. [bijection] honey:clover honey: ruled out position(s) 5
-5. [bijection] honey:lime blossom honey: ruled out position(s) 5
-6. [direct] from clue 5 verdict:crystallised early: ruled out position(s) 5
-7. [order] from clue 10 verdict:an overbearing aroma: ruled out position(s) 1,3,5
-8. [order] from clue 10 hive:a skep: ruled out position(s) 2,3,4
-9. [order] from clue 8 hive:a WBC hive: ruled out position(s) 1,4,5
-10. [order] from clue 8 verdict:an unlabelled lid: ruled out position(s) 3,4,5
-11. [order] from clue 7 hive:a Warre hive: ruled out position(s) 1,3,4,5
-12. [order] from clue 9 verdict:crystallised early: ruled out position(s) 2,4
-13. [order] from clue 6 verdict:a trace of wax: ruled out position(s) 1,5
-14. [order] from clue 6 hive:a skep: ruled out position(s) 1
-15. [order] from clue 10 verdict:an overbearing aroma: ruled out position(s) 2
-16. [order] from clue 4 honey:sea lavender honey: ruled out position(s) 1
-17. [order] from clue 3 honey:chestnut honey: ruled out position(s) 2,4
-18. [order] from clue 1 honey:clover honey: ruled out position(s) 1,2,3
-19. [direct] from clue 5 honey:sea lavender honey: ruled out position(s) 2,4
-20. [direct] from clue 5 verdict:crystallised early: ruled out position(s) 1
-21. [order] from clue 4 hive:a long deep hive: ruled out position(s) 3
-22. [order] from clue 4 verdict:a cloudy jar: ruled out position(s) 3
-23. [bijection] hive:a long deep hive: ruled out position(s) 2,5
-24. [bijection] hive:a Langstroth hive: ruled out position(s) 2,5
-25. [bijection] hive:a WBC hive: ruled out position(s) 2
-26. [bijection] honey:chestnut honey: ruled out position(s) 3
-27. [bijection] honey:lime blossom honey: ruled out position(s) 3,4
-28. [bijection] honey:lime blossom honey: ruled out position(s) 1
-29. [bijection] verdict:a trace of wax: ruled out position(s) 3,4
-30. [bijection] verdict:a cloudy jar: ruled out position(s) 4
-31. [bijection] verdict:a cloudy jar: ruled out position(s) 1,2
-32. [order] from clue 4 hive:a long deep hive: ruled out position(s) 4
-33. [bijection] hive:a Langstroth hive: ruled out position(s) 1,3
-34. [bijection] verdict:an unlabelled lid: ruled out position(s) 2
+1. [direct] from clue 3 hive:a Warre hive: ruled out position(s) 1,3,4,5
+2. [bijection] hive:a long deep hive: ruled out position(s) 2
+3. [bijection] hive:a Langstroth hive: ruled out position(s) 2
+4. [bijection] hive:a skep: ruled out position(s) 2
+5. [bijection] hive:a WBC hive: ruled out position(s) 2
+6. [order] from clue 10 keeper:Fausto: ruled out position(s) 1,3,4,5
+7. [order] from clue 8 hive:a Langstroth hive: ruled out position(s) 1,5
+8. [order] from clue 8 keeper:Ezekiel: ruled out position(s) 4,5
+9. [order] from clue 7 verdict:an overbearing aroma: ruled out position(s) 1,2,3,5
+10. [order] from clue 6 keeper:Breda: ruled out position(s) 1,4,5
+11. [order] from clue 5 verdict:a trace of wax: ruled out position(s) 1,5
+12. [order] from clue 5 hive:a WBC hive: ruled out position(s) 1
+13. [order] from clue 4 verdict:crystallised early: ruled out position(s) 5
+14. [order] from clue 4 hive:a skep: ruled out position(s) 1
+15. [order] from clue 2 keeper:Antonina: ruled out position(s) 1,2,3,5
+16. [order] from clue 1 verdict:crystallised early: ruled out position(s) 1,2
+17. [order] from clue 4 hive:a skep: ruled out position(s) 3
+18. [bijection] hive:a long deep hive: ruled out position(s) 3,4,5
+19. [bijection] keeper:Breda: ruled out position(s) 2
+20. [bijection] keeper:Ezekiel: ruled out position(s) 2
+21. [bijection] keeper:Priya: ruled out position(s) 2,4
+22. [bijection] keeper:Priya: ruled out position(s) 1,3
+23. [bijection] verdict:an unlabelled lid: ruled out position(s) 4
+24. [bijection] verdict:a trace of wax: ruled out position(s) 4
+25. [bijection] verdict:crystallised early: ruled out position(s) 4
+26. [bijection] verdict:a cloudy jar: ruled out position(s) 4
+27. [order] from clue 5 hive:a WBC hive: ruled out position(s) 5
+28. [bijection] hive:a skep: ruled out position(s) 4
+29. [bijection] keeper:Ezekiel: ruled out position(s) 3
+30. [bijection] verdict:an unlabelled lid: ruled out position(s) 3
+31. [bijection] verdict:a trace of wax: ruled out position(s) 3
+32. [bijection] verdict:a cloudy jar: ruled out position(s) 3
+33. [order] from clue 5 hive:a WBC hive: ruled out position(s) 4
+34. [direct] from clue 9 verdict:an unlabelled lid: ruled out position(s) 5
+35. [bijection] hive:a Langstroth hive: ruled out position(s) 3
+36. [bijection] verdict:an unlabelled lid: ruled out position(s) 2
+37. [bijection] verdict:a cloudy jar: ruled out position(s) 2
+38. [bijection] verdict:a cloudy jar: ruled out position(s) 1
 
 ---
 
-<sub>seed `2026172789249` &middot; score 5.355 &middot; atoms 10 &middot; positives 2 &middot; solved by order</sub>
+<sub>seed `2026172789249` &middot; score 5.515 &middot; atoms 10 &middot; positives 1 &middot; solved by order</sub>

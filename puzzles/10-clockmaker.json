@@ -1,11 +1,11 @@
 {
-  "pid": "48344831bdb4",
+  "pid": "36e5510439ef",
   "title": "A Benchful of Clocks, and No Agreement",
   "theme": "clockmaker",
   "blurb": "Mr Halloran repairs clocks. Those on the bench are all insisting on a different hour.",
   "profile": "easy",
   "rating": 3,
-  "score": 5.13,
+  "score": 4.93,
   "seed": 2026172654626,
   "spec": {
     "difficulty": "easy",
@@ -13,8 +13,9 @@
   },
   "schema": {
     "spine": "shelf",
-    "entity_noun": "repair job",
-    "entity_noun_plural": "repair jobs",
+    "entity_noun": "clock",
+    "entity_noun_plural": "clocks",
+    "entity_animate": false,
     "categories": [
       {
         "name": "shelf",
@@ -29,19 +30,21 @@
         "noun": "shelf",
         "cmp_less": "lower",
         "cmp_more": "higher",
-        "step_noun": "shelf"
+        "step_noun": "shelf",
+        "verb": "sits on"
       },
       {
         "name": "clock",
         "label": "Clock",
         "items": [
+          "a carriage clock",
           "a ship's chronometer",
           "a cuckoo clock",
-          "a station clock",
           "a mantel clock under glass"
         ],
         "ordered": false,
-        "noun": "clock"
+        "noun": "clock",
+        "subject": true
       },
       {
         "name": "owner",
@@ -49,23 +52,25 @@
         "items": [
           "Dr Vasquez",
           "Mr Dziedzic",
-          "Captain Mott",
-          "Miss Trevelyan"
+          "Miss Trevelyan",
+          "Captain Mott"
         ],
         "ordered": false,
-        "noun": "owner"
+        "noun": "owner",
+        "verb": "belongs to"
       },
       {
-        "name": "chime",
-        "label": "Chime",
+        "name": "fault",
+        "label": "Fault",
         "items": [
-          "a cuckoo call",
-          "Westminster",
-          "no chime at all",
-          "Whittington"
+          "a cracked suspension spring",
+          "a snapped mainspring",
+          "a gummed-up pivot",
+          "a bent pendulum rod"
         ],
         "ordered": false,
-        "noun": "chime"
+        "noun": "fault",
+        "verb": "suffers from"
       }
     ]
   },
@@ -75,8 +80,59 @@
       "atoms": [
         {
           "kind": "link",
+          "a": "clock:a mantel clock under glass",
+          "b": "shelf:the bottom shelf"
+        },
+        {
+          "kind": "between",
+          "a": "clock:a ship's chronometer",
+          "b": "shelf:the bottom shelf",
+          "c": "shelf:the third shelf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "fault:a snapped mainspring",
+          "b": "owner:Captain Mott"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "fault:a gummed-up pivot",
+          "b": "shelf:the third shelf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "fault:a gummed-up pivot",
+          "b": "owner:Miss Trevelyan"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
           "a": "clock:a cuckoo clock",
-          "b": "shelf:the second shelf"
+          "b": "owner:Captain Mott"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "clock:a cuckoo clock",
+          "b": "owner:Mr Dziedzic"
         }
       ]
     },
@@ -86,52 +142,7 @@
         {
           "kind": "before",
           "a": "owner:Miss Trevelyan",
-          "b": "shelf:the second shelf"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "immediately_before",
-          "a": "shelf:the bottom shelf",
-          "b": "owner:Dr Vasquez"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "immediately_before",
-          "a": "chime:Whittington",
-          "b": "clock:a ship's chronometer"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "immediately_before",
-          "a": "chime:Westminster",
-          "b": "clock:a cuckoo clock"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "chime:a cuckoo call",
-          "b": "clock:a station clock"
-        },
-        {
-          "kind": "immediately_before",
-          "a": "owner:Captain Mott",
-          "b": "chime:a cuckoo call"
+          "b": "fault:a cracked suspension spring"
         }
       ]
     }
@@ -145,44 +156,45 @@
     ],
     "clock": [
       "a mantel clock under glass",
+      "a ship's chronometer",
       "a cuckoo clock",
-      "a station clock",
-      "a ship's chronometer"
+      "a carriage clock"
     ],
     "owner": [
-      "Miss Trevelyan",
-      "Dr Vasquez",
       "Captain Mott",
+      "Dr Vasquez",
+      "Miss Trevelyan",
       "Mr Dziedzic"
     ],
-    "chime": [
-      "Westminster",
-      "no chime at all",
-      "Whittington",
-      "a cuckoo call"
+    "fault": [
+      "a snapped mainspring",
+      "a gummed-up pivot",
+      "a bent pendulum rod",
+      "a cracked suspension spring"
     ]
   },
   "stats": {
-    "atoms": 7,
+    "atoms": 8,
     "numbered_clues": 6,
     "kinds": {
-      "link": 1,
-      "before": 1,
-      "immediately_before": 4,
-      "adjacent": 1
+      "link": 2,
+      "between": 1,
+      "immediately_before": 2,
+      "not_link": 2,
+      "before": 1
     },
-    "positives": 1,
+    "positives": 2,
     "compounds": 0
   },
   "solve": {
     "solved": true,
     "max_tier": 3,
     "max_technique": "order",
-    "steps": 23,
+    "steps": 29,
     "tier_counts": {
-      "direct": 1,
-      "bijection": 12,
-      "order": 10
+      "direct": 6,
+      "bijection": 15,
+      "order": 8
     },
     "trial_eliminations": 0,
     "unknown_cells": 12

@@ -1,0 +1,341 @@
+{
+  "pid": "4c1b468385fd",
+  "title": "The Saltmarsh Light Rotation",
+  "theme": "lighthouse",
+  "blurb": "The lighthouses along the Saltmarsh coast share a single relief keeper roster, and the logbooks have become a scholarly mess.",
+  "profile": "hard",
+  "rating": 6,
+  "score": 10.3003,
+  "seed": 2026172828844,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026172828844
+  },
+  "schema": {
+    "spine": "day",
+    "entity_noun": "keeper",
+    "entity_noun_plural": "keepers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "day",
+        "label": "Day",
+        "items": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "ordered": true,
+        "noun": "day",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "day",
+        "verb": "works on"
+      },
+      {
+        "name": "keeper",
+        "label": "Keeper",
+        "items": [
+          "Hollis",
+          "Lucian",
+          "Perpetua",
+          "Emmerich",
+          "Clementine"
+        ],
+        "ordered": false,
+        "noun": "keeper",
+        "subject": true
+      },
+      {
+        "name": "light",
+        "label": "Lighthouse",
+        "items": [
+          "Thimble Reef",
+          "Mawes Point",
+          "Gannet Rock",
+          "Pelter Head",
+          "Cold Harbour"
+        ],
+        "ordered": false,
+        "noun": "lighthouse",
+        "verb": "is stationed at"
+      },
+      {
+        "name": "chore",
+        "label": "Logged chore",
+        "items": [
+          "splicing the hoist rope",
+          "rebedding the storm glass",
+          "rewiring the beacon",
+          "repainting the gallery",
+          "overhauling the foghorn"
+        ],
+        "ordered": false,
+        "noun": "chore",
+        "verb": "logs"
+      },
+      {
+        "name": "weather",
+        "label": "Weather noted",
+        "items": [
+          "sea fog",
+          "a gale",
+          "drizzle",
+          "thunder",
+          "sleet"
+        ],
+        "ordered": false,
+        "noun": "weather",
+        "verb": "notes"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "day:Wednesday",
+          "b": "light:Gannet Rock"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "day:Friday",
+          "b": "weather:a gale",
+          "k": 4,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "keeper:Clementine",
+          "b": "day:Thursday",
+          "c": "light:Thimble Reef"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "keeper:Lucian",
+          "b": "day:Friday"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "gap",
+              "a": "day:Wednesday",
+              "b": "light:Mawes Point",
+              "k": 2,
+              "rel": "eq"
+            },
+            {
+              "kind": "link",
+              "a": "keeper:Clementine",
+              "b": "weather:sleet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "keeper:Clementine",
+          "b": "chore:repainting the gallery"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "light:Gannet Rock",
+          "b": "chore:rewiring the beacon"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "chore:rewiring the beacon",
+          "b": "weather:sleet"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "weather:sea fog",
+          "b": "keeper:Perpetua",
+          "c": "light:Gannet Rock"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "chore:splicing the hoist rope",
+          "b": "light:Mawes Point"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "light:Cold Harbour",
+              "b": "weather:drizzle"
+            },
+            {
+              "kind": "link",
+              "a": "keeper:Clementine",
+              "b": "weather:sleet"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "chore:repainting the gallery",
+          "b": "keeper:Hollis",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "chore:overhauling the foghorn",
+          "b": "keeper:Perpetua"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "chore:rebedding the storm glass",
+              "b": "keeper:Hollis"
+            },
+            {
+              "kind": "immediately_before",
+              "a": "light:Pelter Head",
+              "b": "keeper:Hollis"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "day": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "keeper": [
+      "Perpetua",
+      "Clementine",
+      "Emmerich",
+      "Lucian",
+      "Hollis"
+    ],
+    "light": [
+      "Thimble Reef",
+      "Cold Harbour",
+      "Gannet Rock",
+      "Pelter Head",
+      "Mawes Point"
+    ],
+    "chore": [
+      "splicing the hoist rope",
+      "overhauling the foghorn",
+      "repainting the gallery",
+      "rewiring the beacon",
+      "rebedding the storm glass"
+    ],
+    "weather": [
+      "a gale",
+      "sea fog",
+      "drizzle",
+      "thunder",
+      "sleet"
+    ]
+  },
+  "stats": {
+    "atoms": 14,
+    "numbered_clues": 14,
+    "kinds": {
+      "link": 1,
+      "gap": 2,
+      "between": 2,
+      "immediately_before": 3,
+      "or": 3,
+      "not_link": 2,
+      "adjacent": 1
+    },
+    "positives": 1,
+    "compounds": 3
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 48,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 26,
+      "order": 15,
+      "disjunction": 4
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

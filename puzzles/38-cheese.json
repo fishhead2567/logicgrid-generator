@@ -1,0 +1,288 @@
+{
+  "pid": "d3851309d716",
+  "title": "The Cheesemongers' Standoff",
+  "theme": "cheese",
+  "blurb": "A case of opinionated cheeses, their equally opinionated makers, and one display that has begun to smell like a political scandal.",
+  "profile": "hard",
+  "rating": 6,
+  "score": 9.6333,
+  "seed": 2026172876358,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026172876358
+  },
+  "schema": {
+    "spine": "price",
+    "entity_noun": "cheese",
+    "entity_noun_plural": "cheeses",
+    "entity_animate": false,
+    "categories": [
+      {
+        "name": "price",
+        "label": "Price",
+        "items": [
+          "$3",
+          "$5",
+          "$7",
+          "$9",
+          "$11"
+        ],
+        "ordered": true,
+        "values": [
+          3,
+          5,
+          7,
+          9,
+          11
+        ],
+        "unit": "$",
+        "noun": "price",
+        "cmp_less": "cheaper",
+        "cmp_more": "dearer",
+        "step_noun": "price step",
+        "verb": "sells for"
+      },
+      {
+        "name": "cheese",
+        "label": "Cheese",
+        "items": [
+          "Fenland Blue",
+          "Saltpans",
+          "Old Thrashing",
+          "Bellringer",
+          "Oakmoss"
+        ],
+        "ordered": false,
+        "noun": "cheese",
+        "subject": true
+      },
+      {
+        "name": "maker",
+        "label": "Maker",
+        "items": [
+          "Olubunmi",
+          "Lachlan",
+          "Perdita",
+          "Sigrid",
+          "Teodoro"
+        ],
+        "ordered": false,
+        "noun": "maker",
+        "verb": "was made by"
+      },
+      {
+        "name": "age",
+        "label": "Aged for",
+        "items": [
+          "fourteen months",
+          "nine months",
+          "thirty months",
+          "three weeks",
+          "five months"
+        ],
+        "ordered": false,
+        "noun": "ageing",
+        "verb": "was aged for"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "before",
+            "a": "price:$7",
+            "b": "age:thirty months"
+          },
+          "y": {
+            "kind": "before",
+            "a": "price:$9",
+            "b": "cheese:Saltpans"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "adjacent",
+            "a": "age:fourteen months",
+            "b": "price:$5"
+          },
+          "y": {
+            "kind": "before",
+            "a": "price:$9",
+            "b": "cheese:Oakmoss"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "price:$7",
+          "b": "age:thirty months"
+        },
+        {
+          "kind": "before",
+          "a": "cheese:Bellringer",
+          "b": "price:$7"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "maker:Teodoro",
+          "b": "price:$3"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "age:five months",
+          "b": "maker:Sigrid"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "age:five months",
+          "b": "price:$11"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "cheese:Old Thrashing",
+              "b": "price:$7"
+            },
+            {
+              "kind": "immediately_before",
+              "a": "age:nine months",
+              "b": "maker:Teodoro"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "maker:Lachlan",
+          "b": "cheese:Saltpans"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "maker:Lachlan",
+          "b": "age:thirty months",
+          "c": "age:three weeks"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "cheese:Fenland Blue",
+          "b": "age:nine months",
+          "c": "maker:Sigrid"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "cheese:Bellringer",
+          "b": "maker:Perdita"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "price": [
+      "$3",
+      "$5",
+      "$7",
+      "$9",
+      "$11"
+    ],
+    "cheese": [
+      "Oakmoss",
+      "Bellringer",
+      "Fenland Blue",
+      "Saltpans",
+      "Old Thrashing"
+    ],
+    "maker": [
+      "Perdita",
+      "Teodoro",
+      "Lachlan",
+      "Olubunmi",
+      "Sigrid"
+    ],
+    "age": [
+      "nine months",
+      "three weeks",
+      "fourteen months",
+      "five months",
+      "thirty months"
+    ]
+  },
+  "stats": {
+    "atoms": 12,
+    "numbered_clues": 10,
+    "kinds": {
+      "not_both": 2,
+      "before": 2,
+      "adjacent": 2,
+      "not_link": 1,
+      "immediately_before": 2,
+      "or": 1,
+      "between": 2
+    },
+    "positives": 0,
+    "compounds": 3
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 45,
+    "tier_counts": {
+      "direct": 1,
+      "bijection": 25,
+      "order": 16,
+      "disjunction": 3
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}

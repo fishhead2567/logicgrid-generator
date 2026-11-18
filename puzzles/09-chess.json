@@ -1,0 +1,209 @@
+{
+  "pid": "f782eaae65a4",
+  "title": "The Ravelston Chess Club Ladder",
+  "theme": "chess",
+  "blurb": "The Ravelston Chess Club ladder is recalculated monthly and disputed continuously.",
+  "profile": "easy",
+  "rating": 3,
+  "score": 5.13,
+  "seed": 2026172646707,
+  "spec": {
+    "difficulty": "easy",
+    "seed": 2026172646707
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "player",
+    "entity_noun_plural": "players",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place",
+        "verb": "places"
+      },
+      {
+        "name": "player",
+        "label": "Player",
+        "items": [
+          "Yevgenia",
+          "Casimir",
+          "Dermot",
+          "Hieronyma"
+        ],
+        "ordered": false,
+        "noun": "player",
+        "subject": true
+      },
+      {
+        "name": "clock",
+        "label": "Clock",
+        "items": [
+          "a phone app",
+          "a hotel alarm clock",
+          "a tournament DGT clock",
+          "a chipped BHB clock"
+        ],
+        "ordered": false,
+        "noun": "clock",
+        "verb": "uses"
+      },
+      {
+        "name": "habit",
+        "label": "Table habit",
+        "items": [
+          "rearranging the captured pieces",
+          "leaving between moves",
+          "narrating in a whisper",
+          "removing their shoes"
+        ],
+        "ordered": false,
+        "noun": "habit",
+        "verb": "is known for"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "clock:a hotel alarm clock",
+          "b": "habit:narrating in a whisper"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "place:second",
+          "b": "habit:removing their shoes"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "place:second",
+          "b": "clock:a phone app",
+          "c": "player:Dermot"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "player:Casimir",
+          "b": "habit:leaving between moves",
+          "c": "place:first"
+        },
+        {
+          "kind": "not_link",
+          "a": "habit:leaving between moves",
+          "b": "player:Yevgenia"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "clock:a hotel alarm clock",
+          "b": "place:third"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "habit:removing their shoes",
+          "b": "player:Hieronyma"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "clock:a chipped BHB clock",
+          "b": "habit:rearranging the captured pieces",
+          "c": "player:Yevgenia"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth"
+    ],
+    "player": [
+      "Dermot",
+      "Casimir",
+      "Hieronyma",
+      "Yevgenia"
+    ],
+    "clock": [
+      "a tournament DGT clock",
+      "a hotel alarm clock",
+      "a chipped BHB clock",
+      "a phone app"
+    ],
+    "habit": [
+      "rearranging the captured pieces",
+      "narrating in a whisper",
+      "leaving between moves",
+      "removing their shoes"
+    ]
+  },
+  "stats": {
+    "atoms": 8,
+    "numbered_clues": 7,
+    "kinds": {
+      "link": 1,
+      "before": 1,
+      "between": 3,
+      "not_link": 1,
+      "adjacent": 2
+    },
+    "positives": 1,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 24,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 9,
+      "order": 12
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 12
+  }
+}

@@ -1,11 +1,11 @@
 {
-  "pid": "2ac653cf75bc",
+  "pid": "4e6bca5074dc",
   "title": "The Mudflat Regatta",
   "theme": "regatta",
   "blurb": "The Mudflat Regatta is rowed over a course that is only a course at high tide, which is where most of the trouble starts.",
   "profile": "gentle",
-  "rating": 1,
-  "score": 3.97,
+  "rating": 2,
+  "score": 4.27,
   "seed": 2026172591274,
   "spec": {
     "difficulty": "gentle",
@@ -13,8 +13,9 @@
   },
   "schema": {
     "spine": "place",
-    "entity_noun": "entry",
-    "entity_noun_plural": "entries",
+    "entity_noun": "crew",
+    "entity_noun_plural": "crews",
+    "entity_animate": true,
     "categories": [
       {
         "name": "place",
@@ -29,31 +30,34 @@
         "noun": "placing",
         "cmp_less": "better",
         "cmp_more": "worse",
-        "step_noun": "place"
+        "step_noun": "place",
+        "verb": "finishes"
       },
       {
         "name": "crew",
         "label": "Crew",
         "items": [
+          "the Tannery crew",
           "the Brickworks crew",
           "the Customs crew",
-          "the Creamery crew",
-          "the Tannery crew"
+          "the Almshouse crew"
         ],
         "ordered": false,
-        "noun": "crew"
+        "noun": "crew",
+        "subject": true
       },
       {
-        "name": "colours",
-        "label": "Colours",
+        "name": "boat",
+        "label": "Boat",
         "items": [
-          "mustard and black",
-          "navy with a white band",
-          "lilac and bronze",
-          "pink and cream"
+          "the Gilded Eel",
+          "the Last Resort",
+          "the Dauntless",
+          "the Obstinate"
         ],
         "ordered": false,
-        "noun": "colours"
+        "noun": "boat",
+        "verb": "rows"
       }
     ]
   },
@@ -63,23 +67,13 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "crew:the Tannery crew",
+          "a": "crew:the Brickworks crew",
           "b": "place:third"
         },
         {
           "kind": "link",
-          "a": "colours:navy with a white band",
-          "b": "crew:the Tannery crew"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "link",
-          "a": "colours:lilac and bronze",
-          "b": "crew:the Customs crew"
+          "a": "boat:the Obstinate",
+          "b": "crew:the Brickworks crew"
         }
       ]
     },
@@ -88,18 +82,8 @@
       "atoms": [
         {
           "kind": "before",
-          "a": "colours:mustard and black",
+          "a": "boat:the Last Resort",
           "b": "place:fourth"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "not_link",
-          "a": "crew:the Brickworks crew",
-          "b": "place:second"
         }
       ]
     },
@@ -109,7 +93,17 @@
         {
           "kind": "before",
           "a": "crew:the Customs crew",
-          "b": "colours:mustard and black"
+          "b": "boat:the Last Resort"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "boat:the Dauntless",
+          "b": "crew:the Almshouse crew"
         }
       ]
     }
@@ -123,37 +117,37 @@
     ],
     "crew": [
       "the Customs crew",
-      "the Creamery crew",
-      "the Tannery crew",
-      "the Brickworks crew"
+      "the Almshouse crew",
+      "the Brickworks crew",
+      "the Tannery crew"
     ],
-    "colours": [
-      "lilac and bronze",
-      "mustard and black",
-      "navy with a white band",
-      "pink and cream"
+    "boat": [
+      "the Dauntless",
+      "the Last Resort",
+      "the Obstinate",
+      "the Gilded Eel"
     ]
   },
   "stats": {
-    "atoms": 6,
-    "numbered_clues": 5,
+    "atoms": 5,
+    "numbered_clues": 4,
     "kinds": {
-      "link": 3,
+      "link": 2,
       "before": 2,
-      "not_link": 1
+      "immediately_before": 1
     },
-    "positives": 3,
+    "positives": 2,
     "compounds": 0
   },
   "solve": {
     "solved": true,
     "max_tier": 3,
     "max_technique": "order",
-    "steps": 18,
+    "steps": 16,
     "tier_counts": {
-      "direct": 4,
-      "bijection": 10,
-      "order": 4
+      "direct": 2,
+      "bijection": 8,
+      "order": 6
     },
     "trial_eliminations": 0,
     "unknown_cells": 8

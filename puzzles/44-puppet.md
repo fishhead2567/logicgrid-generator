@@ -1,38 +1,45 @@
 # A Fortnight at the Little Vesper Theatre
 
-*The Little Vesper Theatre seats forty people and employs a company of puppeteers who will not be in the same room together.*
-
-**Difficulty** 7/7 (expert) &nbsp;&nbsp; **Grid** 5 x 6 &nbsp;&nbsp; **Clues** 11 &nbsp;&nbsp; **id** `0cf49e4879c1`
+**Difficulty** 7/7 (expert) &nbsp;&nbsp; **Grid** 5 x 6 &nbsp;&nbsp; **Clues** 19 &nbsp;&nbsp; **id** `43faff2d5910`
 
 ## Introduction
 
-There are 6 performances. Each has exactly one slot and one item from every other category below, and within each category every item belongs to a different performance.
-- **Running order** (listed in order): slot one, slot two, slot three, slot four, slot five and slot six.
-- **Puppeteer**: Mirabel, Stellan, Quentin, Bowen, Lorcan and Halima.
-- **Lead puppet**: a drowned sailor, a brass magistrate, a moth queen, a tin soldier, a shepherd boy and a paper crane.
-- **Play**: Six Spoons, Marrowbone, The Clockwork Orchard, Hollowmas, The Glass Tide and The Drowned Bell.
+The Little Vesper Theatre seats forty people and employs a company of puppeteers who will not be in the same room together.
+Six puppeteers are involved. Determine each puppeteer's slot, puppet, play and accompaniment.
+- **Puppeteer**: Bowen, Halima, Stellan, Mirabel, Josefa and Lorcan.
+- **Running order** (listed from earlier to later): slot one, slot two, slot three, slot four, slot five and slot six.
+- **Lead puppet**: a tin soldier, a shepherd boy, a drowned sailor, a moth queen, a brass magistrate and a one-eyed cat.
+- **Play**: Six Spoons, Hollowmas, Marrowbone, The Clockwork Orchard, Winterling and The Drowned Bell.
 - **Accompaniment**: a musical saw, a hurdy-gurdy, a bowed psaltery, a prepared piano, two kettle drums and a pump organ.
-The slots above are listed in order, from slot one to slot six.
+Every puppeteer has a different slot, puppet, play and accompaniment, so within each category every item is used exactly once.
 
 ## Clues
 
-1. Six Spoons and slot two are next to each other in slot order, in one order or the other. Six Spoons and a brass magistrate are next to each other in slot order, in one order or the other. Slot two falls somewhere between a drowned sailor and a shepherd boy in slot order.
-2. A bowed psaltery and slot five are exactly three slots apart in slot order. One of Stellan and slot five sits at an odd-numbered slot and the other at an even-numbered slot.
-3. The Drowned Bell and slot five are exactly two slots apart in slot order.
-4. The Drowned Bell, a moth queen and slot six are three different performances.
-5. The Drowned Bell's slot is immediately earlier than a shepherd boy's slot, with no slot in between.
-6. Mirabel's slot is immediately earlier than two kettle drums' slot, with no slot in between.
-7. A prepared piano's slot is earlier than Quentin's slot. The Clockwork Orchard's slot is earlier than a prepared piano's slot. A prepared piano and Bowen are next to each other in slot order, in one order or the other.
-8. At least one of the following holds, and possibly more than one: (a) A pump organ and Halima are exactly three slots apart in slot order. (b) Hollowmas does not go with a moth queen.
-9. Marrowbone falls somewhere between Halima and Lorcan in slot order.
-10. Quentin falls somewhere between Marrowbone and a paper crane in slot order.
-11. Hollowmas' slot is immediately earlier than a musical saw's slot, with no slot in between.
+1. The puppeteer who stages The Drowned Bell falls somewhere between slot five and slot one in slot order.
+2. At least one of the following holds, and possibly more than one: (a) Mirabel is earlier than the puppeteer who is accompanied by a musical saw in slot order. (b) The puppeteer who is accompanied by a pump organ is later than slot four in slot order.
+3. The puppeteer who is accompanied by a hurdy-gurdy and slot three both sit at odd-numbered slots or both at even-numbered slots.
+4. Slot two is exactly one slot earlier than the puppeteer who works a moth queen, with no slot in between.
+5. At least one of the following holds, and possibly more than one: (a) The puppeteer who is accompanied by a musical saw and the puppeteer who works a tin soldier are exactly one slot apart in slot order, in one direction or the other. (b) Lorcan and slot four are exactly two slots apart in slot order.
+6. The puppeteer who is accompanied by a pump organ and slot two are exactly one slot apart in slot order, in one direction or the other.
+7. The puppeteer who is accompanied by a bowed psaltery does not work a brass magistrate. Mirabel falls somewhere between the puppeteer who works a brass magistrate and slot two in slot order.
+8. Slot three falls somewhere between the puppeteer who is accompanied by a prepared piano and Halima in slot order.
+9. The puppeteer who works a one-eyed cat and slot five are exactly one slot apart in slot order, in one direction or the other.
+10. At least one of the following holds, and possibly more than one: (a) The puppeteer who stages The Drowned Bell performs in slot two. (b) Bowen does not work a drowned sailor.
+11. The puppeteer who is accompanied by a prepared piano falls somewhere between Lorcan and slot one in slot order.
+12. The puppeteer who stages Winterling and Josefa are exactly five slots apart in slot order. The puppeteer who works a shepherd boy falls somewhere between Josefa and slot four in slot order.
+13. The puppeteer who is accompanied by two kettle drums and slot four are exactly one slot apart in slot order, in one direction or the other.
+14. Josefa is exactly one slot earlier than the puppeteer who stages Marrowbone, with no slot in between.
+15. Halima is earlier than the puppeteer who stages The Clockwork Orchard in slot order.
+16. The puppeteer who is accompanied by a musical saw does not work a brass magistrate. The puppeteer who stages The Clockwork Orchard does not work a brass magistrate.
+17. One of the puppeteer who is accompanied by a hurdy-gurdy and the puppeteer who stages Hollowmas sits at an odd-numbered slot and the other at an even-numbered slot.
+18. At least one of the following holds, and possibly more than one: (a) The puppeteer who is accompanied by a hurdy-gurdy is earlier than the puppeteer who stages The Drowned Bell in slot order. (b) The puppeteer who works a one-eyed cat is earlier than the puppeteer who stages Marrowbone in slot order.
+19. The puppeteer who works a tin soldier is earlier than the puppeteer who is accompanied by two kettle drums in slot order.
 
 ## Solving chart
 
 *Running order vs Puppeteer*
 
-| | Mirabel | Stellan | Quentin | Bowen | Lorcan | Halima |
+| | Bowen | Halima | Stellan | Mirabel | Josefa | Lorcan |
 |---|---|---|---|---|---|---|
 | **slot one** | | | | | | |
 | **slot two** | | | | | | |
@@ -43,7 +50,7 @@ The slots above are listed in order, from slot one to slot six.
 
 *Running order vs Lead puppet*
 
-| | a drowned sailor | a brass magistrate | a moth queen | a tin soldier | a shepherd boy | a paper crane |
+| | a tin soldier | a shepherd boy | a drowned sailor | a moth queen | a brass magistrate | a one-eyed cat |
 |---|---|---|---|---|---|---|
 | **slot one** | | | | | | |
 | **slot two** | | | | | | |
@@ -54,7 +61,7 @@ The slots above are listed in order, from slot one to slot six.
 
 *Running order vs Play*
 
-| | Six Spoons | Marrowbone | The Clockwork Orchard | Hollowmas | The Glass Tide | The Drowned Bell |
+| | Six Spoons | Hollowmas | Marrowbone | The Clockwork Orchard | Winterling | The Drowned Bell |
 |---|---|---|---|---|---|---|
 | **slot one** | | | | | | |
 | **slot two** | | | | | | |
@@ -76,125 +83,125 @@ The slots above are listed in order, from slot one to slot six.
 
 *Puppeteer vs Lead puppet*
 
-| | a drowned sailor | a brass magistrate | a moth queen | a tin soldier | a shepherd boy | a paper crane |
+| | a tin soldier | a shepherd boy | a drowned sailor | a moth queen | a brass magistrate | a one-eyed cat |
 |---|---|---|---|---|---|---|
-| **Mirabel** | | | | | | |
-| **Stellan** | | | | | | |
-| **Quentin** | | | | | | |
 | **Bowen** | | | | | | |
-| **Lorcan** | | | | | | |
 | **Halima** | | | | | | |
+| **Stellan** | | | | | | |
+| **Mirabel** | | | | | | |
+| **Josefa** | | | | | | |
+| **Lorcan** | | | | | | |
 
 *Puppeteer vs Play*
 
-| | Six Spoons | Marrowbone | The Clockwork Orchard | Hollowmas | The Glass Tide | The Drowned Bell |
+| | Six Spoons | Hollowmas | Marrowbone | The Clockwork Orchard | Winterling | The Drowned Bell |
 |---|---|---|---|---|---|---|
-| **Mirabel** | | | | | | |
-| **Stellan** | | | | | | |
-| **Quentin** | | | | | | |
 | **Bowen** | | | | | | |
-| **Lorcan** | | | | | | |
 | **Halima** | | | | | | |
+| **Stellan** | | | | | | |
+| **Mirabel** | | | | | | |
+| **Josefa** | | | | | | |
+| **Lorcan** | | | | | | |
 
 *Puppeteer vs Accompaniment*
 
 | | a musical saw | a hurdy-gurdy | a bowed psaltery | a prepared piano | two kettle drums | a pump organ |
 |---|---|---|---|---|---|---|
-| **Mirabel** | | | | | | |
-| **Stellan** | | | | | | |
-| **Quentin** | | | | | | |
 | **Bowen** | | | | | | |
-| **Lorcan** | | | | | | |
 | **Halima** | | | | | | |
+| **Stellan** | | | | | | |
+| **Mirabel** | | | | | | |
+| **Josefa** | | | | | | |
+| **Lorcan** | | | | | | |
 
 *Lead puppet vs Play*
 
-| | Six Spoons | Marrowbone | The Clockwork Orchard | Hollowmas | The Glass Tide | The Drowned Bell |
+| | Six Spoons | Hollowmas | Marrowbone | The Clockwork Orchard | Winterling | The Drowned Bell |
 |---|---|---|---|---|---|---|
-| **a drowned sailor** | | | | | | |
-| **a brass magistrate** | | | | | | |
-| **a moth queen** | | | | | | |
 | **a tin soldier** | | | | | | |
 | **a shepherd boy** | | | | | | |
-| **a paper crane** | | | | | | |
+| **a drowned sailor** | | | | | | |
+| **a moth queen** | | | | | | |
+| **a brass magistrate** | | | | | | |
+| **a one-eyed cat** | | | | | | |
 
 *Lead puppet vs Accompaniment*
 
 | | a musical saw | a hurdy-gurdy | a bowed psaltery | a prepared piano | two kettle drums | a pump organ |
 |---|---|---|---|---|---|---|
-| **a drowned sailor** | | | | | | |
-| **a brass magistrate** | | | | | | |
-| **a moth queen** | | | | | | |
 | **a tin soldier** | | | | | | |
 | **a shepherd boy** | | | | | | |
-| **a paper crane** | | | | | | |
+| **a drowned sailor** | | | | | | |
+| **a moth queen** | | | | | | |
+| **a brass magistrate** | | | | | | |
+| **a one-eyed cat** | | | | | | |
 
 *Play vs Accompaniment*
 
 | | a musical saw | a hurdy-gurdy | a bowed psaltery | a prepared piano | two kettle drums | a pump organ |
 |---|---|---|---|---|---|---|
 | **Six Spoons** | | | | | | |
+| **Hollowmas** | | | | | | |
 | **Marrowbone** | | | | | | |
 | **The Clockwork Orchard** | | | | | | |
-| **Hollowmas** | | | | | | |
-| **The Glass Tide** | | | | | | |
+| **Winterling** | | | | | | |
 | **The Drowned Bell** | | | | | | |
 
 ## Solution
 
 | Running order | Puppeteer | Lead puppet | Play | Accompaniment |
 |---|---|---|---|---|
-| slot one | Lorcan | a drowned sailor | Six Spoons | a hurdy-gurdy |
-| slot two | Stellan | a brass magistrate | The Clockwork Orchard | a bowed psaltery |
-| slot three | Bowen | a tin soldier | The Drowned Bell | a pump organ |
-| slot four | Mirabel | a shepherd boy | Marrowbone | a prepared piano |
-| slot five | Quentin | a moth queen | Hollowmas | two kettle drums |
-| slot six | Halima | a paper crane | The Glass Tide | a musical saw |
+| slot one | Josefa | a tin soldier | Six Spoons | a hurdy-gurdy |
+| slot two | Halima | a shepherd boy | Marrowbone | a bowed psaltery |
+| slot three | Mirabel | a moth queen | The Drowned Bell | a pump organ |
+| slot four | Bowen | a brass magistrate | Hollowmas | a prepared piano |
+| slot five | Stellan | a drowned sailor | The Clockwork Orchard | two kettle drums |
+| slot six | Lorcan | a one-eyed cat | Winterling | a musical saw |
 
 ## How it falls out
 
-1. [bijection] from clue 8 play:The Drowned Bell: ruled out position(s) 6
-2. [bijection] from clue 8 puppet:a moth queen: ruled out position(s) 6
-3. [order] from clue 16 play:Hollowmas: ruled out position(s) 6
-4. [order] from clue 16 music:a musical saw: ruled out position(s) 1
-5. [order] from clue 15 play:Six Spoons: ruled out position(s) 2,4,5,6
-6. [order] from clue 14 puppet:a shepherd boy: ruled out position(s) 1
-7. [order] from clue 13 puppet:a brass magistrate: ruled out position(s) 1,3,5,6
-8. [order] from clue 12 play:Marrowbone: ruled out position(s) 1,6
-9. [order] from clue 11 play:The Drowned Bell: ruled out position(s) 1,2,4,5
-10. [order] from clue 14 puppet:a shepherd boy: ruled out position(s) 2,3,5,6
-11. [order] from clue 10 puppet:a drowned sailor: ruled out position(s) 2,3,4,5,6
-12. [order] from clue 9 play:The Clockwork Orchard: ruled out position(s) 6
-13. [order] from clue 9 music:a prepared piano: ruled out position(s) 1
-14. [order] from clue 6 music:a bowed psaltery: ruled out position(s) 1,3,4,5,6
-15. [order] from clue 4 puppeteer:Stellan: ruled out position(s) 1,3,5
-16. [order] from clue 3 puppeteer:Mirabel: ruled out position(s) 6
-17. [order] from clue 3 music:two kettle drums: ruled out position(s) 1
-18. [order] from clue 2 puppeteer:Quentin: ruled out position(s) 1,6
-19. [order] from clue 1 music:a prepared piano: ruled out position(s) 5,6
-20. [order] from clue 1 puppeteer:Quentin: ruled out position(s) 2
-21. [order] from clue 9 play:The Clockwork Orchard: ruled out position(s) 4,5
-22. [order] from clue 5 puppeteer:Bowen: ruled out position(s) 6
-23. [bijection] from clue 8 puppet:a moth queen: ruled out position(s) 3
-24. [bijection] music:a musical saw: ruled out position(s) 2
-25. [bijection] music:a hurdy-gurdy: ruled out position(s) 2
-26. [bijection] music:a prepared piano: ruled out position(s) 2
-27. [bijection] music:two kettle drums: ruled out position(s) 2
-28. [bijection] music:a pump organ: ruled out position(s) 2
-29. [bijection] play:Six Spoons: ruled out position(s) 3
-30. [bijection] play:Marrowbone: ruled out position(s) 3
-31. [bijection] play:The Clockwork Orchard: ruled out position(s) 3
-32. [bijection] play:Hollowmas: ruled out position(s) 3
-33. [bijection] play:The Glass Tide: ruled out position(s) 3
-34. [bijection] play:The Glass Tide: ruled out position(s) 1,2,4,5
-35. [bijection] puppet:a brass magistrate: ruled out position(s) 4
-36. [bijection] puppet:a moth queen: ruled out position(s) 1,4
-37. [bijection] puppet:a tin soldier: ruled out position(s) 1,4
-38. [bijection] puppet:a paper crane: ruled out position(s) 1,4
-39. [order] from clue 3 puppeteer:Mirabel: ruled out position(s) 1
-40. [order] from clue 5 puppeteer:Bowen: ruled out position(s) 1
-_... and 44 further steps._
+1. [order] from clue 22 music:two kettle drums: ruled out position(s) 1,2,4,6
+2. [order] from clue 19 music:a pump organ: ruled out position(s) 2,4,5,6
+3. [order] from clue 18 puppet:a one-eyed cat: ruled out position(s) 1,2,3,5
+4. [order] from clue 16 music:a prepared piano: ruled out position(s) 1,6
+5. [order] from clue 16 puppeteer:Lorcan: ruled out position(s) 1,2
+6. [order] from clue 15 play:The Drowned Bell: ruled out position(s) 1,5,6
+7. [order] from clue 14 puppet:a moth queen: ruled out position(s) 1,2,4,5,6
+8. [order] from clue 12 puppet:a shepherd boy: ruled out position(s) 1,4,6
+9. [order] from clue 12 puppeteer:Josefa: ruled out position(s) 3,4,5
+10. [order] from clue 11 music:a hurdy-gurdy: ruled out position(s) 2,4,6
+11. [order] from clue 13 play:Hollowmas: ruled out position(s) 1,3,5
+12. [order] from clue 10 puppeteer:Mirabel: ruled out position(s) 1,2,6
+13. [order] from clue 10 puppet:a brass magistrate: ruled out position(s) 1,2,3
+14. [order] from clue 9 puppet:a tin soldier: ruled out position(s) 5,6
+15. [order] from clue 8 music:a prepared piano: ruled out position(s) 3
+16. [order] from clue 8 puppeteer:Halima: ruled out position(s) 3
+17. [order] from clue 4 puppeteer:Halima: ruled out position(s) 6
+18. [order] from clue 4 play:The Clockwork Orchard: ruled out position(s) 1
+19. [order] from clue 3 play:Winterling: ruled out position(s) 2,3,4,5
+20. [order] from clue 3 puppeteer:Josefa: ruled out position(s) 2
+21. [order] from clue 1 puppeteer:Josefa: ruled out position(s) 6
+22. [order] from clue 1 play:Marrowbone: ruled out position(s) 1,3,4,5,6
+23. [order] from clue 12 puppet:a shepherd boy: ruled out position(s) 5
+24. [order] from clue 3 play:Winterling: ruled out position(s) 1
+25. [bijection] play:Six Spoons: ruled out position(s) 2,6
+26. [bijection] play:Hollowmas: ruled out position(s) 2,6
+27. [bijection] play:The Clockwork Orchard: ruled out position(s) 2,6
+28. [bijection] play:The Drowned Bell: ruled out position(s) 2
+29. [bijection] play:Six Spoons: ruled out position(s) 3,4,5
+30. [bijection] puppet:a tin soldier: ruled out position(s) 3
+31. [bijection] puppet:a shepherd boy: ruled out position(s) 3
+32. [bijection] puppet:a drowned sailor: ruled out position(s) 3
+33. [bijection] puppeteer:Bowen: ruled out position(s) 1
+34. [bijection] puppeteer:Halima: ruled out position(s) 1
+35. [bijection] puppeteer:Stellan: ruled out position(s) 1
+36. [order] from clue 4 puppeteer:Halima: ruled out position(s) 5
+37. [bijection] play:The Clockwork Orchard: ruled out position(s) 4
+38. [bijection] play:The Drowned Bell: ruled out position(s) 4
+39. [bijection] play:The Clockwork Orchard: ruled out position(s) 3
+40. [bijection] puppet:a tin soldier: ruled out position(s) 2
+_... and 28 further steps._
 
 ---
 
-<sub>seed `2026173028601` &middot; score 15.9085 &middot; atoms 16 &middot; positives 0 &middot; solved by trial</sub>
+<sub>seed `2026173028601` &middot; score 15.8506 &middot; atoms 22 &middot; positives 0 &middot; solved by trial</sub>

@@ -1,84 +1,80 @@
 # The Mudflat Regatta
 
-*The Mudflat Regatta is rowed over a course that is only a course at high tide, which is where most of the trouble starts.*
-
-**Difficulty** 1/7 (gentle) &nbsp;&nbsp; **Grid** 3 x 4 &nbsp;&nbsp; **Clues** 5 &nbsp;&nbsp; **id** `2ac653cf75bc`
+**Difficulty** 2/7 (gentle) &nbsp;&nbsp; **Grid** 3 x 4 &nbsp;&nbsp; **Clues** 4 &nbsp;&nbsp; **id** `4e6bca5074dc`
 
 ## Introduction
 
-There are 4 entries. Each has exactly one placing and one item from every other category below, and within each category every item belongs to a different entry.
-- **Placing** (listed in order): first, second, third and fourth.
-- **Crew**: the Brickworks crew, the Customs crew, the Creamery crew and the Tannery crew.
-- **Colours**: mustard and black, navy with a white band, lilac and bronze and pink and cream.
-The places above are listed in order, from first to fourth.
+The Mudflat Regatta is rowed over a course that is only a course at high tide, which is where most of the trouble starts.
+Four crews are involved. Determine each crew's placing and boat.
+- **Crew**: the Tannery crew, the Brickworks crew, the Customs crew and the Almshouse crew.
+- **Placing** (listed from better to worse): first, second, third and fourth.
+- **Boat**: the Gilded Eel, the Last Resort, the Dauntless and the Obstinate.
+Every crew has a different placing and boat, so within each category every item is used exactly once.
 
 ## Clues
 
-1. The Tannery crew goes with third. Navy with a white band goes with the Tannery crew.
-2. Lilac and bronze goes with the Customs crew.
-3. Mustard and black's placing is better than fourth.
-4. The Brickworks crew does not go with second.
-5. The Customs crew's placing is better than mustard and black's placing.
+1. The Brickworks crew finishes third. The Brickworks crew rows the Obstinate.
+2. The crew who rows the Last Resort is better than fourth in placing order.
+3. The Customs crew is better than the crew who rows the Last Resort in placing order.
+4. The crew who rows the Dauntless is exactly one place better than the Almshouse crew, with no placing in between.
 
 ## Solving chart
 
 *Placing vs Crew*
 
-| | the Brickworks crew | the Customs crew | the Creamery crew | the Tannery crew |
+| | the Tannery crew | the Brickworks crew | the Customs crew | the Almshouse crew |
 |---|---|---|---|---|
 | **first** | | | | |
 | **second** | | | | |
 | **third** | | | | |
 | **fourth** | | | | |
 
-*Placing vs Colours*
+*Placing vs Boat*
 
-| | mustard and black | navy with a white band | lilac and bronze | pink and cream |
+| | the Gilded Eel | the Last Resort | the Dauntless | the Obstinate |
 |---|---|---|---|---|
 | **first** | | | | |
 | **second** | | | | |
 | **third** | | | | |
 | **fourth** | | | | |
 
-*Crew vs Colours*
+*Crew vs Boat*
 
-| | mustard and black | navy with a white band | lilac and bronze | pink and cream |
+| | the Gilded Eel | the Last Resort | the Dauntless | the Obstinate |
 |---|---|---|---|---|
+| **the Tannery crew** | | | | |
 | **the Brickworks crew** | | | | |
 | **the Customs crew** | | | | |
-| **the Creamery crew** | | | | |
-| **the Tannery crew** | | | | |
+| **the Almshouse crew** | | | | |
 
 ## Solution
 
-| Placing | Crew | Colours |
+| Placing | Crew | Boat |
 |---|---|---|
-| first | the Customs crew | lilac and bronze |
-| second | the Creamery crew | mustard and black |
-| third | the Tannery crew | navy with a white band |
-| fourth | the Brickworks crew | pink and cream |
+| first | the Customs crew | the Dauntless |
+| second | the Almshouse crew | the Last Resort |
+| third | the Brickworks crew | the Obstinate |
+| fourth | the Tannery crew | the Gilded Eel |
 
 ## How it falls out
 
-1. [direct] from clue 6 crew:the Tannery crew: ruled out position(s) 1,2,4
-2. [direct] from clue 5 colours:navy with a white band: ruled out position(s) 1,2,4
-3. [direct] from clue 2 crew:the Brickworks crew: ruled out position(s) 2
-4. [bijection] colours:mustard and black: ruled out position(s) 3
-5. [bijection] colours:lilac and bronze: ruled out position(s) 3
-6. [bijection] colours:pink and cream: ruled out position(s) 3
-7. [bijection] crew:the Brickworks crew: ruled out position(s) 3
-8. [bijection] crew:the Customs crew: ruled out position(s) 3
-9. [bijection] crew:the Creamery crew: ruled out position(s) 3
-10. [order] from clue 3 crew:the Customs crew: ruled out position(s) 4
-11. [order] from clue 3 colours:mustard and black: ruled out position(s) 1
-12. [order] from clue 1 colours:mustard and black: ruled out position(s) 4
-13. [order] from clue 3 crew:the Customs crew: ruled out position(s) 2
-14. [direct] from clue 4 colours:lilac and bronze: ruled out position(s) 2,4
-15. [bijection] colours:pink and cream: ruled out position(s) 1,2
-16. [bijection] crew:the Brickworks crew: ruled out position(s) 1
-17. [bijection] crew:the Creamery crew: ruled out position(s) 1
-18. [bijection] crew:the Creamery crew: ruled out position(s) 4
+1. [direct] from clue 4 crew:the Brickworks crew: ruled out position(s) 1,2,4
+2. [direct] from clue 2 boat:the Obstinate: ruled out position(s) 1,2,4
+3. [bijection] boat:the Gilded Eel: ruled out position(s) 3
+4. [bijection] boat:the Last Resort: ruled out position(s) 3
+5. [bijection] boat:the Dauntless: ruled out position(s) 3
+6. [bijection] crew:the Tannery crew: ruled out position(s) 3
+7. [bijection] crew:the Customs crew: ruled out position(s) 3
+8. [bijection] crew:the Almshouse crew: ruled out position(s) 3
+9. [order] from clue 5 crew:the Customs crew: ruled out position(s) 4
+10. [order] from clue 5 boat:the Last Resort: ruled out position(s) 1
+11. [order] from clue 3 boat:the Dauntless: ruled out position(s) 2,4
+12. [order] from clue 3 crew:the Almshouse crew: ruled out position(s) 1,4
+13. [order] from clue 1 boat:the Last Resort: ruled out position(s) 4
+14. [order] from clue 5 crew:the Customs crew: ruled out position(s) 2
+15. [bijection] boat:the Gilded Eel: ruled out position(s) 1,2
+16. [bijection] crew:the Tannery crew: ruled out position(s) 1,2
 
 ---
 
-<sub>seed `2026172591274` &middot; score 3.97 &middot; atoms 6 &middot; positives 3 &middot; solved by order</sub>
+<sub>seed `2026172591274` &middot; score 4.27 &middot; atoms 5 &middot; positives 2 &middot; solved by order</sub>

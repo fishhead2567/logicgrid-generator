@@ -66,6 +66,15 @@ class Category:
     #: Unit of distance along the spine, e.g. "day" so that a gap reads
     #: "three days apart".
     step_noun: str = ""
+    #: How an entity relates to one of this category's items, in the third
+    #: person: ``"harvests in"`` gives "Leocadia harvests in April" and, via
+    #: :func:`negate_verb`, "Leocadia does not harvest in April". Left empty,
+    #: clues fall back to a possessive ("Leocadia's pest is thrips"), which is
+    #: always grammatical but flatter.
+    verb: str = ""
+    #: True for the one category whose items are the puzzle's actors -- the
+    #: names. Clues use it as the grammatical subject wherever they can.
+    subject: bool = False
     #: Set for items whose spelling must never be touched. Rendering only ever
     #: capitalises an item's first letter at the start of a sentence, which is
     #: already correct for both proper nouns ("Odette" -> "Odette") and common
@@ -136,6 +145,44 @@ class Category:
             return item
         return item[0].upper() + item[1:]
 
+    def say(
+        self,
+        subject: str,
+        item: str,
+        negative: bool = False,
+        possessive: bool = True,
+    ) -> str:
+        """"<subject> harvests in April" / "... does not harvest in April".
+
+        With no verb declared the fallback is a possessive, which reads well
+        for a name ("Odette's pie is rhubarb") but collapses for a descriptor:
+        "the entry whose baker is Odette's pie is rhubarb" is unparseable.
+        ``possessive=False`` picks a form that survives a phrase subject.
+        """
+        if not self.verb:
+            noun = self.noun or self.label.casefold()
+            if possessive:
+                tail = "is not" if negative else "is"
+                return f"{subject}'s {noun} {tail} {item}"
+            tail = "is not matched with" if negative else "is matched with"
+            return f"{subject} {tail} the {noun} {item}"
+        verb = negate_verb(self.verb) if negative else self.verb
+        return f"{subject} {verb} {item}"
+
+    def describe(self, item: str, entity_noun: str, who: str = "who") -> str:
+        """Name an entity by one of its attributes: "the grower who ...".
+
+        Needed when a clue relates two attributes with no person in sight, and
+        deliberately possessive-free so it can be dropped into any sentence
+        slot without producing "the grower whose pest is thrips's month".
+        ``who`` is "that" for an inanimate entity -- "the clock that sounds
+        Westminster".
+        """
+        if not self.verb:
+            noun = self.noun or self.label.casefold()
+            return f"the {entity_noun} whose {noun} is {item}"
+        return f"the {entity_noun} {who} {self.verb} {item}"
+
     def format_value(self, v: float) -> str:
         """Render a numeric value, trimming a pointless trailing ``.0``."""
         body = f"{v:g}"
@@ -167,6 +214,48 @@ class Ref:
         return cls(cat.strip(), item.strip())
 
 
+#: Verbs that negate by taking "not" directly, with no do-support.
+#: "has" is deliberately absent: in a clue it is a main verb ("has a price of"),
+#: which needs "does not have", not "has not".
+_AUX = frozenset({"is", "was", "are", "were"})
+
+#: Third-person forms the -s rules get wrong.
+_IRREGULAR_STEMS = {"has": "have", "does": "do", "goes": "go", "is": "be"}
+
+
+def third_person_stem(verb: str) -> str:
+    """Strip third-person -s so do-support can be applied.
+
+    "harvests" -> "harvest", "flies" -> "fly", "watches" -> "watch". Only used
+    on the verbs the theme packs declare, and
+    ``tests/test_phrasing.py`` asserts every one of them survives the round
+    trip, so an irregular slipping in is caught rather than shipped.
+    """
+    if verb.casefold() in _IRREGULAR_STEMS:
+        return _IRREGULAR_STEMS[verb.casefold()]
+    if verb.endswith("ies") and len(verb) > 4:
+        return verb[:-3] + "y"
+    for suffix in ("sses", "shes", "ches", "xes", "zes", "oes"):
+        if verb.endswith(suffix):
+            return verb[:-2]
+    if verb.endswith("s") and not verb.endswith("ss"):
+        return verb[:-1]
+    return verb
+
+
+def negate_verb(phrase: str) -> str:
+    """Negate a third-person verb phrase.
+
+    "is troubled by" -> "is not troubled by"; "harvests in" -> "does not
+    harvest in".
+    """
+    head, _, tail = phrase.partition(" ")
+    if head.casefold() in _AUX:
+        return f"{head} not {tail}".strip()
+    stem = third_person_stem(head)
+    return f"does not {stem} {tail}".strip()
+
+
 #: Leading words prose adds or drops freely; stripped for lenient lookup only.
 _ARTICLES = ("the ", "a ", "an ")
 
@@ -193,6 +282,7 @@ class Schema:
         spine: str,
         entity_noun: str = "entry",
         entity_noun_plural: str = "",
+        entity_animate: bool = True,
     ) -> None:
         if len(categories) < 2:
             raise PuzzleError("a puzzle needs at least two categories")
@@ -223,6 +313,9 @@ class Schema:
         self.positions: tuple[int, ...] = tuple(range(self.size))
         self.entity_noun = entity_noun
         self.entity_noun_plural = entity_noun_plural or f"{entity_noun}s"
+        self.entity_animate = entity_animate
+        #: Relative pronoun for a descriptor: people get "who", things "that".
+        self.entity_who = "who" if entity_animate else "that"
         # Every (category, item) pair in the puzzle.
         self.all_refs: tuple[Ref, ...] = tuple(
             r for c in self.categories for r in c.refs()
@@ -301,6 +394,7 @@ class Schema:
             "spine": self.spine_name,
             "entity_noun": self.entity_noun,
             "entity_noun_plural": self.entity_noun_plural,
+            "entity_animate": self.entity_animate,
             "categories": [
                 {
                     "name": c.name,
@@ -315,6 +409,8 @@ class Schema:
                     **({"cmp_more": c.cmp_more} if c.cmp_more else {}),
                     **({"step_noun": c.step_noun} if c.step_noun else {}),
                     **({"proper": c.proper} if c.proper else {}),
+                    **({"verb": c.verb} if c.verb else {}),
+                    **({"subject": c.subject} if c.subject else {}),
                 }
                 for c in self.categories
             ],
@@ -336,6 +432,8 @@ class Schema:
                 cmp_more=c.get("cmp_more", ""),
                 step_noun=c.get("step_noun", ""),
                 proper=bool(c.get("proper", False)),
+                verb=c.get("verb", ""),
+                subject=bool(c.get("subject", False)),
             )
             for c in data["categories"]
         ]
@@ -344,6 +442,7 @@ class Schema:
             data["spine"],
             entity_noun=data.get("entity_noun", "entry"),
             entity_noun_plural=data.get("entity_noun_plural", ""),
+            entity_animate=bool(data.get("entity_animate", True)),
         )
 
 

@@ -1,0 +1,296 @@
+{
+  "pid": "b0adf92f3b32",
+  "title": "Preserves, and the Preservation of Grudges",
+  "theme": "jam",
+  "blurb": "The preserves tent is the most competitive building at the show, and the only one with a locked door.",
+  "profile": "moderate",
+  "rating": 4,
+  "score": 6.13,
+  "seed": 2026172749654,
+  "spec": {
+    "difficulty": "moderate",
+    "seed": 2026172749654
+  },
+  "schema": {
+    "spine": "price",
+    "entity_noun": "entrant",
+    "entity_noun_plural": "entrants",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "price",
+        "label": "Price",
+        "items": [
+          "$3",
+          "$5",
+          "$7",
+          "$9",
+          "$11"
+        ],
+        "ordered": true,
+        "values": [
+          3,
+          5,
+          7,
+          9,
+          11
+        ],
+        "unit": "$",
+        "noun": "price",
+        "cmp_less": "cheaper",
+        "cmp_more": "dearer",
+        "step_noun": "price step",
+        "verb": "charges"
+      },
+      {
+        "name": "entrant",
+        "label": "Entrant",
+        "items": [
+          "Bernadette",
+          "Emeka",
+          "Ottilie",
+          "Drusilla",
+          "Rafferty"
+        ],
+        "ordered": false,
+        "noun": "entrant",
+        "subject": true
+      },
+      {
+        "name": "preserve",
+        "label": "Preserve",
+        "items": [
+          "quince jelly",
+          "rosehip syrup",
+          "hot pepper jelly",
+          "damson cheese",
+          "sloe and apple butter"
+        ],
+        "ordered": false,
+        "noun": "preserve",
+        "verb": "enters"
+      },
+      {
+        "name": "jar",
+        "label": "Jar",
+        "items": [
+          "a tall french jar",
+          "a squat kilner",
+          "a sealed crock",
+          "a recycled honey jar",
+          "a hexagonal jar"
+        ],
+        "ordered": false,
+        "noun": "jar",
+        "verb": "uses"
+      },
+      {
+        "name": "secret",
+        "label": "Secret ingredient",
+        "items": [
+          "star anise",
+          "a bay leaf",
+          "a splash of gin",
+          "a spoon of treacle",
+          "black pepper"
+        ],
+        "ordered": false,
+        "noun": "ingredient",
+        "verb": "adds"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "jar:a tall french jar",
+          "b": "price:$9"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "preserve:rosehip syrup",
+          "b": "price:$11",
+          "c": "secret:black pepper"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "price:$7",
+          "b": "entrant:Emeka"
+        },
+        {
+          "kind": "not_link",
+          "a": "entrant:Emeka",
+          "b": "preserve:sloe and apple butter"
+        }
+      ]
+    },
+    {
+      "style": "and",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "price:$11",
+          "b": "secret:star anise"
+        },
+        {
+          "kind": "not_link",
+          "a": "preserve:hot pepper jelly",
+          "b": "secret:star anise"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "jar:a squat kilner",
+          "b": "entrant:Bernadette",
+          "c": "entrant:Drusilla"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "preserve:hot pepper jelly",
+          "b": "secret:black pepper"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "jar:a hexagonal jar",
+          "b": "entrant:Ottilie"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "preserve:rosehip syrup",
+          "b": "jar:a sealed crock",
+          "c": "secret:a spoon of treacle"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "jar:a sealed crock",
+          "b": "secret:a bay leaf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "entrant:Drusilla",
+          "b": "jar:a hexagonal jar"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "secret:a spoon of treacle",
+          "b": "preserve:sloe and apple butter"
+        },
+        {
+          "kind": "not_link",
+          "a": "preserve:quince jelly",
+          "b": "secret:a spoon of treacle"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "price": [
+      "$3",
+      "$5",
+      "$7",
+      "$9",
+      "$11"
+    ],
+    "entrant": [
+      "Drusilla",
+      "Rafferty",
+      "Ottilie",
+      "Emeka",
+      "Bernadette"
+    ],
+    "preserve": [
+      "hot pepper jelly",
+      "quince jelly",
+      "rosehip syrup",
+      "damson cheese",
+      "sloe and apple butter"
+    ],
+    "jar": [
+      "a sealed crock",
+      "a hexagonal jar",
+      "a squat kilner",
+      "a tall french jar",
+      "a recycled honey jar"
+    ],
+    "secret": [
+      "a splash of gin",
+      "black pepper",
+      "star anise",
+      "a spoon of treacle",
+      "a bay leaf"
+    ]
+  },
+  "stats": {
+    "atoms": 14,
+    "numbered_clues": 11,
+    "kinds": {
+      "link": 1,
+      "between": 3,
+      "before": 3,
+      "not_link": 4,
+      "immediately_before": 3
+    },
+    "positives": 1,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 50,
+    "tier_counts": {
+      "direct": 5,
+      "bijection": 21,
+      "order": 24
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

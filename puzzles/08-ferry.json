@@ -1,5 +1,5 @@
 {
-  "pid": "ed9fb1307098",
+  "pid": "19304b56f314",
   "title": "The Crossings to Inverlaig",
   "theme": "ferry",
   "blurb": "The Inverlaig ferry runs a full day of crossings in theory, and a variable number in practice.",
@@ -13,50 +13,54 @@
   },
   "schema": {
     "spine": "time",
-    "entity_noun": "crossing",
-    "entity_noun_plural": "crossings",
+    "entity_noun": "skipper",
+    "entity_noun_plural": "skippers",
+    "entity_animate": true,
     "categories": [
       {
         "name": "time",
         "label": "Start time",
         "items": [
-          "8 a.m.",
-          "9 a.m.",
-          "10 a.m.",
-          "11 a.m.",
+          "8am",
+          "9am",
+          "10am",
+          "11am",
           "noon"
         ],
         "ordered": true,
         "noun": "start time",
         "cmp_less": "earlier",
         "cmp_more": "later",
-        "step_noun": "hour"
+        "step_noun": "hour",
+        "verb": "sails at"
       },
       {
         "name": "skipper",
         "label": "Skipper",
         "items": [
-          "Senga",
           "Eilidh",
+          "Fearghas",
+          "Ruaridh",
           "Calla",
-          "Tormod",
-          "Fearghas"
+          "Murdo"
         ],
         "ordered": false,
-        "noun": "skipper"
+        "noun": "skipper",
+        "subject": true
       },
       {
-        "name": "cargo",
-        "label": "Notable cargo",
+        "name": "delay",
+        "label": "Delay blamed on",
         "items": [
-          "a consignment of bees",
-          "a church organ",
-          "a film crew and no permits",
-          "a refrigerated van",
-          "a wedding party"
+          "the tide",
+          "a passenger's dog",
+          "fog",
+          "paperwork",
+          "a slipway repair"
         ],
         "ordered": false,
-        "noun": "cargo"
+        "noun": "reason",
+        "verb": "blames"
       }
     ]
   },
@@ -66,13 +70,13 @@
       "atoms": [
         {
           "kind": "before",
-          "a": "skipper:Eilidh",
-          "b": "time:11 a.m."
+          "a": "skipper:Fearghas",
+          "b": "time:11am"
         },
         {
           "kind": "link",
-          "a": "cargo:a refrigerated van",
-          "b": "time:11 a.m."
+          "a": "delay:paperwork",
+          "b": "time:11am"
         }
       ]
     },
@@ -81,13 +85,13 @@
       "atoms": [
         {
           "kind": "before",
-          "a": "skipper:Calla",
-          "b": "cargo:a film crew and no permits"
+          "a": "skipper:Ruaridh",
+          "b": "delay:fog"
         },
         {
           "kind": "link",
-          "a": "skipper:Calla",
-          "b": "time:10 a.m."
+          "a": "skipper:Ruaridh",
+          "b": "time:10am"
         }
       ]
     },
@@ -96,8 +100,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "cargo:a wedding party",
-          "b": "skipper:Tormod"
+          "a": "delay:a slipway repair",
+          "b": "skipper:Calla"
         }
       ]
     },
@@ -106,8 +110,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "cargo:a refrigerated van",
-          "b": "skipper:Senga"
+          "a": "delay:paperwork",
+          "b": "skipper:Eilidh"
         }
       ]
     },
@@ -116,33 +120,33 @@
       "atoms": [
         {
           "kind": "before",
-          "a": "cargo:a church organ",
-          "b": "skipper:Tormod"
+          "a": "delay:a passenger's dog",
+          "b": "skipper:Calla"
         }
       ]
     }
   ],
   "solution": {
     "time": [
-      "8 a.m.",
-      "9 a.m.",
-      "10 a.m.",
-      "11 a.m.",
+      "8am",
+      "9am",
+      "10am",
+      "11am",
       "noon"
     ],
     "skipper": [
-      "Eilidh",
-      "Tormod",
+      "Fearghas",
       "Calla",
-      "Senga",
-      "Fearghas"
+      "Ruaridh",
+      "Eilidh",
+      "Murdo"
     ],
-    "cargo": [
-      "a church organ",
-      "a wedding party",
-      "a consignment of bees",
-      "a refrigerated van",
-      "a film crew and no permits"
+    "delay": [
+      "a passenger's dog",
+      "a slipway repair",
+      "the tide",
+      "paperwork",
+      "fog"
     ]
   },
   "stats": {

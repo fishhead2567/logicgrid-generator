@@ -66,16 +66,82 @@ def _poss(name: str) -> str:
     return f"{name}'" if name.endswith(("s", "S")) else f"{name}'s"
 
 
-def _positioned(schema: Schema, ref: Ref, start: bool = False) -> str:
-    """How to name whatever occupies a spine position.
+def _entity(schema: Schema, ref: Ref, start: bool = False) -> str:
+    """Name the entity this ref identifies.
 
-    A spine item *is* a position, so "the third shelf" must not become "the
-    third shelf's shelf"; anything else is named by its own position.
+    A name stands for itself; anything else becomes a descriptor, "the grower
+    who is troubled by thrips". Never possessive, so it drops into any slot.
     """
+    cat = schema.category_of(ref)
+    if cat.subject:
+        return cat.display(ref.item, start)
+    text = cat.describe(ref.item, schema.entity_noun, schema.entity_who)
+    return text[0].upper() + text[1:] if start else text
+
+
+def _pos(schema: Schema, ref: Ref, start: bool = False) -> str:
+    """Name a point on the spine: the value itself, or whoever sits there."""
     if schema.is_spine(ref):
         return _name(schema, ref, start)
-    noun = schema.spine.noun or "position"
-    return f"{_poss(_name(schema, ref, start))} {noun}"
+    return _entity(schema, ref, start)
+
+
+def _article(word: str) -> str:
+    return "an" if word[:1].casefold() in "aeiou" else "a"
+
+
+def _entity_first(schema: Schema, a: Ref, b: Ref) -> tuple[Ref, Ref]:
+    """Order a symmetric pair so an entity leads and a spine value follows."""
+    if schema.is_spine(a) and not schema.is_spine(b):
+        return b, a
+    return a, b
+
+
+def _split_link(schema: Schema, a: Ref, b: Ref) -> tuple[Ref, Ref]:
+    """Decide which ref is the sentence's subject and which is said about it.
+
+    The names axis wins; failing that the spine makes the better predicate, so
+    it goes second.
+    """
+    ca, cb = schema.category_of(a), schema.category_of(b)
+    if cb.subject and not ca.subject:
+        return b, a
+    if ca.subject:
+        return a, b
+    if schema.is_spine(a) and not schema.is_spine(b):
+        return b, a
+    return a, b
+
+
+def _link_sentence(schema: Schema, a: Ref, b: Ref, negative: bool) -> str:
+    subject_ref, attr_ref = _split_link(schema, a, b)
+    subject = _entity(schema, subject_ref, start=True)
+    attr_cat = schema.category_of(attr_ref)
+    # A descriptor cannot take a possessive, so tell the category which form
+    # of subject it is being handed.
+    is_name = schema.category_of(subject_ref).subject
+    body = attr_cat.say(subject, _name(schema, attr_ref), negative, possessive=is_name)
+    return _finish(body[0].upper() + body[1:])
+
+
+def _compare(schema: Schema, a: Ref, b: Ref) -> str:
+    """"X is earlier than Y in harvest month order." -- a before b."""
+    noun, less, more, _step = _spine_words(schema)
+    if schema.is_spine(a) and not schema.is_spine(b):
+        # Flip it so the entity leads and the value is the yardstick.
+        return (
+            f"{_entity(schema, b, True)} is {more} than {_name(schema, a)} "
+            f"in {noun} order."
+        )
+    return (
+        f"{_pos(schema, a, True)} is {less} than {_pos(schema, b)} "
+        f"in {noun} order."
+    )
+
+
+def _finish(text: str) -> str:
+    """End a sentence, without doubling a stop the item already supplied."""
+    return text if text.endswith((".", "!", "?")) else text + "."
 
 
 def _enumerate(parts: Sequence[str]) -> str:
@@ -170,7 +236,7 @@ class Link(Atom):
         return True
 
     def render(self, schema: Schema) -> str:
-        return f"{_name(schema, self.a, True)} goes with {_name(schema, self.b)}."
+        return _link_sentence(schema, self.a, self.b, negative=False)
 
     def gloss(self, schema: Schema) -> str:
         ca = schema.category_of(self.a).label
@@ -204,10 +270,7 @@ class NotLink(Atom):
         return assign[self.a] != assign[self.b]
 
     def render(self, schema: Schema) -> str:
-        return (
-            f"{_name(schema, self.a, True)} does not go with "
-            f"{_name(schema, self.b)}."
-        )
+        return _link_sentence(schema, self.a, self.b, negative=True)
 
     def gloss(self, schema: Schema) -> str:
         ca = schema.category_of(self.a).label
@@ -248,8 +311,8 @@ class Distinct(Atom):
         return len(seen) == len(self.members)
 
     def render(self, schema: Schema) -> str:
-        names = [_name(schema, r) for r in self.members]
-        names[0] = _name(schema, self.members[0], True)
+        names = [_pos(schema, r) for r in self.members]
+        names[0] = _pos(schema, self.members[0], True)
         noun = schema.entity_noun_plural
         listed = ", ".join(names[:-1]) + f" and {names[-1]}"
         return f"{listed} are {_spell(len(names))} different {noun}."
@@ -293,11 +356,7 @@ class Before(Atom):
         return assign[self.a] < assign[self.b]
 
     def render(self, schema: Schema) -> str:
-        _noun, less, _more, _step = _spine_words(schema)
-        return (
-            f"{_positioned(schema, self.a, True)} is {less} than "
-            f"{_positioned(schema, self.b)}."
-        )
+        return _compare(schema, self.a, self.b)
 
     def gloss(self, schema: Schema) -> str:
         noun, less, _more, _step = _spine_words(schema)
@@ -328,10 +387,10 @@ class ImmediatelyBefore(Atom):
         return assign[self.b] - assign[self.a] == 1
 
     def render(self, schema: Schema) -> str:
-        noun, less, _more, _step = _spine_words(schema)
+        noun, less, _more, step = _spine_words(schema)
         return (
-            f"{_positioned(schema, self.a, True)} is immediately {less} than "
-            f"{_positioned(schema, self.b)}, with no {noun} in between."
+            f"{_pos(schema, self.a, True)} is exactly one {step} {less} than "
+            f"{_pos(schema, self.b)}, with no {noun} in between."
         )
 
     def gloss(self, schema: Schema) -> str:
@@ -367,10 +426,11 @@ class Adjacent(Atom):
         return abs(assign[self.a] - assign[self.b]) == 1
 
     def render(self, schema: Schema) -> str:
-        noun, _less, _more, _step = _spine_words(schema)
+        noun, _less, _more, step = _spine_words(schema)
+        x, y = _entity_first(schema, self.a, self.b)
         return (
-            f"{_name(schema, self.a, True)} and {_name(schema, self.b)} are next "
-            f"to each other in {noun} order, in one order or the other."
+            f"{_pos(schema, x, True)} and {_pos(schema, y)} are exactly "
+            f"one {step} apart in {noun} order, in one direction or the other."
         )
 
     def gloss(self, schema: Schema) -> str:
@@ -410,8 +470,8 @@ class Between(Atom):
     def render(self, schema: Schema) -> str:
         noun, _less, _more, _step = _spine_words(schema)
         return (
-            f"{_name(schema, self.a, True)} falls somewhere between "
-            f"{_name(schema, self.b)} and {_name(schema, self.c)} in {noun} order."
+            f"{_pos(schema, self.a, True)} falls somewhere between "
+            f"{_pos(schema, self.b)} and {_pos(schema, self.c)} in {noun} order."
         )
 
     def gloss(self, schema: Schema) -> str:
@@ -464,8 +524,9 @@ class Gap(Atom):
         noun, _less, _more, step = _spine_words(schema)
         word = {"eq": "exactly", "ge": "at least", "le": "at most"}[self.rel]
         plural = step if self.k == 1 else schema.spine.step_plural
+        x, y = _entity_first(schema, self.a, self.b)
         return (
-            f"{_name(schema, self.a, True)} and {_name(schema, self.b)} are "
+            f"{_pos(schema, x, True)} and {_pos(schema, y)} are "
             f"{word} {_spell(self.k)} {plural} apart in {noun} order."
         )
 
@@ -515,14 +576,14 @@ class Parity(Atom):
     def render(self, schema: Schema) -> str:
         noun, _less, _more, _step = _spine_words(schema)
         plural = schema.spine.step_plural
-        a, b = _name(schema, self.a, True), _name(schema, self.b)
+        a, b = _pos(schema, self.a, True), _pos(schema, self.b)
         if self.same:
             return (
                 f"{a} and {b} both sit at odd-numbered {plural} or both at "
                 f"even-numbered {plural}."
             )
         return (
-            f"One of {_name(schema, self.a)} and {b} sits at an odd-numbered "
+            f"One of {_pos(schema, self.a)} and {b} sits at an odd-numbered "
             f"{noun} and the other at an even-numbered {noun}."
         )
 
@@ -566,12 +627,17 @@ class Arith(Atom):
 
     def render(self, schema: Schema) -> str:
         sp = schema.spine
-        a = _positioned(schema, self.a, True)
-        b = _positioned(schema, self.b)
+        noun = sp.noun or sp.label.casefold()
+        a = _pos(schema, self.a, True)
+        b = _pos(schema, self.b)
         if self.op == "add":
             amount = sp.format_value(self.k)
-            return f"{a} is exactly {amount} more than {b}."
-        return f"{a} is exactly {self.k:g} times {b}."
+            return _finish(
+                f"{a} has {_article(noun)} {noun} exactly {amount} more than {b}"
+            )
+        return _finish(
+            f"{a} has {_article(noun)} {noun} exactly {self.k:g} times that of {b}"
+        )
 
     def gloss(self, schema: Schema) -> str:
         sp = schema.spine

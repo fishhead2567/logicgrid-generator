@@ -1,5 +1,5 @@
 {
-  "pid": "f136fe730fc1",
+  "pid": "4c437f283d38",
   "title": "The Cheesemongers' Standoff",
   "theme": "cheese",
   "blurb": "A case of opinionated cheeses, their equally opinionated makers, and one display that has begun to smell like a political scandal.",
@@ -13,8 +13,9 @@
   },
   "schema": {
     "spine": "price",
-    "entity_noun": "wheel",
-    "entity_noun_plural": "wheels",
+    "entity_noun": "cheese",
+    "entity_noun_plural": "cheeses",
+    "entity_animate": false,
     "categories": [
       {
         "name": "price",
@@ -36,31 +37,34 @@
         "noun": "price",
         "cmp_less": "cheaper",
         "cmp_more": "dearer",
-        "step_noun": "price step"
+        "step_noun": "price step",
+        "verb": "sells for"
       },
       {
         "name": "cheese",
         "label": "Cheese",
         "items": [
-          "Saltpans",
           "Oakmoss",
-          "Bellringer",
-          "Winter Tarn"
+          "Saltpans",
+          "Old Thrashing",
+          "Bellringer"
         ],
         "ordered": false,
-        "noun": "cheese"
+        "noun": "cheese",
+        "subject": true
       },
       {
         "name": "rind",
         "label": "Rind",
         "items": [
+          "an ash-coated rind",
           "a cloth-bound rind",
-          "a natural rind",
           "a washed rind",
           "a waxed rind"
         ],
         "ordered": false,
-        "noun": "rind"
+        "noun": "rind",
+        "verb": "has"
       }
     ]
   },
@@ -70,28 +74,13 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "cheese:Saltpans",
+          "a": "cheese:Oakmoss",
           "b": "price:$7"
         },
         {
           "kind": "link",
           "a": "price:$7",
-          "b": "rind:a natural rind"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "link",
-          "a": "cheese:Winter Tarn",
-          "b": "rind:a waxed rind"
-        },
-        {
-          "kind": "link",
-          "a": "cheese:Winter Tarn",
-          "b": "price:$3"
+          "b": "rind:a cloth-bound rind"
         }
       ]
     },
@@ -101,7 +90,22 @@
         {
           "kind": "link",
           "a": "cheese:Bellringer",
-          "b": "rind:a cloth-bound rind"
+          "b": "rind:a waxed rind"
+        },
+        {
+          "kind": "link",
+          "a": "cheese:Bellringer",
+          "b": "price:$3"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "cheese:Old Thrashing",
+          "b": "rind:an ash-coated rind"
         }
       ]
     },
@@ -124,15 +128,15 @@
       "$9"
     ],
     "cheese": [
-      "Winter Tarn",
       "Bellringer",
-      "Saltpans",
-      "Oakmoss"
+      "Old Thrashing",
+      "Oakmoss",
+      "Saltpans"
     ],
     "rind": [
       "a waxed rind",
+      "an ash-coated rind",
       "a cloth-bound rind",
-      "a natural rind",
       "a washed rind"
     ]
   },

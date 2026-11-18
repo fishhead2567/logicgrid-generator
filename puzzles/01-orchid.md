@@ -1,84 +1,83 @@
 # The Orchid House Reckoning
 
-*The orchid house at Fenn Park is shared by its growers, each convinced the others are overwatering.*
-
-**Difficulty** 1/7 (gentle) &nbsp;&nbsp; **Grid** 3 x 4 &nbsp;&nbsp; **Clues** 5 &nbsp;&nbsp; **id** `0b8b0b5bb0ee`
+**Difficulty** 1/7 (gentle) &nbsp;&nbsp; **Grid** 3 x 4 &nbsp;&nbsp; **Clues** 5 &nbsp;&nbsp; **id** `21916313eb18`
 
 ## Introduction
 
-There are 4 entries. Each has exactly one month and one item from every other category below, and within each category every item belongs to a different entry.
-- **Month** (listed in order): January, February, March and April.
-- **Grower**: Ambrose, Leocadia, Rowena and Taavi.
-- **Pest**: a persistent slug, fungus gnats, thrips and red spider mite.
-The months above are listed in order, from January to April.
+The orchid house at Fenn Park is shared by its growers, each convinced the others are overwatering.
+Four growers are involved. Determine each grower's harvest month and potting mix.
+- **Grower**: Ambrose, Columbine, Leocadia and Rowena.
+- **Harvest month** (listed from earlier to later): January, February, March and April.
+- **Potting mix**: tree fern fibre; coconut husk; perlite and charcoal; and lava rock.
+Every grower has a different harvest month and potting mix, so within each category every item is used exactly once.
 
 ## Clues
 
-1. Leocadia goes with April, but leocadia does not go with red spider mite.
-2. January goes with thrips.
-3. Ambrose goes with a persistent slug.
-4. April and a persistent slug are next to each other in month order, in one order or the other.
-5. Taavi does not go with February.
+1. Columbine harvests in April. Columbine does not pot in lava rock.
+2. The grower who pots in perlite and charcoal harvests in January.
+3. Ambrose pots in tree fern fibre.
+4. The grower who pots in tree fern fibre and April are exactly one month apart in harvest month order, in one direction or the other.
+5. Rowena does not harvest in February.
 
 ## Solving chart
 
-*Month vs Grower*
+*Harvest month vs Grower*
 
-| | Ambrose | Leocadia | Rowena | Taavi |
+| | Ambrose | Columbine | Leocadia | Rowena |
 |---|---|---|---|---|
 | **January** | | | | |
 | **February** | | | | |
 | **March** | | | | |
 | **April** | | | | |
 
-*Month vs Pest*
+*Harvest month vs Potting mix*
 
-| | a persistent slug | fungus gnats | thrips | red spider mite |
+| | tree fern fibre | coconut husk | perlite and charcoal | lava rock |
 |---|---|---|---|---|
 | **January** | | | | |
 | **February** | | | | |
 | **March** | | | | |
 | **April** | | | | |
 
-*Grower vs Pest*
+*Grower vs Potting mix*
 
-| | a persistent slug | fungus gnats | thrips | red spider mite |
+| | tree fern fibre | coconut husk | perlite and charcoal | lava rock |
 |---|---|---|---|---|
 | **Ambrose** | | | | |
+| **Columbine** | | | | |
 | **Leocadia** | | | | |
 | **Rowena** | | | | |
-| **Taavi** | | | | |
 
 ## Solution
 
-| Month | Grower | Pest |
+| Harvest month | Grower | Potting mix |
 |---|---|---|
-| January | Taavi | thrips |
-| February | Rowena | red spider mite |
-| March | Ambrose | a persistent slug |
-| April | Leocadia | fungus gnats |
+| January | Rowena | perlite and charcoal |
+| February | Leocadia | lava rock |
+| March | Ambrose | tree fern fibre |
+| April | Columbine | coconut husk |
 
 ## How it falls out
 
-1. [direct] from clue 5 pest:thrips: ruled out position(s) 2,3,4
-2. [direct] from clue 4 grower:Leocadia: ruled out position(s) 1,2,3
-3. [direct] from clue 3 grower:Taavi: ruled out position(s) 2
-4. [direct] from clue 1 pest:red spider mite: ruled out position(s) 4
+1. [direct] from clue 5 mix:perlite and charcoal: ruled out position(s) 2,3,4
+2. [direct] from clue 4 grower:Columbine: ruled out position(s) 1,2,3
+3. [direct] from clue 3 grower:Rowena: ruled out position(s) 2
+4. [direct] from clue 1 mix:lava rock: ruled out position(s) 4
 5. [bijection] grower:Ambrose: ruled out position(s) 4
-6. [bijection] grower:Rowena: ruled out position(s) 4
-7. [bijection] grower:Taavi: ruled out position(s) 4
-8. [bijection] pest:a persistent slug: ruled out position(s) 1
-9. [bijection] pest:fungus gnats: ruled out position(s) 1
-10. [bijection] pest:red spider mite: ruled out position(s) 1
+6. [bijection] grower:Leocadia: ruled out position(s) 4
+7. [bijection] grower:Rowena: ruled out position(s) 4
+8. [bijection] mix:tree fern fibre: ruled out position(s) 1
+9. [bijection] mix:coconut husk: ruled out position(s) 1
+10. [bijection] mix:lava rock: ruled out position(s) 1
 11. [direct] from clue 6 grower:Ambrose: ruled out position(s) 1
-12. [direct] from clue 6 pest:a persistent slug: ruled out position(s) 4
-13. [bijection] pest:fungus gnats: ruled out position(s) 2,3
-14. [order] from clue 2 pest:a persistent slug: ruled out position(s) 2
+12. [direct] from clue 6 mix:tree fern fibre: ruled out position(s) 4
+13. [bijection] mix:coconut husk: ruled out position(s) 2,3
+14. [order] from clue 2 mix:tree fern fibre: ruled out position(s) 2
 15. [direct] from clue 6 grower:Ambrose: ruled out position(s) 2
-16. [bijection] grower:Rowena: ruled out position(s) 3
-17. [bijection] grower:Taavi: ruled out position(s) 3
-18. [bijection] grower:Rowena: ruled out position(s) 1
-19. [bijection] pest:red spider mite: ruled out position(s) 3
+16. [bijection] grower:Leocadia: ruled out position(s) 3
+17. [bijection] grower:Rowena: ruled out position(s) 3
+18. [bijection] grower:Leocadia: ruled out position(s) 1
+19. [bijection] mix:lava rock: ruled out position(s) 3
 
 ---
 

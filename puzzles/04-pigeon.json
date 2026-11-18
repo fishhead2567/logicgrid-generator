@@ -1,5 +1,5 @@
 {
-  "pid": "5a84c8f6c609",
+  "pid": "a7db3a10cde0",
   "title": "Andy's Swiftest Birds",
   "theme": "pigeon",
   "blurb": "Andy races pigeons, and each bird is bred for a different combination of stubbornness and speed.",
@@ -13,8 +13,9 @@
   },
   "schema": {
     "spine": "distance",
-    "entity_noun": "race",
-    "entity_noun_plural": "races",
+    "entity_noun": "pigeon",
+    "entity_noun_plural": "pigeons",
+    "entity_animate": false,
     "categories": [
       {
         "name": "distance",
@@ -36,31 +37,34 @@
         "noun": "distance",
         "cmp_less": "shorter",
         "cmp_more": "longer",
-        "step_noun": "hundred miles"
+        "step_noun": "hundred miles",
+        "verb": "flies"
+      },
+      {
+        "name": "bird",
+        "label": "Pigeon",
+        "items": [
+          "Alabaster",
+          "Nutmeg",
+          "Hieronymus",
+          "Cadwallader"
+        ],
+        "ordered": false,
+        "noun": "pigeon",
+        "subject": true
       },
       {
         "name": "breed",
         "label": "Breed",
         "items": [
-          "a Vandenabeele",
-          "a Van Loon",
           "a Delbar",
-          "a Janssen"
+          "a Janssen",
+          "a Stichelbaut",
+          "a Sion"
         ],
         "ordered": false,
-        "noun": "breed"
-      },
-      {
-        "name": "loft",
-        "label": "Loft",
-        "items": [
-          "the garage loft",
-          "the orchard loft",
-          "the allotment loft",
-          "the canal loft"
-        ],
-        "ordered": false,
-        "noun": "loft"
+        "noun": "breed",
+        "verb": "descends from"
       }
     ]
   },
@@ -70,7 +74,7 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "breed:a Janssen",
+          "a": "bird:Cadwallader",
           "b": "distance:200 miles"
         }
       ]
@@ -80,12 +84,12 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "breed:a Vandenabeele",
-          "b": "loft:the canal loft"
+          "a": "bird:Alabaster",
+          "b": "breed:a Sion"
         },
         {
           "kind": "link",
-          "a": "breed:a Vandenabeele",
+          "a": "bird:Alabaster",
           "b": "distance:300 miles"
         }
       ]
@@ -95,8 +99,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "breed:a Delbar",
-          "b": "loft:the orchard loft"
+          "a": "bird:Hieronymus",
+          "b": "breed:a Janssen"
         }
       ]
     },
@@ -105,7 +109,7 @@
       "atoms": [
         {
           "kind": "not_link",
-          "a": "breed:a Van Loon",
+          "a": "bird:Nutmeg",
           "b": "distance:500 miles"
         }
       ]
@@ -115,8 +119,8 @@
       "atoms": [
         {
           "kind": "not_link",
-          "a": "distance:400 miles",
-          "b": "loft:the garage loft"
+          "a": "breed:a Delbar",
+          "b": "distance:400 miles"
         }
       ]
     }
@@ -128,17 +132,17 @@
       "400 miles",
       "500 miles"
     ],
-    "breed": [
-      "a Janssen",
-      "a Vandenabeele",
-      "a Van Loon",
-      "a Delbar"
+    "bird": [
+      "Cadwallader",
+      "Alabaster",
+      "Nutmeg",
+      "Hieronymus"
     ],
-    "loft": [
-      "the garage loft",
-      "the canal loft",
-      "the allotment loft",
-      "the orchard loft"
+    "breed": [
+      "a Delbar",
+      "a Sion",
+      "a Stichelbaut",
+      "a Janssen"
     ]
   },
   "stats": {

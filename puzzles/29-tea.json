@@ -1,5 +1,5 @@
 {
-  "pid": "b9d36185280e",
+  "pid": "5a255b2d0dd9",
   "title": "The Blind Tasting at Pemberton's",
   "theme": "tea",
   "blurb": "Pemberton's holds a blind tasting each spring. The tasters are blind to the tea; the tea is not blind to them.",
@@ -13,63 +13,68 @@
   },
   "schema": {
     "spine": "time",
-    "entity_noun": "tasting",
-    "entity_noun_plural": "tastings",
+    "entity_noun": "taster",
+    "entity_noun_plural": "tasters",
+    "entity_animate": true,
     "categories": [
       {
         "name": "time",
         "label": "Start time",
         "items": [
-          "8 a.m.",
-          "9 a.m.",
-          "10 a.m.",
-          "11 a.m.",
+          "8am",
+          "9am",
+          "10am",
+          "11am",
           "noon"
         ],
         "ordered": true,
         "noun": "start time",
         "cmp_less": "earlier",
         "cmp_more": "later",
-        "step_noun": "hour"
+        "step_noun": "hour",
+        "verb": "tastes at"
       },
       {
-        "name": "tea",
-        "label": "Tea",
+        "name": "taster",
+        "label": "Taster",
         "items": [
-          "a roasted oolong",
-          "a Keemun",
-          "a first-flush Darjeeling",
-          "a smoked Lapsang",
-          "a pressed pu-erh"
+          "Yolanda",
+          "Marguerite",
+          "Chidi",
+          "Rolf",
+          "Soren"
         ],
         "ordered": false,
-        "noun": "tea"
+        "noun": "taster",
+        "subject": true
       },
       {
         "name": "note",
         "label": "Tasting note",
         "items": [
+          "wet slate",
+          "stewed apricot",
           "pine smoke",
-          "iron filings",
           "hay and honey",
-          "bruised peach",
-          "stewed apricot"
+          "bruised peach"
         ],
         "ordered": false,
-        "noun": "note"
+        "noun": "note",
+        "verb": "reports"
       },
       {
         "name": "cup",
         "label": "Cup",
         "items": [
+          "a glass tumbler",
           "a bone china cup",
           "a pewter beaker",
           "an enamel mug",
-          "a lacquered bowl",
-          "a glass tumbler"
+          "a stoneware cup"
         ],
         "ordered": false,
-        "noun": "cup"
+        "noun": "cup",
+        "verb": "drinks from"
       }
     ]
   },
@@ -79,8 +84,29 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "note:bruised peach",
-          "b": "time:9 a.m."
+          "a": "note:pine smoke",
+          "b": "taster:Soren"
+        },
+        {
+          "kind": "between",
+          "a": "time:9am",
+          "b": "note:pine smoke",
+          "c": "note:wet slate"
+        },
+        {
+          "kind": "not_link",
+          "a": "note:wet slate",
+          "b": "taster:Yolanda"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "taster:Chidi",
+          "b": "time:8am"
         }
       ]
     },
@@ -89,62 +115,8 @@
       "atoms": [
         {
           "kind": "immediately_before",
-          "a": "tea:a smoked Lapsang",
-          "b": "time:10 a.m."
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "gap",
-          "a": "cup:a glass tumbler",
-          "b": "time:8 a.m.",
-          "k": 2,
-          "rel": "eq"
-        },
-        {
-          "kind": "not_link",
-          "a": "cup:a glass tumbler",
-          "b": "tea:a Keemun"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "parity",
-          "a": "tea:a pressed pu-erh",
-          "b": "time:9 a.m.",
-          "same": true
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "parity",
-          "a": "cup:a lacquered bowl",
-          "b": "note:hay and honey",
-          "same": false
-        },
-        {
-          "kind": "not_link",
-          "a": "cup:a lacquered bowl",
-          "b": "tea:a pressed pu-erh"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "note:iron filings",
-          "b": "tea:a first-flush Darjeeling"
+          "a": "cup:a pewter beaker",
+          "b": "time:noon"
         }
       ]
     },
@@ -153,8 +125,48 @@
       "atoms": [
         {
           "kind": "adjacent",
-          "a": "cup:a bone china cup",
-          "b": "tea:a pressed pu-erh"
+          "a": "note:pine smoke",
+          "b": "time:10am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "taster:Rolf",
+          "b": "cup:a glass tumbler"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "cup:a stoneware cup",
+          "b": "taster:Soren"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "cup:a stoneware cup",
+          "b": "taster:Rolf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "taster:Yolanda",
+          "b": "note:bruised peach"
         }
       ]
     },
@@ -163,55 +175,53 @@
       "atoms": [
         {
           "kind": "between",
-          "a": "cup:a pewter beaker",
-          "b": "note:pine smoke",
-          "c": "tea:a pressed pu-erh"
+          "a": "cup:a bone china cup",
+          "b": "note:stewed apricot",
+          "c": "note:wet slate"
         }
       ]
     }
   ],
   "solution": {
     "time": [
-      "8 a.m.",
-      "9 a.m.",
-      "10 a.m.",
-      "11 a.m.",
+      "8am",
+      "9am",
+      "10am",
+      "11am",
       "noon"
     ],
-    "tea": [
-      "a Keemun",
-      "a smoked Lapsang",
-      "a roasted oolong",
-      "a pressed pu-erh",
-      "a first-flush Darjeeling"
+    "taster": [
+      "Marguerite",
+      "Rolf",
+      "Yolanda",
+      "Soren",
+      "Chidi"
     ],
     "note": [
-      "pine smoke",
-      "bruised peach",
-      "iron filings",
+      "wet slate",
       "hay and honey",
-      "stewed apricot"
+      "stewed apricot",
+      "pine smoke",
+      "bruised peach"
     ],
     "cup": [
-      "a lacquered bowl",
-      "a pewter beaker",
-      "a glass tumbler",
       "an enamel mug",
-      "a bone china cup"
+      "a bone china cup",
+      "a stoneware cup",
+      "a pewter beaker",
+      "a glass tumbler"
     ]
   },
   "stats": {
-    "atoms": 10,
-    "numbered_clues": 8,
+    "atoms": 11,
+    "numbered_clues": 9,
     "kinds": {
       "link": 1,
-      "immediately_before": 1,
-      "gap": 1,
+      "between": 2,
       "not_link": 2,
-      "parity": 2,
-      "before": 1,
-      "adjacent": 1,
-      "between": 1
+      "immediately_before": 1,
+      "adjacent": 3,
+      "before": 2
     },
     "positives": 1,
     "compounds": 0
@@ -220,11 +230,11 @@
     "solved": true,
     "max_tier": 3,
     "max_technique": "order",
-    "steps": 43,
+    "steps": 38,
     "tier_counts": {
       "direct": 3,
-      "bijection": 27,
-      "order": 13
+      "bijection": 19,
+      "order": 16
     },
     "trial_eliminations": 0,
     "unknown_cells": 15

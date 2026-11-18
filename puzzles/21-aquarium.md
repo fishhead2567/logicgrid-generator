@@ -1,34 +1,35 @@
 # The Night Shift at Coldwater Hall
 
-*Coldwater Hall Aquarium keeps a night rota of tanks, and one keeper who is definitely feeding the wrong things.*
-
-**Difficulty** 4/7 (moderate) &nbsp;&nbsp; **Grid** 4 x 5 &nbsp;&nbsp; **Clues** 8 &nbsp;&nbsp; **id** `9bf6b156c99a`
+**Difficulty** 4/7 (moderate) &nbsp;&nbsp; **Grid** 4 x 5 &nbsp;&nbsp; **Clues** 10 &nbsp;&nbsp; **id** `8464a2b72386`
 
 ## Introduction
 
-There are 5 shifts. Each has exactly one slot and one item from every other category below, and within each category every item belongs to a different shift.
-- **Running order** (listed in order): slot one, slot two, slot three, slot four and slot five.
-- **Keeper**: Marisol, Chiamaka, Oskar, Fitzwilliam and Rhiannon.
-- **Tank**: the touch pool, the deep reef, the octopus enclosure, the jellyfish column and the seahorse nursery.
-- **Logged incident**: an algal bloom, an unexplained pH swing, a visitor's dropped phone, a failed chiller and an escapee.
-The slots above are listed in order, from slot one to slot five.
+Coldwater Hall Aquarium keeps a night rota of tanks, and one keeper who is definitely feeding the wrong things.
+Five keepers are involved. Determine each keeper's slot, tank and feed.
+- **Keeper**: Oskar, Marisol, Chiamaka, Rhiannon and Fitzwilliam.
+- **Running order** (listed from earlier to later): slot one, slot two, slot three, slot four and slot five.
+- **Tank**: the jellyfish column, the touch pool, the deep reef, the seahorse nursery and the kelp tank.
+- **Feed**: live mysis, a gelatine cube of unclear provenance, mussel meat, nori sheets and chopped squid.
+Every keeper has a different slot, tank and feed, so within each category every item is used exactly once.
 
 ## Clues
 
-1. An escapee goes with slot two. An escapee's slot is immediately earlier than the touch pool's slot, with no slot in between.
-2. The seahorse nursery falls somewhere between Oskar and slot five in slot order.
-3. A failed chiller and the octopus enclosure are exactly three slots apart in slot order. The octopus enclosure falls somewhere between Marisol and slot four in slot order.
-4. Rhiannon and slot one are exactly four slots apart in slot order.
-5. A visitor's dropped phone does not go with Fitzwilliam.
-6. An unexplained pH swing, Rhiannon and the jellyfish column are three different shifts.
-7. A visitor's dropped phone's slot is immediately earlier than the deep reef's slot, with no slot in between.
-8. Fitzwilliam does not go with the touch pool.
+1. The keeper who tends the touch pool works slot five.
+2. The keeper who feeds nori sheets does not work slot three.
+3. The keeper who feeds chopped squid and slot one are exactly one slot apart in slot order, in one direction or the other.
+4. The keeper who feeds mussel meat does not work slot five.
+5. Slot one is exactly one slot earlier than Fitzwilliam, with no slot in between.
+6. The keeper who feeds live mysis is earlier than the keeper who tends the deep reef in slot order. The keeper who tends the deep reef is earlier than Marisol in slot order.
+7. The keeper who feeds chopped squid is earlier than the keeper who tends the kelp tank in slot order.
+8. The keeper who feeds live mysis is earlier than Chiamaka in slot order.
+9. The keeper who feeds mussel meat and Rhiannon are exactly one slot apart in slot order, in one direction or the other. Chiamaka is earlier than the keeper who feeds mussel meat in slot order.
+10. The keeper who feeds mussel meat and the keeper who tends the jellyfish column are exactly one slot apart in slot order, in one direction or the other.
 
 ## Solving chart
 
 *Running order vs Keeper*
 
-| | Marisol | Chiamaka | Oskar | Fitzwilliam | Rhiannon |
+| | Oskar | Marisol | Chiamaka | Rhiannon | Fitzwilliam |
 |---|---|---|---|---|---|
 | **slot one** | | | | | |
 | **slot two** | | | | | |
@@ -38,7 +39,7 @@ The slots above are listed in order, from slot one to slot five.
 
 *Running order vs Tank*
 
-| | the touch pool | the deep reef | the octopus enclosure | the jellyfish column | the seahorse nursery |
+| | the jellyfish column | the touch pool | the deep reef | the seahorse nursery | the kelp tank |
 |---|---|---|---|---|---|
 | **slot one** | | | | | |
 | **slot two** | | | | | |
@@ -46,9 +47,9 @@ The slots above are listed in order, from slot one to slot five.
 | **slot four** | | | | | |
 | **slot five** | | | | | |
 
-*Running order vs Logged incident*
+*Running order vs Feed*
 
-| | an algal bloom | an unexplained pH swing | a visitor's dropped phone | a failed chiller | an escapee |
+| | live mysis | a gelatine cube of unclear provenance | mussel meat | nori sheets | chopped squid |
 |---|---|---|---|---|---|
 | **slot one** | | | | | |
 | **slot two** | | | | | |
@@ -58,84 +59,87 @@ The slots above are listed in order, from slot one to slot five.
 
 *Keeper vs Tank*
 
-| | the touch pool | the deep reef | the octopus enclosure | the jellyfish column | the seahorse nursery |
+| | the jellyfish column | the touch pool | the deep reef | the seahorse nursery | the kelp tank |
 |---|---|---|---|---|---|
+| **Oskar** | | | | | |
 | **Marisol** | | | | | |
 | **Chiamaka** | | | | | |
-| **Oskar** | | | | | |
-| **Fitzwilliam** | | | | | |
 | **Rhiannon** | | | | | |
+| **Fitzwilliam** | | | | | |
 
-*Keeper vs Logged incident*
+*Keeper vs Feed*
 
-| | an algal bloom | an unexplained pH swing | a visitor's dropped phone | a failed chiller | an escapee |
+| | live mysis | a gelatine cube of unclear provenance | mussel meat | nori sheets | chopped squid |
 |---|---|---|---|---|---|
+| **Oskar** | | | | | |
 | **Marisol** | | | | | |
 | **Chiamaka** | | | | | |
-| **Oskar** | | | | | |
-| **Fitzwilliam** | | | | | |
 | **Rhiannon** | | | | | |
+| **Fitzwilliam** | | | | | |
 
-*Tank vs Logged incident*
+*Tank vs Feed*
 
-| | an algal bloom | an unexplained pH swing | a visitor's dropped phone | a failed chiller | an escapee |
+| | live mysis | a gelatine cube of unclear provenance | mussel meat | nori sheets | chopped squid |
 |---|---|---|---|---|---|
+| **the jellyfish column** | | | | | |
 | **the touch pool** | | | | | |
 | **the deep reef** | | | | | |
-| **the octopus enclosure** | | | | | |
-| **the jellyfish column** | | | | | |
 | **the seahorse nursery** | | | | | |
+| **the kelp tank** | | | | | |
 
 ## Solution
 
-| Running order | Keeper | Tank | Logged incident |
+| Running order | Keeper | Tank | Feed |
 |---|---|---|---|
-| slot one | Marisol | the jellyfish column | an algal bloom |
-| slot two | Fitzwilliam | the octopus enclosure | an escapee |
-| slot three | Oskar | the touch pool | an unexplained pH swing |
-| slot four | Chiamaka | the seahorse nursery | a visitor's dropped phone |
-| slot five | Rhiannon | the deep reef | a failed chiller |
+| slot one | Oskar | the seahorse nursery | live mysis |
+| slot two | Fitzwilliam | the deep reef | chopped squid |
+| slot three | Chiamaka | the jellyfish column | a gelatine cube of unclear provenance |
+| slot four | Marisol | the kelp tank | mussel meat |
+| slot five | Rhiannon | the touch pool | nori sheets |
 
 ## How it falls out
 
-1. [direct] from clue 8 incident:an escapee: ruled out position(s) 1,3,4,5
-2. [bijection] incident:an algal bloom: ruled out position(s) 2
-3. [bijection] incident:an unexplained pH swing: ruled out position(s) 2
-4. [bijection] incident:a visitor's dropped phone: ruled out position(s) 2
-5. [bijection] incident:a failed chiller: ruled out position(s) 2
-6. [order] from clue 9 keeper:Rhiannon: ruled out position(s) 1,2,3,4
-7. [order] from clue 7 tank:the seahorse nursery: ruled out position(s) 1,5
-8. [order] from clue 7 keeper:Oskar: ruled out position(s) 4,5
-9. [order] from clue 6 incident:a failed chiller: ruled out position(s) 3
-10. [order] from clue 6 tank:the octopus enclosure: ruled out position(s) 3,5
-11. [order] from clue 4 tank:the touch pool: ruled out position(s) 1,2,4,5
-12. [order] from clue 3 tank:the octopus enclosure: ruled out position(s) 1,4
-13. [order] from clue 3 keeper:Marisol: ruled out position(s) 2,3,4,5
-14. [order] from clue 6 incident:a failed chiller: ruled out position(s) 1,4
-15. [order] from clue 1 incident:a visitor's dropped phone: ruled out position(s) 5
-16. [order] from clue 1 tank:the deep reef: ruled out position(s) 1,3
-17. [bijection] from clue 2 incident:an unexplained pH swing: ruled out position(s) 5
-18. [bijection] from clue 2 tank:the jellyfish column: ruled out position(s) 5
-19. [direct] from clue 5 keeper:Fitzwilliam: ruled out position(s) 3
-20. [bijection] incident:an algal bloom: ruled out position(s) 5
-21. [bijection] keeper:Chiamaka: ruled out position(s) 1,5
-22. [bijection] keeper:Oskar: ruled out position(s) 1
-23. [bijection] keeper:Fitzwilliam: ruled out position(s) 1,5
-24. [bijection] tank:the deep reef: ruled out position(s) 2
-25. [bijection] tank:the jellyfish column: ruled out position(s) 2,3
-26. [bijection] tank:the seahorse nursery: ruled out position(s) 2,3
-27. [bijection] tank:the jellyfish column: ruled out position(s) 4
-28. [bijection] tank:the deep reef: ruled out position(s) 4
-29. [bijection] from clue 2 incident:an unexplained pH swing: ruled out position(s) 1
-30. [order] from clue 1 incident:a visitor's dropped phone: ruled out position(s) 1,3
-31. [direct] from clue 10 keeper:Fitzwilliam: ruled out position(s) 4
-32. [bijection] incident:an algal bloom: ruled out position(s) 4
-33. [bijection] incident:an unexplained pH swing: ruled out position(s) 4
-34. [bijection] incident:an algal bloom: ruled out position(s) 3
-35. [bijection] keeper:Chiamaka: ruled out position(s) 2
-36. [bijection] keeper:Oskar: ruled out position(s) 2
-37. [bijection] keeper:Chiamaka: ruled out position(s) 3
+1. [direct] from clue 11 feed:mussel meat: ruled out position(s) 5
+2. [direct] from clue 4 tank:the touch pool: ruled out position(s) 1,2,3,4
+3. [direct] from clue 2 feed:nori sheets: ruled out position(s) 3
+4. [bijection] tank:the jellyfish column: ruled out position(s) 5
+5. [bijection] tank:the deep reef: ruled out position(s) 5
+6. [bijection] tank:the seahorse nursery: ruled out position(s) 5
+7. [bijection] tank:the kelp tank: ruled out position(s) 5
+8. [order] from clue 12 feed:live mysis: ruled out position(s) 5
+9. [order] from clue 12 keeper:Chiamaka: ruled out position(s) 1
+10. [order] from clue 10 feed:chopped squid: ruled out position(s) 1,3,4,5
+11. [order] from clue 9 tank:the kelp tank: ruled out position(s) 1,2
+12. [order] from clue 8 keeper:Fitzwilliam: ruled out position(s) 1,3,4,5
+13. [order] from clue 7 feed:live mysis: ruled out position(s) 4
+14. [order] from clue 7 tank:the deep reef: ruled out position(s) 1
+15. [order] from clue 6 keeper:Marisol: ruled out position(s) 1,2
+16. [order] from clue 1 keeper:Chiamaka: ruled out position(s) 4,5
+17. [order] from clue 1 feed:mussel meat: ruled out position(s) 1,2
+18. [order] from clue 5 keeper:Rhiannon: ruled out position(s) 1
+19. [order] from clue 3 tank:the jellyfish column: ruled out position(s) 1
+20. [order] from clue 12 feed:live mysis: ruled out position(s) 3
+21. [bijection] feed:live mysis: ruled out position(s) 2
+22. [bijection] feed:a gelatine cube of unclear provenance: ruled out position(s) 2
+23. [bijection] feed:nori sheets: ruled out position(s) 2
+24. [bijection] keeper:Oskar: ruled out position(s) 2
+25. [bijection] keeper:Chiamaka: ruled out position(s) 2
+26. [bijection] keeper:Rhiannon: ruled out position(s) 2
+27. [bijection] keeper:Oskar: ruled out position(s) 3,4,5
+28. [bijection] tank:the seahorse nursery: ruled out position(s) 2,3,4
+29. [order] from clue 1 feed:mussel meat: ruled out position(s) 3
+30. [order] from clue 5 keeper:Rhiannon: ruled out position(s) 4
+31. [order] from clue 3 tank:the jellyfish column: ruled out position(s) 2,4
+32. [bijection] feed:a gelatine cube of unclear provenance: ruled out position(s) 1,4
+33. [bijection] feed:nori sheets: ruled out position(s) 1,4
+34. [bijection] feed:a gelatine cube of unclear provenance: ruled out position(s) 5
+35. [bijection] keeper:Marisol: ruled out position(s) 3
+36. [bijection] keeper:Rhiannon: ruled out position(s) 3
+37. [bijection] keeper:Marisol: ruled out position(s) 5
+38. [bijection] tank:the deep reef: ruled out position(s) 3
+39. [bijection] tank:the kelp tank: ruled out position(s) 3
+40. [bijection] tank:the deep reef: ruled out position(s) 4
 
 ---
 
-<sub>seed `2026172741735` &middot; score 5.515 &middot; atoms 10 &middot; positives 1 &middot; solved by order</sub>
+<sub>seed `2026172741735` &middot; score 5.515 &middot; atoms 12 &middot; positives 1 &middot; solved by order</sub>

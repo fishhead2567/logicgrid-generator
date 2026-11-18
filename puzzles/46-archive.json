@@ -1,11 +1,11 @@
 {
-  "pid": "348319b3a73a",
+  "pid": "58cffe6ce7a7",
   "title": "The Mislabelled Drawers",
   "theme": "archive",
   "blurb": "The Vance Municipal Archive was reorganised in 1974 by somebody who has since left no forwarding address.",
   "profile": "expert",
   "rating": 7,
-  "score": 17.1005,
+  "score": 12.221,
   "seed": 2026173044439,
   "spec": {
     "difficulty": "expert",
@@ -13,8 +13,9 @@
   },
   "schema": {
     "spine": "shelf",
-    "entity_noun": "drawer",
-    "entity_noun_plural": "drawers",
+    "entity_noun": "archivist",
+    "entity_noun_plural": "archivists",
+    "entity_animate": true,
     "categories": [
       {
         "name": "shelf",
@@ -31,21 +32,23 @@
         "noun": "shelf",
         "cmp_less": "lower",
         "cmp_more": "higher",
-        "step_noun": "shelf"
+        "step_noun": "shelf",
+        "verb": "files on"
       },
       {
         "name": "archivist",
         "label": "Archivist",
         "items": [
+          "Dr Lindqvist",
           "Ms Okafor",
           "Mr Pelletier",
           "Ms Castellano",
-          "Dr Mwangi",
           "Ms Bhattacharya",
-          "Dr Lindqvist"
+          "Dr Mwangi"
         ],
         "ordered": false,
-        "noun": "archivist"
+        "noun": "archivist",
+        "subject": true
       },
       {
         "name": "holding",
@@ -59,7 +62,8 @@
           "the workhouse admissions book"
         ],
         "ordered": false,
-        "noun": "holding"
+        "noun": "holding",
+        "verb": "catalogues"
       },
       {
         "name": "decade",
@@ -73,7 +77,8 @@
           "the 1890s"
         ],
         "ordered": false,
-        "noun": "decade"
+        "noun": "decade",
+        "verb": "covers"
       },
       {
         "name": "damage",
@@ -87,7 +92,8 @@
           "bound upside down"
         ],
         "ordered": false,
-        "noun": "condition"
+        "noun": "condition",
+        "verb": "describes theirs as"
       }
     ]
   },
@@ -96,46 +102,15 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "adjacent",
-          "a": "decade:the 1830s",
-          "b": "shelf:the third shelf"
-        },
-        {
-          "kind": "before",
-          "a": "holding:a set of tram timetables",
-          "b": "decade:the 1830s"
-        },
-        {
-          "kind": "before",
-          "a": "archivist:Ms Castellano",
-          "b": "shelf:the third shelf"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "distinct",
-          "members": [
-            "archivist:Mr Pelletier",
-            "decade:the 1950s",
-            "shelf:the bottom shelf"
-          ]
-        },
-        {
-          "kind": "distinct",
-          "members": [
-            "archivist:Mr Pelletier",
-            "holding:the smallpox ledgers",
-            "shelf:the fifth shelf"
-          ]
+          "kind": "not_link",
+          "a": "decade:the 1950s",
+          "b": "shelf:the bottom shelf"
         },
         {
           "kind": "gap",
-          "a": "decade:the 1860s",
-          "b": "holding:the smallpox ledgers",
-          "k": 3,
+          "a": "damage:foxed",
+          "b": "shelf:the bottom shelf",
+          "k": 4,
           "rel": "eq"
         }
       ]
@@ -144,36 +119,17 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "gap",
-              "a": "holding:the smallpox ledgers",
-              "b": "shelf:the top shelf",
-              "k": 2,
-              "rel": "eq"
-            },
-            {
-              "kind": "link",
-              "a": "decade:the 1890s",
-              "b": "holding:a folder of libel writs"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "archivist:Ms Okafor",
-          "b": "damage:bound upside down"
-        },
-        {
-          "kind": "adjacent",
-          "a": "archivist:Ms Okafor",
-          "b": "shelf:the fourth shelf"
+          "kind": "not_both",
+          "x": {
+            "kind": "adjacent",
+            "a": "holding:the workhouse admissions book",
+            "b": "shelf:the third shelf"
+          },
+          "y": {
+            "kind": "before",
+            "a": "shelf:the bottom shelf",
+            "b": "decade:the 1830s"
+          }
         }
       ]
     },
@@ -185,13 +141,84 @@
           "options": [
             {
               "kind": "adjacent",
-              "a": "decade:the 1950s",
-              "b": "shelf:the second shelf"
+              "a": "archivist:Ms Castellano",
+              "b": "damage:mouse-chewed"
             },
             {
-              "kind": "immediately_before",
-              "a": "holding:the lost property register",
-              "b": "decade:the 1970s"
+              "kind": "link",
+              "a": "holding:the smallpox ledgers",
+              "b": "shelf:the third shelf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "link",
+              "a": "archivist:Mr Pelletier",
+              "b": "holding:the workhouse admissions book"
+            },
+            {
+              "kind": "link",
+              "a": "decade:the 1940s",
+              "b": "shelf:the third shelf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "immediately_before",
+            "a": "shelf:the third shelf",
+            "b": "decade:the 1830s"
+          },
+          "y": {
+            "kind": "link",
+            "a": "archivist:Dr Lindqvist",
+            "b": "holding:the lost property register"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "damage:water-damaged",
+          "b": "holding:the lost property register",
+          "c": "shelf:the bottom shelf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "gap",
+              "a": "archivist:Ms Castellano",
+              "b": "holding:a set of tram timetables",
+              "k": 2,
+              "rel": "eq"
+            },
+            {
+              "kind": "link",
+              "a": "decade:the 1950s",
+              "b": "shelf:the top shelf"
             }
           ]
         }
@@ -202,36 +229,9 @@
       "atoms": [
         {
           "kind": "between",
-          "a": "damage:mouse-chewed",
-          "b": "decade:the 1950s",
-          "c": "shelf:the fifth shelf"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "parity",
-          "a": "decade:the 1940s",
-          "b": "holding:the lost property register",
-          "same": true
-        },
-        {
-          "kind": "adjacent",
-          "a": "damage:over-repaired with tape",
-          "b": "holding:the lost property register"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "between",
-          "a": "damage:foxed",
+          "a": "holding:the harbour dredging reports",
           "b": "decade:the 1970s",
-          "c": "holding:a set of tram timetables"
+          "c": "shelf:the second shelf"
         }
       ]
     },
@@ -239,9 +239,62 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "adjacent",
-          "a": "decade:the 1940s",
-          "b": "holding:a set of tram timetables"
+          "kind": "not",
+          "inner": {
+            "kind": "before",
+            "a": "shelf:the third shelf",
+            "b": "holding:a set of tram timetables"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "not_link",
+            "a": "archivist:Ms Bhattacharya",
+            "b": "damage:immaculate"
+          },
+          "y": {
+            "kind": "before",
+            "a": "decade:the 1830s",
+            "b": "damage:over-repaired with tape"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "holding:the harbour dredging reports",
+          "b": "decade:the 1830s"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "decade:the 1830s",
+          "b": "archivist:Dr Mwangi"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "archivist:Ms Castellano",
+          "b": "holding:a folder of libel writs",
+          "k": 2,
+          "rel": "eq"
         }
       ]
     },
@@ -251,22 +304,7 @@
         {
           "kind": "before",
           "a": "holding:the workhouse admissions book",
-          "b": "archivist:Dr Lindqvist"
-        },
-        {
-          "kind": "gap",
-          "a": "archivist:Dr Lindqvist",
-          "b": "damage:immaculate",
-          "k": 5,
-          "rel": "eq"
-        },
-        {
-          "kind": "distinct",
-          "members": [
-            "archivist:Ms Castellano",
-            "damage:immaculate",
-            "decade:the 1830s"
-          ]
+          "b": "decade:the 1890s"
         }
       ]
     },
@@ -274,14 +312,27 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "before",
-          "a": "archivist:Ms Bhattacharya",
-          "b": "holding:the harbour dredging reports"
+          "kind": "between",
+          "a": "decade:the 1890s",
+          "b": "archivist:Ms Okafor",
+          "c": "damage:bound upside down"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "damage:water-damaged",
+          "b": "decade:the 1890s",
+          "k": 3,
+          "rel": "eq"
         },
         {
-          "kind": "immediately_before",
-          "a": "damage:water-damaged",
-          "b": "holding:the harbour dredging reports"
+          "kind": "not_link",
+          "a": "archivist:Ms Okafor",
+          "b": "damage:water-damaged"
         }
       ]
     }
@@ -297,11 +348,11 @@
     ],
     "archivist": [
       "Ms Bhattacharya",
-      "Ms Castellano",
       "Mr Pelletier",
-      "Dr Mwangi",
       "Ms Okafor",
-      "Dr Lindqvist"
+      "Ms Castellano",
+      "Dr Lindqvist",
+      "Dr Mwangi"
     ],
     "holding": [
       "the workhouse admissions book",
@@ -329,34 +380,34 @@
     ]
   },
   "stats": {
-    "atoms": 20,
-    "numbered_clues": 11,
+    "atoms": 18,
+    "numbered_clues": 16,
     "kinds": {
-      "adjacent": 4,
-      "before": 5,
-      "distinct": 3,
-      "gap": 2,
-      "or": 2,
-      "between": 2,
-      "parity": 1,
-      "immediately_before": 1
+      "not_link": 2,
+      "gap": 3,
+      "not_both": 1,
+      "or": 3,
+      "if_then": 2,
+      "between": 3,
+      "not": 1,
+      "immediately_before": 1,
+      "before": 2
     },
     "positives": 0,
-    "compounds": 2
+    "compounds": 7
   },
   "solve": {
     "solved": true,
-    "max_tier": 6,
-    "max_technique": "trial",
-    "steps": 87,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 98,
     "tier_counts": {
-      "bijection": 42,
-      "order": 33,
-      "disjunction": 3,
-      "subset": 3,
-      "trial": 6
+      "direct": 2,
+      "bijection": 55,
+      "order": 26,
+      "disjunction": 15
     },
-    "trial_eliminations": 6,
+    "trial_eliminations": 0,
     "unknown_cells": 24
   }
 }

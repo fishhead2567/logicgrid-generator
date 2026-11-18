@@ -37,7 +37,14 @@ from logicgrid.model import Ref
 
 from .board import NO, YES, Board, Conflict
 from .library import Library, LibraryError
-from .render import HELP, answer_block, cell_label, clue_block, progress_label
+from .render import (
+    HELP,
+    answer_block,
+    cell_label,
+    clue_block,
+    progress_label,
+    short_labels,
+)
 
 CELL_YES = Text("O", style="bold green")
 CELL_NO = Text("x", style="red")
@@ -72,6 +79,7 @@ class PlayApp(App[None]):
     #clues { padding: 0 1; }
     TabbedContent { height: 1fr; }
     DataTable { height: auto; max-height: 100%; }
+    #legend { height: auto; padding: 0 1; color: $text-muted; }
     #answer { height: auto; border-top: solid $panel; padding: 0 1; color: $text; }
     #status { height: auto; padding: 0 1; background: $panel; }
     #banner { height: auto; padding: 0 1; }
@@ -91,6 +99,10 @@ class PlayApp(App[None]):
         ("c", "check", "check"),
         Binding("bracketright,ctrl+right", "next_grid", "next grid", key_display="]"),
         Binding("bracketleft,ctrl+left", "prev_grid", "prev grid", key_display="["),
+        *(
+            Binding(str(d), f"goto_grid({d})", f"grid {d}", show=False)
+            for d in range(1, 10)
+        ),
         ("a", "assist", "assist"),
         ("r", "reset", "reset"),
         ("n", "next_puzzle", "next"),
@@ -116,6 +128,7 @@ class PlayApp(App[None]):
         with Horizontal(id="body"):
             with Vertical(id="left"):
                 yield TabbedContent(id="grids")
+                yield Static(id="legend")
                 yield Static(id="answer")
             with VerticalScroll(id="right"):
                 yield Static(id="clues")
@@ -163,9 +176,15 @@ class PlayApp(App[None]):
             tab_id = _tab_id(cat_a, cat_b)
             self._tabs[tab_id] = (cat_a, cat_b)
             table: DataTable = DataTable(cursor_type="cell", zebra_stripes=True)
-            table.add_column(rows.label, key="__label__", width=max(12, min(26, max(len(i) for i in rows.items))))
-            for i, item in enumerate(cols.items, start=1):
-                table.add_column(f"{i}", key=item, width=3)
+            table.add_column(
+                rows.label,
+                key="__label__",
+                width=max(10, min(22, max(len(i) for i in rows.items))),
+            )
+            # Name the cross category in the headers. Bare 1..N was the single
+            # most confusing thing about the first version.
+            for item, short in zip(cols.items, short_labels(cols.items)):
+                table.add_column(short, key=item, width=max(3, len(short)))
             for item in rows.items:
                 table.add_row(item, *([CELL_OPEN] * cols.size), key=item)
             title = (
@@ -241,8 +260,28 @@ class PlayApp(App[None]):
                         Coordinate(r, c + 1), CELL_STYLES[self.board.get(a, b)]
                     )
         self.query_one("#answer", Static).update(answer_block(self.board))
+        self._refresh_legend()
         self._refresh_status()
         self._check_completion()
+
+    def _refresh_legend(self) -> None:
+        """Spell out the abbreviated column headers, and number the grids."""
+        pair = self._active_pair()
+        if pair is None:
+            return
+        _cat_a, cat_b = pair
+        cols = self.board.schema.by_name[cat_b]
+        pairs = [
+            f"{short}={item}"
+            for short, item in zip(short_labels(cols.items), cols.items)
+        ]
+        ids = list(self._tabs)
+        try:
+            number = ids.index(self.query_one("#grids", TabbedContent).active) + 1
+        except ValueError:
+            number = 0
+        head = f"grid {number}/{len(ids)}  " if number else ""
+        self.query_one("#legend", Static).update(head + "   ".join(pairs))
 
     def _refresh_status(self, message: str = "") -> None:
         refs = self.cursor_refs()
@@ -387,6 +426,14 @@ class PlayApp(App[None]):
             i = 0
         tabs.active = ids[(i + delta) % len(ids)]
 
+    def action_goto_grid(self, number: int) -> None:
+        """Jump straight to a grid. Cycling through ten of them was tedious."""
+        ids = list(self._tabs)
+        if 1 <= number <= len(ids):
+            self.query_one("#grids", TabbedContent).active = ids[number - 1]
+        else:
+            self._refresh_status(f"there is no grid {number}")
+
     def action_next_grid(self) -> None:
         self._step_grid(1)
 
@@ -404,6 +451,7 @@ class PlayApp(App[None]):
     @on(TabbedContent.TabActivated)
     def _tab_changed(self) -> None:
         self.call_after_refresh(self._focus_table)
+        self._refresh_legend()
         self._refresh_status()
 
 

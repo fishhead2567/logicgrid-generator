@@ -1,5 +1,5 @@
 {
-  "pid": "9bf6b156c99a",
+  "pid": "8464a2b72386",
   "title": "The Night Shift at Coldwater Hall",
   "theme": "aquarium",
   "blurb": "Coldwater Hall Aquarium keeps a night rota of tanks, and one keeper who is definitely feeding the wrong things.",
@@ -13,8 +13,9 @@
   },
   "schema": {
     "spine": "slot",
-    "entity_noun": "shift",
-    "entity_noun_plural": "shifts",
+    "entity_noun": "keeper",
+    "entity_noun_plural": "keepers",
+    "entity_animate": true,
     "categories": [
       {
         "name": "slot",
@@ -30,46 +31,50 @@
         "noun": "slot",
         "cmp_less": "earlier",
         "cmp_more": "later",
-        "step_noun": "slot"
+        "step_noun": "slot",
+        "verb": "works"
       },
       {
         "name": "keeper",
         "label": "Keeper",
         "items": [
+          "Oskar",
           "Marisol",
           "Chiamaka",
-          "Oskar",
-          "Fitzwilliam",
-          "Rhiannon"
+          "Rhiannon",
+          "Fitzwilliam"
         ],
         "ordered": false,
-        "noun": "keeper"
+        "noun": "keeper",
+        "subject": true
       },
       {
         "name": "tank",
         "label": "Tank",
         "items": [
+          "the jellyfish column",
           "the touch pool",
           "the deep reef",
-          "the octopus enclosure",
-          "the jellyfish column",
-          "the seahorse nursery"
+          "the seahorse nursery",
+          "the kelp tank"
         ],
         "ordered": false,
-        "noun": "tank"
+        "noun": "tank",
+        "verb": "tends"
       },
       {
-        "name": "incident",
-        "label": "Logged incident",
+        "name": "feed",
+        "label": "Feed",
         "items": [
-          "an algal bloom",
-          "an unexplained pH swing",
-          "a visitor's dropped phone",
-          "a failed chiller",
-          "an escapee"
+          "live mysis",
+          "a gelatine cube of unclear provenance",
+          "mussel meat",
+          "nori sheets",
+          "chopped squid"
         ],
         "ordered": false,
-        "noun": "incident"
+        "noun": "feed",
+        "verb": "feeds"
       }
     ]
   },
@@ -79,12 +84,7 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "incident:an escapee",
-          "b": "slot:slot two"
-        },
-        {
-          "kind": "immediately_before",
-          "a": "incident:an escapee",
+          "a": "slot:slot five",
           "b": "tank:the touch pool"
         }
       ]
@@ -93,10 +93,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "between",
-          "a": "tank:the seahorse nursery",
-          "b": "keeper:Oskar",
-          "c": "slot:slot five"
+          "kind": "not_link",
+          "a": "feed:nori sheets",
+          "b": "slot:slot three"
         }
       ]
     },
@@ -104,29 +103,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "gap",
-          "a": "incident:a failed chiller",
-          "b": "tank:the octopus enclosure",
-          "k": 3,
-          "rel": "eq"
-        },
-        {
-          "kind": "between",
-          "a": "tank:the octopus enclosure",
-          "b": "keeper:Marisol",
-          "c": "slot:slot four"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "gap",
-          "a": "keeper:Rhiannon",
-          "b": "slot:slot one",
-          "k": 4,
-          "rel": "eq"
+          "kind": "adjacent",
+          "a": "feed:chopped squid",
+          "b": "slot:slot one"
         }
       ]
     },
@@ -135,7 +114,17 @@
       "atoms": [
         {
           "kind": "not_link",
-          "a": "incident:a visitor's dropped phone",
+          "a": "feed:mussel meat",
+          "b": "slot:slot five"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "slot:slot one",
           "b": "keeper:Fitzwilliam"
         }
       ]
@@ -144,22 +133,14 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "distinct",
-          "members": [
-            "incident:an unexplained pH swing",
-            "keeper:Rhiannon",
-            "tank:the jellyfish column"
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "immediately_before",
-          "a": "incident:a visitor's dropped phone",
+          "kind": "before",
+          "a": "feed:live mysis",
           "b": "tank:the deep reef"
+        },
+        {
+          "kind": "before",
+          "a": "tank:the deep reef",
+          "b": "keeper:Marisol"
         }
       ]
     },
@@ -167,9 +148,44 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "not_link",
-          "a": "keeper:Fitzwilliam",
-          "b": "tank:the touch pool"
+          "kind": "before",
+          "a": "feed:chopped squid",
+          "b": "tank:the kelp tank"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "feed:live mysis",
+          "b": "keeper:Chiamaka"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "feed:mussel meat",
+          "b": "keeper:Rhiannon"
+        },
+        {
+          "kind": "before",
+          "a": "keeper:Chiamaka",
+          "b": "feed:mussel meat"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "feed:mussel meat",
+          "b": "tank:the jellyfish column"
         }
       ]
     }
@@ -183,37 +199,36 @@
       "slot five"
     ],
     "keeper": [
-      "Marisol",
-      "Fitzwilliam",
       "Oskar",
+      "Fitzwilliam",
       "Chiamaka",
+      "Marisol",
       "Rhiannon"
     ],
     "tank": [
-      "the jellyfish column",
-      "the octopus enclosure",
-      "the touch pool",
       "the seahorse nursery",
-      "the deep reef"
+      "the deep reef",
+      "the jellyfish column",
+      "the kelp tank",
+      "the touch pool"
     ],
-    "incident": [
-      "an algal bloom",
-      "an escapee",
-      "an unexplained pH swing",
-      "a visitor's dropped phone",
-      "a failed chiller"
+    "feed": [
+      "live mysis",
+      "chopped squid",
+      "a gelatine cube of unclear provenance",
+      "mussel meat",
+      "nori sheets"
     ]
   },
   "stats": {
-    "atoms": 10,
-    "numbered_clues": 8,
+    "atoms": 12,
+    "numbered_clues": 10,
     "kinds": {
       "link": 1,
-      "immediately_before": 2,
-      "between": 2,
-      "gap": 2,
       "not_link": 2,
-      "distinct": 1
+      "adjacent": 3,
+      "immediately_before": 1,
+      "before": 5
     },
     "positives": 1,
     "compounds": 0
@@ -222,11 +237,11 @@
     "solved": true,
     "max_tier": 3,
     "max_technique": "order",
-    "steps": 37,
+    "steps": 40,
     "tier_counts": {
       "direct": 3,
-      "bijection": 22,
-      "order": 12
+      "bijection": 21,
+      "order": 16
     },
     "trial_eliminations": 0,
     "unknown_cells": 15

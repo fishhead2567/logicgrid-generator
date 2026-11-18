@@ -282,14 +282,18 @@ pilot, so unlike curses it stays genuinely testable — `tests/test_play_app.py`
 drives the real widgets with real keypresses.
 
 Layout: a tab per pair of categories, each a grid with a cell cursor; the clue
-list beside it; the answer sheet below. A status line always names the cell you
-are on — which is what lets the grid columns stay narrow enough to fit a
-terminal.
+list beside it; the answer sheet below. Column headers name the cross category
+using the shortest prefixes that still tell its items apart — leading articles
+and any shared prefix dropped first, so "a fluted rim" / "a fork-crimped edge"
+become `flu` / `for`, and "slot one" / "slot two" become `one` / `two`. A legend
+line spells them out, and the status line always names the exact cell you are
+on.
 
 | key | |
 |---|---|
 | arrows / mouse | move the cell cursor |
 | `]` `[` | next / previous grid |
+| `1`-`9` | jump straight to a grid |
 | `o` | these two go together |
 | `x` | these two do not |
 | `space` | cycle `.` → `O` → `x` → `.` |
@@ -362,6 +366,43 @@ tests/
 puzzles/           50 generated puzzles + index.md
 ```
 
+### Clue prose
+
+A clue can only read well if the categories know what they *mean*, so each one
+carries a third-person verb and both polarities are derived from it:
+
+| | |
+|---|---|
+| `verb="harvests in"` | "Leocadia harvests in April" / "Leocadia does not harvest in April" |
+| `verb="is troubled by"` | "Leocadia is troubled by thrips" / "... is not troubled by thrips" |
+
+Negation is mechanical: an auxiliary takes `not` directly, anything else gets
+do-support with the `-s` stripped. `tests/test_phrasing.py` runs every verb in
+every theme pack through it, because a past-tense slip ships as *"does not
+contained"* — which is exactly what that test caught.
+
+Two further pieces make it work:
+
+- **a subject.** One axis per theme holds the actors, and clues prefer it as the
+  grammatical subject. `Link` normalises its arguments, so phrasing cannot
+  depend on which way round the atom was built.
+- **a descriptor** for when no name is involved: an entity can be named by any
+  of its attributes — "the grower who is troubled by thrips" — so an
+  attribute-to-attribute clue still gets a subject. Descriptors are
+  possessive-free by construction, because "the grower who is troubled by
+  thrips's month" is unparseable. The relative pronoun follows the entity:
+  people get *who*, a clock gets *that*.
+
+The introduction states a task rather than a schema — *"Four growers are
+involved. Determine each grower's harvest month and pest."* — while still
+carrying every condition a solver needs, which Penny Dell's guide is explicit
+about.
+
+`distinct` is excluded from generation: *"Leocadia, thrips and April are three
+different growers"* is confusing when Grower is itself a category, and plain
+negatives say the same thing clearly. The atom stays in the IR, since an
+extractor may legitimately read one out of a narrative.
+
 ### The clue IR
 
 Symmetric arguments are **normalised at construction**, so `Adjacent(a, b)` and
@@ -384,7 +425,7 @@ bespoke propagator.
 ## Tests
 
 ```bash
-python -m pytest            # 270 passed, 3 skipped
+python -m pytest            # 462 passed, 3 skipped
 ```
 
 - `test_penny_dell_sample.py` — the published sample puzzle: our engine finds

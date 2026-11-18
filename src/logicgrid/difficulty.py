@@ -56,6 +56,15 @@ W_COMPOUND = 0.34
 #: Thresholds sit at the boundaries between adjacent profiles' distributions.
 THRESHOLDS: tuple[float, ...] = (4.03, 4.50, 5.44, 7.32, 9.28, 11.24)
 
+#: Kinds the generator may emit. ``distinct`` is excluded: "Leocadia,
+#: thrips and April are three different growers" is confusing when Grower
+#: is itself a category, and plain negatives say the same thing clearly.
+#: The atom stays in the IR, since an extractor may legitimately read one
+#: out of a narrative.
+EXCLUDED_FROM_GENERATION = ("distinct",)
+GEN_B_KINDS = tuple(k for k in TIER_B_KINDS if k not in EXCLUDED_FROM_GENERATION)
+GEN_ALL_KINDS = tuple(k for k in ALL_KINDS if k not in EXCLUDED_FROM_GENERATION)
+
 RATING_NAMES = {
     1: "gentle",
     2: "easy",
@@ -166,8 +175,7 @@ EASY = Profile(
     name="easy",
     band=(2, 3),
     shapes=((3, 5), (4, 4), (4, 5)),
-    kinds=TIER_A_KINDS
-    + ("before", "adjacent", "immediately_before", "between", "distinct"),
+    kinds=TIER_A_KINDS + ("before", "adjacent", "immediately_before", "between"),
     weights={"link": 1.8, "not_link": 2.6, "before": 1.3, "adjacent": 1.0,
              "immediately_before": 1.0, "between": 0.8, "distinct": 0.5},
     max_positive=3,
@@ -180,7 +188,7 @@ MODERATE = Profile(
     name="moderate",
     band=(3, 4),
     shapes=((4, 5), (4, 5), (5, 5)),
-    kinds=TIER_A_KINDS + TIER_B_KINDS[:-1],  # everything positional but arith
+    kinds=TIER_A_KINDS + GEN_B_KINDS[:-1],  # everything positional but arith
     weights={"link": 1.0, "not_link": 2.6, "before": 1.5, "adjacent": 1.2,
              "immediately_before": 1.2, "between": 1.1, "gap": 0.9,
              "parity": 0.4, "distinct": 0.6},
@@ -194,7 +202,7 @@ HARD = Profile(
     name="hard",
     band=(5, 6),
     shapes=((4, 5), (5, 5), (5, 5)),
-    kinds=TIER_A_KINDS + TIER_B_KINDS[:-1] + ("or", "not_both"),
+    kinds=TIER_A_KINDS + GEN_B_KINDS[:-1] + ("or", "not_both"),
     weights={"link": 0.5, "not_link": 2.2, "before": 1.5, "adjacent": 1.2,
              "immediately_before": 1.0, "between": 1.2, "gap": 1.0,
              "parity": 0.6, "distinct": 0.7, "or": 1.6, "not_both": 1.0},
@@ -208,7 +216,7 @@ EXPERT = Profile(
     name="expert",
     band=(6, 7),
     shapes=((5, 5), (5, 6), (5, 6)),
-    kinds=ALL_KINDS,
+    kinds=GEN_ALL_KINDS,
     weights={"link": 0.25, "not_link": 1.9, "before": 1.4, "adjacent": 1.1,
              "immediately_before": 0.9, "between": 1.2, "gap": 1.1,
              "parity": 0.8, "distinct": 0.7, "or": 1.9, "not_both": 1.3,

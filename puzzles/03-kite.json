@@ -1,0 +1,167 @@
+{
+  "pid": "5e32edb2fea6",
+  "title": "The Wind Is Free, the Field Is Not",
+  "theme": "kite",
+  "blurb": "The Dunnage Kite Festival charges by the kite, which has produced some creative definitions of 'one kite'.",
+  "profile": "gentle",
+  "rating": 1,
+  "score": 3.67,
+  "seed": 2026172599193,
+  "spec": {
+    "difficulty": "gentle",
+    "seed": 2026172599193
+  },
+  "schema": {
+    "spine": "fee",
+    "entity_noun": "flier",
+    "entity_noun_plural": "fliers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "fee",
+        "label": "Entry fee",
+        "items": [
+          "$2",
+          "$4",
+          "$6",
+          "$8"
+        ],
+        "ordered": true,
+        "values": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "unit": "$",
+        "noun": "entry fee",
+        "cmp_less": "cheaper",
+        "cmp_more": "dearer",
+        "step_noun": "fee step",
+        "verb": "pays"
+      },
+      {
+        "name": "flier",
+        "label": "Flier",
+        "items": [
+          "Ifeoma",
+          "Gunnar",
+          "Tansy",
+          "Kipling"
+        ],
+        "ordered": false,
+        "noun": "flier",
+        "subject": true
+      },
+      {
+        "name": "kite",
+        "label": "Kite",
+        "items": [
+          "a delta wing",
+          "a paper sled kite",
+          "a rokkaku fighter",
+          "a box kite"
+        ],
+        "ordered": false,
+        "noun": "kite",
+        "verb": "flies"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "fee:$4",
+          "b": "flier:Kipling"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "flier:Tansy",
+          "b": "kite:a box kite"
+        },
+        {
+          "kind": "link",
+          "a": "fee:$6",
+          "b": "kite:a box kite"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "fee:$4",
+          "b": "kite:a rokkaku fighter"
+        },
+        {
+          "kind": "before",
+          "a": "kite:a rokkaku fighter",
+          "b": "flier:Gunnar"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "fee:$2",
+          "b": "kite:a delta wing"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "fee": [
+      "$2",
+      "$4",
+      "$6",
+      "$8"
+    ],
+    "flier": [
+      "Ifeoma",
+      "Kipling",
+      "Tansy",
+      "Gunnar"
+    ],
+    "kite": [
+      "a paper sled kite",
+      "a rokkaku fighter",
+      "a box kite",
+      "a delta wing"
+    ]
+  },
+  "stats": {
+    "atoms": 6,
+    "numbered_clues": 4,
+    "kinds": {
+      "link": 4,
+      "before": 1,
+      "not_link": 1
+    },
+    "positives": 4,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 12,
+    "tier_counts": {
+      "direct": 5,
+      "bijection": 6,
+      "order": 1
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 8
+  }
+}

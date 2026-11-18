@@ -1,36 +1,42 @@
 # Mrs Pell's Impossible Shelves
 
-*Mrs Pell's secondhand bookshop shelves by a system she alone understands, and she has gone to Margate for a fortnight.*
-
-**Difficulty** 6/7 (hard) &nbsp;&nbsp; **Grid** 5 x 5 &nbsp;&nbsp; **Clues** 9 &nbsp;&nbsp; **id** `156bf73791f2`
+**Difficulty** 6/7 (hard) &nbsp;&nbsp; **Grid** 5 x 5 &nbsp;&nbsp; **Clues** 16 &nbsp;&nbsp; **id** `05164182889a`
 
 ## Introduction
 
-There are 5 listings. Each has exactly one shelf and one item from every other category below, and within each category every item belongs to a different listing.
-- **Shelf** (listed in order): the bottom shelf, the second shelf, the third shelf, the fourth shelf and the fifth shelf.
-- **Volume**: a book of sea shanties, an album of pressed ferns, a water-stained atlas, a treatise on clocks and a Latin primer.
-- **Buyer**: Fenella, Ottoline, Sybilla, Augustus and Rodrigo.
-- **Found inside**: a pawn ticket, a laundry list, a recipe for quince jelly, a tram ticket and a pressed violet.
-- **Pencilled price**: four shillings, half a crown, a guinea, ninepence and seven and six.
-The shelves above are listed in order, from the bottom shelf to the fifth shelf.
+Mrs Pell's secondhand bookshop shelves by a system she alone understands, and she has gone to Margate for a fortnight.
+Five volumes are involved. Determine each volume's shelf, buyer, keepsake and price.
+- **Volume**: a beekeeping manual, a book of sea shanties, a treatise on clocks, a water-stained atlas and an album of pressed ferns.
+- **Shelf** (listed from lower to higher): the bottom shelf, the second shelf, the third shelf, the fourth shelf and the fifth shelf.
+- **Buyer**: Sybilla, Ignatius, Fenella, Ottoline and Rodrigo.
+- **Found inside**: a recipe for quince jelly, a pawn ticket, a lock of hair, a laundry list and a postcard from Hull.
+- **Pencilled price**: two shillings; a guinea; ninepence; half a crown; and seven and six.
+Every volume has a different shelf, buyer, keepsake and price, so within each category every item is used exactly once.
 
 ## Clues
 
-1. Augustus goes with the second shelf. Fenella falls somewhere between seven and six and the second shelf in shelf order.
-2. A recipe for quince jelly and the fifth shelf are exactly two shelves apart in shelf order. Half a crown and the fifth shelf both sit at odd-numbered shelves or both at even-numbered shelves. A pawn ticket, Ottoline and the fifth shelf are three different listings.
-3. The fourth shelf is immediately lower than a book of sea shanties' shelf, with no shelf in between. A book of sea shanties and Sybilla are next to each other in shelf order, in one order or the other.
-4. An album of pressed ferns falls somewhere between seven and six and the bottom shelf in shelf order.
-5. At least one of the following holds, and possibly more than one: (a) A Latin primer's shelf is lower than Fenella's shelf. (b) A pressed violet does not go with the bottom shelf.
-6. At least one of the following holds, and possibly more than one: (a) A book of sea shanties' shelf is lower than half a crown's shelf. (b) A guinea's shelf is immediately lower than a recipe for quince jelly's shelf, with no shelf in between.
-7. A treatise on clocks' shelf is lower than a tram ticket's shelf. A laundry list's shelf is immediately lower than a treatise on clocks' shelf, with no shelf in between.
-8. Ninepence's shelf is lower than a laundry list's shelf.
-9. At least one of the following holds, and possibly more than one: (a) Fenella's shelf is lower than ninepence's shelf. (b) A water-stained atlas' shelf is immediately lower than Augustus' shelf, with no shelf in between.
+1. An album of pressed ferns does not sit on the fourth shelf.
+2. The volume that was bought by Ottoline and the bottom shelf are exactly three shelves apart in shelf order.
+3. The volume that is priced at a guinea and the bottom shelf are exactly one shelf apart in shelf order, in one direction or the other.
+4. The volume that contains a postcard from Hull does not sit on the third shelf.
+5. The volume that contains a postcard from Hull and the fifth shelf both sit at odd-numbered shelves or both at even-numbered shelves.
+6. The volume that was bought by Rodrigo is lower than the volume that is priced at ninepence in shelf order.
+7. The volume that was bought by Ottoline falls somewhere between a treatise on clocks and the volume that is priced at half a crown in shelf order.
+8. A treatise on clocks does not contain a pawn ticket. The volume that contains a pawn ticket is lower than the volume that was bought by Ignatius in shelf order.
+9. A water-stained atlas and the volume that was bought by Sybilla are exactly three shelves apart in shelf order.
+10. The volume that contains a pawn ticket was not bought by Fenella.
+11. A book of sea shanties and the volume that was bought by Ignatius are exactly four shelves apart in shelf order.
+12. A treatise on clocks and the volume that is priced at seven and six are exactly one shelf apart in shelf order, in one direction or the other.
+13. The volume that contains a lock of hair and the volume that was bought by Ignatius are exactly one shelf apart in shelf order, in one direction or the other.
+14. A book of sea shanties and the volume that is priced at two shillings are exactly three shelves apart in shelf order.
+15. The volume that is priced at seven and six is exactly one shelf lower than the volume that was bought by Sybilla, with no shelf in between.
+16. At least one of the following holds, and possibly more than one: (a) An album of pressed ferns was bought by Ottoline. (b) The volume that contains a recipe for quince jelly is not priced at a guinea.
 
 ## Solving chart
 
 *Shelf vs Volume*
 
-| | a book of sea shanties | an album of pressed ferns | a water-stained atlas | a treatise on clocks | a Latin primer |
+| | a beekeeping manual | a book of sea shanties | a treatise on clocks | a water-stained atlas | an album of pressed ferns |
 |---|---|---|---|---|---|
 | **the bottom shelf** | | | | | |
 | **the second shelf** | | | | | |
@@ -40,7 +46,7 @@ The shelves above are listed in order, from the bottom shelf to the fifth shelf.
 
 *Shelf vs Buyer*
 
-| | Fenella | Ottoline | Sybilla | Augustus | Rodrigo |
+| | Sybilla | Ignatius | Fenella | Ottoline | Rodrigo |
 |---|---|---|---|---|---|
 | **the bottom shelf** | | | | | |
 | **the second shelf** | | | | | |
@@ -50,7 +56,7 @@ The shelves above are listed in order, from the bottom shelf to the fifth shelf.
 
 *Shelf vs Found inside*
 
-| | a pawn ticket | a laundry list | a recipe for quince jelly | a tram ticket | a pressed violet |
+| | a recipe for quince jelly | a pawn ticket | a lock of hair | a laundry list | a postcard from Hull |
 |---|---|---|---|---|---|
 | **the bottom shelf** | | | | | |
 | **the second shelf** | | | | | |
@@ -60,7 +66,7 @@ The shelves above are listed in order, from the bottom shelf to the fifth shelf.
 
 *Shelf vs Pencilled price*
 
-| | four shillings | half a crown | a guinea | ninepence | seven and six |
+| | two shillings | a guinea | ninepence | half a crown | seven and six |
 |---|---|---|---|---|---|
 | **the bottom shelf** | | | | | |
 | **the second shelf** | | | | | |
@@ -70,118 +76,118 @@ The shelves above are listed in order, from the bottom shelf to the fifth shelf.
 
 *Volume vs Buyer*
 
-| | Fenella | Ottoline | Sybilla | Augustus | Rodrigo |
+| | Sybilla | Ignatius | Fenella | Ottoline | Rodrigo |
 |---|---|---|---|---|---|
+| **a beekeeping manual** | | | | | |
 | **a book of sea shanties** | | | | | |
-| **an album of pressed ferns** | | | | | |
-| **a water-stained atlas** | | | | | |
 | **a treatise on clocks** | | | | | |
-| **a Latin primer** | | | | | |
+| **a water-stained atlas** | | | | | |
+| **an album of pressed ferns** | | | | | |
 
 *Volume vs Found inside*
 
-| | a pawn ticket | a laundry list | a recipe for quince jelly | a tram ticket | a pressed violet |
+| | a recipe for quince jelly | a pawn ticket | a lock of hair | a laundry list | a postcard from Hull |
 |---|---|---|---|---|---|
+| **a beekeeping manual** | | | | | |
 | **a book of sea shanties** | | | | | |
-| **an album of pressed ferns** | | | | | |
-| **a water-stained atlas** | | | | | |
 | **a treatise on clocks** | | | | | |
-| **a Latin primer** | | | | | |
+| **a water-stained atlas** | | | | | |
+| **an album of pressed ferns** | | | | | |
 
 *Volume vs Pencilled price*
 
-| | four shillings | half a crown | a guinea | ninepence | seven and six |
+| | two shillings | a guinea | ninepence | half a crown | seven and six |
 |---|---|---|---|---|---|
+| **a beekeeping manual** | | | | | |
 | **a book of sea shanties** | | | | | |
-| **an album of pressed ferns** | | | | | |
-| **a water-stained atlas** | | | | | |
 | **a treatise on clocks** | | | | | |
-| **a Latin primer** | | | | | |
+| **a water-stained atlas** | | | | | |
+| **an album of pressed ferns** | | | | | |
 
 *Buyer vs Found inside*
 
-| | a pawn ticket | a laundry list | a recipe for quince jelly | a tram ticket | a pressed violet |
+| | a recipe for quince jelly | a pawn ticket | a lock of hair | a laundry list | a postcard from Hull |
 |---|---|---|---|---|---|
+| **Sybilla** | | | | | |
+| **Ignatius** | | | | | |
 | **Fenella** | | | | | |
 | **Ottoline** | | | | | |
-| **Sybilla** | | | | | |
-| **Augustus** | | | | | |
 | **Rodrigo** | | | | | |
 
 *Buyer vs Pencilled price*
 
-| | four shillings | half a crown | a guinea | ninepence | seven and six |
+| | two shillings | a guinea | ninepence | half a crown | seven and six |
 |---|---|---|---|---|---|
+| **Sybilla** | | | | | |
+| **Ignatius** | | | | | |
 | **Fenella** | | | | | |
 | **Ottoline** | | | | | |
-| **Sybilla** | | | | | |
-| **Augustus** | | | | | |
 | **Rodrigo** | | | | | |
 
 *Found inside vs Pencilled price*
 
-| | four shillings | half a crown | a guinea | ninepence | seven and six |
+| | two shillings | a guinea | ninepence | half a crown | seven and six |
 |---|---|---|---|---|---|
-| **a pawn ticket** | | | | | |
-| **a laundry list** | | | | | |
 | **a recipe for quince jelly** | | | | | |
-| **a tram ticket** | | | | | |
-| **a pressed violet** | | | | | |
+| **a pawn ticket** | | | | | |
+| **a lock of hair** | | | | | |
+| **a laundry list** | | | | | |
+| **a postcard from Hull** | | | | | |
 
 ## Solution
 
 | Shelf | Volume | Buyer | Found inside | Pencilled price |
 |---|---|---|---|---|
-| the bottom shelf | a water-stained atlas | Ottoline | a pressed violet | ninepence |
-| the second shelf | a Latin primer | Augustus | a laundry list | a guinea |
-| the third shelf | a treatise on clocks | Fenella | a recipe for quince jelly | half a crown |
-| the fourth shelf | an album of pressed ferns | Sybilla | a pawn ticket | four shillings |
-| the fifth shelf | a book of sea shanties | Rodrigo | a tram ticket | seven and six |
+| the bottom shelf | a book of sea shanties | Rodrigo | a pawn ticket | seven and six |
+| the second shelf | a treatise on clocks | Sybilla | a laundry list | a guinea |
+| the third shelf | an album of pressed ferns | Fenella | a recipe for quince jelly | ninepence |
+| the fourth shelf | a beekeeping manual | Ottoline | a lock of hair | two shillings |
+| the fifth shelf | a water-stained atlas | Ignatius | a postcard from Hull | half a crown |
 
 ## How it falls out
 
-1. [direct] from clue 11 buyer:Augustus: ruled out position(s) 1,3,4,5
-2. [bijection] from clue 4 bookmark:a pawn ticket: ruled out position(s) 5
-3. [bijection] from clue 4 buyer:Ottoline: ruled out position(s) 5
-4. [bijection] buyer:Fenella: ruled out position(s) 2
-5. [bijection] buyer:Ottoline: ruled out position(s) 2
-6. [bijection] buyer:Sybilla: ruled out position(s) 2
-7. [bijection] buyer:Rodrigo: ruled out position(s) 2
-8. [order] from clue 14 book:a book of sea shanties: ruled out position(s) 1
-9. [order] from clue 10 book:an album of pressed ferns: ruled out position(s) 1,5
-10. [order] from clue 10 price_tag:seven and six: ruled out position(s) 1,2
-11. [order] from clue 9 price_tag:half a crown: ruled out position(s) 2,4
-12. [order] from clue 8 price_tag:ninepence: ruled out position(s) 5
-13. [order] from clue 8 bookmark:a laundry list: ruled out position(s) 1
-14. [order] from clue 7 book:a treatise on clocks: ruled out position(s) 5
-15. [order] from clue 7 bookmark:a tram ticket: ruled out position(s) 1
-16. [order] from clue 6 buyer:Fenella: ruled out position(s) 1,5
-17. [order] from clue 6 price_tag:seven and six: ruled out position(s) 3
-18. [order] from clue 5 bookmark:a laundry list: ruled out position(s) 4,5
-19. [order] from clue 5 book:a treatise on clocks: ruled out position(s) 1,2
-20. [order] from clue 7 bookmark:a tram ticket: ruled out position(s) 2,3
-21. [order] from clue 8 price_tag:ninepence: ruled out position(s) 3,4
-22. [order] from clue 2 book:a book of sea shanties: ruled out position(s) 2,3,4
-23. [order] from clue 14 buyer:Sybilla: ruled out position(s) 1,3,5
-24. [order] from clue 1 bookmark:a recipe for quince jelly: ruled out position(s) 1,2,4,5
-25. [bijection] book:a water-stained atlas: ruled out position(s) 5
-26. [bijection] book:a Latin primer: ruled out position(s) 5
-27. [bijection] bookmark:a pawn ticket: ruled out position(s) 3
-28. [bijection] bookmark:a laundry list: ruled out position(s) 3
-29. [bijection] bookmark:a pressed violet: ruled out position(s) 3
-30. [bijection] buyer:Fenella: ruled out position(s) 4
-31. [bijection] buyer:Ottoline: ruled out position(s) 4
-32. [bijection] buyer:Rodrigo: ruled out position(s) 4
-33. [bijection] buyer:Rodrigo: ruled out position(s) 1,3
-34. [order] from clue 8 price_tag:ninepence: ruled out position(s) 2
-35. [order] from clue 5 book:a treatise on clocks: ruled out position(s) 4
-36. [bijection] book:an album of pressed ferns: ruled out position(s) 3
-37. [bijection] book:a water-stained atlas: ruled out position(s) 3
-38. [bijection] book:a Latin primer: ruled out position(s) 3
-39. [bijection] bookmark:a pawn ticket: ruled out position(s) 2
-40. [bijection] bookmark:a pressed violet: ruled out position(s) 2
-_... and 18 further steps._
+1. [direct] from clue 12 bookmark:a postcard from Hull: ruled out position(s) 3
+2. [direct] from clue 9 book:an album of pressed ferns: ruled out position(s) 4
+3. [order] from clue 16 buyer:Ottoline: ruled out position(s) 1,5
+4. [order] from clue 14 price_tag:a guinea: ruled out position(s) 1,3,4,5
+5. [order] from clue 13 bookmark:a pawn ticket: ruled out position(s) 5
+6. [order] from clue 13 buyer:Ignatius: ruled out position(s) 1
+7. [order] from clue 11 bookmark:a postcard from Hull: ruled out position(s) 2,4
+8. [order] from clue 8 book:a book of sea shanties: ruled out position(s) 2,3,4,5
+9. [order] from clue 8 buyer:Ignatius: ruled out position(s) 2,3,4
+10. [order] from clue 17 bookmark:a lock of hair: ruled out position(s) 1,2,3,5
+11. [order] from clue 7 book:a water-stained atlas: ruled out position(s) 3
+12. [order] from clue 7 buyer:Sybilla: ruled out position(s) 3
+13. [order] from clue 6 buyer:Rodrigo: ruled out position(s) 5
+14. [order] from clue 6 price_tag:ninepence: ruled out position(s) 1
+15. [order] from clue 5 buyer:Ottoline: ruled out position(s) 2,3
+16. [order] from clue 16 book:a treatise on clocks: ruled out position(s) 4
+17. [order] from clue 16 price_tag:half a crown: ruled out position(s) 4
+18. [order] from clue 10 price_tag:seven and six: ruled out position(s) 5
+19. [order] from clue 2 price_tag:seven and six: ruled out position(s) 2
+20. [order] from clue 2 buyer:Sybilla: ruled out position(s) 1
+21. [order] from clue 7 book:a water-stained atlas: ruled out position(s) 4
+22. [order] from clue 10 book:a treatise on clocks: ruled out position(s) 1
+23. [order] from clue 1 price_tag:two shillings: ruled out position(s) 1,2,3,5
+24. [bijection] book:a beekeeping manual: ruled out position(s) 1
+25. [bijection] book:a water-stained atlas: ruled out position(s) 1
+26. [bijection] book:an album of pressed ferns: ruled out position(s) 1
+27. [bijection] book:a beekeeping manual: ruled out position(s) 2,3,5
+28. [bijection] bookmark:a recipe for quince jelly: ruled out position(s) 4
+29. [bijection] bookmark:a pawn ticket: ruled out position(s) 4
+30. [bijection] bookmark:a laundry list: ruled out position(s) 4
+31. [bijection] buyer:Sybilla: ruled out position(s) 4,5
+32. [bijection] buyer:Fenella: ruled out position(s) 4,5
+33. [bijection] buyer:Rodrigo: ruled out position(s) 4
+34. [bijection] price_tag:ninepence: ruled out position(s) 2,4
+35. [bijection] price_tag:half a crown: ruled out position(s) 2
+36. [bijection] price_tag:seven and six: ruled out position(s) 4
+37. [order] from clue 10 book:a treatise on clocks: ruled out position(s) 3,5
+38. [order] from clue 16 price_tag:half a crown: ruled out position(s) 1,3
+39. [order] from clue 2 price_tag:seven and six: ruled out position(s) 3
+40. [direct] from clue 15 bookmark:a pawn ticket: ruled out position(s) 2
+_... and 15 further steps._
 
 ---
 
-<sub>seed `2026172820925` &middot; score 10.0883 &middot; atoms 14 &middot; positives 1 &middot; solved by disjunction</sub>
+<sub>seed `2026172820925` &middot; score 9.3142 &middot; atoms 17 &middot; positives 0 &middot; solved by disjunction</sub>

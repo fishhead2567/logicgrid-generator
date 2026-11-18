@@ -1,0 +1,213 @@
+{
+  "pid": "7a5280b32e26",
+  "title": "The Night Shift at Coldwater Hall",
+  "theme": "aquarium",
+  "blurb": "Coldwater Hall Aquarium keeps a night rota of tanks, and one keeper who is definitely feeding the wrong things.",
+  "profile": "easy",
+  "rating": 3,
+  "score": 4.93,
+  "seed": 2026172791031,
+  "spec": {
+    "difficulty": "easy",
+    "seed": 2026172791031
+  },
+  "schema": {
+    "spine": "slot",
+    "entity_noun": "keeper",
+    "entity_noun_plural": "keepers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "slot",
+        "label": "Running order",
+        "items": [
+          "slot one",
+          "slot two",
+          "slot three",
+          "slot four"
+        ],
+        "ordered": true,
+        "noun": "slot",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "slot",
+        "verb": "works"
+      },
+      {
+        "name": "keeper",
+        "label": "Keeper",
+        "items": [
+          "Rhiannon",
+          "Agnetha",
+          "Marisol",
+          "Bartolo"
+        ],
+        "ordered": false,
+        "noun": "keeper",
+        "subject": true
+      },
+      {
+        "name": "feed",
+        "label": "Feed",
+        "items": [
+          "brine shrimp",
+          "live mysis",
+          "chopped squid",
+          "nori sheets"
+        ],
+        "ordered": false,
+        "noun": "feed",
+        "verb": "feeds"
+      },
+      {
+        "name": "incident",
+        "label": "Logged incident",
+        "items": [
+          "a visitor's dropped phone",
+          "an escapee",
+          "a failed chiller",
+          "an algal bloom"
+        ],
+        "ordered": false,
+        "noun": "incident",
+        "verb": "logs"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "incident:a visitor's dropped phone",
+          "b": "slot:slot three"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "feed:brine shrimp",
+          "b": "incident:a failed chiller"
+        },
+        {
+          "kind": "link",
+          "a": "incident:a failed chiller",
+          "b": "keeper:Rhiannon"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "feed:live mysis",
+          "b": "keeper:Agnetha"
+        },
+        {
+          "kind": "between",
+          "a": "keeper:Marisol",
+          "b": "feed:live mysis",
+          "c": "slot:slot four"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "slot:slot two",
+          "b": "incident:a failed chiller",
+          "c": "incident:an escapee"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "incident:an algal bloom",
+          "b": "keeper:Marisol"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "feed:brine shrimp",
+          "b": "incident:an escapee"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "feed:chopped squid",
+          "b": "keeper:Marisol"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "slot": [
+      "slot one",
+      "slot two",
+      "slot three",
+      "slot four"
+    ],
+    "keeper": [
+      "Bartolo",
+      "Agnetha",
+      "Marisol",
+      "Rhiannon"
+    ],
+    "feed": [
+      "live mysis",
+      "brine shrimp",
+      "nori sheets",
+      "chopped squid"
+    ],
+    "incident": [
+      "an escapee",
+      "an algal bloom",
+      "a visitor's dropped phone",
+      "a failed chiller"
+    ]
+  },
+  "stats": {
+    "atoms": 9,
+    "numbered_clues": 7,
+    "kinds": {
+      "link": 2,
+      "before": 1,
+      "not_link": 2,
+      "between": 2,
+      "adjacent": 2
+    },
+    "positives": 2,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 26,
+    "tier_counts": {
+      "direct": 5,
+      "bijection": 13,
+      "order": 8
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 12
+  }
+}

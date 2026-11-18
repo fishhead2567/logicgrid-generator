@@ -1,11 +1,11 @@
 {
-  "pid": "813c08ef9486",
+  "pid": "92efe43ad662",
   "title": "The Mudflat Regatta",
   "theme": "regatta",
   "blurb": "The Mudflat Regatta is rowed over a course that is only a course at high tide, which is where most of the trouble starts.",
   "profile": "expert",
   "rating": 7,
-  "score": 15.5754,
+  "score": 15.7758,
   "seed": 2026172971386,
   "spec": {
     "difficulty": "expert",
@@ -13,8 +13,9 @@
   },
   "schema": {
     "spine": "place",
-    "entity_noun": "entry",
-    "entity_noun_plural": "entries",
+    "entity_noun": "crew",
+    "entity_noun_plural": "crews",
+    "entity_animate": true,
     "categories": [
       {
         "name": "place",
@@ -30,7 +31,8 @@
         "noun": "placing",
         "cmp_less": "better",
         "cmp_more": "worse",
-        "step_noun": "place"
+        "step_noun": "place",
+        "verb": "finishes"
       },
       {
         "name": "crew",
@@ -43,7 +45,8 @@
           "the Tannery crew"
         ],
         "ordered": false,
-        "noun": "crew"
+        "noun": "crew",
+        "subject": true
       },
       {
         "name": "stroke",
@@ -56,7 +59,8 @@
           "Maeve"
         ],
         "ordered": false,
-        "noun": "stroke"
+        "noun": "stroke",
+        "verb": "is stroked by"
       },
       {
         "name": "boat",
@@ -69,7 +73,8 @@
           "the Obstinate"
         ],
         "ordered": false,
-        "noun": "boat"
+        "noun": "boat",
+        "verb": "rows"
       },
       {
         "name": "colours",
@@ -82,7 +87,8 @@
           "scarlet"
         ],
         "ordered": false,
-        "noun": "colours"
+        "noun": "colours",
+        "verb": "wears"
       }
     ]
   },
@@ -91,35 +97,20 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "before",
-          "a": "stroke:Crispin",
-          "b": "boat:the Obstinate"
+          "kind": "adjacent",
+          "a": "place:third",
+          "b": "stroke:Crispin"
         }
       ]
     },
     {
       "style": "sentences",
       "atoms": [
-        {
-          "kind": "immediately_before",
-          "a": "stroke:Ondine",
-          "b": "crew:the Tannery crew"
-        },
         {
           "kind": "between",
-          "a": "colours:navy with a white band",
-          "b": "boat:the Obstinate",
-          "c": "stroke:Ondine"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "colours:lilac and bronze",
-          "b": "boat:the Peregrine"
+          "a": "stroke:Thomasina",
+          "b": "boat:the Mudlark",
+          "c": "place:fifth"
         }
       ]
     },
@@ -130,14 +121,99 @@
           "kind": "or",
           "options": [
             {
+              "kind": "gap",
+              "a": "boat:the Peregrine",
+              "b": "stroke:Maeve",
+              "k": 2,
+              "rel": "eq"
+            },
+            {
               "kind": "link",
-              "a": "colours:bottle green",
+              "a": "place:second",
+              "b": "stroke:Ondine"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "crew:the Tannery crew",
+          "b": "stroke:Yusuf"
+        },
+        {
+          "kind": "not_link",
+          "a": "crew:the Tannery crew",
+          "b": "place:fourth"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "boat:the Gilded Eel",
+          "b": "colours:lilac and bronze"
+        },
+        {
+          "kind": "not_link",
+          "a": "colours:lilac and bronze",
+          "b": "place:second"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "boat:the Gilded Eel",
+          "b": "stroke:Crispin"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "colours:mustard and black",
+          "b": "crew:the Tannery crew",
+          "same": false
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "colours:mustard and black",
+          "b": "crew:the Seminary crew",
+          "k": 4,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "boat:the Obstinate",
               "b": "crew:the Seminary crew"
             },
             {
               "kind": "link",
-              "a": "crew:the Brickworks crew",
-              "b": "stroke:Thomasina"
+              "a": "boat:the Mudlark",
+              "b": "colours:bottle green"
             }
           ]
         }
@@ -148,22 +224,8 @@
       "atoms": [
         {
           "kind": "adjacent",
-          "a": "colours:bottle green",
-          "b": "crew:the Customs crew"
-        },
-        {
-          "kind": "between",
-          "a": "boat:the Gilded Eel",
-          "b": "colours:mustard and black",
-          "c": "crew:the Customs crew"
-        },
-        {
-          "kind": "distinct",
-          "members": [
-            "colours:bottle green",
-            "crew:the Customs crew",
-            "stroke:Maeve"
-          ]
+          "a": "boat:the Obstinate",
+          "b": "stroke:Maeve"
         }
       ]
     },
@@ -171,12 +233,11 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "distinct",
-          "members": [
-            "colours:lilac and bronze",
-            "crew:the Tannery crew",
-            "stroke:Maeve"
-          ]
+          "kind": "gap",
+          "a": "boat:the Peregrine",
+          "b": "crew:the Brickworks crew",
+          "k": 4,
+          "rel": "eq"
         }
       ]
     },
@@ -184,9 +245,17 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "immediately_before",
-          "a": "colours:mustard and black",
-          "b": "boat:the Mudlark"
+          "kind": "if_then",
+          "x": {
+            "kind": "link",
+            "a": "boat:the Mudlark",
+            "b": "colours:bottle green"
+          },
+          "y": {
+            "kind": "adjacent",
+            "a": "colours:mustard and black",
+            "b": "stroke:Yusuf"
+          }
         }
       ]
     },
@@ -195,14 +264,31 @@
       "atoms": [
         {
           "kind": "parity",
-          "a": "crew:the Gasworks crew",
-          "b": "stroke:Thomasina",
+          "a": "boat:the Gilded Eel",
+          "b": "crew:the Customs crew",
           "same": false
-        },
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
         {
-          "kind": "immediately_before",
-          "a": "colours:scarlet",
-          "b": "crew:the Gasworks crew"
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "crew:the Gasworks crew",
+              "b": "stroke:Yusuf"
+            },
+            {
+              "kind": "gap",
+              "a": "boat:the Last Resort",
+              "b": "colours:navy with a white band",
+              "k": 2,
+              "rel": "eq"
+            }
+          ]
         }
       ]
     }
@@ -245,33 +331,35 @@
     ]
   },
   "stats": {
-    "atoms": 12,
-    "numbered_clues": 8,
+    "atoms": 16,
+    "numbered_clues": 14,
     "kinds": {
-      "before": 2,
-      "immediately_before": 3,
-      "between": 2,
-      "or": 1,
-      "adjacent": 1,
-      "distinct": 2,
-      "parity": 1
+      "adjacent": 3,
+      "between": 1,
+      "or": 3,
+      "before": 1,
+      "not_link": 2,
+      "immediately_before": 1,
+      "parity": 2,
+      "gap": 2,
+      "if_then": 1
     },
     "positives": 0,
-    "compounds": 1
+    "compounds": 4
   },
   "solve": {
     "solved": true,
     "max_tier": 6,
     "max_technique": "trial",
-    "steps": 59,
+    "steps": 51,
     "tier_counts": {
-      "bijection": 25,
-      "order": 27,
-      "disjunction": 3,
-      "subset": 2,
-      "trial": 2
+      "direct": 2,
+      "bijection": 22,
+      "order": 19,
+      "disjunction": 7,
+      "trial": 1
     },
-    "trial_eliminations": 2,
+    "trial_eliminations": 1,
     "unknown_cells": 20
   }
 }

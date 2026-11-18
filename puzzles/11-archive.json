@@ -1,0 +1,195 @@
+{
+  "pid": "9982911f3c1e",
+  "title": "The Mislabelled Drawers",
+  "theme": "archive",
+  "blurb": "The Vance Municipal Archive was reorganised in 1974 by somebody who has since left no forwarding address.",
+  "profile": "easy",
+  "rating": 3,
+  "score": 4.86,
+  "seed": 2026172662545,
+  "spec": {
+    "difficulty": "easy",
+    "seed": 2026172662545
+  },
+  "schema": {
+    "spine": "shelf",
+    "entity_noun": "archivist",
+    "entity_noun_plural": "archivists",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "shelf",
+        "label": "Shelf",
+        "items": [
+          "the bottom shelf",
+          "the second shelf",
+          "the third shelf",
+          "the fourth shelf",
+          "the fifth shelf"
+        ],
+        "ordered": true,
+        "noun": "shelf",
+        "cmp_less": "lower",
+        "cmp_more": "higher",
+        "step_noun": "shelf",
+        "verb": "files on"
+      },
+      {
+        "name": "archivist",
+        "label": "Archivist",
+        "items": [
+          "Mr Ravensworth",
+          "Ms Okafor",
+          "Mr Pelletier",
+          "Ms Castellano",
+          "Ms Bhattacharya"
+        ],
+        "ordered": false,
+        "noun": "archivist",
+        "subject": true
+      },
+      {
+        "name": "decade",
+        "label": "Decade",
+        "items": [
+          "the 1950s",
+          "the 1890s",
+          "the 1830s",
+          "the 1970s",
+          "the 1940s"
+        ],
+        "ordered": false,
+        "noun": "decade",
+        "verb": "covers"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "archivist:Mr Pelletier",
+          "b": "shelf:the third shelf"
+        },
+        {
+          "kind": "link",
+          "a": "archivist:Mr Pelletier",
+          "b": "decade:the 1830s"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "archivist:Ms Castellano",
+          "b": "shelf:the fifth shelf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "shelf:the third shelf",
+          "b": "archivist:Ms Bhattacharya"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "shelf:the second shelf",
+          "b": "archivist:Ms Bhattacharya",
+          "c": "archivist:Ms Okafor"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "archivist:Ms Bhattacharya",
+          "b": "decade:the 1940s"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "archivist:Mr Pelletier",
+          "b": "decade:the 1950s"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "archivist:Ms Okafor",
+          "b": "decade:the 1970s"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "shelf": [
+      "the bottom shelf",
+      "the second shelf",
+      "the third shelf",
+      "the fourth shelf",
+      "the fifth shelf"
+    ],
+    "archivist": [
+      "Ms Okafor",
+      "Mr Pelletier",
+      "Ms Castellano",
+      "Ms Bhattacharya",
+      "Mr Ravensworth"
+    ],
+    "decade": [
+      "the 1890s",
+      "the 1830s",
+      "the 1950s",
+      "the 1970s",
+      "the 1940s"
+    ]
+  },
+  "stats": {
+    "atoms": 8,
+    "numbered_clues": 7,
+    "kinds": {
+      "before": 1,
+      "link": 1,
+      "not_link": 2,
+      "immediately_before": 2,
+      "between": 1,
+      "adjacent": 1
+    },
+    "positives": 1,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 24,
+    "tier_counts": {
+      "direct": 4,
+      "bijection": 10,
+      "order": 10
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 10
+  }
+}

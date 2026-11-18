@@ -1,5 +1,5 @@
 {
-  "pid": "09f6ecfb0659",
+  "pid": "499d363d1146",
   "title": "The Thistledown Balloon Ascent",
   "theme": "balloon",
   "blurb": "The Thistledown Ascent is less a race than a slow argument conducted at two thousand feet.",
@@ -13,59 +13,64 @@
   },
   "schema": {
     "spine": "time",
-    "entity_noun": "balloon",
-    "entity_noun_plural": "balloons",
+    "entity_noun": "pilot",
+    "entity_noun_plural": "pilots",
+    "entity_animate": true,
     "categories": [
       {
         "name": "time",
         "label": "Start time",
         "items": [
-          "8 a.m.",
-          "9 a.m.",
-          "10 a.m.",
-          "11 a.m."
+          "8am",
+          "9am",
+          "10am",
+          "11am"
         ],
         "ordered": true,
         "noun": "start time",
         "cmp_less": "earlier",
         "cmp_more": "later",
-        "step_noun": "hour"
+        "step_noun": "hour",
+        "verb": "launches at"
       },
       {
         "name": "pilot",
         "label": "Pilot",
         "items": [
+          "Horatio",
+          "Isolde",
           "Grover",
-          "Delphine",
-          "Rosalind",
-          "Horatio"
+          "Delphine"
         ],
         "ordered": false,
-        "noun": "pilot"
+        "noun": "pilot",
+        "subject": true
       },
       {
         "name": "envelope",
         "label": "Envelope",
         "items": [
           "the saffron envelope",
+          "the moss-green envelope",
           "the striped envelope",
-          "the kingfisher envelope",
-          "the silver envelope"
+          "the kingfisher envelope"
         ],
         "ordered": false,
-        "noun": "envelope"
+        "noun": "envelope",
+        "verb": "flies"
       },
       {
-        "name": "ballast",
-        "label": "Ballast",
+        "name": "landing",
+        "label": "Landed at",
         "items": [
-          "dried beans",
-          "pea gravel",
-          "lead shot",
-          "rock salt"
+          "a cricket pitch",
+          "a flooded quarry",
+          "a caravan park",
+          "a railway siding"
         ],
         "ordered": false,
-        "noun": "ballast"
+        "noun": "landing site",
+        "verb": "comes down in"
       }
     ]
   },
@@ -75,44 +80,53 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "ballast:lead shot",
-          "b": "time:11 a.m."
-        },
-        {
-          "kind": "adjacent",
-          "a": "pilot:Rosalind",
-          "b": "time:11 a.m."
+          "a": "landing:a railway siding",
+          "b": "time:9am"
         }
       ]
     },
     {
-      "style": "but_not",
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "pilot:Isolde",
+          "b": "time:9am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "envelope:the striped envelope",
+          "b": "time:9am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "envelope:the moss-green envelope",
+          "b": "time:11am"
+        }
+      ]
+    },
+    {
+      "style": "and",
       "atoms": [
         {
           "kind": "not_link",
           "a": "envelope:the saffron envelope",
-          "b": "time:9 a.m."
-        },
-        {
-          "kind": "link",
-          "a": "ballast:rock salt",
-          "b": "time:9 a.m."
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "envelope:the striped envelope",
           "b": "pilot:Horatio"
         },
         {
-          "kind": "between",
-          "a": "pilot:Delphine",
-          "b": "ballast:dried beans",
-          "c": "envelope:the striped envelope"
+          "kind": "not_link",
+          "a": "envelope:the saffron envelope",
+          "b": "pilot:Isolde"
         }
       ]
     },
@@ -120,49 +134,56 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "immediately_before",
-          "a": "envelope:the kingfisher envelope",
-          "b": "pilot:Delphine"
+          "kind": "adjacent",
+          "a": "envelope:the saffron envelope",
+          "b": "landing:a flooded quarry"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "landing:a caravan park",
+          "b": "pilot:Grover"
         }
       ]
     }
   ],
   "solution": {
     "time": [
-      "8 a.m.",
-      "9 a.m.",
-      "10 a.m.",
-      "11 a.m."
+      "8am",
+      "9am",
+      "10am",
+      "11am"
     ],
     "pilot": [
+      "Horatio",
+      "Isolde",
       "Grover",
-      "Delphine",
-      "Rosalind",
-      "Horatio"
+      "Delphine"
     ],
     "envelope": [
-      "the kingfisher envelope",
-      "the silver envelope",
       "the striped envelope",
+      "the kingfisher envelope",
+      "the moss-green envelope",
       "the saffron envelope"
     ],
-    "ballast": [
-      "dried beans",
-      "rock salt",
-      "pea gravel",
-      "lead shot"
+    "landing": [
+      "a cricket pitch",
+      "a railway siding",
+      "a flooded quarry",
+      "a caravan park"
     ]
   },
   "stats": {
-    "atoms": 7,
-    "numbered_clues": 4,
+    "atoms": 8,
+    "numbered_clues": 7,
     "kinds": {
       "link": 2,
-      "adjacent": 1,
-      "not_link": 1,
-      "before": 1,
-      "between": 1,
-      "immediately_before": 1
+      "not_link": 3,
+      "adjacent": 3
     },
     "positives": 2,
     "compounds": 0
@@ -171,11 +192,11 @@
     "solved": true,
     "max_tier": 3,
     "max_technique": "order",
-    "steps": 23,
+    "steps": 28,
     "tier_counts": {
-      "direct": 3,
-      "bijection": 11,
-      "order": 9
+      "direct": 5,
+      "bijection": 16,
+      "order": 7
     },
     "trial_eliminations": 0,
     "unknown_cells": 12

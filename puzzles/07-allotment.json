@@ -1,5 +1,5 @@
 {
-  "pid": "6288f98fc8f0",
+  "pid": "c37adfb45fd5",
   "title": "Plot Wars on the Ashcombe Allotments",
   "theme": "allotment",
   "blurb": "The Ashcombe allotment committee has been locked in a slow war over compost, shade and the correct way to stake a bean.",
@@ -13,8 +13,9 @@
   },
   "schema": {
     "spine": "place",
-    "entity_noun": "entry",
-    "entity_noun_plural": "entries",
+    "entity_noun": "plot-holder",
+    "entity_noun_plural": "plot-holders",
+    "entity_animate": true,
     "categories": [
       {
         "name": "place",
@@ -29,7 +30,8 @@
         "noun": "placing",
         "cmp_less": "better",
         "cmp_more": "worse",
-        "step_noun": "place"
+        "step_noun": "place",
+        "verb": "places"
       },
       {
         "name": "holder",
@@ -41,19 +43,21 @@
           "Rosamund"
         ],
         "ordered": false,
-        "noun": "plot-holder"
+        "noun": "plot-holder",
+        "subject": true
       },
       {
-        "name": "plot",
-        "label": "Plot",
+        "name": "crop",
+        "label": "Prize crop",
         "items": [
-          "plot 11",
-          "plot 31",
-          "plot 14",
-          "plot 19"
+          "a row of leeks",
+          "a cauliflower",
+          "a pumpkin",
+          "a bed of beetroot"
         ],
         "ordered": false,
-        "noun": "plot"
+        "noun": "crop",
+        "verb": "grows"
       }
     ]
   },
@@ -63,8 +67,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "place:second",
-          "b": "plot:plot 31"
+          "a": "crop:a cauliflower",
+          "b": "place:second"
         }
       ]
     },
@@ -73,8 +77,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "holder:Rosamund",
-          "b": "plot:plot 11"
+          "a": "crop:a row of leeks",
+          "b": "holder:Rosamund"
         }
       ]
     },
@@ -83,8 +87,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "holder:Senga",
-          "b": "plot:plot 31"
+          "a": "crop:a cauliflower",
+          "b": "holder:Senga"
         }
       ]
     },
@@ -103,8 +107,8 @@
       "atoms": [
         {
           "kind": "adjacent",
-          "a": "holder:Alphonse",
-          "b": "plot:plot 19"
+          "a": "crop:a bed of beetroot",
+          "b": "holder:Alphonse"
         }
       ]
     }
@@ -122,11 +126,11 @@
       "Ewan",
       "Alphonse"
     ],
-    "plot": [
-      "plot 11",
-      "plot 31",
-      "plot 19",
-      "plot 14"
+    "crop": [
+      "a row of leeks",
+      "a cauliflower",
+      "a bed of beetroot",
+      "a pumpkin"
     ]
   },
   "stats": {
