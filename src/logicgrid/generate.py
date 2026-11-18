@@ -52,7 +52,7 @@ from .clues import (
     is_trivial,
     make_not,
 )
-from .csp import Engine, flatten, is_unique
+from .csp import Contradiction, Engine, Grid, flatten, is_unique, revise_atom
 from .difficulty import Profile, clue_stats, profile as get_profile, ramp_sequence, rate
 from .human_solver import SolveReport, human_solve
 from .model import Clue, PuzzleError, Ref, Schema, Solution
@@ -236,6 +236,27 @@ def _pairs(schema: Schema) -> list[tuple[Ref, Ref]]:
     return out
 
 
+def is_vacuous(atom: Atom, schema: Schema) -> bool:
+    """Can this atom never hold, whatever the solution?
+
+    A compound clue is only worth printing if each branch *could* have been the
+    true one. "Either the jewel orchid grower harvests later than May, or
+    Columbine pots in tree fern fibre" is not a choice at all when May is the
+    last month -- the first branch is impossible, so the clue just asserts the
+    second one with extra words, and a solver spots it immediately.
+
+    One arc-consistency pass on an empty grid is enough to catch the cases that
+    actually arise: a comparison against a spine endpoint, or a gap wider than
+    the grid.
+    """
+    grid = Grid(schema)
+    try:
+        revise_atom(atom, grid)
+    except Contradiction:
+        return True
+    return any(not grid.dom[r] for r in atom.refs())
+
+
 def _cap(items: list, limit: int, rng: Random) -> list:
     if len(items) <= limit:
         return items
@@ -363,7 +384,13 @@ def build_pool(
                 false_atoms.append(Before(a, b))
             if abs(pos(a) - pos(b)) != 1:
                 false_atoms.append(Adjacent(a, b))
-    false_atoms = [a for a in false_atoms if not is_trivial(a, schema)]
+    # Drop the impossible ones: as a disjunct they carry no information, and as
+    # the premise of an if-then they make it vacuously true.
+    false_atoms = [
+        a
+        for a in false_atoms
+        if not is_trivial(a, schema) and not is_vacuous(a, schema)
+    ]
     rng.shuffle(false_atoms)
     rng.shuffle(simple)
 

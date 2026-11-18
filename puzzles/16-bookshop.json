@@ -89,8 +89,8 @@
         },
         {
           "kind": "link",
-          "a": "book:a treatise on clocks",
-          "b": "buyer:Fenella"
+          "a": "book:a guide to fungi",
+          "b": "shelf:the third shelf"
         }
       ]
     },
@@ -99,8 +99,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "book:a guide to fungi",
-          "b": "buyer:Ottoline"
+          "a": "price_tag:a guinea",
+          "b": "shelf:the fourth shelf"
         }
       ]
     },
@@ -112,22 +112,6 @@
           "a": "book:a water-stained atlas",
           "b": "price_tag:two shillings",
           "c": "shelf:the fifth shelf"
-        },
-        {
-          "kind": "not_link",
-          "a": "book:a water-stained atlas",
-          "b": "price_tag:half a crown"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "between",
-          "a": "buyer:Fenella",
-          "b": "book:a book of sea shanties",
-          "c": "shelf:the fourth shelf"
         }
       ]
     },
@@ -145,16 +129,6 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "immediately_before",
-          "a": "price_tag:one and six",
-          "b": "shelf:the fourth shelf"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
           "kind": "adjacent",
           "a": "buyer:Augustus",
           "b": "price_tag:seven and six"
@@ -164,6 +138,31 @@
     {
       "style": "sentences",
       "atoms": [
+        {
+          "kind": "before",
+          "a": "price_tag:two shillings",
+          "b": "book:an album of pressed ferns"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "book:a treatise on clocks",
+          "b": "buyer:Ottoline"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "buyer:Augustus",
+          "b": "price_tag:one and six"
+        },
         {
           "kind": "before",
           "a": "price_tag:one and six",
@@ -208,10 +207,10 @@
     "kinds": {
       "immediately_before": 3,
       "link": 2,
-      "between": 2,
-      "not_link": 1,
+      "between": 1,
       "adjacent": 1,
-      "before": 1
+      "before": 2,
+      "not_link": 1
     },
     "positives": 2,
     "compounds": 0
@@ -220,11 +219,11 @@
     "solved": true,
     "max_tier": 3,
     "max_technique": "order",
-    "steps": 40,
+    "steps": 38,
     "tier_counts": {
-      "direct": 5,
-      "bijection": 22,
-      "order": 13
+      "direct": 3,
+      "bijection": 21,
+      "order": 14
     },
     "trial_eliminations": 0,
     "unknown_cells": 15

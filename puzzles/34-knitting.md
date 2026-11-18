@@ -1,6 +1,6 @@
 # The Ashfold Knitting Circle
 
-**Difficulty** 6/7 (hard) &nbsp;&nbsp; **Grid** 5 x 5 &nbsp;&nbsp; **Clues** 11 &nbsp;&nbsp; **id** `6abcb141d88b`
+**Difficulty** 6/7 (hard) &nbsp;&nbsp; **Grid** 5 x 5 &nbsp;&nbsp; **Clues** 12 &nbsp;&nbsp; **id** `6abcb141d88b`
 
 ## Introduction
 
@@ -15,17 +15,18 @@ Every knitter has a different day, project, yarn and setback, so within each cat
 
 ## Clues
 
-1. The knitter who is making a cable-knit blanket falls somewhere between Thursday and Ebba in day order. Nkechi is earlier than Thursday in day order.
-2. The knitter who works in recycled sari silk falls somewhere between Monday and Nkechi in day order.
-3. Friday and the knitter who is making a pair of argyle socks both sit at odd-numbered days or both at even-numbered days.
-4. The knitter who is making a dog coat and Tuesday are exactly one day apart in day order, in one direction or the other.
-5. Nkechi and the knitter who works in hand-spun alpaca are exactly one day apart in day order, in one direction or the other.
-6. At least one of the following holds, and possibly more than one: (a) Nkechi and the knitter who is set back by a misread chart are exactly one day apart in day order, in one direction or the other. (b) The knitter who is set back by a dropped stitch in row nine and the knitter who works in recycled sari silk are exactly one day apart in day order, in one direction or the other.
-7. Lionel is earlier than the knitter who is set back by a cat in day order. The knitter who is making a pair of argyle socks is not set back by a cat.
-8. The knitter who is set back by running out of dye lot is exactly one day earlier than Serafina, with no day in between.
+1. The knitter who works in recycled sari silk falls somewhere between Monday and Nkechi in day order.
+2. At least one of the following holds, and possibly more than one: (a) The knitter who is making a pair of argyle socks and the knitter who is set back by a dropped stitch in row nine are exactly one day apart in day order, in one direction or the other. (b) One of Tuesday and the knitter who is making a dog coat sits at an odd-numbered day and the other at an even-numbered day.
+3. The knitter who is making a cable-knit blanket falls somewhere between Thursday and Ebba in day order.
+4. The following two do NOT both hold; either one alone may hold, and so may neither: (a) The knitter who is set back by a dropped stitch in row nine and Thursday are exactly one day apart in day order, in one direction or the other. (b) The knitter who is making a cable-knit blanket is exactly one day earlier than the knitter who is set back by running out of dye lot, with no day in between.
+5. Nkechi is earlier than Thursday in day order. Nkechi and the knitter who works in hand-spun alpaca are exactly one day apart in day order, in one direction or the other.
+6. Friday and the knitter who is making a pair of argyle socks both sit at odd-numbered days or both at even-numbered days.
+7. The knitter who is set back by a misread chart and the knitter who works in undyed Shetland are exactly two days apart in day order.
+8. The knitter who is making a pair of argyle socks is not set back by a cat. Lionel is earlier than the knitter who is set back by a cat in day order.
 9. Lionel and the knitter who works in nettle fibre are exactly four days apart in day order.
-10. The knitter who is set back by a misread chart and the knitter who works in undyed Shetland are exactly two days apart in day order.
-11. The knitter who is making a tea cosy shaped like a hen is earlier than the knitter who works in mill-end acrylic in day order.
+10. The knitter who is set back by running out of dye lot is exactly one day earlier than Serafina, with no day in between.
+11. At least one of the following holds, and possibly more than one: (a) Lionel is earlier than the knitter who works in undyed Shetland in day order. (b) Nkechi is earlier than the knitter who is making a pair of argyle socks in day order.
+12. The knitter who is making a tea cosy shaped like a hen is earlier than the knitter who works in mill-end acrylic in day order.
 
 ## Solving chart
 
@@ -141,48 +142,48 @@ Every knitter has a different day, project, yarn and setback, so within each cat
 
 ## How it falls out
 
-1. [order] from clue 13 project:a tea cosy shaped like a hen: ruled out position(s) 5
-2. [order] from clue 13 yarn:mill-end acrylic: ruled out position(s) 1
-3. [order] from clue 11 knitter:Lionel: ruled out position(s) 2,3,4
-4. [order] from clue 11 yarn:nettle fibre: ruled out position(s) 2,3,4
-5. [order] from clue 10 snag:running out of dye lot: ruled out position(s) 5
-6. [order] from clue 10 knitter:Serafina: ruled out position(s) 1
-7. [order] from clue 9 project:a pair of argyle socks: ruled out position(s) 2,4
-8. [order] from clue 7 project:a cable-knit blanket: ruled out position(s) 1,4,5
-9. [order] from clue 7 knitter:Ebba: ruled out position(s) 3,4,5
-10. [order] from clue 5 knitter:Lionel: ruled out position(s) 5
-11. [order] from clue 5 snag:a cat: ruled out position(s) 1
-12. [order] from clue 11 yarn:nettle fibre: ruled out position(s) 1
-13. [order] from clue 4 knitter:Nkechi: ruled out position(s) 4,5
-14. [order] from clue 8 yarn:hand-spun alpaca: ruled out position(s) 5
-15. [order] from clue 3 yarn:recycled sari silk: ruled out position(s) 1,3,4,5
-16. [order] from clue 3 knitter:Nkechi: ruled out position(s) 1,2
-17. [order] from clue 8 yarn:hand-spun alpaca: ruled out position(s) 1,3
-18. [order] from clue 1 project:a dog coat: ruled out position(s) 2,4,5
-19. [bijection] knitter:Maudie: ruled out position(s) 1,3
-20. [bijection] knitter:Serafina: ruled out position(s) 3
-21. [bijection] knitter:Ebba: ruled out position(s) 1
-22. [bijection] yarn:hand-spun alpaca: ruled out position(s) 2
-23. [bijection] yarn:mill-end acrylic: ruled out position(s) 2,5
-24. [bijection] yarn:undyed Shetland: ruled out position(s) 2,5
-25. [bijection] yarn:undyed Shetland: ruled out position(s) 3,4
-26. [order] from clue 6 snag:a misread chart: ruled out position(s) 1,2,4,5
-27. [order] from clue 13 project:a tea cosy shaped like a hen: ruled out position(s) 4
-28. [order] from clue 7 project:a cable-knit blanket: ruled out position(s) 2
-29. [order] from clue 10 snag:running out of dye lot: ruled out position(s) 2
-30. [bijection] knitter:Maudie: ruled out position(s) 2
-31. [bijection] knitter:Serafina: ruled out position(s) 2
-32. [bijection] project:a shawl of impossible lace: ruled out position(s) 3
-33. [bijection] project:a pair of argyle socks: ruled out position(s) 3
-34. [bijection] project:a dog coat: ruled out position(s) 3
-35. [bijection] project:a tea cosy shaped like a hen: ruled out position(s) 3
-36. [bijection] project:a shawl of impossible lace: ruled out position(s) 1,2,5
-37. [bijection] snag:a dropped stitch in row nine: ruled out position(s) 3
-38. [bijection] snag:a cat: ruled out position(s) 3
-39. [bijection] snag:losing the pattern entirely: ruled out position(s) 3
-40. [bijection] snag:running out of dye lot: ruled out position(s) 3
-_... and 14 further steps._
+1. [order] from clue 14 project:a tea cosy shaped like a hen: ruled out position(s) 5
+2. [order] from clue 14 yarn:mill-end acrylic: ruled out position(s) 1
+3. [order] from clue 10 knitter:Lionel: ruled out position(s) 2,3,4
+4. [order] from clue 10 yarn:nettle fibre: ruled out position(s) 2,3,4
+5. [order] from clue 9 snag:running out of dye lot: ruled out position(s) 5
+6. [order] from clue 9 knitter:Serafina: ruled out position(s) 1
+7. [order] from clue 8 project:a pair of argyle socks: ruled out position(s) 2,4
+8. [order] from clue 5 project:a cable-knit blanket: ruled out position(s) 1,4,5
+9. [order] from clue 5 knitter:Ebba: ruled out position(s) 3,4,5
+10. [order] from clue 3 knitter:Lionel: ruled out position(s) 5
+11. [order] from clue 3 snag:a cat: ruled out position(s) 1
+12. [order] from clue 10 yarn:nettle fibre: ruled out position(s) 1
+13. [order] from clue 2 knitter:Nkechi: ruled out position(s) 4,5
+14. [order] from clue 6 yarn:hand-spun alpaca: ruled out position(s) 5
+15. [order] from clue 1 yarn:recycled sari silk: ruled out position(s) 1,3,4,5
+16. [order] from clue 1 knitter:Nkechi: ruled out position(s) 1,2
+17. [order] from clue 6 yarn:hand-spun alpaca: ruled out position(s) 1,3
+18. [bijection] knitter:Maudie: ruled out position(s) 1,3
+19. [bijection] knitter:Serafina: ruled out position(s) 3
+20. [bijection] knitter:Ebba: ruled out position(s) 1
+21. [bijection] yarn:hand-spun alpaca: ruled out position(s) 2
+22. [bijection] yarn:mill-end acrylic: ruled out position(s) 2,5
+23. [bijection] yarn:undyed Shetland: ruled out position(s) 2,5
+24. [bijection] yarn:undyed Shetland: ruled out position(s) 3,4
+25. [order] from clue 4 snag:a misread chart: ruled out position(s) 1,2,4,5
+26. [order] from clue 14 project:a tea cosy shaped like a hen: ruled out position(s) 4
+27. [order] from clue 5 project:a cable-knit blanket: ruled out position(s) 2
+28. [order] from clue 9 snag:running out of dye lot: ruled out position(s) 2
+29. [bijection] knitter:Maudie: ruled out position(s) 2
+30. [bijection] knitter:Serafina: ruled out position(s) 2
+31. [bijection] project:a shawl of impossible lace: ruled out position(s) 3
+32. [bijection] project:a pair of argyle socks: ruled out position(s) 3
+33. [bijection] project:a dog coat: ruled out position(s) 3
+34. [bijection] project:a tea cosy shaped like a hen: ruled out position(s) 3
+35. [bijection] snag:a dropped stitch in row nine: ruled out position(s) 3
+36. [bijection] snag:a cat: ruled out position(s) 3
+37. [bijection] snag:losing the pattern entirely: ruled out position(s) 3
+38. [bijection] snag:running out of dye lot: ruled out position(s) 3
+39. [bijection] yarn:mill-end acrylic: ruled out position(s) 4
+40. [order] from clue 9 snag:running out of dye lot: ruled out position(s) 1
+_... and 15 further steps._
 
 ---
 
-<sub>seed `2026172844682` &middot; score 9.3142 &middot; atoms 13 &middot; positives 0 &middot; solved by disjunction</sub>
+<sub>seed `2026172844682` &middot; score 10.2083 &middot; atoms 14 &middot; positives 0 &middot; solved by disjunction</sub>

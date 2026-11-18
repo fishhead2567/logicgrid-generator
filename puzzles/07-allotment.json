@@ -67,18 +67,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "crop:a cauliflower",
-          "b": "place:second"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "link",
           "a": "crop:a row of leeks",
-          "b": "holder:Rosamund"
+          "b": "place:first"
         }
       ]
     },
@@ -87,18 +77,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "crop:a cauliflower",
-          "b": "holder:Senga"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "holder:Ewan",
-          "b": "place:fourth"
+          "a": "holder:Senga",
+          "b": "place:second"
         }
       ]
     },
@@ -109,6 +89,21 @@
           "kind": "adjacent",
           "a": "crop:a bed of beetroot",
           "b": "holder:Alphonse"
+        },
+        {
+          "kind": "link",
+          "a": "crop:a pumpkin",
+          "b": "holder:Alphonse"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "holder:Ewan",
+          "b": "place:fourth"
         }
       ]
     }
@@ -135,7 +130,7 @@
   },
   "stats": {
     "atoms": 5,
-    "numbered_clues": 5,
+    "numbered_clues": 4,
     "kinds": {
       "link": 3,
       "adjacent": 2
@@ -149,9 +144,9 @@
     "max_technique": "order",
     "steps": 17,
     "tier_counts": {
-      "direct": 3,
+      "direct": 5,
       "bijection": 10,
-      "order": 4
+      "order": 2
     },
     "trial_eliminations": 0,
     "unknown_cells": 8

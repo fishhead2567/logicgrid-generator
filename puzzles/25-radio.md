@@ -1,6 +1,6 @@
 # The Graveyard Shift at WPKX
 
-**Difficulty** 3/7 (moderate) &nbsp;&nbsp; **Grid** 4 x 5 &nbsp;&nbsp; **Clues** 8 &nbsp;&nbsp; **id** `1b765d23b809`
+**Difficulty** 3/7 (moderate) &nbsp;&nbsp; **Grid** 4 x 5 &nbsp;&nbsp; **Clues** 10 &nbsp;&nbsp; **id** `1b765d23b809`
 
 ## Introduction
 
@@ -14,14 +14,16 @@ Every host has a different slot, show and format, so within each category every 
 
 ## Clues
 
-1. The host who plays radio plays broadcasts in slot four. The host who presents Owls Calling is later than slot four in slot order.
-2. Dustin Crowe broadcasts in slot five.
-3. The host who presents The Long Haul does not broadcast in slot two. The host who presents The Long Haul does not broadcast in slot one.
-4. Maribel Sosa falls somewhere between the host who plays lost surf rock and slot three in slot order.
-5. The host who plays forgotten soul falls somewhere between Arlo Finch and Rusty Lamarr in slot order.
-6. Dustin Crowe and the host who presents Coffee and Regrets are exactly one slot apart in slot order, in one direction or the other.
-7. The host who presents Signal Fade falls somewhere between the host who plays forgotten soul and Rusty Lamarr in slot order.
-8. The host who plays trucker country and Rusty Lamarr are exactly one slot apart in slot order, in one direction or the other.
+1. The host who plays forgotten soul broadcasts in slot three. One of Arlo Finch and slot three sits at an odd-numbered slot and the other at an even-numbered slot.
+2. Maribel Sosa presents Signal Fade.
+3. The host who presents Coffee and Regrets and slot five are exactly one slot apart in slot order, in one direction or the other.
+4. Bea Okonjo and slot four are exactly one slot apart in slot order, in one direction or the other.
+5. The host who plays radio plays is exactly one slot earlier than slot five, with no slot in between.
+6. The host who plays radio plays is earlier than the host who presents Owls Calling in slot order.
+7. The host who plays trucker country and Bea Okonjo are exactly one slot apart in slot order, in one direction or the other.
+8. The host who plays radio plays falls somewhere between Dustin Crowe and the host who presents The Sleepless Hour in slot order.
+9. The host who plays lost surf rock is earlier than the host who presents Signal Fade in slot order.
+10. Bea Okonjo falls somewhere between the host who presents Owls Calling and the host who presents The Sleepless Hour in slot order.
 
 ## Solving chart
 
@@ -97,42 +99,45 @@ Every host has a different slot, show and format, so within each category every 
 
 ## How it falls out
 
-1. [direct] from clue 9 show:The Long Haul: ruled out position(s) 1
-2. [direct] from clue 8 host:Dustin Crowe: ruled out position(s) 1,2,3,4
-3. [direct] from clue 5 genre:radio plays: ruled out position(s) 1,2,3,5
-4. [direct] from clue 4 show:The Long Haul: ruled out position(s) 2
-5. [bijection] genre:lost surf rock: ruled out position(s) 4
-6. [bijection] genre:trucker country: ruled out position(s) 4
-7. [bijection] genre:obscure jazz: ruled out position(s) 4
-8. [bijection] genre:forgotten soul: ruled out position(s) 4
-9. [bijection] host:Rusty Lamarr: ruled out position(s) 5
-10. [bijection] host:Bea Okonjo: ruled out position(s) 5
-11. [bijection] host:Arlo Finch: ruled out position(s) 5
-12. [bijection] host:Maribel Sosa: ruled out position(s) 5
-13. [order] from clue 10 show:Owls Calling: ruled out position(s) 1,2,3,4
-14. [order] from clue 7 show:Signal Fade: ruled out position(s) 1,5
-15. [order] from clue 6 host:Maribel Sosa: ruled out position(s) 1,3
-16. [order] from clue 6 genre:lost surf rock: ruled out position(s) 2,3
-17. [order] from clue 2 show:Coffee and Regrets: ruled out position(s) 1,2,3,5
-18. [order] from clue 1 genre:forgotten soul: ruled out position(s) 1,5
-19. [order] from clue 7 show:Signal Fade: ruled out position(s) 4
-20. [order] from clue 7 host:Rusty Lamarr: ruled out position(s) 2,3
-21. [order] from clue 3 genre:trucker country: ruled out position(s) 1
-22. [bijection] show:The Sleepless Hour: ruled out position(s) 4,5
-23. [bijection] show:The Long Haul: ruled out position(s) 4,5
-24. [bijection] show:The Sleepless Hour: ruled out position(s) 2,3
-25. [bijection] show:Signal Fade: ruled out position(s) 3
-26. [order] from clue 7 genre:forgotten soul: ruled out position(s) 2
-27. [order] from clue 7 host:Rusty Lamarr: ruled out position(s) 4
-28. [order] from clue 3 genre:trucker country: ruled out position(s) 3,5
-29. [order] from clue 1 host:Arlo Finch: ruled out position(s) 1,2,3
-30. [bijection] genre:obscure jazz: ruled out position(s) 2,3
-31. [bijection] host:Bea Okonjo: ruled out position(s) 1,4
-32. [bijection] host:Maribel Sosa: ruled out position(s) 4
-33. [bijection] host:Bea Okonjo: ruled out position(s) 2
-34. [order] from clue 6 genre:lost surf rock: ruled out position(s) 5
-35. [bijection] genre:obscure jazz: ruled out position(s) 1
+1. [direct] from clue 7 genre:forgotten soul: ruled out position(s) 1,2,4,5
+2. [bijection] genre:lost surf rock: ruled out position(s) 3
+3. [bijection] genre:trucker country: ruled out position(s) 3
+4. [bijection] genre:obscure jazz: ruled out position(s) 3
+5. [bijection] genre:radio plays: ruled out position(s) 3
+6. [order] from clue 11 genre:radio plays: ruled out position(s) 1,5
+7. [order] from clue 8 genre:lost surf rock: ruled out position(s) 5
+8. [order] from clue 8 show:Signal Fade: ruled out position(s) 1
+9. [order] from clue 6 host:Arlo Finch: ruled out position(s) 1,3,5
+10. [order] from clue 5 show:Coffee and Regrets: ruled out position(s) 1,2,3,5
+11. [order] from clue 4 host:Bea Okonjo: ruled out position(s) 1,2,4
+12. [order] from clue 9 genre:trucker country: ruled out position(s) 1,5
+13. [order] from clue 3 host:Bea Okonjo: ruled out position(s) 5
+14. [order] from clue 3 show:Owls Calling: ruled out position(s) 3
+15. [order] from clue 3 show:The Sleepless Hour: ruled out position(s) 3
+16. [order] from clue 2 show:Owls Calling: ruled out position(s) 1,2
+17. [order] from clue 3 show:The Sleepless Hour: ruled out position(s) 4,5
+18. [order] from clue 11 host:Dustin Crowe: ruled out position(s) 1,2
+19. [order] from clue 1 genre:radio plays: ruled out position(s) 2
+20. [order] from clue 11 host:Dustin Crowe: ruled out position(s) 3,4
+21. [order] from clue 2 show:Owls Calling: ruled out position(s) 4
+22. [direct] from clue 10 host:Maribel Sosa: ruled out position(s) 1
+23. [bijection] genre:lost surf rock: ruled out position(s) 4
+24. [bijection] genre:trucker country: ruled out position(s) 4
+25. [bijection] genre:obscure jazz: ruled out position(s) 4
+26. [bijection] genre:obscure jazz: ruled out position(s) 1,2
+27. [bijection] host:Rusty Lamarr: ruled out position(s) 3,5
+28. [bijection] host:Maribel Sosa: ruled out position(s) 3,5
+29. [bijection] host:Rusty Lamarr: ruled out position(s) 2,4
+30. [bijection] show:The Long Haul: ruled out position(s) 4,5
+31. [bijection] show:Signal Fade: ruled out position(s) 4,5
+32. [direct] from clue 10 host:Maribel Sosa: ruled out position(s) 4
+33. [direct] from clue 10 show:Signal Fade: ruled out position(s) 3
+34. [order] from clue 8 genre:lost surf rock: ruled out position(s) 2
+35. [bijection] host:Arlo Finch: ruled out position(s) 2
+36. [bijection] show:The Sleepless Hour: ruled out position(s) 2
+37. [bijection] show:The Long Haul: ruled out position(s) 2
+38. [bijection] show:The Long Haul: ruled out position(s) 1
 
 ---
 
-<sub>seed `2026172773411` &middot; score 5.355 &middot; atoms 10 &middot; positives 2 &middot; solved by order</sub>
+<sub>seed `2026172773411` &middot; score 5.355 &middot; atoms 11 &middot; positives 2 &middot; solved by order</sub>

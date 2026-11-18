@@ -15,12 +15,12 @@ Every pilot has a different start time, envelope and landing site, so within eac
 ## Clues
 
 1. The pilot who comes down in a railway siding launches at 9am.
-2. Isolde launches at 9am.
-3. The pilot who flies the striped envelope does not launch at 9am.
-4. The pilot who flies the moss-green envelope and 11am are exactly one hour apart in start time order, in one direction or the other.
-5. Horatio does not fly the saffron envelope. Isolde does not fly the saffron envelope.
-6. The pilot who flies the saffron envelope and the pilot who comes down in a flooded quarry are exactly one hour apart in start time order, in one direction or the other.
-7. The pilot who comes down in a caravan park and Grover are exactly one hour apart in start time order, in one direction or the other.
+2. The pilot who flies the kingfisher envelope comes down in a railway siding.
+3. The pilot who comes down in a flooded quarry falls somewhere between Horatio and 11am in start time order. 9am falls somewhere between Delphine and Horatio in start time order.
+4. The pilot who comes down in a cricket pitch is exactly one hour earlier than 9am, with no start time in between.
+5. 10am falls somewhere between Delphine and Isolde in start time order.
+6. The pilot who flies the striped envelope does not come down in a flooded quarry.
+7. The pilot who flies the saffron envelope and Grover are exactly one hour apart in start time order, in one direction or the other.
 
 ## Solving chart
 
@@ -89,34 +89,33 @@ Every pilot has a different start time, envelope and landing site, so within eac
 
 ## How it falls out
 
-1. [direct] from clue 7 envelope:the striped envelope: ruled out position(s) 2
-2. [direct] from clue 4 landing:a railway siding: ruled out position(s) 1,3,4
-3. [direct] from clue 1 pilot:Isolde: ruled out position(s) 1,3,4
-4. [direct] from clue 3 envelope:the saffron envelope: ruled out position(s) 2
-5. [bijection] landing:a cricket pitch: ruled out position(s) 2
-6. [bijection] landing:a flooded quarry: ruled out position(s) 2
-7. [bijection] landing:a caravan park: ruled out position(s) 2
-8. [bijection] pilot:Horatio: ruled out position(s) 2
-9. [bijection] pilot:Grover: ruled out position(s) 2
-10. [bijection] pilot:Delphine: ruled out position(s) 2
-11. [order] from clue 8 landing:a caravan park: ruled out position(s) 1
-12. [order] from clue 8 pilot:Grover: ruled out position(s) 1
-13. [order] from clue 5 envelope:the saffron envelope: ruled out position(s) 1
-14. [order] from clue 5 landing:a flooded quarry: ruled out position(s) 1
-15. [order] from clue 2 envelope:the moss-green envelope: ruled out position(s) 1,2,4
-16. [bijection] envelope:the saffron envelope: ruled out position(s) 3
-17. [bijection] envelope:the striped envelope: ruled out position(s) 3
-18. [bijection] envelope:the kingfisher envelope: ruled out position(s) 3
-19. [bijection] envelope:the kingfisher envelope: ruled out position(s) 1,4
-20. [bijection] landing:a cricket pitch: ruled out position(s) 3,4
-21. [direct] from clue 6 pilot:Horatio: ruled out position(s) 4
-22. [order] from clue 5 landing:a flooded quarry: ruled out position(s) 4
-23. [bijection] envelope:the striped envelope: ruled out position(s) 4
-24. [bijection] landing:a caravan park: ruled out position(s) 3
-25. [order] from clue 8 pilot:Grover: ruled out position(s) 4
-26. [bijection] pilot:Horatio: ruled out position(s) 3
-27. [bijection] pilot:Delphine: ruled out position(s) 3
-28. [bijection] pilot:Delphine: ruled out position(s) 1
+1. [direct] from clue 3 landing:a railway siding: ruled out position(s) 1,3,4
+2. [direct] from clue 4 envelope:the kingfisher envelope: ruled out position(s) 1,3,4
+3. [bijection] envelope:the saffron envelope: ruled out position(s) 2
+4. [bijection] envelope:the moss-green envelope: ruled out position(s) 2
+5. [bijection] envelope:the striped envelope: ruled out position(s) 2
+6. [bijection] landing:a cricket pitch: ruled out position(s) 2
+7. [bijection] landing:a flooded quarry: ruled out position(s) 2
+8. [bijection] landing:a caravan park: ruled out position(s) 2
+9. [order] from clue 8 pilot:Grover: ruled out position(s) 1
+10. [order] from clue 7 pilot:Delphine: ruled out position(s) 3
+11. [order] from clue 7 pilot:Isolde: ruled out position(s) 3
+12. [order] from clue 5 pilot:Delphine: ruled out position(s) 2
+13. [order] from clue 5 pilot:Horatio: ruled out position(s) 2
+14. [order] from clue 2 landing:a cricket pitch: ruled out position(s) 3,4
+15. [order] from clue 1 landing:a flooded quarry: ruled out position(s) 1,4
+16. [order] from clue 1 pilot:Horatio: ruled out position(s) 3,4
+17. [order] from clue 5 pilot:Delphine: ruled out position(s) 1
+18. [order] from clue 7 pilot:Isolde: ruled out position(s) 4
+19. [direct] from clue 6 envelope:the striped envelope: ruled out position(s) 3
+20. [bijection] landing:a caravan park: ruled out position(s) 1,3
+21. [bijection] pilot:Isolde: ruled out position(s) 1
+22. [bijection] pilot:Grover: ruled out position(s) 4
+23. [bijection] pilot:Grover: ruled out position(s) 2
+24. [order] from clue 8 envelope:the saffron envelope: ruled out position(s) 1,3
+25. [bijection] envelope:the moss-green envelope: ruled out position(s) 4
+26. [bijection] envelope:the striped envelope: ruled out position(s) 4
+27. [bijection] envelope:the moss-green envelope: ruled out position(s) 1
 
 ---
 

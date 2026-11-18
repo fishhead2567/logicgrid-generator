@@ -7,53 +7,53 @@ solution, reachable without guessing unless the profile allows it.
 
 | # | Puzzle | Profile | Rating | Grid | Clues | Hardest technique |
 |---|--------|---------|--------|------|-------|-------------------|
-| 1 | [The Orchid House Reckoning](01-orchid.md) | gentle | 1/7 | 3x4 | 5 | order |
-| 2 | [The Mudflat Regatta](02-regatta.md) | gentle | 2/7 | 3x4 | 4 | order |
-| 3 | [The Wind Is Free, the Field Is Not](03-kite.md) | gentle | 1/7 | 3x4 | 4 | order |
-| 4 | [Andy's Swiftest Birds](04-pigeon.md) | gentle | 1/7 | 3x4 | 5 | bijection |
-| 5 | [The Cheesemongers' Standoff](05-cheese.md) | gentle | 1/7 | 3x4 | 4 | bijection |
-| 6 | [The Hollow Creek Pie Judging](06-county_fair.md) | gentle | 1/7 | 3x4 | 5 | order |
-| 7 | [Plot Wars on the Ashcombe Allotments](07-allotment.md) | gentle | 1/7 | 3x4 | 5 | order |
+| 1 | [The Wind Is Free, the Field Is Not](01-kite.md) | gentle | 2/7 | 3x4 | 3 | order |
+| 2 | [The Mudflat Regatta](02-regatta.md) | gentle | 1/7 | 3x4 | 4 | order |
+| 3 | [The Hollow Creek Pie Judging](03-county_fair.md) | gentle | 1/7 | 3x4 | 5 | order |
+| 4 | [Andy's Swiftest Birds](04-pigeon.md) | gentle | 1/7 | 3x4 | 5 | order |
+| 5 | [The Cheesemongers' Standoff](05-cheese.md) | gentle | 1/7 | 3x4 | 6 | order |
+| 6 | [The Wind Is Free, the Field Is Not](06-kite.md) | gentle | 1/7 | 3x4 | 5 | order |
+| 7 | [Plot Wars on the Ashcombe Allotments](07-allotment.md) | gentle | 1/7 | 3x4 | 4 | order |
 | 8 | [The Crossings to Inverlaig](08-ferry.md) | gentle | 2/7 | 3x5 | 5 | order |
-| 9 | [The Ravelston Chess Club Ladder](09-chess.md) | easy | 3/7 | 4x4 | 7 | order |
-| 10 | [A Benchful of Clocks, and No Agreement](10-clockmaker.md) | easy | 3/7 | 4x4 | 6 | order |
-| 11 | [The Mislabelled Drawers](11-archive.md) | easy | 3/7 | 3x5 | 7 | order |
+| 9 | [Mrs Pell's Impossible Shelves](09-bookshop.md) | easy | 3/7 | 3x5 | 6 | order |
+| 10 | [The Thistledown Balloon Ascent](10-balloon.md) | easy | 3/7 | 4x4 | 7 | order |
+| 11 | [Andy's Swiftest Birds](11-pigeon.md) | easy | 3/7 | 4x4 | 6 | order |
 | 12 | [The Mudflat Regatta](12-regatta.md) | easy | 3/7 | 4x4 | 5 | order |
-| 13 | [The Hollow Creek Pie Judging](13-county_fair.md) | easy | 3/7 | 4x4 | 7 | order |
-| 14 | [The Night Shift at Coldwater Hall](14-aquarium.md) | easy | 3/7 | 4x4 | 7 | order |
+| 13 | [The Grindle Bay Sandcastle Open](13-sandcastle.md) | easy | 3/7 | 3x5 | 6 | order |
+| 14 | [The Blind Tasting at Pemberton's](14-tea.md) | easy | 3/7 | 4x5 | 8 | order |
 | 15 | [The Thistledown Balloon Ascent](15-balloon.md) | easy | 3/7 | 4x4 | 7 | order |
 | 16 | [Mrs Pell's Impossible Shelves](16-bookshop.md) | easy | 3/7 | 4x5 | 8 | order |
-| 17 | [The Saltmarsh Light Rotation](17-lighthouse.md) | easy | 3/7 | 4x4 | 6 | order |
-| 18 | [Andy's Swiftest Birds](18-pigeon.md) | easy | 3/7 | 4x5 | 10 | order |
-| 19 | [A Benchful of Clocks, and No Agreement](19-clockmaker.md) | moderate | 4/7 | 4x5 | 8 | order |
-| 20 | [The Hollow Creek Pie Judging](20-county_fair.md) | moderate | 3/7 | 4x5 | 11 | order |
+| 17 | [The Hollow Creek Pie Judging](17-county_fair.md) | easy | 3/7 | 4x4 | 6 | order |
+| 18 | [The Ashfold Knitting Circle](18-knitting.md) | easy | 3/7 | 4x4 | 8 | order |
+| 19 | [The Mislabelled Drawers](19-archive.md) | moderate | 4/7 | 4x5 | 8 | order |
+| 20 | [The Loft Layout Dispute](20-train.md) | moderate | 3/7 | 4x5 | 8 | order |
 | 21 | [The Night Shift at Coldwater Hall](21-aquarium.md) | moderate | 4/7 | 4x5 | 10 | order |
-| 22 | [Preserves, and the Preservation of Grudges](22-jam.md) | moderate | 4/7 | 5x5 | 11 | order |
-| 23 | [Tuesday Night at the Dented Bell](23-karaoke.md) | moderate | 4/7 | 4x5 | 8 | order |
-| 24 | [A Benchful of Clocks, and No Agreement](24-clockmaker.md) | moderate | 4/7 | 5x5 | 13 | order |
-| 25 | [The Graveyard Shift at WPKX](25-radio.md) | moderate | 3/7 | 4x5 | 8 | order |
-| 26 | [The Thistledown Balloon Ascent](26-balloon.md) | moderate | 3/7 | 4x5 | 10 | order |
-| 27 | [The Honey Show Scandal](27-beekeeper.md) | moderate | 4/7 | 4x5 | 9 | order |
+| 22 | [Preserves, and the Preservation of Grudges](22-jam.md) | moderate | 4/7 | 4x5 | 9 | order |
+| 23 | [Tuesday Night at the Dented Bell](23-karaoke.md) | moderate | 4/7 | 4x5 | 9 | order |
+| 24 | [The Crossings to Inverlaig](24-ferry.md) | moderate | 4/7 | 5x5 | 10 | order |
+| 25 | [The Graveyard Shift at WPKX](25-radio.md) | moderate | 3/7 | 4x5 | 10 | order |
+| 26 | [The Thistledown Balloon Ascent](26-balloon.md) | moderate | 4/7 | 4x5 | 8 | order |
+| 27 | [Mrs Pell's Impossible Shelves](27-bookshop.md) | moderate | 4/7 | 4x5 | 10 | order |
 | 28 | [Tuesday Night at the Dented Bell](28-karaoke.md) | moderate | 4/7 | 4x5 | 12 | order |
-| 29 | [The Blind Tasting at Pemberton's](29-tea.md) | moderate | 4/7 | 4x5 | 9 | order |
-| 30 | [Preserves, and the Preservation of Grudges](30-jam.md) | moderate | 3/7 | 4x5 | 8 | order |
-| 31 | [Mrs Pell's Impossible Shelves](31-bookshop.md) | hard | 6/7 | 5x5 | 16 | disjunction |
-| 32 | [The Saltmarsh Light Rotation](32-lighthouse.md) | hard | 6/7 | 5x5 | 14 | disjunction |
-| 33 | [The Crossings to Inverlaig](33-ferry.md) | hard | 5/7 | 4x5 | 10 | disjunction |
-| 34 | [The Ashfold Knitting Circle](34-knitting.md) | hard | 6/7 | 5x5 | 11 | disjunction |
-| 35 | [The Loft Layout Dispute](35-train.md) | hard | 6/7 | 5x5 | 12 | disjunction |
-| 36 | [The Night Shift at Coldwater Hall](36-aquarium.md) | hard | 6/7 | 5x5 | 14 | disjunction |
-| 37 | [The Thistledown Balloon Ascent](37-balloon.md) | hard | 6/7 | 5x5 | 15 | disjunction |
-| 38 | [The Cheesemongers' Standoff](38-cheese.md) | hard | 6/7 | 4x5 | 10 | disjunction |
-| 39 | [The Ashfold Knitting Circle](39-knitting.md) | hard | 5/7 | 5x5 | 12 | disjunction |
-| 40 | [The Crossings to Inverlaig](40-ferry.md) | hard | 6/7 | 5x5 | 15 | disjunction |
-| 41 | [The Orchid House Reckoning](41-orchid.md) | hard | 6/7 | 5x5 | 12 | disjunction |
-| 42 | [The Thistledown Balloon Ascent](42-balloon.md) | hard | 5/7 | 4x5 | 11 | disjunction |
-| 43 | [The Cheesemongers' Standoff](43-cheese.md) | expert | 7/7 | 5x6 | 17 | trial |
-| 44 | [A Fortnight at the Little Vesper Theatre](44-puppet.md) | expert | 7/7 | 5x6 | 19 | trial |
-| 45 | [Preserves, and the Preservation of Grudges](45-jam.md) | expert | 7/7 | 5x6 | 17 | trial |
-| 46 | [The Mislabelled Drawers](46-archive.md) | expert | 7/7 | 5x6 | 16 | disjunction |
-| 47 | [The Case of the Missing Trowel](47-detective.md) | expert | 7/7 | 5x6 | 17 | trial |
-| 48 | [The Wind Is Free, the Field Is Not](48-kite.md) | expert | 7/7 | 5x6 | 20 | trial |
-| 49 | [The Honey Show Scandal](49-beekeeper.md) | expert | 7/7 | 5x6 | 18 | trial |
-| 50 | [The Mudflat Regatta](50-regatta.md) | expert | 7/7 | 5x5 | 14 | trial |
+| 29 | [Preserves, and the Preservation of Grudges](29-jam.md) | moderate | 3/7 | 4x5 | 9 | order |
+| 30 | [The Orchid House Reckoning](30-orchid.md) | moderate | 4/7 | 5x5 | 12 | order |
+| 31 | [The Hollow Creek Pie Judging](31-county_fair.md) | hard | 6/7 | 5x5 | 12 | disjunction |
+| 32 | [The Mudflat Regatta](32-regatta.md) | hard | 5/7 | 4x5 | 10 | disjunction |
+| 33 | [The Case of the Missing Trowel](33-detective.md) | hard | 5/7 | 4x5 | 11 | disjunction |
+| 34 | [The Ashfold Knitting Circle](34-knitting.md) | hard | 6/7 | 5x5 | 12 | disjunction |
+| 35 | [Mrs Pell's Impossible Shelves](35-bookshop.md) | hard | 6/7 | 5x5 | 14 | disjunction |
+| 36 | [The Night Shift at Coldwater Hall](36-aquarium.md) | hard | 5/7 | 5x5 | 13 | disjunction |
+| 37 | [The Mudflat Regatta](37-regatta.md) | hard | 5/7 | 4x5 | 10 | disjunction |
+| 38 | [The Mislabelled Drawers](38-archive.md) | hard | 6/7 | 4x5 | 9 | disjunction |
+| 39 | [Preserves, and the Preservation of Grudges](39-jam.md) | hard | 6/7 | 5x5 | 13 | disjunction |
+| 40 | [The Crossings to Inverlaig](40-ferry.md) | hard | 5/7 | 4x5 | 10 | disjunction |
+| 41 | [The Loft Layout Dispute](41-train.md) | hard | 5/7 | 4x5 | 10 | disjunction |
+| 42 | [The Wind Is Free, the Field Is Not](42-kite.md) | hard | 6/7 | 5x5 | 13 | disjunction |
+| 43 | [The Cheesemongers' Standoff](43-cheese.md) | expert | 7/7 | 5x6 | 18 | trial |
+| 44 | [A Fortnight at the Little Vesper Theatre](44-puppet.md) | expert | 7/7 | 5x6 | 19 | subset |
+| 45 | [Preserves, and the Preservation of Grudges](45-jam.md) | expert | 7/7 | 5x6 | 18 | disjunction |
+| 46 | [The Mislabelled Drawers](46-archive.md) | expert | 7/7 | 5x6 | 23 | trial |
+| 47 | [The Case of the Missing Trowel](47-detective.md) | expert | 6/7 | 5x6 | 19 | disjunction |
+| 48 | [The Wind Is Free, the Field Is Not](48-kite.md) | expert | 7/7 | 5x6 | 16 | disjunction |
+| 49 | [The Honey Show Scandal](49-beekeeper.md) | expert | 7/7 | 5x6 | 14 | trial |
+| 50 | [The Mudflat Regatta](50-regatta.md) | expert | 7/7 | 5x5 | 16 | trial |

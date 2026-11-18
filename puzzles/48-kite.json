@@ -5,7 +5,7 @@
   "blurb": "The Dunnage Kite Festival charges by the kite, which has produced some creative definitions of 'one kite'.",
   "profile": "expert",
   "rating": 7,
-  "score": 16.9679,
+  "score": 11.8499,
   "seed": 2026173060277,
   "spec": {
     "difficulty": "expert",
@@ -111,29 +111,21 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "immediately_before",
-          "a": "fee:$8",
-          "b": "mishap:a sudden lull"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
+          "kind": "before",
+          "a": "line:nylon twine",
+          "b": "fee:$10"
+        },
         {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "adjacent",
-              "a": "kite:a delta wing",
-              "b": "mishap:a sudden lull"
-            },
-            {
-              "kind": "not_link",
-              "a": "fee:$12",
-              "b": "flier:Ifeoma"
-            }
-          ]
+          "kind": "arith",
+          "a": "fee:$10",
+          "b": "flier:Morwenna",
+          "k": 4,
+          "op": "add"
+        },
+        {
+          "kind": "not_link",
+          "a": "fee:$6",
+          "b": "line:nylon twine"
         }
       ]
     },
@@ -145,110 +137,15 @@
           "options": [
             {
               "kind": "before",
-              "a": "line:nylon twine",
-              "b": "kite:a seven-metre centipede"
-            },
-            {
-              "kind": "link",
-              "a": "fee:$4",
-              "b": "mishap:a sudden lull"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "not_both",
-          "x": {
-            "kind": "adjacent",
-            "a": "fee:$8",
-            "b": "flier:Gunnar"
-          },
-          "y": {
-            "kind": "before",
-            "a": "flier:Gunnar",
-            "b": "kite:a rokkaku fighter"
-          }
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "fee:$4",
-          "b": "line:parcel string"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "link",
               "a": "fee:$6",
-              "b": "kite:a hand-painted dragon"
+              "b": "mishap:a tree"
             },
             {
               "kind": "link",
-              "a": "flier:Blaise",
-              "b": "kite:a hand-painted dragon"
+              "a": "fee:$10",
+              "b": "line:waxed cotton"
             }
           ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "if_then",
-          "x": {
-            "kind": "immediately_before",
-            "a": "kite:a rokkaku fighter",
-            "b": "fee:$10"
-          },
-          "y": {
-            "kind": "before",
-            "a": "flier:Gunnar",
-            "b": "kite:a rokkaku fighter"
-          }
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "if_then",
-          "x": {
-            "kind": "link",
-            "a": "fee:$8",
-            "b": "mishap:a trespassing dog"
-          },
-          "y": {
-            "kind": "adjacent",
-            "a": "flier:Aurelio",
-            "b": "mishap:a tangled line"
-          }
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "between",
-          "a": "kite:a rokkaku fighter",
-          "b": "flier:Morwenna",
-          "c": "line:parcel string"
         }
       ]
     },
@@ -260,13 +157,13 @@
           "options": [
             {
               "kind": "adjacent",
-              "a": "flier:Ifeoma",
-              "b": "line:kevlar thread"
+              "a": "fee:$12",
+              "b": "kite:a hand-painted dragon"
             },
             {
-              "kind": "link",
-              "a": "line:hemp cord",
-              "b": "mishap:a sudden lull"
+              "kind": "before",
+              "a": "line:waxed cotton",
+              "b": "kite:a hand-painted dragon"
             }
           ]
         }
@@ -276,9 +173,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "adjacent",
-          "a": "flier:Aurelio",
-          "b": "line:kevlar thread"
+          "kind": "immediately_before",
+          "a": "fee:$4",
+          "b": "kite:a hand-painted dragon"
         }
       ]
     },
@@ -286,75 +183,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "arith",
-          "a": "mishap:a lost tail",
-          "b": "line:waxed cotton",
-          "k": 2.0,
-          "op": "mul"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "arith",
-          "a": "flier:Blaise",
-          "b": "line:kevlar thread",
-          "k": 2,
-          "op": "add"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "mishap:a snapped spar",
-          "b": "line:hemp cord"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "kite:a rokkaku fighter",
-          "b": "line:hemp cord"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "arith",
-          "a": "kite:a paper sled kite",
-          "b": "mishap:a trespassing dog",
-          "k": 2,
-          "op": "add"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "flier:Aurelio",
-          "b": "mishap:a trespassing dog"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "line:nylon twine",
-          "b": "mishap:a tangled line"
+          "kind": "not_link",
+          "a": "fee:$2",
+          "b": "flier:Ifeoma"
         }
       ]
     },
@@ -363,8 +194,8 @@
       "atoms": [
         {
           "kind": "immediately_before",
-          "a": "kite:a box kite",
-          "b": "mishap:a lost tail"
+          "a": "kite:a delta wing",
+          "b": "fee:$6"
         }
       ]
     },
@@ -372,9 +203,125 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "before",
-          "a": "kite:a hand-painted dragon",
-          "b": "line:nylon twine"
+          "kind": "not_both",
+          "x": {
+            "kind": "adjacent",
+            "a": "flier:Aurelio",
+            "b": "mishap:a lost tail"
+          },
+          "y": {
+            "kind": "before",
+            "a": "fee:$2",
+            "b": "line:kevlar thread"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "fee:$6",
+          "b": "kite:a rokkaku fighter",
+          "c": "line:fishing monofilament"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "fee:$10",
+              "b": "flier:Blaise"
+            },
+            {
+              "kind": "before",
+              "a": "line:hemp cord",
+              "b": "flier:Kipling"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "mishap:a tangled line",
+          "b": "flier:Blaise"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "arith",
+          "a": "mishap:a tree",
+          "b": "line:fishing monofilament",
+          "k": 3.0,
+          "op": "mul"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "kite:a paper sled kite",
+          "b": "mishap:a trespassing dog"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "flier:Aurelio",
+          "b": "kite:a paper sled kite"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "flier:Blaise",
+          "b": "mishap:a sudden lull"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "arith",
+          "a": "kite:a seven-metre centipede",
+          "b": "mishap:a snapped spar",
+          "k": 10,
+          "op": "add"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not",
+          "inner": {
+            "kind": "before",
+            "a": "mishap:a trespassing dog",
+            "b": "line:kevlar thread"
+          }
         }
       ]
     }
@@ -422,33 +369,34 @@
     ]
   },
   "stats": {
-    "atoms": 20,
-    "numbered_clues": 20,
+    "atoms": 18,
+    "numbered_clues": 16,
     "kinds": {
-      "immediately_before": 2,
-      "or": 4,
+      "before": 1,
+      "arith": 3,
+      "not_link": 3,
+      "or": 3,
+      "immediately_before": 4,
       "not_both": 1,
-      "before": 4,
-      "if_then": 2,
       "between": 1,
-      "adjacent": 3,
-      "arith": 3
+      "adjacent": 1,
+      "not": 1
     },
     "positives": 0,
-    "compounds": 7
+    "compounds": 5
   },
   "solve": {
     "solved": true,
-    "max_tier": 6,
-    "max_technique": "trial",
-    "steps": 92,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 80,
     "tier_counts": {
-      "bijection": 40,
-      "order": 40,
-      "disjunction": 10,
-      "trial": 2
+      "direct": 3,
+      "bijection": 41,
+      "order": 25,
+      "disjunction": 11
     },
-    "trial_eliminations": 2,
+    "trial_eliminations": 0,
     "unknown_cells": 24
   }
 }

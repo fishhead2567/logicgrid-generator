@@ -7,3 +7,6 @@ dist/
 .venv/
 venv/
 .env
+
+# Personal Claude Code overrides for this project
+.claude/settings.local.json

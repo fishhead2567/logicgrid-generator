@@ -1,0 +1,24 @@
+The Case of the Missing Trowel
+
+The Marchmont Mutual Improvement Society has taken on the case of the missing trowel with a seriousness it has never shown a book, and six of its members gave up a whole day to it, each arriving at the shed at a different hour and leaving again with a different notion of what had happened. Each of the six investigators has exactly one start time, one name, one theory, one clue produced and one alibi, and within each category every entry belongs to a different investigator, so each entry is used exactly once.
+
+The start times, listed from earliest to latest and numbered first through sixth in that order, are 8am, 9am, 10am, 11am, noon and 1pm. The investigators are Ngozi, Fergus, Ariadne, Hortensia, Leopold and Barnabas. The theories put forward are a clerical error, an inside job, a jealous rival, a conspiracy of two, nothing happened at all and a magpie. The clues produced are a tyre mark, a torn receipt, a smell of creosote, an unexplained hole, a bootprint and a dropped glove. The alibis offered are the dentist, watching the snooker, choir practice, a long bath, a locked greenhouse and no alibi whatsoever.
+
+Clues:
+1. In start time order, 11am falls somewhere between the investigator who produces an unexplained hole and Fergus.
+2. In start time order, the investigator who favours a conspiracy of two falls somewhere between the investigator who produces a bootprint and noon.
+3. Of the investigator who claims watching the snooker and the investigator who starts at 9am, one holds an odd-numbered start time and the other an even-numbered start time.
+4. The investigator who produces a bootprint and the investigator who starts at noon begin exactly two hours apart.
+5. At least one of the following is true, and possibly both: Leopold reports at 9am; or, of the investigator who favours a jealous rival and the investigator who starts at 9am, one holds an odd-numbered start time and the other an even-numbered start time.
+6. The investigator who favours a magpie and the investigator who starts at 8am begin exactly four hours apart.
+7. The investigator who produces a torn receipt and Hortensia begin exactly two hours apart.
+8. The investigator who claims a long bath begins exactly one hour earlier than Hortensia, with no start time in between.
+9. The investigator who claims a locked greenhouse begins exactly one hour earlier than Ariadne, with no start time in between.
+10. Ngozi does not favour an inside job.
+11. The investigator who produces a bootprint and Barnabas begin exactly one hour apart, in one direction or the other.
+12. The investigator who claims no alibi whatsoever and the investigator who favours a jealous rival begin exactly four hours apart.
+13. In start time order, the investigator who claims the dentist falls somewhere between the investigator who produces a torn receipt and the investigator who favours nothing happened at all.
+14. At least one of the following is true, and possibly both: Ariadne produces an unexplained hole; or the investigator who claims a long bath and the investigator who produces a tyre mark both hold odd-numbered start times, or both hold even-numbered start times.
+15. The investigator who produces a smell of creosote and the investigator who favours nothing happened at all begin exactly three hours apart.
+16. Leopold and the investigator who favours nothing happened at all begin exactly one hour apart, in one direction or the other.
+17. Leopold and the investigator who favours a clerical error begin exactly two hours apart.

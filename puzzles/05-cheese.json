@@ -5,7 +5,7 @@
   "blurb": "A case of opinionated cheeses, their equally opinionated makers, and one display that has begun to smell like a political scandal.",
   "profile": "gentle",
   "rating": 1,
-  "score": 2.285,
+  "score": 3.67,
   "seed": 2026172615031,
   "spec": {
     "difficulty": "gentle",
@@ -76,26 +76,6 @@
           "kind": "link",
           "a": "cheese:Oakmoss",
           "b": "price:$7"
-        },
-        {
-          "kind": "link",
-          "a": "price:$7",
-          "b": "rind:a cloth-bound rind"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "link",
-          "a": "cheese:Bellringer",
-          "b": "rind:a waxed rind"
-        },
-        {
-          "kind": "link",
-          "a": "cheese:Bellringer",
-          "b": "price:$3"
         }
       ]
     },
@@ -105,7 +85,27 @@
         {
           "kind": "link",
           "a": "cheese:Old Thrashing",
-          "b": "rind:an ash-coated rind"
+          "b": "price:$5"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "cheese:Saltpans",
+          "b": "price:$9"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "price:$9",
+          "b": "rind:a washed rind"
         }
       ]
     },
@@ -114,8 +114,18 @@
       "atoms": [
         {
           "kind": "not_link",
-          "a": "price:$5",
-          "b": "rind:a washed rind"
+          "a": "price:$3",
+          "b": "rind:a cloth-bound rind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "price:$3",
+          "b": "rind:an ash-coated rind"
         }
       ]
     }
@@ -142,22 +152,24 @@
   },
   "stats": {
     "atoms": 6,
-    "numbered_clues": 4,
+    "numbered_clues": 6,
     "kinds": {
-      "link": 5,
-      "not_link": 1
+      "link": 4,
+      "not_link": 1,
+      "immediately_before": 1
     },
-    "positives": 5,
+    "positives": 4,
     "compounds": 0
   },
   "solve": {
     "solved": true,
-    "max_tier": 2,
-    "max_technique": "bijection",
-    "steps": 12,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 13,
     "tier_counts": {
-      "direct": 6,
-      "bijection": 6
+      "direct": 5,
+      "bijection": 7,
+      "order": 1
     },
     "trial_eliminations": 0,
     "unknown_cells": 8

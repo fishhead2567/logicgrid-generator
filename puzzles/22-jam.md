@@ -1,37 +1,34 @@
 # Preserves, and the Preservation of Grudges
 
-**Difficulty** 4/7 (moderate) &nbsp;&nbsp; **Grid** 5 x 5 &nbsp;&nbsp; **Clues** 11 &nbsp;&nbsp; **id** `b0adf92f3b32`
+**Difficulty** 4/7 (moderate) &nbsp;&nbsp; **Grid** 4 x 5 &nbsp;&nbsp; **Clues** 9 &nbsp;&nbsp; **id** `f794a760cdbb`
 
 ## Introduction
 
 The preserves tent is the most competitive building at the show, and the only one with a locked door.
-Five entrants are involved. Determine each entrant's price, preserve, jar and ingredient.
-- **Entrant**: Bernadette, Emeka, Ottilie, Drusilla and Rafferty.
+Five entrants are involved. Determine each entrant's price, preserve and ingredient.
+- **Entrant**: Stanislaw, Rafferty, Harriet, Drusilla and Bernadette.
 - **Price** (listed from cheaper to dearer): $3, $5, $7, $9 and $11.
-- **Preserve**: quince jelly; rosehip syrup; hot pepper jelly; damson cheese; and sloe and apple butter.
-- **Jar**: a tall french jar, a squat kilner, a sealed crock, a recycled honey jar and a hexagonal jar.
-- **Secret ingredient**: star anise, a bay leaf, a splash of gin, a spoon of treacle and black pepper.
-Every entrant has a different price, preserve, jar and ingredient, so within each category every item is used exactly once.
+- **Preserve**: green walnut pickle; rosehip syrup; medlar jam; sloe and apple butter; and quince jelly.
+- **Secret ingredient**: nothing whatsoever, orange zest, star anise, black pepper and a splash of gin.
+Every entrant has a different price, preserve and ingredient, so within each category every item is used exactly once.
 
 ## Clues
 
-1. The entrant who uses a tall french jar charges $9.
-2. The entrant who enters rosehip syrup falls somewhere between $11 and the entrant who adds black pepper in price order.
-3. Emeka is dearer than $7 in price order. Emeka does not enter sloe and apple butter.
-4. The entrant who adds star anise does not charge $11. The entrant who enters hot pepper jelly does not add star anise.
-5. The entrant who uses a squat kilner falls somewhere between Bernadette and Drusilla in price order.
-6. The entrant who enters hot pepper jelly is exactly one price step cheaper than the entrant who adds black pepper, with no price in between.
-7. The entrant who uses a hexagonal jar is exactly one price step cheaper than Ottilie, with no price in between.
-8. The entrant who enters rosehip syrup falls somewhere between the entrant who uses a sealed crock and the entrant who adds a spoon of treacle in price order.
-9. The entrant who uses a sealed crock is cheaper than the entrant who adds a bay leaf in price order.
-10. Drusilla is exactly one price step cheaper than the entrant who uses a hexagonal jar, with no price in between.
-11. The entrant who adds a spoon of treacle is cheaper than the entrant who enters sloe and apple butter in price order. The entrant who enters quince jelly does not add a spoon of treacle.
+1. The entrant who adds a splash of gin charges $3.
+2. The entrant who enters rosehip syrup does not charge $5. Stanislaw is exactly one price step cheaper than $5, with no price in between.
+3. The entrant who adds nothing whatsoever is exactly one price step cheaper than $11, with no price in between.
+4. Drusilla falls somewhere between the entrant who enters sloe and apple butter and $3 in price order.
+5. Harriet and the entrant who adds orange zest are exactly one price step apart in price order, in one direction or the other.
+6. Rafferty is exactly one price step cheaper than the entrant who enters medlar jam, with no price in between.
+7. The entrant who enters medlar jam is exactly one price step cheaper than the entrant who adds orange zest, with no price in between.
+8. The entrant who enters quince jelly falls somewhere between Drusilla and Harriet in price order.
+9. The entrant who enters quince jelly and the entrant who adds star anise are exactly one price step apart in price order, in one direction or the other.
 
 ## Solving chart
 
 *Price vs Entrant*
 
-| | Bernadette | Emeka | Ottilie | Drusilla | Rafferty |
+| | Stanislaw | Rafferty | Harriet | Drusilla | Bernadette |
 |---|---|---|---|---|---|
 | **$3** | | | | | |
 | **$5** | | | | | |
@@ -41,17 +38,7 @@ Every entrant has a different price, preserve, jar and ingredient, so within eac
 
 *Price vs Preserve*
 
-| | quince jelly | rosehip syrup | hot pepper jelly | damson cheese | sloe and apple butter |
-|---|---|---|---|---|---|
-| **$3** | | | | | |
-| **$5** | | | | | |
-| **$7** | | | | | |
-| **$9** | | | | | |
-| **$11** | | | | | |
-
-*Price vs Jar*
-
-| | a tall french jar | a squat kilner | a sealed crock | a recycled honey jar | a hexagonal jar |
+| | green walnut pickle | rosehip syrup | medlar jam | sloe and apple butter | quince jelly |
 |---|---|---|---|---|---|
 | **$3** | | | | | |
 | **$5** | | | | | |
@@ -61,7 +48,7 @@ Every entrant has a different price, preserve, jar and ingredient, so within eac
 
 *Price vs Secret ingredient*
 
-| | star anise | a bay leaf | a splash of gin | a spoon of treacle | black pepper |
+| | nothing whatsoever | orange zest | star anise | black pepper | a splash of gin |
 |---|---|---|---|---|---|
 | **$3** | | | | | |
 | **$5** | | | | | |
@@ -71,118 +58,87 @@ Every entrant has a different price, preserve, jar and ingredient, so within eac
 
 *Entrant vs Preserve*
 
-| | quince jelly | rosehip syrup | hot pepper jelly | damson cheese | sloe and apple butter |
+| | green walnut pickle | rosehip syrup | medlar jam | sloe and apple butter | quince jelly |
 |---|---|---|---|---|---|
-| **Bernadette** | | | | | |
-| **Emeka** | | | | | |
-| **Ottilie** | | | | | |
-| **Drusilla** | | | | | |
+| **Stanislaw** | | | | | |
 | **Rafferty** | | | | | |
-
-*Entrant vs Jar*
-
-| | a tall french jar | a squat kilner | a sealed crock | a recycled honey jar | a hexagonal jar |
-|---|---|---|---|---|---|
-| **Bernadette** | | | | | |
-| **Emeka** | | | | | |
-| **Ottilie** | | | | | |
+| **Harriet** | | | | | |
 | **Drusilla** | | | | | |
-| **Rafferty** | | | | | |
+| **Bernadette** | | | | | |
 
 *Entrant vs Secret ingredient*
 
-| | star anise | a bay leaf | a splash of gin | a spoon of treacle | black pepper |
+| | nothing whatsoever | orange zest | star anise | black pepper | a splash of gin |
 |---|---|---|---|---|---|
-| **Bernadette** | | | | | |
-| **Emeka** | | | | | |
-| **Ottilie** | | | | | |
-| **Drusilla** | | | | | |
+| **Stanislaw** | | | | | |
 | **Rafferty** | | | | | |
-
-*Preserve vs Jar*
-
-| | a tall french jar | a squat kilner | a sealed crock | a recycled honey jar | a hexagonal jar |
-|---|---|---|---|---|---|
-| **quince jelly** | | | | | |
-| **rosehip syrup** | | | | | |
-| **hot pepper jelly** | | | | | |
-| **damson cheese** | | | | | |
-| **sloe and apple butter** | | | | | |
+| **Harriet** | | | | | |
+| **Drusilla** | | | | | |
+| **Bernadette** | | | | | |
 
 *Preserve vs Secret ingredient*
 
-| | star anise | a bay leaf | a splash of gin | a spoon of treacle | black pepper |
+| | nothing whatsoever | orange zest | star anise | black pepper | a splash of gin |
 |---|---|---|---|---|---|
-| **quince jelly** | | | | | |
+| **green walnut pickle** | | | | | |
 | **rosehip syrup** | | | | | |
-| **hot pepper jelly** | | | | | |
-| **damson cheese** | | | | | |
+| **medlar jam** | | | | | |
 | **sloe and apple butter** | | | | | |
-
-*Jar vs Secret ingredient*
-
-| | star anise | a bay leaf | a splash of gin | a spoon of treacle | black pepper |
-|---|---|---|---|---|---|
-| **a tall french jar** | | | | | |
-| **a squat kilner** | | | | | |
-| **a sealed crock** | | | | | |
-| **a recycled honey jar** | | | | | |
-| **a hexagonal jar** | | | | | |
+| **quince jelly** | | | | | |
 
 ## Solution
 
-| Price | Entrant | Preserve | Jar | Secret ingredient |
-|---|---|---|---|---|
-| $3 | Drusilla | hot pepper jelly | a sealed crock | a splash of gin |
-| $5 | Rafferty | quince jelly | a hexagonal jar | black pepper |
-| $7 | Ottilie | rosehip syrup | a squat kilner | star anise |
-| $9 | Emeka | damson cheese | a tall french jar | a spoon of treacle |
-| $11 | Bernadette | sloe and apple butter | a recycled honey jar | a bay leaf |
+| Price | Entrant | Preserve | Secret ingredient |
+|---|---|---|---|
+| $3 | Stanislaw | rosehip syrup | a splash of gin |
+| $5 | Drusilla | green walnut pickle | star anise |
+| $7 | Rafferty | quince jelly | black pepper |
+| $9 | Harriet | medlar jam | nothing whatsoever |
+| $11 | Bernadette | sloe and apple butter | orange zest |
 
 ## How it falls out
 
-1. [direct] from clue 13 secret:star anise: ruled out position(s) 5
-2. [direct] from clue 3 jar:a tall french jar: ruled out position(s) 1,2,3,5
-3. [bijection] jar:a squat kilner: ruled out position(s) 4
-4. [bijection] jar:a sealed crock: ruled out position(s) 4
-5. [bijection] jar:a recycled honey jar: ruled out position(s) 4
-6. [bijection] jar:a hexagonal jar: ruled out position(s) 4
-7. [order] from clue 14 entrant:Drusilla: ruled out position(s) 3,5
-8. [order] from clue 14 jar:a hexagonal jar: ruled out position(s) 1
-9. [order] from clue 12 preserve:rosehip syrup: ruled out position(s) 1,5
-10. [order] from clue 10 secret:a spoon of treacle: ruled out position(s) 5
-11. [order] from clue 10 preserve:sloe and apple butter: ruled out position(s) 1
-12. [order] from clue 9 jar:a hexagonal jar: ruled out position(s) 5
-13. [order] from clue 9 entrant:Ottilie: ruled out position(s) 1,2,5
-14. [order] from clue 14 entrant:Drusilla: ruled out position(s) 4
-15. [order] from clue 8 jar:a sealed crock: ruled out position(s) 5
-16. [order] from clue 8 secret:a bay leaf: ruled out position(s) 1
-17. [order] from clue 12 preserve:rosehip syrup: ruled out position(s) 4
-18. [order] from clue 12 secret:a spoon of treacle: ruled out position(s) 2
-19. [order] from clue 7 secret:black pepper: ruled out position(s) 3,4,5
-20. [order] from clue 5 jar:a squat kilner: ruled out position(s) 1,5
-21. [order] from clue 5 entrant:Bernadette: ruled out position(s) 1,2
-22. [order] from clue 4 entrant:Emeka: ruled out position(s) 1,2,3
-23. [order] from clue 2 preserve:hot pepper jelly: ruled out position(s) 2,3,4,5
-24. [order] from clue 2 secret:black pepper: ruled out position(s) 1
-25. [order] from clue 7 preserve:rosehip syrup: ruled out position(s) 2
-26. [order] from clue 12 jar:a sealed crock: ruled out position(s) 3
-27. [order] from clue 12 secret:a spoon of treacle: ruled out position(s) 1,3
-28. [order] from clue 10 preserve:sloe and apple butter: ruled out position(s) 2,3,4
-29. [direct] from clue 11 entrant:Emeka: ruled out position(s) 5
-30. [direct] from clue 6 preserve:quince jelly: ruled out position(s) 4
-31. [direct] from clue 1 secret:star anise: ruled out position(s) 1
-32. [bijection] entrant:Bernadette: ruled out position(s) 4
-33. [bijection] entrant:Ottilie: ruled out position(s) 4
-34. [bijection] entrant:Rafferty: ruled out position(s) 4
-35. [bijection] jar:a recycled honey jar: ruled out position(s) 1,2,3
-36. [bijection] preserve:quince jelly: ruled out position(s) 1,3,5
-37. [bijection] preserve:damson cheese: ruled out position(s) 1,3,5
-38. [bijection] preserve:damson cheese: ruled out position(s) 2
-39. [bijection] secret:star anise: ruled out position(s) 2,4
-40. [bijection] secret:a bay leaf: ruled out position(s) 2,4
-_... and 10 further steps._
+1. [direct] from clue 8 preserve:rosehip syrup: ruled out position(s) 2
+2. [direct] from clue 4 secret:a splash of gin: ruled out position(s) 2,3,4,5
+3. [bijection] secret:nothing whatsoever: ruled out position(s) 1
+4. [bijection] secret:orange zest: ruled out position(s) 1
+5. [bijection] secret:star anise: ruled out position(s) 1
+6. [bijection] secret:black pepper: ruled out position(s) 1
+7. [order] from clue 9 entrant:Stanislaw: ruled out position(s) 2,3,4,5
+8. [order] from clue 7 entrant:Drusilla: ruled out position(s) 1,5
+9. [order] from clue 7 preserve:sloe and apple butter: ruled out position(s) 1,2
+10. [order] from clue 6 preserve:medlar jam: ruled out position(s) 5
+11. [order] from clue 3 preserve:quince jelly: ruled out position(s) 1,5
+12. [order] from clue 3 entrant:Harriet: ruled out position(s) 3
+13. [order] from clue 2 entrant:Rafferty: ruled out position(s) 4,5
+14. [order] from clue 2 preserve:medlar jam: ruled out position(s) 1
+15. [order] from clue 6 secret:orange zest: ruled out position(s) 2
+16. [order] from clue 5 entrant:Harriet: ruled out position(s) 1
+17. [order] from clue 3 preserve:quince jelly: ruled out position(s) 2
+18. [order] from clue 1 secret:nothing whatsoever: ruled out position(s) 2,3,5
+19. [bijection] entrant:Rafferty: ruled out position(s) 1
+20. [bijection] entrant:Bernadette: ruled out position(s) 1
+21. [bijection] secret:orange zest: ruled out position(s) 4
+22. [bijection] secret:star anise: ruled out position(s) 4
+23. [bijection] secret:black pepper: ruled out position(s) 4
+24. [order] from clue 6 preserve:medlar jam: ruled out position(s) 3
+25. [order] from clue 5 entrant:Harriet: ruled out position(s) 5
+26. [order] from clue 3 preserve:quince jelly: ruled out position(s) 4
+27. [order] from clue 3 entrant:Drusilla: ruled out position(s) 3
+28. [order] from clue 10 secret:star anise: ruled out position(s) 3,5
+29. [order] from clue 2 entrant:Rafferty: ruled out position(s) 2
+30. [order] from clue 2 preserve:medlar jam: ruled out position(s) 2
+31. [order] from clue 6 secret:orange zest: ruled out position(s) 3
+32. [order] from clue 5 entrant:Harriet: ruled out position(s) 2
+33. [order] from clue 3 entrant:Drusilla: ruled out position(s) 4
+34. [bijection] entrant:Bernadette: ruled out position(s) 2,3,4
+35. [bijection] preserve:green walnut pickle: ruled out position(s) 3,4
+36. [bijection] preserve:rosehip syrup: ruled out position(s) 3,4
+37. [bijection] preserve:sloe and apple butter: ruled out position(s) 3,4
+38. [bijection] preserve:green walnut pickle: ruled out position(s) 1,5
+39. [bijection] secret:black pepper: ruled out position(s) 2,5
+40. [bijection] preserve:rosehip syrup: ruled out position(s) 5
 
 ---
 
-<sub>seed `2026172749654` &middot; score 6.13 &middot; atoms 14 &middot; positives 1 &middot; solved by order</sub>
+<sub>seed `2026172749654` &middot; score 5.515 &middot; atoms 10 &middot; positives 1 &middot; solved by order</sub>

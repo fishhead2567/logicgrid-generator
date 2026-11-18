@@ -1,0 +1,18 @@
+# The Orchid House Reckoning
+
+Five growers share the orchid house at Fenn Park, and each is quietly certain that the other four are overwatering. Each grower brings in a single harvest, and the five harvest months, listed from earliest to latest, are January, February, March, April and May. The growers are Nkiruka, Ambrose, Columbine, Rowena and Taavi. The prize plants are a slipper orchid, a dancing lady, a vanilla vine, a jewel orchid and a moth orchid. The potting mixes in use are bark chip, perlite and charcoal, coconut husk, tree fern fibre and sphagnum moss. The pests complained of are mealybug, scale insects, thrips, fungus gnats and root rot. Within each of these categories every item belongs to a different grower, so each harvest month, each grower, each orchid, each potting mix and each pest is used exactly once. From the clues below, work out who grows what, in which mix, troubled by which pest, and in which month the harvest comes.
+
+## Clues
+
+1. Either Rowena and the grower who pots in sphagnum moss harvest two months apart, or the grower who grows a vanilla vine harvests in February, and possibly both.
+2. Either the grower who grows a jewel orchid harvests later than May, or Columbine pots in tree fern fibre, and possibly both.
+3. Ambrose harvests in the month immediately before March.
+4. The grower who is troubled by thrips harvests exactly one month apart from January, in one direction or the other.
+5. The grower who is troubled by fungus gnats harvests in the month immediately after April.
+6. The grower who grows a slipper orchid harvests exactly one month apart from January, in one direction or the other.
+7. The grower who grows a vanilla vine and the grower who is troubled by thrips harvest exactly one month apart, in one direction or the other.
+8. The grower who pots in coconut husk and the grower who is troubled by root rot harvest two months apart.
+9. The grower who grows a moth orchid harvests earlier than the grower who pots in sphagnum moss.
+10. Either the grower who pots in bark chip and the grower who grows a dancing lady harvest three months apart, or the grower who grows a slipper orchid is troubled by fungus gnats, and possibly both.
+11. Nkiruka and the grower who grows a vanilla vine harvest exactly one month apart, in one direction or the other.
+12. The grower who pots in coconut husk and the grower who is troubled by scale insects harvest four months apart.

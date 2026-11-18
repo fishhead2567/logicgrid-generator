@@ -4,8 +4,8 @@
   "theme": "balloon",
   "blurb": "The Thistledown Ascent is less a race than a slow argument conducted at two thousand feet.",
   "profile": "moderate",
-  "rating": 3,
-  "score": 5.355,
+  "rating": 4,
+  "score": 5.515,
   "seed": 2026172781330,
   "spec": {
     "difficulty": "moderate",
@@ -84,18 +84,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "pilot:Isolde",
-          "b": "time:9am"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "link",
-          "a": "ballast:sandbags",
-          "b": "time:11am"
+          "a": "envelope:the silver envelope",
+          "b": "pilot:Montague"
         }
       ]
     },
@@ -104,30 +94,9 @@
       "atoms": [
         {
           "kind": "between",
-          "a": "time:11am",
-          "b": "pilot:Grover",
-          "c": "pilot:Isolde"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "between",
-          "a": "time:11am",
-          "b": "ballast:lead shot",
-          "c": "envelope:the kingfisher envelope"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "ballast:pea gravel",
-          "b": "pilot:Anneliese"
+          "a": "pilot:Anneliese",
+          "b": "ballast:pea gravel",
+          "c": "time:8am"
         }
       ]
     },
@@ -136,8 +105,19 @@
       "atoms": [
         {
           "kind": "not_link",
-          "a": "ballast:lead shot",
-          "b": "envelope:the oxblood envelope"
+          "a": "pilot:Anneliese",
+          "b": "time:9am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "envelope:the saffron envelope",
+          "b": "ballast:bottled water",
+          "c": "time:10am"
         }
       ]
     },
@@ -146,30 +126,10 @@
       "atoms": [
         {
           "kind": "gap",
-          "a": "ballast:bottled water",
-          "b": "envelope:the patchwork envelope",
-          "k": 3,
+          "a": "ballast:pea gravel",
+          "b": "pilot:Delphine",
+          "k": 4,
           "rel": "eq"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "immediately_before",
-          "a": "pilot:Montague",
-          "b": "ballast:sandbags"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "immediately_before",
-          "a": "ballast:lead shot",
-          "b": "envelope:the silver envelope"
         }
       ]
     },
@@ -179,8 +139,33 @@
         {
           "kind": "between",
           "a": "ballast:iron filings",
-          "b": "envelope:the patchwork envelope",
-          "c": "pilot:Isolde"
+          "b": "envelope:the saffron envelope",
+          "c": "pilot:Grover"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "ballast:sandbags",
+          "b": "envelope:the oxblood envelope"
+        },
+        {
+          "kind": "before",
+          "a": "envelope:the silver envelope",
+          "b": "ballast:sandbags"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "envelope:the kingfisher envelope",
+          "b": "pilot:Anneliese"
         }
       ]
     }
@@ -216,28 +201,28 @@
     ]
   },
   "stats": {
-    "atoms": 10,
-    "numbered_clues": 10,
+    "atoms": 9,
+    "numbered_clues": 8,
     "kinds": {
-      "link": 2,
+      "link": 1,
       "between": 3,
-      "adjacent": 1,
-      "not_link": 1,
+      "not_link": 2,
       "gap": 1,
-      "immediately_before": 2
+      "before": 1,
+      "adjacent": 1
     },
-    "positives": 2,
+    "positives": 1,
     "compounds": 0
   },
   "solve": {
     "solved": true,
     "max_tier": 3,
     "max_technique": "order",
-    "steps": 43,
+    "steps": 48,
     "tier_counts": {
-      "direct": 3,
+      "direct": 6,
       "bijection": 23,
-      "order": 17
+      "order": 19
     },
     "trial_eliminations": 0,
     "unknown_cells": 15

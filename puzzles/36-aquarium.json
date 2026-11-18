@@ -4,8 +4,8 @@
   "theme": "aquarium",
   "blurb": "Coldwater Hall Aquarium keeps a night rota of tanks, and one keeper who is definitely feeding the wrong things.",
   "profile": "hard",
-  "rating": 6,
-  "score": 10.2083,
+  "rating": 5,
+  "score": 9.1942,
   "seed": 2026172860520,
   "spec": {
     "difficulty": "hard",
@@ -97,21 +97,44 @@
       "style": "sentences",
       "atoms": [
         {
+          "kind": "link",
+          "a": "incident:a failed chiller",
+          "b": "tank:the deep reef"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "tank:the deep reef",
+          "b": "slot:slot four"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
           "kind": "or",
           "options": [
             {
-              "kind": "before",
-              "a": "slot:slot four",
-              "b": "incident:a visitor's dropped phone"
+              "kind": "adjacent",
+              "a": "slot:slot three",
+              "b": "tank:the kelp tank"
             },
             {
-              "kind": "gap",
-              "a": "feed:mussel meat",
-              "b": "slot:slot two",
-              "k": 2,
-              "rel": "eq"
+              "kind": "link",
+              "a": "feed:a gelatine cube of unclear provenance",
+              "b": "incident:an algal bloom"
             }
           ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "feed:mussel meat",
+          "b": "slot:slot five"
         }
       ]
     },
@@ -141,19 +164,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "before",
-              "a": "slot:slot five",
-              "b": "tank:the touch pool"
-            },
-            {
-              "kind": "immediately_before",
-              "a": "incident:a failed chiller",
-              "b": "feed:mussel meat"
-            }
-          ]
+          "kind": "before",
+          "a": "feed:a gelatine cube of unclear provenance",
+          "b": "slot:slot four"
         }
       ]
     },
@@ -172,8 +185,8 @@
       "atoms": [
         {
           "kind": "immediately_before",
-          "a": "tank:the deep reef",
-          "b": "slot:slot four"
+          "a": "slot:slot two",
+          "b": "feed:nori sheets"
         }
       ]
     },
@@ -181,19 +194,31 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "before",
-              "a": "tank:the kelp tank",
-              "b": "feed:brine shrimp"
-            },
-            {
-              "kind": "link",
-              "a": "keeper:Chiamaka",
-              "b": "tank:the deep reef"
-            }
-          ]
+          "kind": "adjacent",
+          "a": "incident:an unexplained pH swing",
+          "b": "tank:the deep reef"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "keeper:Fitzwilliam",
+          "b": "incident:a visitor's dropped phone"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "keeper:Chiamaka",
+          "b": "tank:the estuary tank",
+          "k": 3,
+          "rel": "eq"
         }
       ]
     },
@@ -212,59 +237,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "adjacent",
-          "a": "feed:nori sheets",
-          "b": "incident:an unexplained pH swing"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "tank:the touch pool",
-          "b": "incident:a visitor's dropped phone"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "not_link",
-          "a": "incident:an unexplained pH swing",
-          "b": "keeper:Chiamaka"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
           "kind": "before",
           "a": "keeper:Oskar",
           "b": "tank:the seahorse nursery"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "feed:frozen krill",
-          "b": "tank:the seahorse nursery"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "keeper:Fitzwilliam",
-          "b": "tank:the estuary tank"
         }
       ]
     }
@@ -308,29 +283,30 @@
   },
   "stats": {
     "atoms": 14,
-    "numbered_clues": 14,
+    "numbered_clues": 13,
     "kinds": {
-      "or": 3,
+      "link": 1,
+      "immediately_before": 3,
+      "or": 1,
+      "adjacent": 3,
       "between": 2,
       "parity": 1,
-      "adjacent": 3,
-      "immediately_before": 1,
-      "before": 3,
-      "not_link": 1
+      "before": 2,
+      "gap": 1
     },
-    "positives": 0,
-    "compounds": 3
+    "positives": 1,
+    "compounds": 1
   },
   "solve": {
     "solved": true,
     "max_tier": 4,
     "max_technique": "disjunction",
-    "steps": 60,
+    "steps": 47,
     "tier_counts": {
       "direct": 1,
-      "bijection": 33,
-      "order": 23,
-      "disjunction": 3
+      "bijection": 20,
+      "order": 25,
+      "disjunction": 1
     },
     "trial_eliminations": 0,
     "unknown_cells": 20

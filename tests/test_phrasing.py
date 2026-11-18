@@ -287,3 +287,56 @@ def test_every_shape_keeps_the_names():
                 assert any(c.subject for c in schema.categories), (
                     f"{theme_pack.slug} at {cats} categories lost its names"
                 )
+
+
+# ---------------------------------------------------------------------------
+# compound clues must offer a real choice
+# ---------------------------------------------------------------------------
+
+
+def test_impossible_disjuncts_are_not_generated():
+    """A branch that can never hold is not a choice, it is padding.
+
+    Found by reading a narrated puzzle: "Either the jewel orchid grower
+    harvests later than May, or Columbine pots in tree fern fibre" -- where May
+    is the last month, so the first branch is unsatisfiable and the clue just
+    asserts the second one at twice the length.
+    """
+    from logicgrid.clues import IfThen, NotBoth, Not, Or
+    from logicgrid.generate import is_vacuous
+
+    for difficulty in ("hard", "expert"):
+        for seed in (3, 11, 42):
+            puzzle = generate(PuzzleSpec(difficulty=difficulty, seed=seed))
+            for atom in puzzle.atoms():
+                if isinstance(atom, (Or, NotBoth, IfThen)):
+                    for part in atom.subatoms():
+                        assert not is_vacuous(part, puzzle.schema), (
+                            f"{difficulty}/{seed}: {part!r} can never hold"
+                        )
+                elif isinstance(atom, Not):
+                    assert not is_vacuous(atom.inner, puzzle.schema)
+
+
+def test_is_vacuous_spots_the_endpoint_cases():
+    from logicgrid.clues import Adjacent, Before, Gap, ImmediatelyBefore
+    from logicgrid.generate import is_vacuous
+
+    schema = Schema(
+        [
+            Category("month", "Month", MONTHS, ordered=True, noun="month",
+                     cmp_less="earlier", cmp_more="later", step_noun="month"),
+            Category("grower", "Grower", GROWERS, noun="grower", subject=True),
+        ],
+        spine="month",
+        entity_noun="grower",
+    )
+    last, first = Ref("month", MONTHS[-1]), Ref("month", MONTHS[0])
+    who = Ref("grower", GROWERS[0])
+    assert is_vacuous(Before(last, who), schema), "nothing is after the last month"
+    assert is_vacuous(ImmediatelyBefore(last, who), schema)
+    assert is_vacuous(Gap(who, last, len(MONTHS)), schema), "gap wider than the grid"
+    # And the satisfiable ones are left alone.
+    assert not is_vacuous(Before(first, who), schema)
+    assert not is_vacuous(Adjacent(who, last), schema)
+    assert not is_vacuous(Gap(who, last, 2), schema)

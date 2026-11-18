@@ -1,6 +1,6 @@
 # The Cheesemongers' Standoff
 
-**Difficulty** 1/7 (gentle) &nbsp;&nbsp; **Grid** 3 x 4 &nbsp;&nbsp; **Clues** 4 &nbsp;&nbsp; **id** `4c437f283d38`
+**Difficulty** 1/7 (gentle) &nbsp;&nbsp; **Grid** 3 x 4 &nbsp;&nbsp; **Clues** 6 &nbsp;&nbsp; **id** `4c437f283d38`
 
 ## Introduction
 
@@ -13,10 +13,12 @@ Every cheese has a different price and rind, so within each category every item 
 
 ## Clues
 
-1. Oakmoss sells for $7. The cheese that has a cloth-bound rind sells for $7.
-2. Bellringer has a waxed rind. Bellringer sells for $3.
-3. Old Thrashing has an ash-coated rind.
-4. The cheese that has a washed rind does not sell for $5.
+1. Oakmoss sells for $7.
+2. Old Thrashing sells for $5.
+3. Saltpans sells for $9.
+4. The cheese that has a washed rind sells for $9.
+5. The cheese that has a cloth-bound rind does not sell for $3.
+6. $3 is exactly one price step cheaper than the cheese that has an ash-coated rind, with no price in between.
 
 ## Solving chart
 
@@ -58,19 +60,20 @@ Every cheese has a different price and rind, so within each category every item 
 
 ## How it falls out
 
-1. [direct] from clue 6 rind:a cloth-bound rind: ruled out position(s) 1,2,4
-2. [direct] from clue 5 rind:a washed rind: ruled out position(s) 2
-3. [direct] from clue 4 cheese:Bellringer: ruled out position(s) 2,3,4
-4. [direct] from clue 3 rind:a waxed rind: ruled out position(s) 2,3,4
-5. [direct] from clue 1 cheese:Oakmoss: ruled out position(s) 1,2,4
-6. [bijection] cheese:Saltpans: ruled out position(s) 1,3
-7. [bijection] cheese:Old Thrashing: ruled out position(s) 1,3
-8. [bijection] rind:an ash-coated rind: ruled out position(s) 1,3
-9. [bijection] rind:a washed rind: ruled out position(s) 1,3
-10. [bijection] rind:an ash-coated rind: ruled out position(s) 4
-11. [direct] from clue 2 cheese:Old Thrashing: ruled out position(s) 4
-12. [bijection] cheese:Saltpans: ruled out position(s) 2
+1. [direct] from clue 6 cheese:Old Thrashing: ruled out position(s) 1,3,4
+2. [direct] from clue 5 cheese:Oakmoss: ruled out position(s) 1,2,4
+3. [direct] from clue 3 rind:a cloth-bound rind: ruled out position(s) 1
+4. [direct] from clue 2 cheese:Saltpans: ruled out position(s) 1,2,3
+5. [direct] from clue 1 rind:a washed rind: ruled out position(s) 1,2,3
+6. [bijection] cheese:Bellringer: ruled out position(s) 2,3,4
+7. [bijection] rind:an ash-coated rind: ruled out position(s) 4
+8. [bijection] rind:a cloth-bound rind: ruled out position(s) 4
+9. [bijection] rind:a waxed rind: ruled out position(s) 4
+10. [order] from clue 4 rind:an ash-coated rind: ruled out position(s) 1,3
+11. [bijection] rind:a cloth-bound rind: ruled out position(s) 2
+12. [bijection] rind:a waxed rind: ruled out position(s) 2
+13. [bijection] rind:a waxed rind: ruled out position(s) 3
 
 ---
 
-<sub>seed `2026172615031` &middot; score 2.285 &middot; atoms 6 &middot; positives 5 &middot; solved by bijection</sub>
+<sub>seed `2026172615031` &middot; score 3.67 &middot; atoms 6 &middot; positives 4 &middot; solved by order</sub>

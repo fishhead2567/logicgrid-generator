@@ -90,8 +90,46 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "pilot:Isolde",
+          "a": "envelope:the kingfisher envelope",
+          "b": "landing:a railway siding"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "landing:a flooded quarry",
+          "b": "pilot:Horatio",
+          "c": "time:11am"
+        },
+        {
+          "kind": "between",
+          "a": "time:9am",
+          "b": "pilot:Delphine",
+          "c": "pilot:Horatio"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "landing:a cricket pitch",
           "b": "time:9am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "time:10am",
+          "b": "pilot:Delphine",
+          "c": "pilot:Isolde"
         }
       ]
     },
@@ -101,41 +139,6 @@
         {
           "kind": "not_link",
           "a": "envelope:the striped envelope",
-          "b": "time:9am"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "envelope:the moss-green envelope",
-          "b": "time:11am"
-        }
-      ]
-    },
-    {
-      "style": "and",
-      "atoms": [
-        {
-          "kind": "not_link",
-          "a": "envelope:the saffron envelope",
-          "b": "pilot:Horatio"
-        },
-        {
-          "kind": "not_link",
-          "a": "envelope:the saffron envelope",
-          "b": "pilot:Isolde"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "envelope:the saffron envelope",
           "b": "landing:a flooded quarry"
         }
       ]
@@ -145,7 +148,7 @@
       "atoms": [
         {
           "kind": "adjacent",
-          "a": "landing:a caravan park",
+          "a": "envelope:the saffron envelope",
           "b": "pilot:Grover"
         }
       ]
@@ -182,8 +185,10 @@
     "numbered_clues": 7,
     "kinds": {
       "link": 2,
-      "not_link": 3,
-      "adjacent": 3
+      "between": 3,
+      "immediately_before": 1,
+      "not_link": 1,
+      "adjacent": 1
     },
     "positives": 2,
     "compounds": 0
@@ -192,11 +197,11 @@
     "solved": true,
     "max_tier": 3,
     "max_technique": "order",
-    "steps": 28,
+    "steps": 27,
     "tier_counts": {
-      "direct": 5,
-      "bijection": 16,
-      "order": 7
+      "direct": 3,
+      "bijection": 13,
+      "order": 11
     },
     "trial_eliminations": 0,
     "unknown_cells": 12

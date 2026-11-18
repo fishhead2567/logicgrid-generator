@@ -14,14 +14,14 @@ Every volume has a different shelf, buyer and price, so within each category eve
 
 ## Clues
 
-1. The volume that was bought by Fenella is exactly one shelf lower than the third shelf, with no shelf in between. A treatise on clocks was bought by Fenella.
-2. A guide to fungi was bought by Ottoline.
-3. A water-stained atlas falls somewhere between the volume that is priced at two shillings and the fifth shelf in shelf order. A water-stained atlas is not priced at half a crown.
-4. The volume that was bought by Fenella falls somewhere between a book of sea shanties and the fourth shelf in shelf order.
-5. The third shelf is exactly one shelf lower than the volume that was bought by Verity, with no shelf in between.
-6. The volume that is priced at one and six is exactly one shelf lower than the fourth shelf, with no shelf in between.
-7. The volume that was bought by Augustus and the volume that is priced at seven and six are exactly one shelf apart in shelf order, in one direction or the other.
-8. The volume that is priced at one and six is lower than the volume that was bought by Rodrigo in shelf order.
+1. The volume that was bought by Fenella is exactly one shelf lower than the third shelf, with no shelf in between. A guide to fungi sits on the third shelf.
+2. The volume that is priced at a guinea sits on the fourth shelf.
+3. A water-stained atlas falls somewhere between the volume that is priced at two shillings and the fifth shelf in shelf order.
+4. The third shelf is exactly one shelf lower than the volume that was bought by Verity, with no shelf in between.
+5. The volume that was bought by Augustus and the volume that is priced at seven and six are exactly one shelf apart in shelf order, in one direction or the other.
+6. The volume that is priced at two shillings is lower than an album of pressed ferns in shelf order.
+7. A treatise on clocks is exactly one shelf lower than the volume that was bought by Ottoline, with no shelf in between.
+8. The volume that was bought by Augustus is not priced at one and six. The volume that is priced at one and six is lower than the volume that was bought by Rodrigo in shelf order.
 
 ## Solving chart
 
@@ -97,46 +97,44 @@ Every volume has a different shelf, buyer and price, so within each category eve
 
 ## How it falls out
 
-1. [order] from clue 9 book:a water-stained atlas: ruled out position(s) 1,5
-2. [order] from clue 9 price_tag:two shillings: ruled out position(s) 4,5
-3. [order] from clue 8 buyer:Fenella: ruled out position(s) 1,4,5
-4. [order] from clue 8 book:a book of sea shanties: ruled out position(s) 3,4,5
-5. [order] from clue 7 price_tag:one and six: ruled out position(s) 5
-6. [order] from clue 7 buyer:Rodrigo: ruled out position(s) 1
-7. [order] from clue 6 buyer:Fenella: ruled out position(s) 3
-8. [order] from clue 8 book:a book of sea shanties: ruled out position(s) 2
-9. [order] from clue 5 price_tag:one and six: ruled out position(s) 1,2,4
-10. [order] from clue 7 buyer:Rodrigo: ruled out position(s) 2,3
-11. [order] from clue 4 buyer:Verity: ruled out position(s) 1,2,3,5
-12. [direct] from clue 1 book:a treatise on clocks: ruled out position(s) 1,3,4,5
-13. [bijection] book:a guide to fungi: ruled out position(s) 1,2
-14. [bijection] book:an album of pressed ferns: ruled out position(s) 1,2
-15. [bijection] book:a water-stained atlas: ruled out position(s) 2
-16. [bijection] buyer:Ottoline: ruled out position(s) 2,4
-17. [bijection] buyer:Rodrigo: ruled out position(s) 4
-18. [bijection] buyer:Augustus: ruled out position(s) 2,4
-19. [bijection] price_tag:seven and six: ruled out position(s) 3
-20. [bijection] price_tag:half a crown: ruled out position(s) 3
-21. [bijection] price_tag:two shillings: ruled out position(s) 3
-22. [bijection] price_tag:a guinea: ruled out position(s) 3
-23. [order] from clue 10 price_tag:seven and six: ruled out position(s) 1,5
-24. [direct] from clue 2 book:a guide to fungi: ruled out position(s) 4
-25. [direct] from clue 2 buyer:Ottoline: ruled out position(s) 1
-26. [bijection] buyer:Ottoline: ruled out position(s) 5
-27. [bijection] buyer:Augustus: ruled out position(s) 5
-28. [bijection] buyer:Augustus: ruled out position(s) 3
-29. [order] from clue 10 price_tag:seven and six: ruled out position(s) 4
-30. [direct] from clue 2 book:a guide to fungi: ruled out position(s) 5
-31. [bijection] book:an album of pressed ferns: ruled out position(s) 3
-32. [bijection] book:a water-stained atlas: ruled out position(s) 3
-33. [bijection] book:an album of pressed ferns: ruled out position(s) 4
-34. [bijection] price_tag:half a crown: ruled out position(s) 2
-35. [bijection] price_tag:two shillings: ruled out position(s) 2
-36. [bijection] price_tag:a guinea: ruled out position(s) 2
-37. [direct] from clue 3 price_tag:half a crown: ruled out position(s) 4
-38. [bijection] price_tag:half a crown: ruled out position(s) 1
-39. [bijection] price_tag:a guinea: ruled out position(s) 1
-40. [bijection] price_tag:a guinea: ruled out position(s) 5
+1. [direct] from clue 2 book:a guide to fungi: ruled out position(s) 1,2,4,5
+2. [direct] from clue 1 price_tag:a guinea: ruled out position(s) 1,2,3,5
+3. [bijection] book:a book of sea shanties: ruled out position(s) 3
+4. [bijection] book:an album of pressed ferns: ruled out position(s) 3
+5. [bijection] book:a treatise on clocks: ruled out position(s) 3
+6. [bijection] book:a water-stained atlas: ruled out position(s) 3
+7. [bijection] price_tag:seven and six: ruled out position(s) 4
+8. [bijection] price_tag:half a crown: ruled out position(s) 4
+9. [bijection] price_tag:one and six: ruled out position(s) 4
+10. [bijection] price_tag:two shillings: ruled out position(s) 4
+11. [order] from clue 10 buyer:Augustus: ruled out position(s) 5
+12. [order] from clue 9 book:a water-stained atlas: ruled out position(s) 1,5
+13. [order] from clue 9 price_tag:two shillings: ruled out position(s) 5
+14. [order] from clue 8 book:an album of pressed ferns: ruled out position(s) 1
+15. [order] from clue 7 price_tag:one and six: ruled out position(s) 5
+16. [order] from clue 7 buyer:Rodrigo: ruled out position(s) 1
+17. [order] from clue 6 buyer:Fenella: ruled out position(s) 1,3,4,5
+18. [order] from clue 5 book:a treatise on clocks: ruled out position(s) 5
+19. [order] from clue 5 buyer:Ottoline: ruled out position(s) 1,4
+20. [order] from clue 4 buyer:Verity: ruled out position(s) 1,2,3,5
+21. [bijection] buyer:Ottoline: ruled out position(s) 2
+22. [bijection] buyer:Rodrigo: ruled out position(s) 2,4
+23. [bijection] buyer:Augustus: ruled out position(s) 2,4
+24. [bijection] buyer:Augustus: ruled out position(s) 3
+25. [order] from clue 10 price_tag:seven and six: ruled out position(s) 1,3,5
+26. [direct] from clue 3 price_tag:one and six: ruled out position(s) 1
+27. [order] from clue 5 book:a treatise on clocks: ruled out position(s) 1
+28. [bijection] book:a book of sea shanties: ruled out position(s) 2,4,5
+29. [bijection] price_tag:half a crown: ruled out position(s) 2
+30. [bijection] price_tag:one and six: ruled out position(s) 2
+31. [bijection] price_tag:two shillings: ruled out position(s) 2
+32. [bijection] price_tag:half a crown: ruled out position(s) 1,3
+33. [order] from clue 7 buyer:Rodrigo: ruled out position(s) 3
+34. [bijection] book:an album of pressed ferns: ruled out position(s) 2,4
+35. [bijection] buyer:Ottoline: ruled out position(s) 5
+36. [bijection] price_tag:two shillings: ruled out position(s) 3
+37. [order] from clue 5 book:a treatise on clocks: ruled out position(s) 4
+38. [bijection] book:a water-stained atlas: ruled out position(s) 2
 
 ---
 

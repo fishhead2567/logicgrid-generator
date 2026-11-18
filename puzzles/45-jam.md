@@ -1,6 +1,6 @@
 # Preserves, and the Preservation of Grudges
 
-**Difficulty** 7/7 (expert) &nbsp;&nbsp; **Grid** 5 x 6 &nbsp;&nbsp; **Clues** 17 &nbsp;&nbsp; **id** `cef269ec12db`
+**Difficulty** 7/7 (expert) &nbsp;&nbsp; **Grid** 5 x 6 &nbsp;&nbsp; **Clues** 18 &nbsp;&nbsp; **id** `cef269ec12db`
 
 ## Introduction
 
@@ -15,23 +15,24 @@ Every entrant has a different price, preserve, jar and ingredient, so within eac
 
 ## Clues
 
-1. $13 has a price exactly $2 more than the entrant who adds nothing whatsoever. $13 has a price exactly $4 more than the entrant who enters rosehip syrup.
-2. At least one of the following holds, and possibly more than one: (a) The entrant who enters hot pepper jelly and $9 are exactly one price step apart in price order, in one direction or the other. (b) Emeka is exactly one price step cheaper than the entrant who enters sloe and apple butter, with no price in between.
-3. At least one of the following holds, and possibly more than one: (a) The entrant who enters quince jelly and the entrant who adds a bay leaf are exactly one price step apart in price order, in one direction or the other. (b) The entrant who uses a recycled honey jar charges $13.
-4. If (a) holds then (b) also holds, but not necessarily the reverse: (a) The entrant who uses an unlabelled jar is exactly one price step cheaper than $11, with no price in between. (b) The entrant who uses a recycled honey jar does not charge $11.
-5. $3 is exactly one price step cheaper than the entrant who uses a jar with a cloth lid, with no price in between.
-6. At least one of the following holds, and possibly more than one: (a) The entrant who enters medlar jam and $13 are exactly one price step apart in price order, in one direction or the other. (b) The entrant who uses a squat kilner does not add nothing whatsoever.
-7. The entrant who enters quince jelly and $13 are exactly one price step apart in price order, in one direction or the other.
-8. $11 falls somewhere between Bernadette and Ottilie in price order.
-9. Ottilie falls somewhere between the entrant who enters hot pepper jelly and $11 in price order.
-10. The following two do NOT both hold; either one alone may hold, and so may neither: (a) Harriet and the entrant who uses a hexagonal jar are exactly one price step apart in price order, in one direction or the other. (b) The entrant who adds star anise is exactly one price step cheaper than $5, with no price in between.
-11. The entrant who adds orange zest does not charge $7. The entrant who adds orange zest is cheaper than Harriet in price order.
-12. Rafferty is exactly one price step cheaper than the entrant who enters rosehip syrup, with no price in between.
-13. The following is NOT true: The entrant who enters damson cheese is cheaper than the entrant who adds a bay leaf in price order.
-14. The entrant who uses a squat kilner has a price exactly $2 more than the entrant who adds orange zest.
-15. The entrant who enters hot pepper jelly is exactly one price step cheaper than the entrant who adds a spoon of treacle, with no price in between.
-16. The entrant who uses a recycled honey jar is cheaper than the entrant who adds a splash of gin in price order. The entrant who uses an unlabelled jar does not add a splash of gin.
-17. The entrant who uses an unlabelled jar and the entrant who adds a spoon of treacle are exactly one price step apart in price order, in one direction or the other.
+1. The entrant who uses a recycled honey jar is cheaper than $11 in price order. The entrant who enters medlar jam is cheaper than $11 in price order.
+2. The following two do NOT both hold; either one alone may hold, and so may neither: (a) The entrant who enters hot pepper jelly and the entrant who adds star anise are exactly one price step apart in price order, in one direction or the other. (b) The entrant who adds a splash of gin and $13 are exactly one price step apart in price order, in one direction or the other.
+3. $3 is exactly one price step cheaper than the entrant who uses a jar with a cloth lid, with no price in between.
+4. If (a) holds then (b) also holds, but not necessarily the reverse: (a) Harriet is dearer than $11 in price order. (b) The entrant who uses a hexagonal jar and the entrant who enters medlar jam are exactly one price step apart in price order, in one direction or the other.
+5. $5 is exactly one price step cheaper than Rafferty, with no price in between.
+6. The entrant who enters rosehip syrup and $11 are exactly one price step apart in price order, in one direction or the other.
+7. If (a) holds then (b) also holds, but not necessarily the reverse: (a) The entrant who enters sloe and apple butter and the entrant who adds a splash of gin are exactly one price step apart in price order, in one direction or the other. (b) The entrant who enters hot pepper jelly and $9 are exactly one price step apart in price order, in one direction or the other.
+8. Ottilie has a price exactly 3 times that of the entrant who adds star anise.
+9. The entrant who enters hot pepper jelly falls somewhere between Drusilla and the entrant who uses a squat kilner in price order.
+10. If (a) holds then (b) also holds, but not necessarily the reverse: (a) The entrant who uses a tall french jar and the entrant who adds a bay leaf are exactly one price step apart in price order, in one direction or the other. (b) Rafferty adds a bay leaf.
+11. The entrant who uses an unlabelled jar and the entrant who enters sloe and apple butter are exactly one price step apart in price order, in one direction or the other.
+12. The entrant who uses an unlabelled jar and the entrant who adds a spoon of treacle are exactly one price step apart in price order, in one direction or the other.
+13. If (a) holds then (b) also holds, but not necessarily the reverse: (a) Rafferty is cheaper than the entrant who adds orange zest in price order. (b) The entrant who uses a jar with a cloth lid and the entrant who adds orange zest are exactly one price step apart in price order, in one direction or the other.
+14. The entrant who enters hot pepper jelly is exactly one price step cheaper than the entrant who adds a spoon of treacle, with no price in between.
+15. Emeka is exactly one price step cheaper than the entrant who adds a spoon of treacle, with no price in between.
+16. The entrant who uses a hexagonal jar is cheaper than the entrant who enters damson cheese in price order.
+17. The entrant who adds orange zest falls somewhere between Drusilla and the entrant who uses a squat kilner in price order.
+18. The entrant who uses a squat kilner has a price exactly $2 more than the entrant who adds orange zest.
 
 ## Solving chart
 
@@ -158,48 +159,48 @@ Every entrant has a different price, preserve, jar and ingredient, so within eac
 
 ## How it falls out
 
-1. [direct] from clue 1 secret:orange zest: ruled out position(s) 3
-2. [order] from clue 19 preserve:quince jelly: ruled out position(s) 1,2,3,4,6
-3. [order] from clue 17 secret:nothing whatsoever: ruled out position(s) 1,2,3,4,6
-4. [order] from clue 16 jar:a jar with a cloth lid: ruled out position(s) 1,3,4,5,6
-5. [order] from clue 15 entrant:Bernadette: ruled out position(s) 5
-6. [order] from clue 15 entrant:Ottilie: ruled out position(s) 5
-7. [order] from clue 12 preserve:rosehip syrup: ruled out position(s) 1,2,3,5,6
-8. [order] from clue 11 secret:orange zest: ruled out position(s) 6
-9. [order] from clue 11 entrant:Harriet: ruled out position(s) 1
-10. [order] from clue 10 jar:a recycled honey jar: ruled out position(s) 6
-11. [order] from clue 10 secret:a splash of gin: ruled out position(s) 1
-12. [order] from clue 9 preserve:hot pepper jelly: ruled out position(s) 6
-13. [order] from clue 9 secret:a spoon of treacle: ruled out position(s) 1
-14. [order] from clue 5 entrant:Rafferty: ruled out position(s) 1,2,4,5,6
-15. [order] from clue 4 entrant:Ottilie: ruled out position(s) 1,6
-16. [order] from clue 4 preserve:hot pepper jelly: ruled out position(s) 4,5
-17. [order] from clue 9 secret:a spoon of treacle: ruled out position(s) 5,6
-18. [order] from clue 14 jar:an unlabelled jar: ruled out position(s) 6
-19. [order] from clue 15 entrant:Bernadette: ruled out position(s) 1,2,3,4
-20. [order] from clue 3 jar:a squat kilner: ruled out position(s) 1,4
-21. [bijection] entrant:Drusilla: ruled out position(s) 3,6
-22. [bijection] entrant:Harriet: ruled out position(s) 3,6
-23. [bijection] entrant:Ottilie: ruled out position(s) 3
-24. [bijection] entrant:Emeka: ruled out position(s) 3,6
-25. [bijection] jar:a squat kilner: ruled out position(s) 2
-26. [bijection] jar:an unlabelled jar: ruled out position(s) 2
-27. [bijection] jar:a recycled honey jar: ruled out position(s) 2
-28. [bijection] jar:a hexagonal jar: ruled out position(s) 2
-29. [bijection] jar:a tall french jar: ruled out position(s) 2
-30. [bijection] preserve:sloe and apple butter: ruled out position(s) 4,5
-31. [bijection] preserve:medlar jam: ruled out position(s) 4,5
-32. [bijection] preserve:damson cheese: ruled out position(s) 4,5
-33. [bijection] secret:orange zest: ruled out position(s) 5
-34. [bijection] secret:a splash of gin: ruled out position(s) 5
-35. [bijection] secret:star anise: ruled out position(s) 5
-36. [bijection] secret:a bay leaf: ruled out position(s) 5
-37. [order] from clue 3 jar:a squat kilner: ruled out position(s) 6
-38. [order] from clue 3 secret:orange zest: ruled out position(s) 1
-39. [order] from clue 11 entrant:Harriet: ruled out position(s) 2
-40. [disjunction] from clue 8 secret:a bay leaf: ruled out position(s) 1,2,3
-_... and 38 further steps._
+1. [order] from clue 18 entrant:Rafferty: ruled out position(s) 1,2,4,5,6
+2. [order] from clue 17 entrant:Emeka: ruled out position(s) 6
+3. [order] from clue 17 secret:a spoon of treacle: ruled out position(s) 1
+4. [order] from clue 16 jar:a hexagonal jar: ruled out position(s) 6
+5. [order] from clue 16 preserve:damson cheese: ruled out position(s) 1
+6. [order] from clue 15 entrant:Ottilie: ruled out position(s) 1,2,3,5,6
+7. [order] from clue 15 secret:star anise: ruled out position(s) 2,3,4,5,6
+8. [order] from clue 14 preserve:hot pepper jelly: ruled out position(s) 1,6
+9. [order] from clue 13 jar:a recycled honey jar: ruled out position(s) 5,6
+10. [order] from clue 12 jar:a jar with a cloth lid: ruled out position(s) 1,3,4,5,6
+11. [order] from clue 9 preserve:medlar jam: ruled out position(s) 5,6
+12. [order] from clue 8 secret:a spoon of treacle: ruled out position(s) 2
+13. [order] from clue 17 entrant:Emeka: ruled out position(s) 1
+14. [order] from clue 11 jar:an unlabelled jar: ruled out position(s) 1
+15. [order] from clue 6 preserve:rosehip syrup: ruled out position(s) 1,2,3,5
+16. [order] from clue 5 secret:orange zest: ruled out position(s) 1,6
+17. [order] from clue 3 jar:a squat kilner: ruled out position(s) 1,2
+18. [bijection] entrant:Drusilla: ruled out position(s) 3,4
+19. [bijection] entrant:Harriet: ruled out position(s) 3,4
+20. [bijection] entrant:Bernadette: ruled out position(s) 3,4
+21. [bijection] entrant:Emeka: ruled out position(s) 3,4
+22. [bijection] jar:an unlabelled jar: ruled out position(s) 2
+23. [bijection] jar:a recycled honey jar: ruled out position(s) 2
+24. [bijection] jar:a hexagonal jar: ruled out position(s) 2
+25. [bijection] jar:a tall french jar: ruled out position(s) 2
+26. [bijection] secret:a splash of gin: ruled out position(s) 1
+27. [bijection] secret:nothing whatsoever: ruled out position(s) 1
+28. [bijection] secret:a bay leaf: ruled out position(s) 1
+29. [order] from clue 7 preserve:sloe and apple butter: ruled out position(s) 1
+30. [order] from clue 17 secret:a spoon of treacle: ruled out position(s) 4,5
+31. [order] from clue 11 jar:an unlabelled jar: ruled out position(s) 3,6
+32. [order] from clue 7 preserve:sloe and apple butter: ruled out position(s) 2
+33. [order] from clue 8 preserve:hot pepper jelly: ruled out position(s) 3,4
+34. [order] from clue 14 entrant:Drusilla: ruled out position(s) 5
+35. [disjunction] from clue 19 secret:orange zest: ruled out position(s) 4,5
+36. [order] from clue 5 entrant:Drusilla: ruled out position(s) 6
+37. [order] from clue 3 jar:a squat kilner: ruled out position(s) 5,6
+38. [order] from clue 14 preserve:hot pepper jelly: ruled out position(s) 5
+39. [order] from clue 14 entrant:Drusilla: ruled out position(s) 2
+40. [order] from clue 8 secret:a spoon of treacle: ruled out position(s) 6
+_... and 37 further steps._
 
 ---
 
-<sub>seed `2026172931791` &middot; score 16.5732 &middot; atoms 20 &middot; positives 0 &middot; solved by trial</sub>
+<sub>seed `2026172931791` &middot; score 11.3378 &middot; atoms 19 &middot; positives 0 &middot; solved by disjunction</sub>

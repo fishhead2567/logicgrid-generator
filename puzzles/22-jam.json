@@ -1,11 +1,11 @@
 {
-  "pid": "b0adf92f3b32",
+  "pid": "f794a760cdbb",
   "title": "Preserves, and the Preservation of Grudges",
   "theme": "jam",
   "blurb": "The preserves tent is the most competitive building at the show, and the only one with a locked door.",
   "profile": "moderate",
   "rating": 4,
-  "score": 6.13,
+  "score": 5.515,
   "seed": 2026172749654,
   "spec": {
     "difficulty": "moderate",
@@ -46,11 +46,11 @@
         "name": "entrant",
         "label": "Entrant",
         "items": [
-          "Bernadette",
-          "Emeka",
-          "Ottilie",
+          "Stanislaw",
+          "Rafferty",
+          "Harriet",
           "Drusilla",
-          "Rafferty"
+          "Bernadette"
         ],
         "ordered": false,
         "noun": "entrant",
@@ -60,39 +60,25 @@
         "name": "preserve",
         "label": "Preserve",
         "items": [
-          "quince jelly",
+          "green walnut pickle",
           "rosehip syrup",
-          "hot pepper jelly",
-          "damson cheese",
-          "sloe and apple butter"
+          "medlar jam",
+          "sloe and apple butter",
+          "quince jelly"
         ],
         "ordered": false,
         "noun": "preserve",
         "verb": "enters"
       },
       {
-        "name": "jar",
-        "label": "Jar",
-        "items": [
-          "a tall french jar",
-          "a squat kilner",
-          "a sealed crock",
-          "a recycled honey jar",
-          "a hexagonal jar"
-        ],
-        "ordered": false,
-        "noun": "jar",
-        "verb": "uses"
-      },
-      {
         "name": "secret",
         "label": "Secret ingredient",
         "items": [
+          "nothing whatsoever",
+          "orange zest",
           "star anise",
-          "a bay leaf",
-          "a splash of gin",
-          "a spoon of treacle",
-          "black pepper"
+          "black pepper",
+          "a splash of gin"
         ],
         "ordered": false,
         "noun": "ingredient",
@@ -106,8 +92,8 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "jar:a tall french jar",
-          "b": "price:$9"
+          "a": "price:$3",
+          "b": "secret:a splash of gin"
         }
       ]
     },
@@ -115,40 +101,24 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "between",
+          "kind": "not_link",
           "a": "preserve:rosehip syrup",
-          "b": "price:$11",
-          "c": "secret:black pepper"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "price:$7",
-          "b": "entrant:Emeka"
+          "b": "price:$5"
         },
         {
-          "kind": "not_link",
-          "a": "entrant:Emeka",
-          "b": "preserve:sloe and apple butter"
+          "kind": "immediately_before",
+          "a": "entrant:Stanislaw",
+          "b": "price:$5"
         }
       ]
     },
     {
-      "style": "and",
+      "style": "sentences",
       "atoms": [
         {
-          "kind": "not_link",
-          "a": "price:$11",
-          "b": "secret:star anise"
-        },
-        {
-          "kind": "not_link",
-          "a": "preserve:hot pepper jelly",
-          "b": "secret:star anise"
+          "kind": "immediately_before",
+          "a": "secret:nothing whatsoever",
+          "b": "price:$11"
         }
       ]
     },
@@ -157,60 +127,9 @@
       "atoms": [
         {
           "kind": "between",
-          "a": "jar:a squat kilner",
-          "b": "entrant:Bernadette",
-          "c": "entrant:Drusilla"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "immediately_before",
-          "a": "preserve:hot pepper jelly",
-          "b": "secret:black pepper"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "immediately_before",
-          "a": "jar:a hexagonal jar",
-          "b": "entrant:Ottilie"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "between",
-          "a": "preserve:rosehip syrup",
-          "b": "jar:a sealed crock",
-          "c": "secret:a spoon of treacle"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "jar:a sealed crock",
-          "b": "secret:a bay leaf"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "immediately_before",
           "a": "entrant:Drusilla",
-          "b": "jar:a hexagonal jar"
+          "b": "preserve:sloe and apple butter",
+          "c": "price:$3"
         }
       ]
     },
@@ -218,14 +137,50 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "before",
-          "a": "secret:a spoon of treacle",
-          "b": "preserve:sloe and apple butter"
-        },
+          "kind": "adjacent",
+          "a": "entrant:Harriet",
+          "b": "secret:orange zest"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
         {
-          "kind": "not_link",
+          "kind": "immediately_before",
+          "a": "entrant:Rafferty",
+          "b": "preserve:medlar jam"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "preserve:medlar jam",
+          "b": "secret:orange zest"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
           "a": "preserve:quince jelly",
-          "b": "secret:a spoon of treacle"
+          "b": "entrant:Drusilla",
+          "c": "entrant:Harriet"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "preserve:quince jelly",
+          "b": "secret:star anise"
         }
       ]
     }
@@ -239,43 +194,36 @@
       "$11"
     ],
     "entrant": [
+      "Stanislaw",
       "Drusilla",
       "Rafferty",
-      "Ottilie",
-      "Emeka",
+      "Harriet",
       "Bernadette"
     ],
     "preserve": [
-      "hot pepper jelly",
-      "quince jelly",
       "rosehip syrup",
-      "damson cheese",
+      "green walnut pickle",
+      "quince jelly",
+      "medlar jam",
       "sloe and apple butter"
-    ],
-    "jar": [
-      "a sealed crock",
-      "a hexagonal jar",
-      "a squat kilner",
-      "a tall french jar",
-      "a recycled honey jar"
     ],
     "secret": [
       "a splash of gin",
-      "black pepper",
       "star anise",
-      "a spoon of treacle",
-      "a bay leaf"
+      "black pepper",
+      "nothing whatsoever",
+      "orange zest"
     ]
   },
   "stats": {
-    "atoms": 14,
-    "numbered_clues": 11,
+    "atoms": 10,
+    "numbered_clues": 9,
     "kinds": {
       "link": 1,
-      "between": 3,
-      "before": 3,
-      "not_link": 4,
-      "immediately_before": 3
+      "not_link": 1,
+      "immediately_before": 4,
+      "between": 2,
+      "adjacent": 2
     },
     "positives": 1,
     "compounds": 0
@@ -284,13 +232,13 @@
     "solved": true,
     "max_tier": 3,
     "max_technique": "order",
-    "steps": 50,
+    "steps": 40,
     "tier_counts": {
-      "direct": 5,
-      "bijection": 21,
-      "order": 24
+      "direct": 2,
+      "bijection": 16,
+      "order": 22
     },
     "trial_eliminations": 0,
-    "unknown_cells": 20
+    "unknown_cells": 15
   }
 }

@@ -1,0 +1,208 @@
+{
+  "pid": "350cd7490211",
+  "verdict": "pass_equivalent",
+  "readers": 3,
+  "solution_ok": 3,
+  "ir_ok": 1,
+  "consensus_missing": [],
+  "consensus_extra": [],
+  "readers_disagree": true,
+  "readings": [
+    {
+      "index": 0,
+      "model": "reader1",
+      "solution_ok": true,
+      "ir_ok": false,
+      "solutions": 1,
+      "checks": [
+        {
+          "name": "parse",
+          "passed": true,
+          "detail": "12 facts"
+        },
+        {
+          "name": "cast",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "name": "solution",
+          "passed": true,
+          "detail": "unique, and the right answer"
+        },
+        {
+          "name": "ir",
+          "passed": false,
+          "detail": "4 fact(s) not recovered, 4 added"
+        }
+      ],
+      "missing": [
+        {
+          "kind": "adjacent",
+          "a": "grower:Nkiruka",
+          "b": "orchid:a vanilla vine"
+        },
+        {
+          "kind": "adjacent",
+          "a": "month:January",
+          "b": "orchid:a slipper orchid"
+        },
+        {
+          "kind": "adjacent",
+          "a": "month:January",
+          "b": "pest:thrips"
+        },
+        {
+          "kind": "adjacent",
+          "a": "orchid:a vanilla vine",
+          "b": "pest:thrips"
+        }
+      ],
+      "extra": [
+        {
+          "kind": "gap",
+          "a": "grower:Nkiruka",
+          "b": "orchid:a vanilla vine",
+          "k": 1,
+          "rel": "eq"
+        },
+        {
+          "kind": "gap",
+          "a": "month:January",
+          "b": "orchid:a slipper orchid",
+          "k": 1,
+          "rel": "eq"
+        },
+        {
+          "kind": "gap",
+          "a": "month:January",
+          "b": "pest:thrips",
+          "k": 1,
+          "rel": "eq"
+        },
+        {
+          "kind": "gap",
+          "a": "orchid:a vanilla vine",
+          "b": "pest:thrips",
+          "k": 1,
+          "rel": "eq"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "index": 1,
+      "model": "reader2",
+      "solution_ok": true,
+      "ir_ok": false,
+      "solutions": 1,
+      "checks": [
+        {
+          "name": "parse",
+          "passed": true,
+          "detail": "12 facts"
+        },
+        {
+          "name": "cast",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "name": "solution",
+          "passed": true,
+          "detail": "unique, and the right answer"
+        },
+        {
+          "name": "ir",
+          "passed": false,
+          "detail": "4 fact(s) not recovered, 4 added"
+        }
+      ],
+      "missing": [
+        {
+          "kind": "adjacent",
+          "a": "grower:Nkiruka",
+          "b": "orchid:a vanilla vine"
+        },
+        {
+          "kind": "adjacent",
+          "a": "month:January",
+          "b": "orchid:a slipper orchid"
+        },
+        {
+          "kind": "adjacent",
+          "a": "month:January",
+          "b": "pest:thrips"
+        },
+        {
+          "kind": "adjacent",
+          "a": "orchid:a vanilla vine",
+          "b": "pest:thrips"
+        }
+      ],
+      "extra": [
+        {
+          "kind": "gap",
+          "a": "grower:Nkiruka",
+          "b": "orchid:a vanilla vine",
+          "k": 1,
+          "rel": "eq"
+        },
+        {
+          "kind": "gap",
+          "a": "month:January",
+          "b": "orchid:a slipper orchid",
+          "k": 1,
+          "rel": "eq"
+        },
+        {
+          "kind": "gap",
+          "a": "month:January",
+          "b": "pest:thrips",
+          "k": 1,
+          "rel": "eq"
+        },
+        {
+          "kind": "gap",
+          "a": "orchid:a vanilla vine",
+          "b": "pest:thrips",
+          "k": 1,
+          "rel": "eq"
+        }
+      ],
+      "error": ""
+    },
+    {
+      "index": 2,
+      "model": "reader3",
+      "solution_ok": true,
+      "ir_ok": true,
+      "solutions": 1,
+      "checks": [
+        {
+          "name": "parse",
+          "passed": true,
+          "detail": "12 facts"
+        },
+        {
+          "name": "cast",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "name": "solution",
+          "passed": true,
+          "detail": "unique, and the right answer"
+        },
+        {
+          "name": "ir",
+          "passed": true,
+          "detail": "identical clue set"
+        }
+      ],
+      "missing": [],
+      "extra": [],
+      "error": ""
+    }
+  ]
+}

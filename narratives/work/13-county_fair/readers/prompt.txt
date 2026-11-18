@@ -1,0 +1,277 @@
+You convert logic-grid puzzles written as prose into formal notation.
+
+You will be given a puzzle: an introduction and a numbered clue list. Translate
+it literally into the fact types below. You are a translator, not a solver.
+
+ABSOLUTE RULES
+
+  - Do NOT solve the puzzle. Do not combine clues, infer anything, or add facts
+    that the text does not state. One stated fact becomes one output fact.
+  - Do NOT drop anything. A numbered clue often carries several facts ("X is on
+    Monday, but not with Y" is two). List every one, under that clue's number.
+  - Record what the text says, not the strongest reading of it. If a clue says
+    "earlier", use `before`, NOT `immediately_before`, however natural the
+    tighter reading feels.
+  - Name subjects by the exact member names from the introduction's lists. Copy
+    the spelling character for character.
+  - Facts stated in the INTRODUCTION about counts, category membership, or
+    "each is used once" are structural -- do NOT output them as facts. Only the
+    numbered clues become facts.
+  - If a clue is genuinely ambiguous, choose the WEAKER reading (the one that
+    rules out less).
+
+FACT TYPES
+
+Pairing:
+  link(A, B)              A and B belong to the same subject.
+  not_link(A, B)          A and B belong to different subjects.
+  distinct(A, B, C, ...)  All named are different subjects (pairwise). Use for
+                          "three different people" phrasing.
+
+Position (only for the ordered category):
+  before(A, B)                A is strictly earlier than B, by any amount.
+  immediately_before(A, B)    B is exactly one step after A. Direction matters.
+  adjacent(A, B)              One step apart, direction unspecified.
+  between(A, B, C)            A is strictly between B and C; B and C are in no
+                              particular order. A is the MIDDLE one -- put it
+                              first.
+  gap(A, B, k, rel)           The positions differ by k. rel is "eq" (exactly),
+                              "ge" (at least) or "le" (at most). "three apart"
+                              and "three later" are both k=3. "three in
+                              between" is k=4.
+  parity(A, B, same)          same=true: both at odd-numbered or both at
+                              even-numbered positions. same=false: one of each.
+  arith(A, B, k, op)          Numeric: op="add" means A's value = B's value + k
+                              (A is larger). op="mul" means A's value = B's
+                              value x k.
+
+Compound (each holds simple facts only, never another compound):
+  not(F)                  F is false. Prefer not_link over not(link(...)).
+  or(F1, F2, ...)         At least one holds. Inclusive -- possibly several.
+  not_both(F1, F2)        At most one holds. Neither holding is allowed too.
+  if_then(F1, F2)         If F1 holds then F2 holds. Says nothing when F1 is
+                          false. Does NOT assert the converse. Put the
+                          condition first.
+
+OUTPUT
+
+Fill `args` with the member names in the order shown above. Use `sub` for the
+facts inside a compound, and leave it null otherwise. Leave `k`, `rel`, `op`
+and `same` null unless the fact type uses them. Also report the categories and
+their members exactly as the introduction lists them.
+
+======================================================================
+TASK
+======================================================================
+
+Convert this puzzle into formal notation.
+
+The Hollow Creek Pie Judging
+
+At the Hollow Creek county fair, the pie judging is conducted with more ceremony than the state legislature: a velvet rope, a silver spoon, and a tent full of neighbours holding their breath. This year four bakers brought pies to the judges' table, and when the judges finally rose they announced a Placing for each one, listed here from better to worse: first, second, third, fourth. The four bakers are Bramwell, Odette, Thaddeus and Winnie. The Filling of their pies was green tomato, rhubarb, buttermilk and sour cherry. Their Home county was Fenwick, Sweetwater, Quarry Hill and Hobbs Bend. Each baker has exactly one Placing, one Filling and one Home county, and within each of those categories every member belongs to a different baker, so no two bakers share a placing, a filling or a home county, and nothing on any of the three lists goes unused. From the ribbons, the recipes and the loyalties of the crowd, work out which placing, which filling and which home county belongs to each baker.
+
+Clues:
+1. In the placing order, Bramwell finished somewhere between first place and third place, and was neither of them; the rhubarb pie was the work of the baker who placed first.
+2. The baker who comes from Sweetwater placed exactly one place better than fourth place, with no placing in between; in the placing order, Winnie finished somewhere between first place and fourth place, and was neither of them.
+3. The baker who comes from Hobbs Bend and second place are exactly one place apart in the placing order, in one direction or the other.
+4. The baker who bakes green tomato and third place are exactly one place apart in the placing order, in one direction or the other.
+5. In the placing order, the baker who comes from Quarry Hill finished somewhere between Odette and Thaddeus, and was neither of them.
+6. Thaddeus placed better than the baker who comes from Quarry Hill.
+7. The baker who bakes sour cherry placed exactly one place better than the baker who comes from Sweetwater, with no placing in between.
+
+======================================================================
+Reply with ONLY a JSON object matching this schema, no prose and no code fence:
+{
+  "type": "object",
+  "properties": {
+    "subject_count": {
+      "type": "integer"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "members": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ordered": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "label",
+          "members",
+          "ordered"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "clues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "integer"
+          },
+          "facts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "link",
+                    "not_link",
+                    "distinct",
+                    "before",
+                    "immediately_before",
+                    "adjacent",
+                    "between",
+                    "gap",
+                    "parity",
+                    "arith",
+                    "not",
+                    "or",
+                    "not_both",
+                    "if_then"
+                  ]
+                },
+                "args": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Member names; empty for a compound fact."
+                },
+                "k": {
+                  "type": "number",
+                  "description": "Used by gap and arith; else 0."
+                },
+                "rel": {
+                  "type": "string",
+                  "enum": [
+                    "eq",
+                    "ge",
+                    "le",
+                    "none"
+                  ],
+                  "description": "Used by gap. Write \"none\" when this fact type does not use it."
+                },
+                "op": {
+                  "type": "string",
+                  "enum": [
+                    "add",
+                    "mul",
+                    "none"
+                  ],
+                  "description": "Used by arith. Write \"none\" when this fact type does not use it."
+                },
+                "same": {
+                  "type": "boolean",
+                  "description": "Used by parity; else false."
+                },
+                "sub": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "link",
+                          "not_link",
+                          "distinct",
+                          "before",
+                          "immediately_before",
+                          "adjacent",
+                          "between",
+                          "gap",
+                          "parity",
+                          "arith"
+                        ]
+                      },
+                      "args": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "Member names, in the order the fact type specifies."
+                      },
+                      "k": {
+                        "type": "number",
+                        "description": "Used by gap and arith; else 0."
+                      },
+                      "rel": {
+                        "type": "string",
+                        "enum": [
+                          "eq",
+                          "ge",
+                          "le",
+                          "none"
+                        ],
+                        "description": "Used by gap. Write \"none\" when this fact type does not use it."
+                      },
+                      "op": {
+                        "type": "string",
+                        "enum": [
+                          "add",
+                          "mul",
+                          "none"
+                        ],
+                        "description": "Used by arith. Write \"none\" when this fact type does not use it."
+                      },
+                      "same": {
+                        "type": "boolean",
+                        "description": "Used by parity; else false."
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "args",
+                      "k",
+                      "rel",
+                      "op",
+                      "same"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "description": "The facts inside a compound fact; empty otherwise."
+                }
+              },
+              "required": [
+                "kind",
+                "args",
+                "k",
+                "rel",
+                "op",
+                "same",
+                "sub"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "number",
+          "facts"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "subject_count",
+    "categories",
+    "clues"
+  ],
+  "additionalProperties": false
+}

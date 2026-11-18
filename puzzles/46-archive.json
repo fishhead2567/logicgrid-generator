@@ -5,7 +5,7 @@
   "blurb": "The Vance Municipal Archive was reorganised in 1974 by somebody who has since left no forwarding address.",
   "profile": "expert",
   "rating": 7,
-  "score": 12.221,
+  "score": 17.6441,
   "seed": 2026173044439,
   "spec": {
     "difficulty": "expert",
@@ -103,91 +103,8 @@
       "atoms": [
         {
           "kind": "not_link",
-          "a": "decade:the 1950s",
-          "b": "shelf:the bottom shelf"
-        },
-        {
-          "kind": "gap",
-          "a": "damage:foxed",
-          "b": "shelf:the bottom shelf",
-          "k": 4,
-          "rel": "eq"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "not_both",
-          "x": {
-            "kind": "adjacent",
-            "a": "holding:the workhouse admissions book",
-            "b": "shelf:the third shelf"
-          },
-          "y": {
-            "kind": "before",
-            "a": "shelf:the bottom shelf",
-            "b": "decade:the 1830s"
-          }
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "adjacent",
-              "a": "archivist:Ms Castellano",
-              "b": "damage:mouse-chewed"
-            },
-            {
-              "kind": "link",
-              "a": "holding:the smallpox ledgers",
-              "b": "shelf:the third shelf"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "link",
-              "a": "archivist:Mr Pelletier",
-              "b": "holding:the workhouse admissions book"
-            },
-            {
-              "kind": "link",
-              "a": "decade:the 1940s",
-              "b": "shelf:the third shelf"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "if_then",
-          "x": {
-            "kind": "immediately_before",
-            "a": "shelf:the third shelf",
-            "b": "decade:the 1830s"
-          },
-          "y": {
-            "kind": "link",
-            "a": "archivist:Dr Lindqvist",
-            "b": "holding:the lost property register"
-          }
+          "a": "archivist:Dr Mwangi",
+          "b": "shelf:the second shelf"
         }
       ]
     },
@@ -209,18 +126,36 @@
           "kind": "or",
           "options": [
             {
-              "kind": "gap",
-              "a": "archivist:Ms Castellano",
-              "b": "holding:a set of tram timetables",
-              "k": 2,
-              "rel": "eq"
+              "kind": "adjacent",
+              "a": "archivist:Ms Bhattacharya",
+              "b": "holding:the workhouse admissions book"
             },
             {
-              "kind": "link",
-              "a": "decade:the 1950s",
-              "b": "shelf:the top shelf"
+              "kind": "gap",
+              "a": "damage:foxed",
+              "b": "shelf:the third shelf",
+              "k": 2,
+              "rel": "eq"
             }
           ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "immediately_before",
+            "a": "decade:the 1890s",
+            "b": "holding:a folder of libel writs"
+          },
+          "y": {
+            "kind": "immediately_before",
+            "a": "shelf:the bottom shelf",
+            "b": "decade:the 1950s"
+          }
         }
       ]
     },
@@ -239,12 +174,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "not",
-          "inner": {
-            "kind": "before",
-            "a": "shelf:the third shelf",
-            "b": "holding:a set of tram timetables"
-          }
+          "kind": "before",
+          "a": "damage:immaculate",
+          "b": "shelf:the top shelf"
         }
       ]
     },
@@ -254,15 +186,133 @@
         {
           "kind": "if_then",
           "x": {
-            "kind": "not_link",
-            "a": "archivist:Ms Bhattacharya",
-            "b": "damage:immaculate"
+            "kind": "before",
+            "a": "archivist:Dr Lindqvist",
+            "b": "holding:the harbour dredging reports"
           },
           "y": {
-            "kind": "before",
-            "a": "decade:the 1830s",
-            "b": "damage:over-repaired with tape"
+            "kind": "link",
+            "a": "holding:the workhouse admissions book",
+            "b": "shelf:the fifth shelf"
           }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "archivist:Ms Castellano",
+          "b": "shelf:the fifth shelf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "decade:the 1940s",
+          "b": "holding:the lost property register",
+          "c": "shelf:the bottom shelf"
+        }
+      ]
+    },
+    {
+      "style": "and",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "holding:the smallpox ledgers",
+          "b": "shelf:the fifth shelf"
+        },
+        {
+          "kind": "not_link",
+          "a": "damage:water-damaged",
+          "b": "holding:the smallpox ledgers"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "holding:the smallpox ledgers",
+          "b": "shelf:the top shelf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "adjacent",
+            "a": "damage:immaculate",
+            "b": "shelf:the top shelf"
+          },
+          "y": {
+            "kind": "link",
+            "a": "archivist:Mr Pelletier",
+            "b": "damage:mouse-chewed"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "decade:the 1950s",
+          "b": "archivist:Ms Okafor",
+          "c": "damage:immaculate"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not",
+          "inner": {
+            "kind": "adjacent",
+            "a": "damage:mouse-chewed",
+            "b": "decade:the 1890s"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "before",
+            "a": "archivist:Dr Mwangi",
+            "b": "decade:the 1970s"
+          },
+          "y": {
+            "kind": "gap",
+            "a": "archivist:Ms Castellano",
+            "b": "holding:a set of tram timetables",
+            "k": 2,
+            "rel": "eq"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "holding:the workhouse admissions book",
+          "b": "decade:the 1890s"
         }
       ]
     },
@@ -280,9 +330,21 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "before",
-          "a": "decade:the 1830s",
-          "b": "archivist:Dr Mwangi"
+          "kind": "or",
+          "options": [
+            {
+              "kind": "gap",
+              "a": "archivist:Ms Bhattacharya",
+              "b": "damage:bound upside down",
+              "k": 5,
+              "rel": "eq"
+            },
+            {
+              "kind": "link",
+              "a": "archivist:Dr Lindqvist",
+              "b": "decade:the 1830s"
+            }
+          ]
         }
       ]
     },
@@ -302,9 +364,29 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "before",
+          "kind": "immediately_before",
           "a": "holding:the workhouse admissions book",
-          "b": "decade:the 1890s"
+          "b": "archivist:Mr Pelletier"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "archivist:Ms Okafor",
+              "b": "holding:a set of tram timetables"
+            },
+            {
+              "kind": "before",
+              "a": "archivist:Ms Castellano",
+              "b": "damage:immaculate"
+            }
+          ]
         }
       ]
     },
@@ -328,11 +410,6 @@
           "b": "decade:the 1890s",
           "k": 3,
           "rel": "eq"
-        },
-        {
-          "kind": "not_link",
-          "a": "archivist:Ms Okafor",
-          "b": "damage:water-damaged"
         }
       ]
     }
@@ -380,34 +457,37 @@
     ]
   },
   "stats": {
-    "atoms": 18,
-    "numbered_clues": 16,
+    "atoms": 24,
+    "numbered_clues": 23,
     "kinds": {
-      "not_link": 2,
-      "gap": 3,
-      "not_both": 1,
+      "not_link": 4,
+      "between": 5,
       "or": 3,
-      "if_then": 2,
-      "between": 3,
+      "if_then": 3,
+      "before": 2,
+      "adjacent": 1,
       "not": 1,
-      "immediately_before": 1,
-      "before": 2
+      "not_both": 1,
+      "immediately_before": 2,
+      "gap": 2
     },
     "positives": 0,
-    "compounds": 7
+    "compounds": 8
   },
   "solve": {
     "solved": true,
-    "max_tier": 4,
-    "max_technique": "disjunction",
-    "steps": 98,
+    "max_tier": 6,
+    "max_technique": "trial",
+    "steps": 93,
     "tier_counts": {
-      "direct": 2,
-      "bijection": 55,
-      "order": 26,
-      "disjunction": 15
+      "direct": 4,
+      "bijection": 40,
+      "order": 33,
+      "disjunction": 9,
+      "subset": 2,
+      "trial": 5
     },
-    "trial_eliminations": 0,
+    "trial_eliminations": 5,
     "unknown_cells": 24
   }
 }

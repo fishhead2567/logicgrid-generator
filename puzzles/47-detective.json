@@ -4,8 +4,8 @@
   "theme": "detective",
   "blurb": "The Marchmont Mutual Improvement Society has taken on the case of the missing trowel with a seriousness it has never shown a book.",
   "profile": "expert",
-  "rating": 7,
-  "score": 15.8999,
+  "rating": 6,
+  "score": 10.8803,
   "seed": 2026172947629,
   "spec": {
     "difficulty": "expert",
@@ -102,6 +102,50 @@
       "style": "sentences",
       "atoms": [
         {
+          "kind": "if_then",
+          "x": {
+            "kind": "gap",
+            "a": "theory:a conspiracy of two",
+            "b": "time:8am",
+            "k": 3,
+            "rel": "eq"
+          },
+          "y": {
+            "kind": "gap",
+            "a": "alibi:watching the snooker",
+            "b": "time:1pm",
+            "k": 5,
+            "rel": "eq"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "theory:nothing happened at all",
+          "b": "time:10am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "clue:a bootprint",
+          "b": "time:noon",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
           "kind": "between",
           "a": "time:11am",
           "b": "clue:an unexplained hole",
@@ -124,43 +168,17 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "parity",
-          "a": "alibi:watching the snooker",
-          "b": "time:9am",
-          "same": false
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "gap",
-          "a": "clue:a bootprint",
-          "b": "time:noon",
-          "k": 2,
-          "rel": "eq"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "link",
-              "a": "sleuth:Leopold",
-              "b": "time:9am"
-            },
-            {
-              "kind": "parity",
-              "a": "theory:a jealous rival",
-              "b": "time:9am",
-              "same": false
-            }
-          ]
+          "kind": "not_both",
+          "x": {
+            "kind": "adjacent",
+            "a": "clue:an unexplained hole",
+            "b": "time:1pm"
+          },
+          "y": {
+            "kind": "immediately_before",
+            "a": "alibi:a long bath",
+            "b": "sleuth:Hortensia"
+          }
         }
       ]
     },
@@ -180,11 +198,57 @@
       "style": "sentences",
       "atoms": [
         {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "clue:an unexplained hole",
+              "b": "theory:a magpie"
+            },
+            {
+              "kind": "parity",
+              "a": "clue:a dropped glove",
+              "b": "sleuth:Barnabas",
+              "same": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "alibi:a locked greenhouse",
+          "b": "clue:a bootprint"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
           "kind": "gap",
-          "a": "clue:a torn receipt",
+          "a": "clue:a tyre mark",
           "b": "sleuth:Hortensia",
-          "k": 2,
+          "k": 3,
           "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "clue:a torn receipt",
+          "b": "theory:nothing happened at all"
+        },
+        {
+          "kind": "before",
+          "a": "theory:nothing happened at all",
+          "b": "sleuth:Ngozi"
         }
       ]
     },
@@ -195,36 +259,6 @@
           "kind": "immediately_before",
           "a": "alibi:a long bath",
           "b": "sleuth:Hortensia"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "immediately_before",
-          "a": "alibi:a locked greenhouse",
-          "b": "sleuth:Ariadne"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "not_link",
-          "a": "sleuth:Ngozi",
-          "b": "theory:an inside job"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "clue:a bootprint",
-          "b": "sleuth:Barnabas"
         }
       ]
     },
@@ -244,10 +278,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "between",
-          "a": "alibi:the dentist",
-          "b": "clue:a torn receipt",
-          "c": "theory:nothing happened at all"
+          "kind": "immediately_before",
+          "a": "alibi:a locked greenhouse",
+          "b": "sleuth:Ariadne"
         }
       ]
     },
@@ -255,20 +288,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "link",
-              "a": "clue:an unexplained hole",
-              "b": "sleuth:Ariadne"
-            },
-            {
-              "kind": "parity",
-              "a": "alibi:a long bath",
-              "b": "clue:a tyre mark",
-              "same": true
-            }
-          ]
+          "kind": "immediately_before",
+          "a": "theory:a clerical error",
+          "b": "alibi:the dentist"
         }
       ]
     },
@@ -276,11 +298,10 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "gap",
-          "a": "clue:a smell of creosote",
-          "b": "theory:nothing happened at all",
-          "k": 3,
-          "rel": "eq"
+          "kind": "parity",
+          "a": "clue:a bootprint",
+          "b": "theory:a jealous rival",
+          "same": true
         }
       ]
     },
@@ -299,10 +320,20 @@
       "atoms": [
         {
           "kind": "gap",
-          "a": "sleuth:Leopold",
-          "b": "theory:a clerical error",
+          "a": "clue:a torn receipt",
+          "b": "sleuth:Hortensia",
           "k": 2,
           "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "sleuth:Ngozi",
+          "b": "theory:an inside job"
         }
       ]
     }
@@ -350,33 +381,35 @@
     ]
   },
   "stats": {
-    "atoms": 17,
-    "numbered_clues": 17,
+    "atoms": 20,
+    "numbered_clues": 19,
     "kinds": {
-      "between": 3,
-      "parity": 1,
-      "gap": 6,
-      "or": 2,
-      "immediately_before": 2,
-      "not_link": 1,
-      "adjacent": 2
+      "if_then": 1,
+      "adjacent": 2,
+      "gap": 5,
+      "between": 2,
+      "not_both": 1,
+      "or": 1,
+      "not_link": 3,
+      "before": 1,
+      "immediately_before": 3,
+      "parity": 1
     },
     "positives": 0,
-    "compounds": 2
+    "compounds": 3
   },
   "solve": {
     "solved": true,
-    "max_tier": 6,
-    "max_technique": "trial",
-    "steps": 83,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 87,
     "tier_counts": {
-      "direct": 1,
-      "bijection": 37,
-      "order": 40,
-      "disjunction": 3,
-      "trial": 2
+      "direct": 3,
+      "bijection": 38,
+      "order": 42,
+      "disjunction": 4
     },
-    "trial_eliminations": 2,
+    "trial_eliminations": 0,
     "unknown_cells": 24
   }
 }

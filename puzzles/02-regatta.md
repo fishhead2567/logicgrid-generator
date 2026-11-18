@@ -1,6 +1,6 @@
 # The Mudflat Regatta
 
-**Difficulty** 2/7 (gentle) &nbsp;&nbsp; **Grid** 3 x 4 &nbsp;&nbsp; **Clues** 4 &nbsp;&nbsp; **id** `4e6bca5074dc`
+**Difficulty** 1/7 (gentle) &nbsp;&nbsp; **Grid** 3 x 4 &nbsp;&nbsp; **Clues** 4 &nbsp;&nbsp; **id** `4e6bca5074dc`
 
 ## Introduction
 
@@ -13,10 +13,10 @@ Every crew has a different placing and boat, so within each category every item 
 
 ## Clues
 
-1. The Brickworks crew finishes third. The Brickworks crew rows the Obstinate.
-2. The crew who rows the Last Resort is better than fourth in placing order.
-3. The Customs crew is better than the crew who rows the Last Resort in placing order.
-4. The crew who rows the Dauntless is exactly one place better than the Almshouse crew, with no placing in between.
+1. The Customs crew finishes first.
+2. The Almshouse crew rows the Last Resort.
+3. The Tannery crew rows the Gilded Eel. The crew who rows the Last Resort is better than the Tannery crew in placing order.
+4. Second is exactly one place better than the crew who rows the Obstinate, with no placing in between.
 
 ## Solving chart
 
@@ -58,23 +58,25 @@ Every crew has a different placing and boat, so within each category every item 
 
 ## How it falls out
 
-1. [direct] from clue 4 crew:the Brickworks crew: ruled out position(s) 1,2,4
-2. [direct] from clue 2 boat:the Obstinate: ruled out position(s) 1,2,4
-3. [bijection] boat:the Gilded Eel: ruled out position(s) 3
-4. [bijection] boat:the Last Resort: ruled out position(s) 3
-5. [bijection] boat:the Dauntless: ruled out position(s) 3
-6. [bijection] crew:the Tannery crew: ruled out position(s) 3
-7. [bijection] crew:the Customs crew: ruled out position(s) 3
-8. [bijection] crew:the Almshouse crew: ruled out position(s) 3
-9. [order] from clue 5 crew:the Customs crew: ruled out position(s) 4
-10. [order] from clue 5 boat:the Last Resort: ruled out position(s) 1
-11. [order] from clue 3 boat:the Dauntless: ruled out position(s) 2,4
-12. [order] from clue 3 crew:the Almshouse crew: ruled out position(s) 1,4
-13. [order] from clue 1 boat:the Last Resort: ruled out position(s) 4
-14. [order] from clue 5 crew:the Customs crew: ruled out position(s) 2
-15. [bijection] boat:the Gilded Eel: ruled out position(s) 1,2
-16. [bijection] crew:the Tannery crew: ruled out position(s) 1,2
+1. [direct] from clue 1 crew:the Customs crew: ruled out position(s) 2,3,4
+2. [bijection] crew:the Tannery crew: ruled out position(s) 1
+3. [bijection] crew:the Brickworks crew: ruled out position(s) 1
+4. [bijection] crew:the Almshouse crew: ruled out position(s) 1
+5. [direct] from clue 5 boat:the Last Resort: ruled out position(s) 1
+6. [direct] from clue 3 boat:the Gilded Eel: ruled out position(s) 1
+7. [order] from clue 4 boat:the Obstinate: ruled out position(s) 1,2,4
+8. [order] from clue 2 boat:the Last Resort: ruled out position(s) 4
+9. [order] from clue 2 crew:the Tannery crew: ruled out position(s) 2
+10. [direct] from clue 5 crew:the Almshouse crew: ruled out position(s) 4
+11. [direct] from clue 3 boat:the Gilded Eel: ruled out position(s) 2
+12. [bijection] boat:the Gilded Eel: ruled out position(s) 3
+13. [bijection] boat:the Last Resort: ruled out position(s) 3
+14. [bijection] boat:the Dauntless: ruled out position(s) 3
+15. [bijection] boat:the Dauntless: ruled out position(s) 2,4
+16. [direct] from clue 5 crew:the Almshouse crew: ruled out position(s) 3
+17. [direct] from clue 3 crew:the Tannery crew: ruled out position(s) 3
+18. [bijection] crew:the Brickworks crew: ruled out position(s) 2,4
 
 ---
 
-<sub>seed `2026172591274` &middot; score 4.27 &middot; atoms 5 &middot; positives 2 &middot; solved by order</sub>
+<sub>seed `2026172591274` &middot; score 3.97 &middot; atoms 5 &middot; positives 3 &middot; solved by order</sub>

@@ -5,7 +5,7 @@
   "blurb": "The Ashfold Knitting Circle meets weekly and has not agreed on anything since 1998.",
   "profile": "hard",
   "rating": 6,
-  "score": 9.3142,
+  "score": 10.2083,
   "seed": 2026172844682,
   "spec": {
     "difficulty": "hard",
@@ -98,14 +98,30 @@
       "atoms": [
         {
           "kind": "between",
-          "a": "project:a cable-knit blanket",
-          "b": "day:Thursday",
-          "c": "knitter:Ebba"
-        },
+          "a": "yarn:recycled sari silk",
+          "b": "day:Monday",
+          "c": "knitter:Nkechi"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
         {
-          "kind": "before",
-          "a": "knitter:Nkechi",
-          "b": "day:Thursday"
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "project:a pair of argyle socks",
+              "b": "snag:a dropped stitch in row nine"
+            },
+            {
+              "kind": "parity",
+              "a": "day:Tuesday",
+              "b": "project:a dog coat",
+              "same": false
+            }
+          ]
         }
       ]
     },
@@ -114,9 +130,42 @@
       "atoms": [
         {
           "kind": "between",
-          "a": "yarn:recycled sari silk",
-          "b": "day:Monday",
-          "c": "knitter:Nkechi"
+          "a": "project:a cable-knit blanket",
+          "b": "day:Thursday",
+          "c": "knitter:Ebba"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "adjacent",
+            "a": "day:Thursday",
+            "b": "snag:a dropped stitch in row nine"
+          },
+          "y": {
+            "kind": "immediately_before",
+            "a": "project:a cable-knit blanket",
+            "b": "snag:running out of dye lot"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "knitter:Nkechi",
+          "b": "day:Thursday"
+        },
+        {
+          "kind": "adjacent",
+          "a": "knitter:Nkechi",
+          "b": "yarn:hand-spun alpaca"
         }
       ]
     },
@@ -135,64 +184,26 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "adjacent",
-          "a": "day:Tuesday",
-          "b": "project:a dog coat"
+          "kind": "gap",
+          "a": "snag:a misread chart",
+          "b": "yarn:undyed Shetland",
+          "k": 2,
+          "rel": "eq"
         }
       ]
     },
     {
       "style": "sentences",
       "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "knitter:Nkechi",
-          "b": "yarn:hand-spun alpaca"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "adjacent",
-              "a": "knitter:Nkechi",
-              "b": "snag:a misread chart"
-            },
-            {
-              "kind": "adjacent",
-              "a": "snag:a dropped stitch in row nine",
-              "b": "yarn:recycled sari silk"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "knitter:Lionel",
-          "b": "snag:a cat"
-        },
         {
           "kind": "not_link",
           "a": "project:a pair of argyle socks",
           "b": "snag:a cat"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
+        },
         {
-          "kind": "immediately_before",
-          "a": "snag:running out of dye lot",
-          "b": "knitter:Serafina"
+          "kind": "before",
+          "a": "knitter:Lionel",
+          "b": "snag:a cat"
         }
       ]
     },
@@ -212,11 +223,29 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "gap",
-          "a": "snag:a misread chart",
-          "b": "yarn:undyed Shetland",
-          "k": 2,
-          "rel": "eq"
+          "kind": "immediately_before",
+          "a": "snag:running out of dye lot",
+          "b": "knitter:Serafina"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "knitter:Lionel",
+              "b": "yarn:undyed Shetland"
+            },
+            {
+              "kind": "before",
+              "a": "knitter:Nkechi",
+              "b": "project:a pair of argyle socks"
+            }
+          ]
         }
       ]
     },
@@ -269,31 +298,32 @@
     ]
   },
   "stats": {
-    "atoms": 13,
-    "numbered_clues": 11,
+    "atoms": 14,
+    "numbered_clues": 12,
     "kinds": {
       "between": 2,
+      "or": 2,
+      "not_both": 1,
       "before": 3,
+      "adjacent": 1,
       "parity": 1,
-      "adjacent": 2,
-      "or": 1,
+      "gap": 2,
       "not_link": 1,
-      "immediately_before": 1,
-      "gap": 2
+      "immediately_before": 1
     },
     "positives": 0,
-    "compounds": 1
+    "compounds": 3
   },
   "solve": {
     "solved": true,
     "max_tier": 4,
     "max_technique": "disjunction",
-    "steps": 54,
+    "steps": 55,
     "tier_counts": {
       "direct": 1,
       "bijection": 28,
-      "order": 24,
-      "disjunction": 1
+      "order": 23,
+      "disjunction": 3
     },
     "trial_eliminations": 0,
     "unknown_cells": 20

@@ -5,7 +5,7 @@
   "blurb": "A case of opinionated cheeses, their equally opinionated makers, and one display that has begun to smell like a political scandal.",
   "profile": "expert",
   "rating": 7,
-  "score": 16.048,
+  "score": 16.8554,
   "seed": 2026172915953,
   "spec": {
     "difficulty": "expert",
@@ -111,17 +111,19 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "arith",
-          "a": "price:$13",
-          "b": "age:fourteen months",
-          "k": 10,
-          "op": "add"
-        },
-        {
-          "kind": "between",
-          "a": "cheese:Fenland Blue",
-          "b": "price:$13",
-          "c": "rind:a cloth-bound rind"
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "cheese:Glebe Farmhouse",
+              "b": "price:$5"
+            },
+            {
+              "kind": "adjacent",
+              "a": "price:$11",
+              "b": "rind:a washed rind"
+            }
+          ]
         }
       ]
     },
@@ -130,7 +132,7 @@
       "atoms": [
         {
           "kind": "adjacent",
-          "a": "cheese:Fenland Blue",
+          "a": "maker:Ambrose",
           "b": "price:$5"
         }
       ]
@@ -139,9 +141,10 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "adjacent",
-          "a": "cheese:Winter Tarn",
-          "b": "price:$7"
+          "kind": "between",
+          "a": "rind:a cider-washed rind",
+          "b": "age:fourteen months",
+          "c": "price:$9"
         }
       ]
     },
@@ -149,31 +152,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "adjacent",
-          "a": "maker:Perdita",
-          "b": "price:$13"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "arith",
+          "kind": "immediately_before",
           "a": "price:$11",
-          "b": "maker:Ambrose",
-          "k": 4,
-          "op": "add"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "not_link",
-          "a": "price:$9",
-          "b": "rind:a cider-washed rind"
+          "b": "rind:a waxed rind"
         }
       ]
     },
@@ -185,13 +166,13 @@
           "options": [
             {
               "kind": "adjacent",
-              "a": "age:five months",
-              "b": "price:$13"
+              "a": "cheese:Old Thrashing",
+              "b": "maker:Perdita"
             },
             {
-              "kind": "immediately_before",
-              "a": "age:three weeks",
-              "b": "maker:Ambrose"
+              "kind": "adjacent",
+              "a": "price:$3",
+              "b": "rind:a washed rind"
             }
           ]
         }
@@ -201,9 +182,11 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "before",
-          "a": "price:$3",
-          "b": "cheese:Glebe Farmhouse"
+          "kind": "arith",
+          "a": "price:$13",
+          "b": "maker:Sigrid",
+          "k": 10,
+          "op": "add"
         }
       ]
     },
@@ -214,8 +197,8 @@
           "kind": "not",
           "inner": {
             "kind": "before",
-            "a": "price:$9",
-            "b": "age:five months"
+            "a": "price:$5",
+            "b": "age:three weeks"
           }
         }
       ]
@@ -224,9 +207,17 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "immediately_before",
-          "a": "maker:Teodoro",
-          "b": "price:$7"
+          "kind": "if_then",
+          "x": {
+            "kind": "before",
+            "a": "rind:a cider-washed rind",
+            "b": "price:$11"
+          },
+          "y": {
+            "kind": "link",
+            "a": "age:nine months",
+            "b": "rind:a waxed rind"
+          }
         }
       ]
     },
@@ -234,63 +225,14 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "not_link",
-          "a": "age:two years",
-          "b": "rind:a waxed rind"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "arith",
-          "a": "cheese:Old Thrashing",
-          "b": "age:thirty months",
-          "k": 4,
-          "op": "add"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
+          "kind": "adjacent",
           "a": "cheese:Winter Tarn",
-          "b": "rind:an ash-coated rind"
+          "b": "price:$7"
         },
         {
-          "kind": "arith",
-          "a": "cheese:Bellringer",
-          "b": "rind:an ash-coated rind",
-          "k": 4,
-          "op": "add"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "not",
-          "inner": {
-            "kind": "before",
-            "a": "maker:Lachlan",
-            "b": "rind:an ash-coated rind"
-          }
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "arith",
-          "a": "rind:a natural rind",
-          "b": "age:thirty months",
-          "k": 2,
-          "op": "add"
+          "kind": "not_link",
+          "a": "age:thirty months",
+          "b": "cheese:Winter Tarn"
         }
       ]
     },
@@ -299,9 +241,9 @@
       "atoms": [
         {
           "kind": "between",
-          "a": "maker:Hepzibah",
-          "b": "age:fourteen months",
-          "c": "rind:a waxed rind"
+          "a": "age:two years",
+          "b": "price:$13",
+          "c": "rind:an ash-coated rind"
         }
       ]
     },
@@ -309,11 +251,121 @@
       "style": "sentences",
       "atoms": [
         {
+          "kind": "immediately_before",
+          "a": "rind:a cider-washed rind",
+          "b": "cheese:Fenland Blue"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "maker:Ambrose",
+          "b": "cheese:Glebe Farmhouse",
+          "c": "cheese:Winter Tarn"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "not_link",
+            "a": "age:two years",
+            "b": "cheese:Bellringer"
+          },
+          "y": {
+            "kind": "adjacent",
+            "a": "age:nine months",
+            "b": "maker:Lachlan"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "before",
+            "a": "age:three weeks",
+            "b": "maker:Ambrose"
+          },
+          "y": {
+            "kind": "adjacent",
+            "a": "age:thirty months",
+            "b": "cheese:Bellringer"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "maker:Teodoro",
+          "b": "rind:an ash-coated rind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "cheese:Fenland Blue",
+          "b": "maker:Hepzibah"
+        },
+        {
           "kind": "arith",
-          "a": "maker:Hepzibah",
-          "b": "rind:a cloth-bound rind",
-          "k": 6,
+          "a": "cheese:Old Thrashing",
+          "b": "maker:Hepzibah",
+          "k": 4,
           "op": "add"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "before",
+            "a": "maker:Teodoro",
+            "b": "rind:a cloth-bound rind"
+          },
+          "y": {
+            "kind": "not_link",
+            "a": "age:five months",
+            "b": "maker:Lachlan"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "link",
+              "a": "age:five months",
+              "b": "cheese:Winter Tarn"
+            },
+            {
+              "kind": "link",
+              "a": "age:thirty months",
+              "b": "rind:a washed rind"
+            }
+          ]
         }
       ]
     }
@@ -361,32 +413,33 @@
     ]
   },
   "stats": {
-    "atoms": 19,
-    "numbered_clues": 17,
+    "atoms": 20,
+    "numbered_clues": 18,
     "kinds": {
-      "arith": 6,
-      "between": 2,
+      "or": 3,
       "adjacent": 3,
-      "not_link": 2,
-      "or": 1,
-      "before": 2,
-      "not": 2,
-      "immediately_before": 1
+      "between": 3,
+      "immediately_before": 2,
+      "arith": 2,
+      "not": 1,
+      "if_then": 3,
+      "not_link": 1,
+      "before": 1,
+      "not_both": 1
     },
     "positives": 0,
-    "compounds": 3
+    "compounds": 8
   },
   "solve": {
     "solved": true,
     "max_tier": 6,
     "max_technique": "trial",
-    "steps": 67,
+    "steps": 68,
     "tier_counts": {
-      "direct": 2,
-      "bijection": 30,
-      "order": 28,
-      "disjunction": 4,
-      "subset": 2,
+      "direct": 1,
+      "bijection": 31,
+      "order": 23,
+      "disjunction": 12,
       "trial": 1
     },
     "trial_eliminations": 1,

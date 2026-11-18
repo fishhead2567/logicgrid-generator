@@ -16,23 +16,23 @@ Every puppeteer has a different slot, puppet, play and accompaniment, so within 
 ## Clues
 
 1. The puppeteer who stages The Drowned Bell falls somewhere between slot five and slot one in slot order.
-2. At least one of the following holds, and possibly more than one: (a) Mirabel is earlier than the puppeteer who is accompanied by a musical saw in slot order. (b) The puppeteer who is accompanied by a pump organ is later than slot four in slot order.
-3. The puppeteer who is accompanied by a hurdy-gurdy and slot three both sit at odd-numbered slots or both at even-numbered slots.
-4. Slot two is exactly one slot earlier than the puppeteer who works a moth queen, with no slot in between.
-5. At least one of the following holds, and possibly more than one: (a) The puppeteer who is accompanied by a musical saw and the puppeteer who works a tin soldier are exactly one slot apart in slot order, in one direction or the other. (b) Lorcan and slot four are exactly two slots apart in slot order.
-6. The puppeteer who is accompanied by a pump organ and slot two are exactly one slot apart in slot order, in one direction or the other.
-7. The puppeteer who is accompanied by a bowed psaltery does not work a brass magistrate. Mirabel falls somewhere between the puppeteer who works a brass magistrate and slot two in slot order.
-8. Slot three falls somewhere between the puppeteer who is accompanied by a prepared piano and Halima in slot order.
-9. The puppeteer who works a one-eyed cat and slot five are exactly one slot apart in slot order, in one direction or the other.
-10. At least one of the following holds, and possibly more than one: (a) The puppeteer who stages The Drowned Bell performs in slot two. (b) Bowen does not work a drowned sailor.
-11. The puppeteer who is accompanied by a prepared piano falls somewhere between Lorcan and slot one in slot order.
-12. The puppeteer who stages Winterling and Josefa are exactly five slots apart in slot order. The puppeteer who works a shepherd boy falls somewhere between Josefa and slot four in slot order.
-13. The puppeteer who is accompanied by two kettle drums and slot four are exactly one slot apart in slot order, in one direction or the other.
-14. Josefa is exactly one slot earlier than the puppeteer who stages Marrowbone, with no slot in between.
-15. Halima is earlier than the puppeteer who stages The Clockwork Orchard in slot order.
-16. The puppeteer who is accompanied by a musical saw does not work a brass magistrate. The puppeteer who stages The Clockwork Orchard does not work a brass magistrate.
-17. One of the puppeteer who is accompanied by a hurdy-gurdy and the puppeteer who stages Hollowmas sits at an odd-numbered slot and the other at an even-numbered slot.
-18. At least one of the following holds, and possibly more than one: (a) The puppeteer who is accompanied by a hurdy-gurdy is earlier than the puppeteer who stages The Drowned Bell in slot order. (b) The puppeteer who works a one-eyed cat is earlier than the puppeteer who stages Marrowbone in slot order.
+2. Slot two is exactly one slot earlier than the puppeteer who works a moth queen, with no slot in between.
+3. The puppeteer who stages Winterling and Josefa are exactly five slots apart in slot order. The puppeteer who works a shepherd boy falls somewhere between Josefa and slot four in slot order.
+4. Mirabel falls somewhere between the puppeteer who works a brass magistrate and slot two in slot order. The puppeteer who is accompanied by a musical saw does not work a brass magistrate.
+5. At least one of the following holds, and possibly more than one: (a) The puppeteer who stages Six Spoons performs in slot three. (b) The puppeteer who stages Hollowmas and the puppeteer who works a one-eyed cat both sit at odd-numbered slots or both at even-numbered slots.
+6. Slot three falls somewhere between the puppeteer who is accompanied by a prepared piano and Halima in slot order.
+7. The puppeteer who is accompanied by a pump organ and slot two are exactly one slot apart in slot order, in one direction or the other.
+8. The puppeteer who is accompanied by two kettle drums and slot four are exactly one slot apart in slot order, in one direction or the other.
+9. The puppeteer who is accompanied by a prepared piano falls somewhere between Lorcan and slot one in slot order.
+10. At least one of the following holds, and possibly more than one: (a) The puppeteer who is accompanied by a hurdy-gurdy is earlier than the puppeteer who stages The Clockwork Orchard in slot order. (b) The puppeteer who is accompanied by a bowed psaltery is later than slot five in slot order.
+11. If (a) holds then (b) also holds, but not necessarily the reverse: (a) The puppeteer who is accompanied by a bowed psaltery is later than slot five in slot order. (b) The puppeteer who is accompanied by a pump organ and the puppeteer who stages The Clockwork Orchard are exactly one slot apart in slot order, in one direction or the other.
+12. The puppeteer who is accompanied by a hurdy-gurdy and slot three both sit at odd-numbered slots or both at even-numbered slots.
+13. The puppeteer who stages The Clockwork Orchard does not work a brass magistrate.
+14. If (a) holds then (b) also holds, but not necessarily the reverse: (a) The puppeteer who is accompanied by a prepared piano and the puppeteer who works a one-eyed cat are exactly two slots apart in slot order. (b) The puppeteer who is accompanied by a pump organ works a moth queen.
+15. At least one of the following holds, and possibly more than one: (a) The puppeteer who works a moth queen is earlier than Bowen in slot order. (b) The puppeteer who is accompanied by a bowed psaltery stages Six Spoons.
+16. One of the puppeteer who is accompanied by a hurdy-gurdy and the puppeteer who stages Hollowmas sits at an odd-numbered slot and the other at an even-numbered slot.
+17. Josefa is exactly one slot earlier than the puppeteer who stages Marrowbone, with no slot in between.
+18. At least one of the following holds, and possibly more than one: (a) The puppeteer who works a one-eyed cat and Stellan are exactly one slot apart in slot order, in one direction or the other. (b) The puppeteer who stages The Clockwork Orchard works a moth queen.
 19. The puppeteer who works a tin soldier is earlier than the puppeteer who is accompanied by two kettle drums in slot order.
 
 ## Solving chart
@@ -160,48 +160,48 @@ Every puppeteer has a different slot, puppet, play and accompaniment, so within 
 
 ## How it falls out
 
-1. [order] from clue 22 music:two kettle drums: ruled out position(s) 1,2,4,6
-2. [order] from clue 19 music:a pump organ: ruled out position(s) 2,4,5,6
-3. [order] from clue 18 puppet:a one-eyed cat: ruled out position(s) 1,2,3,5
-4. [order] from clue 16 music:a prepared piano: ruled out position(s) 1,6
-5. [order] from clue 16 puppeteer:Lorcan: ruled out position(s) 1,2
-6. [order] from clue 15 play:The Drowned Bell: ruled out position(s) 1,5,6
-7. [order] from clue 14 puppet:a moth queen: ruled out position(s) 1,2,4,5,6
-8. [order] from clue 12 puppet:a shepherd boy: ruled out position(s) 1,4,6
-9. [order] from clue 12 puppeteer:Josefa: ruled out position(s) 3,4,5
-10. [order] from clue 11 music:a hurdy-gurdy: ruled out position(s) 2,4,6
-11. [order] from clue 13 play:Hollowmas: ruled out position(s) 1,3,5
-12. [order] from clue 10 puppeteer:Mirabel: ruled out position(s) 1,2,6
-13. [order] from clue 10 puppet:a brass magistrate: ruled out position(s) 1,2,3
-14. [order] from clue 9 puppet:a tin soldier: ruled out position(s) 5,6
-15. [order] from clue 8 music:a prepared piano: ruled out position(s) 3
-16. [order] from clue 8 puppeteer:Halima: ruled out position(s) 3
-17. [order] from clue 4 puppeteer:Halima: ruled out position(s) 6
-18. [order] from clue 4 play:The Clockwork Orchard: ruled out position(s) 1
-19. [order] from clue 3 play:Winterling: ruled out position(s) 2,3,4,5
-20. [order] from clue 3 puppeteer:Josefa: ruled out position(s) 2
-21. [order] from clue 1 puppeteer:Josefa: ruled out position(s) 6
-22. [order] from clue 1 play:Marrowbone: ruled out position(s) 1,3,4,5,6
-23. [order] from clue 12 puppet:a shepherd boy: ruled out position(s) 5
-24. [order] from clue 3 play:Winterling: ruled out position(s) 1
-25. [bijection] play:Six Spoons: ruled out position(s) 2,6
-26. [bijection] play:Hollowmas: ruled out position(s) 2,6
-27. [bijection] play:The Clockwork Orchard: ruled out position(s) 2,6
-28. [bijection] play:The Drowned Bell: ruled out position(s) 2
-29. [bijection] play:Six Spoons: ruled out position(s) 3,4,5
-30. [bijection] puppet:a tin soldier: ruled out position(s) 3
-31. [bijection] puppet:a shepherd boy: ruled out position(s) 3
-32. [bijection] puppet:a drowned sailor: ruled out position(s) 3
-33. [bijection] puppeteer:Bowen: ruled out position(s) 1
-34. [bijection] puppeteer:Halima: ruled out position(s) 1
-35. [bijection] puppeteer:Stellan: ruled out position(s) 1
-36. [order] from clue 4 puppeteer:Halima: ruled out position(s) 5
-37. [bijection] play:The Clockwork Orchard: ruled out position(s) 4
-38. [bijection] play:The Drowned Bell: ruled out position(s) 4
-39. [bijection] play:The Clockwork Orchard: ruled out position(s) 3
-40. [bijection] puppet:a tin soldier: ruled out position(s) 2
-_... and 28 further steps._
+1. [order] from clue 21 music:two kettle drums: ruled out position(s) 1,2,4,6
+2. [order] from clue 18 music:a pump organ: ruled out position(s) 2,4,5,6
+3. [order] from clue 16 music:a prepared piano: ruled out position(s) 1,6
+4. [order] from clue 16 puppeteer:Lorcan: ruled out position(s) 1,2
+5. [order] from clue 15 play:The Drowned Bell: ruled out position(s) 1,5,6
+6. [order] from clue 14 puppet:a moth queen: ruled out position(s) 1,2,4,5,6
+7. [order] from clue 12 puppet:a shepherd boy: ruled out position(s) 1,4,6
+8. [order] from clue 12 puppeteer:Josefa: ruled out position(s) 3,4,5
+9. [order] from clue 10 music:a hurdy-gurdy: ruled out position(s) 2,4,6
+10. [order] from clue 13 play:Hollowmas: ruled out position(s) 1,3,5
+11. [order] from clue 9 puppeteer:Mirabel: ruled out position(s) 1,2,6
+12. [order] from clue 9 puppet:a brass magistrate: ruled out position(s) 1,2,3
+13. [order] from clue 8 puppet:a tin soldier: ruled out position(s) 5,6
+14. [order] from clue 7 music:a prepared piano: ruled out position(s) 3
+15. [order] from clue 7 puppeteer:Halima: ruled out position(s) 3
+16. [order] from clue 5 play:Winterling: ruled out position(s) 2,3,4,5
+17. [order] from clue 5 puppeteer:Josefa: ruled out position(s) 2
+18. [order] from clue 3 puppeteer:Josefa: ruled out position(s) 6
+19. [order] from clue 3 play:Marrowbone: ruled out position(s) 1,3,4,5,6
+20. [order] from clue 12 puppet:a shepherd boy: ruled out position(s) 5
+21. [order] from clue 5 play:Winterling: ruled out position(s) 1
+22. [bijection] play:Six Spoons: ruled out position(s) 2,6
+23. [bijection] play:Hollowmas: ruled out position(s) 2,6
+24. [bijection] play:The Clockwork Orchard: ruled out position(s) 2,6
+25. [bijection] play:The Drowned Bell: ruled out position(s) 2
+26. [bijection] puppet:a tin soldier: ruled out position(s) 3
+27. [bijection] puppet:a shepherd boy: ruled out position(s) 3
+28. [bijection] puppet:a drowned sailor: ruled out position(s) 3
+29. [bijection] puppet:a one-eyed cat: ruled out position(s) 3
+30. [bijection] puppeteer:Bowen: ruled out position(s) 1
+31. [bijection] puppeteer:Halima: ruled out position(s) 1
+32. [bijection] puppeteer:Stellan: ruled out position(s) 1
+33. [bijection] play:Six Spoons: ruled out position(s) 4
+34. [bijection] play:The Clockwork Orchard: ruled out position(s) 4
+35. [bijection] play:The Drowned Bell: ruled out position(s) 4
+36. [bijection] puppet:a tin soldier: ruled out position(s) 2
+37. [bijection] puppet:a drowned sailor: ruled out position(s) 2
+38. [bijection] puppet:a one-eyed cat: ruled out position(s) 2
+39. [bijection] play:Six Spoons: ruled out position(s) 3
+40. [bijection] play:The Clockwork Orchard: ruled out position(s) 3
+_... and 31 further steps._
 
 ---
 
-<sub>seed `2026173028601` &middot; score 15.8506 &middot; atoms 22 &middot; positives 0 &middot; solved by trial</sub>
+<sub>seed `2026173028601` &middot; score 13.4523 &middot; atoms 21 &middot; positives 0 &middot; solved by subset</sub>

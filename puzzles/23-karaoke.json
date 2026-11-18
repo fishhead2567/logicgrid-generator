@@ -5,7 +5,7 @@
   "blurb": "The Dented Bell runs karaoke on Tuesdays. Attendance is loyal; talent is not.",
   "profile": "moderate",
   "rating": 4,
-  "score": 5.515,
+  "score": 5.675,
   "seed": 2026172757573,
   "spec": {
     "difficulty": "moderate",
@@ -83,14 +83,14 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "link",
-          "a": "reception:polite silence",
-          "b": "singer:Bogdan"
+          "kind": "immediately_before",
+          "a": "slot:slot two",
+          "b": "song:a power ballad"
         },
         {
-          "kind": "before",
-          "a": "song:an eight-minute prog epic",
-          "b": "reception:polite silence"
+          "kind": "not_link",
+          "a": "reception:a standing ovation",
+          "b": "slot:slot two"
         }
       ]
     },
@@ -100,30 +100,8 @@
         {
           "kind": "between",
           "a": "slot:slot four",
-          "b": "reception:a request for an encore nobody wanted",
-          "c": "song:a disco standard"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "between",
-          "a": "song:a power ballad",
-          "b": "reception:a request for an encore nobody wanted",
-          "c": "slot:slot two"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "between",
-          "a": "slot:slot two",
-          "b": "reception:one heckler",
-          "c": "singer:Annalise"
+          "b": "singer:Pernilla",
+          "c": "song:an eight-minute prog epic"
         }
       ]
     },
@@ -132,20 +110,8 @@
       "atoms": [
         {
           "kind": "not_link",
-          "a": "slot:slot five",
-          "b": "song:a sea shanty"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "gap",
-          "a": "reception:a standing ovation",
-          "b": "singer:Pernilla",
-          "k": 2,
-          "rel": "eq"
+          "a": "singer:Annalise",
+          "b": "slot:slot one"
         }
       ]
     },
@@ -154,8 +120,18 @@
       "atoms": [
         {
           "kind": "before",
-          "a": "singer:Vikram",
-          "b": "song:an eight-minute prog epic"
+          "a": "slot:slot one",
+          "b": "singer:Deshawn"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "reception:polite silence",
+          "b": "slot:slot five"
         }
       ]
     },
@@ -164,9 +140,48 @@
       "atoms": [
         {
           "kind": "between",
-          "a": "singer:Annalise",
-          "b": "reception:one heckler",
+          "a": "reception:the landlord cutting the power",
+          "b": "slot:slot one",
           "c": "song:a sea shanty"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "singer:Deshawn",
+          "b": "song:a power ballad"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "reception:a request for an encore nobody wanted",
+          "b": "song:an eight-minute prog epic",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "reception:one heckler",
+          "b": "singer:Bogdan",
+          "k": 3,
+          "rel": "eq"
+        },
+        {
+          "kind": "before",
+          "a": "singer:Bogdan",
+          "b": "song:a maudlin folk song"
         }
       ]
     }
@@ -202,27 +217,28 @@
     ]
   },
   "stats": {
-    "atoms": 9,
-    "numbered_clues": 8,
+    "atoms": 11,
+    "numbered_clues": 9,
     "kinds": {
-      "link": 1,
-      "before": 2,
-      "between": 4,
-      "not_link": 1,
-      "gap": 1
+      "immediately_before": 1,
+      "not_link": 2,
+      "between": 2,
+      "before": 3,
+      "adjacent": 1,
+      "gap": 2
     },
-    "positives": 1,
+    "positives": 0,
     "compounds": 0
   },
   "solve": {
     "solved": true,
     "max_tier": 3,
     "max_technique": "order",
-    "steps": 44,
+    "steps": 46,
     "tier_counts": {
-      "direct": 4,
-      "bijection": 22,
-      "order": 18
+      "direct": 2,
+      "bijection": 23,
+      "order": 21
     },
     "trial_eliminations": 0,
     "unknown_cells": 15

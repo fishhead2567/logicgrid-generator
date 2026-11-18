@@ -1,0 +1,108 @@
+{
+  "pid": "7e5abe865022",
+  "verdict": "pass",
+  "readers": 3,
+  "solution_ok": 3,
+  "ir_ok": 3,
+  "consensus_missing": [],
+  "consensus_extra": [],
+  "readers_disagree": false,
+  "readings": [
+    {
+      "index": 0,
+      "model": "reader1",
+      "solution_ok": true,
+      "ir_ok": true,
+      "solutions": 1,
+      "checks": [
+        {
+          "name": "parse",
+          "passed": true,
+          "detail": "17 facts"
+        },
+        {
+          "name": "cast",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "name": "solution",
+          "passed": true,
+          "detail": "unique, and the right answer"
+        },
+        {
+          "name": "ir",
+          "passed": true,
+          "detail": "identical clue set"
+        }
+      ],
+      "missing": [],
+      "extra": [],
+      "error": ""
+    },
+    {
+      "index": 1,
+      "model": "reader2",
+      "solution_ok": true,
+      "ir_ok": true,
+      "solutions": 1,
+      "checks": [
+        {
+          "name": "parse",
+          "passed": true,
+          "detail": "17 facts"
+        },
+        {
+          "name": "cast",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "name": "solution",
+          "passed": true,
+          "detail": "unique, and the right answer"
+        },
+        {
+          "name": "ir",
+          "passed": true,
+          "detail": "identical clue set"
+        }
+      ],
+      "missing": [],
+      "extra": [],
+      "error": ""
+    },
+    {
+      "index": 2,
+      "model": "reader3",
+      "solution_ok": true,
+      "ir_ok": true,
+      "solutions": 1,
+      "checks": [
+        {
+          "name": "parse",
+          "passed": true,
+          "detail": "17 facts"
+        },
+        {
+          "name": "cast",
+          "passed": true,
+          "detail": ""
+        },
+        {
+          "name": "solution",
+          "passed": true,
+          "detail": "unique, and the right answer"
+        },
+        {
+          "name": "ir",
+          "passed": true,
+          "detail": "identical clue set"
+        }
+      ],
+      "missing": [],
+      "extra": [],
+      "error": ""
+    }
+  ]
+}

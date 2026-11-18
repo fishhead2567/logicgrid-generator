@@ -1,41 +1,35 @@
 # The Crossings to Inverlaig
 
-**Difficulty** 6/7 (hard) &nbsp;&nbsp; **Grid** 5 x 5 &nbsp;&nbsp; **Clues** 15 &nbsp;&nbsp; **id** `fa96355e3237`
+**Difficulty** 5/7 (hard) &nbsp;&nbsp; **Grid** 4 x 5 &nbsp;&nbsp; **Clues** 10 &nbsp;&nbsp; **id** `d5e7c2e47f6f`
 
 ## Introduction
 
 The Inverlaig ferry runs a full day of crossings in theory, and a variable number in practice.
-Five skippers are involved. Determine each skipper's start time, cargo, vessel and reason.
-- **Skipper**: Tormod, Eilidh, Murdo, Calla and Senga.
+Five skippers are involved. Determine each skipper's start time, cargo and vessel.
+- **Skipper**: Ruaridh, Murdo, Senga, Tormod and Fearghas.
 - **Start time** (listed from earlier to later): 8am, 9am, 10am, 11am and noon.
-- **Notable cargo**: a brass band; a refrigerated van; a consignment of bees; a film crew and no permits; and a wedding party.
-- **Vessel**: the Tern, the Broch Maid, the Three Brothers, the Kelpie and the Siller Grey.
-- **Delay blamed on**: paperwork, a fouled propeller, a slipway repair, a passenger's dog and the tide.
-Every skipper has a different start time, cargo, vessel and reason, so within each category every item is used exactly once.
+- **Notable cargo**: a consignment of bees; a church organ; a brass band; a film crew and no permits; and a refrigerated van.
+- **Vessel**: the Tern, the Broch Maid, the Siller Grey, the Three Brothers and the Kelpie.
+Every skipper has a different start time, cargo and vessel, so within each category every item is used exactly once.
 
 ## Clues
 
-1. The following two do NOT both hold; either one alone may hold, and so may neither: (a) The skipper who blames a passenger's dog is earlier than 10am in start time order. (b) Tormod sails at noon.
-2. At least one of the following holds, and possibly more than one: (a) The skipper who carries a film crew and no permits commands the Tern. (b) Tormod and noon both sit at odd-numbered hours or both at even-numbered hours.
-3. The skipper who commands the Tern and 8am are exactly four hours apart in start time order.
-4. Senga falls somewhere between the skipper who blames a passenger's dog and noon in start time order.
-5. The skipper who carries a refrigerated van does not sail at 9am.
-6. Calla is exactly one hour earlier than 9am, with no start time in between.
-7. The skipper who blames a fouled propeller falls somewhere between the skipper who carries a wedding party and the skipper who commands the Broch Maid in start time order.
-8. One of the skipper who blames a passenger's dog and the skipper who commands the Siller Grey sits at an odd-numbered start time and the other at an even-numbered start time.
-9. The skipper who commands the Broch Maid is exactly one hour earlier than the skipper who carries a consignment of bees, with no start time in between.
-10. The skipper who blames a fouled propeller is exactly one hour earlier than the skipper who commands the Kelpie, with no start time in between.
-11. The skipper who blames the tide is exactly one hour earlier than Murdo, with no start time in between. Murdo is earlier than the skipper who commands the Kelpie in start time order.
-12. The skipper who blames paperwork and the skipper who commands the Kelpie are exactly one hour apart in start time order, in one direction or the other.
-13. The skipper who blames paperwork and Calla both sit at odd-numbered hours or both at even-numbered hours.
-14. The skipper who carries a brass band is exactly one hour earlier than Eilidh, with no start time in between.
-15. The skipper who blames a passenger's dog is earlier than the skipper who commands the Three Brothers in start time order.
+1. The skipper who carries a film crew and no permits commands the Tern.
+2. 9am is exactly one hour earlier than Fearghas, with no start time in between.
+3. Tormod is exactly one hour earlier than 9am, with no start time in between.
+4. The skipper who carries a brass band falls somewhere between 11am and the skipper who commands the Broch Maid in start time order.
+5. At least one of the following holds, and possibly more than one: (a) Ruaridh is earlier than noon in start time order. (b) The skipper who carries a church organ commands the Kelpie.
+6. 9am is exactly one hour earlier than the skipper who carries a church organ, with no start time in between.
+7. The skipper who carries a brass band and Senga both sit at odd-numbered hours or both at even-numbered hours.
+8. At least one of the following holds, and possibly more than one: (a) Fearghas and the skipper who commands the Broch Maid are exactly one hour apart in start time order, in one direction or the other. (b) The skipper who carries a church organ and the skipper who commands the Three Brothers both sit at odd-numbered hours or both at even-numbered hours.
+9. The skipper who commands the Three Brothers is earlier than Senga in start time order. The skipper who carries a refrigerated van is earlier than Senga in start time order.
+10. The skipper who carries a church organ is exactly one hour earlier than the skipper who commands the Siller Grey, with no start time in between.
 
 ## Solving chart
 
 *Start time vs Skipper*
 
-| | Tormod | Eilidh | Murdo | Calla | Senga |
+| | Ruaridh | Murdo | Senga | Tormod | Fearghas |
 |---|---|---|---|---|---|
 | **8am** | | | | | |
 | **9am** | | | | | |
@@ -45,7 +39,7 @@ Every skipper has a different start time, cargo, vessel and reason, so within ea
 
 *Start time vs Notable cargo*
 
-| | a brass band | a refrigerated van | a consignment of bees | a film crew and no permits | a wedding party |
+| | a consignment of bees | a church organ | a brass band | a film crew and no permits | a refrigerated van |
 |---|---|---|---|---|---|
 | **8am** | | | | | |
 | **9am** | | | | | |
@@ -55,17 +49,7 @@ Every skipper has a different start time, cargo, vessel and reason, so within ea
 
 *Start time vs Vessel*
 
-| | the Tern | the Broch Maid | the Three Brothers | the Kelpie | the Siller Grey |
-|---|---|---|---|---|---|
-| **8am** | | | | | |
-| **9am** | | | | | |
-| **10am** | | | | | |
-| **11am** | | | | | |
-| **noon** | | | | | |
-
-*Start time vs Delay blamed on*
-
-| | paperwork | a fouled propeller | a slipway repair | a passenger's dog | the tide |
+| | the Tern | the Broch Maid | the Siller Grey | the Three Brothers | the Kelpie |
 |---|---|---|---|---|---|
 | **8am** | | | | | |
 | **9am** | | | | | |
@@ -75,118 +59,88 @@ Every skipper has a different start time, cargo, vessel and reason, so within ea
 
 *Skipper vs Notable cargo*
 
-| | a brass band | a refrigerated van | a consignment of bees | a film crew and no permits | a wedding party |
+| | a consignment of bees | a church organ | a brass band | a film crew and no permits | a refrigerated van |
 |---|---|---|---|---|---|
-| **Tormod** | | | | | |
-| **Eilidh** | | | | | |
+| **Ruaridh** | | | | | |
 | **Murdo** | | | | | |
-| **Calla** | | | | | |
 | **Senga** | | | | | |
+| **Tormod** | | | | | |
+| **Fearghas** | | | | | |
 
 *Skipper vs Vessel*
 
-| | the Tern | the Broch Maid | the Three Brothers | the Kelpie | the Siller Grey |
+| | the Tern | the Broch Maid | the Siller Grey | the Three Brothers | the Kelpie |
 |---|---|---|---|---|---|
-| **Tormod** | | | | | |
-| **Eilidh** | | | | | |
+| **Ruaridh** | | | | | |
 | **Murdo** | | | | | |
-| **Calla** | | | | | |
 | **Senga** | | | | | |
-
-*Skipper vs Delay blamed on*
-
-| | paperwork | a fouled propeller | a slipway repair | a passenger's dog | the tide |
-|---|---|---|---|---|---|
 | **Tormod** | | | | | |
-| **Eilidh** | | | | | |
-| **Murdo** | | | | | |
-| **Calla** | | | | | |
-| **Senga** | | | | | |
+| **Fearghas** | | | | | |
 
 *Notable cargo vs Vessel*
 
-| | the Tern | the Broch Maid | the Three Brothers | the Kelpie | the Siller Grey |
+| | the Tern | the Broch Maid | the Siller Grey | the Three Brothers | the Kelpie |
 |---|---|---|---|---|---|
-| **a brass band** | | | | | |
-| **a refrigerated van** | | | | | |
 | **a consignment of bees** | | | | | |
-| **a film crew and no permits** | | | | | |
-| **a wedding party** | | | | | |
-
-*Notable cargo vs Delay blamed on*
-
-| | paperwork | a fouled propeller | a slipway repair | a passenger's dog | the tide |
-|---|---|---|---|---|---|
+| **a church organ** | | | | | |
 | **a brass band** | | | | | |
-| **a refrigerated van** | | | | | |
-| **a consignment of bees** | | | | | |
 | **a film crew and no permits** | | | | | |
-| **a wedding party** | | | | | |
-
-*Vessel vs Delay blamed on*
-
-| | paperwork | a fouled propeller | a slipway repair | a passenger's dog | the tide |
-|---|---|---|---|---|---|
-| **the Tern** | | | | | |
-| **the Broch Maid** | | | | | |
-| **the Three Brothers** | | | | | |
-| **the Kelpie** | | | | | |
-| **the Siller Grey** | | | | | |
+| **a refrigerated van** | | | | | |
 
 ## Solution
 
-| Start time | Skipper | Notable cargo | Vessel | Delay blamed on |
-|---|---|---|---|---|
-| 8am | Calla | a refrigerated van | the Siller Grey | the tide |
-| 9am | Murdo | a film crew and no permits | the Broch Maid | a passenger's dog |
-| 10am | Tormod | a consignment of bees | the Three Brothers | a fouled propeller |
-| 11am | Senga | a brass band | the Kelpie | a slipway repair |
-| noon | Eilidh | a wedding party | the Tern | paperwork |
+| Start time | Skipper | Notable cargo | Vessel |
+|---|---|---|---|
+| 8am | Tormod | a refrigerated van | the Broch Maid |
+| 9am | Ruaridh | a brass band | the Kelpie |
+| 10am | Fearghas | a church organ | the Three Brothers |
+| 11am | Senga | a consignment of bees | the Siller Grey |
+| noon | Murdo | a film crew and no permits | the Tern |
 
 ## How it falls out
 
-1. [direct] from clue 5 cargo:a refrigerated van: ruled out position(s) 2
-2. [order] from clue 16 skipper:Calla: ruled out position(s) 2,3,4,5
-3. [order] from clue 15 delay:a fouled propeller: ruled out position(s) 1,5
-4. [order] from clue 14 skipper:Senga: ruled out position(s) 1,5
-5. [order] from clue 14 delay:a passenger's dog: ruled out position(s) 4,5
-6. [order] from clue 12 vessel:the Broch Maid: ruled out position(s) 5
-7. [order] from clue 12 cargo:a consignment of bees: ruled out position(s) 1
-8. [order] from clue 11 delay:the tide: ruled out position(s) 5
-9. [order] from clue 11 skipper:Murdo: ruled out position(s) 1
-10. [order] from clue 9 vessel:the Tern: ruled out position(s) 1,2,3,4
-11. [order] from clue 8 delay:paperwork: ruled out position(s) 2,4
-12. [order] from clue 10 vessel:the Kelpie: ruled out position(s) 1,3,5
-13. [order] from clue 7 delay:a fouled propeller: ruled out position(s) 2,4
-14. [order] from clue 7 vessel:the Kelpie: ruled out position(s) 2
-15. [order] from clue 10 delay:paperwork: ruled out position(s) 1
-16. [order] from clue 15 cargo:a wedding party: ruled out position(s) 3
-17. [order] from clue 15 vessel:the Broch Maid: ruled out position(s) 3
-18. [order] from clue 12 cargo:a consignment of bees: ruled out position(s) 4
-19. [order] from clue 6 cargo:a brass band: ruled out position(s) 5
-20. [order] from clue 6 skipper:Eilidh: ruled out position(s) 1
-21. [order] from clue 3 vessel:the Three Brothers: ruled out position(s) 1
-22. [order] from clue 2 skipper:Murdo: ruled out position(s) 4,5
-23. [order] from clue 11 delay:the tide: ruled out position(s) 3,4
-24. [bijection] delay:paperwork: ruled out position(s) 3
-25. [bijection] delay:a slipway repair: ruled out position(s) 3
-26. [bijection] delay:a passenger's dog: ruled out position(s) 3
-27. [bijection] delay:a slipway repair: ruled out position(s) 1,2,5
-28. [bijection] skipper:Tormod: ruled out position(s) 1
-29. [bijection] vessel:the Broch Maid: ruled out position(s) 4
-30. [bijection] vessel:the Three Brothers: ruled out position(s) 4,5
-31. [bijection] vessel:the Siller Grey: ruled out position(s) 4,5
-32. [order] from clue 15 cargo:a wedding party: ruled out position(s) 1,2
-33. [order] from clue 12 cargo:a consignment of bees: ruled out position(s) 5
-34. [disjunction] from clue 1 skipper:Tormod: ruled out position(s) 5
-35. [bijection] skipper:Eilidh: ruled out position(s) 2,3,4
-36. [order] from clue 6 cargo:a brass band: ruled out position(s) 1,2,3
-37. [bijection] cargo:a refrigerated van: ruled out position(s) 4
-38. [bijection] cargo:a film crew and no permits: ruled out position(s) 4
-39. [bijection] cargo:a wedding party: ruled out position(s) 4
-40. [bijection] cargo:a refrigerated van: ruled out position(s) 5
-_... and 15 further steps._
+1. [order] from clue 10 skipper:Fearghas: ruled out position(s) 1,2,4,5
+2. [order] from clue 9 cargo:a refrigerated van: ruled out position(s) 5
+3. [order] from clue 9 skipper:Senga: ruled out position(s) 1
+4. [order] from clue 7 cargo:a church organ: ruled out position(s) 1,2,4,5
+5. [order] from clue 6 skipper:Tormod: ruled out position(s) 2,3,4,5
+6. [order] from clue 5 vessel:the Siller Grey: ruled out position(s) 1,2,3,5
+7. [order] from clue 3 cargo:a brass band: ruled out position(s) 1,4,5
+8. [order] from clue 3 vessel:the Broch Maid: ruled out position(s) 3,4,5
+9. [order] from clue 1 vessel:the Three Brothers: ruled out position(s) 5
+10. [bijection] cargo:a consignment of bees: ruled out position(s) 3
+11. [bijection] cargo:a brass band: ruled out position(s) 3
+12. [bijection] cargo:a film crew and no permits: ruled out position(s) 3
+13. [bijection] cargo:a refrigerated van: ruled out position(s) 3
+14. [bijection] skipper:Ruaridh: ruled out position(s) 1,3
+15. [bijection] skipper:Murdo: ruled out position(s) 1,3
+16. [bijection] skipper:Senga: ruled out position(s) 3
+17. [bijection] vessel:the Tern: ruled out position(s) 4
+18. [bijection] vessel:the Three Brothers: ruled out position(s) 4
+19. [bijection] vessel:the Kelpie: ruled out position(s) 4
+20. [direct] from clue 2 cargo:a film crew and no permits: ruled out position(s) 4
+21. [direct] from clue 2 vessel:the Tern: ruled out position(s) 3
+22. [order] from clue 11 skipper:Senga: ruled out position(s) 5
+23. [order] from clue 9 cargo:a refrigerated van: ruled out position(s) 4
+24. [order] from clue 3 vessel:the Broch Maid: ruled out position(s) 2
+25. [bijection] cargo:a consignment of bees: ruled out position(s) 2
+26. [bijection] cargo:a film crew and no permits: ruled out position(s) 2
+27. [bijection] cargo:a refrigerated van: ruled out position(s) 2
+28. [bijection] cargo:a consignment of bees: ruled out position(s) 1,5
+29. [bijection] vessel:the Tern: ruled out position(s) 1
+30. [bijection] vessel:the Three Brothers: ruled out position(s) 1
+31. [bijection] vessel:the Kelpie: ruled out position(s) 1
+32. [order] from clue 1 skipper:Senga: ruled out position(s) 2
+33. [direct] from clue 2 cargo:a film crew and no permits: ruled out position(s) 1
+34. [direct] from clue 2 vessel:the Tern: ruled out position(s) 2
+35. [bijection] skipper:Ruaridh: ruled out position(s) 4
+36. [bijection] skipper:Murdo: ruled out position(s) 4
+37. [bijection] vessel:the Kelpie: ruled out position(s) 5
+38. [disjunction] from clue 8 vessel:the Three Brothers: ruled out position(s) 2
+39. [bijection] vessel:the Kelpie: ruled out position(s) 3
+40. [disjunction] from clue 4 skipper:Ruaridh: ruled out position(s) 5
+_... and 1 further steps._
 
 ---
 
-<sub>seed `2026172996925` &middot; score 9.8372 &middot; atoms 16 &middot; positives 0 &middot; solved by disjunction</sub>
+<sub>seed `2026172996925` &middot; score 9.1022 &middot; atoms 11 &middot; positives 1 &middot; solved by disjunction</sub>

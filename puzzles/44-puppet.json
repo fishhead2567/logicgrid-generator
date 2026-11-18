@@ -5,7 +5,7 @@
   "blurb": "The Little Vesper Theatre seats forty people and employs a company of puppeteers who will not be in the same room together.",
   "profile": "expert",
   "rating": 7,
-  "score": 15.8506,
+  "score": 13.4523,
   "seed": 2026173028601,
   "spec": {
     "difficulty": "expert",
@@ -113,140 +113,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "before",
-              "a": "puppeteer:Mirabel",
-              "b": "music:a musical saw"
-            },
-            {
-              "kind": "before",
-              "a": "slot:slot four",
-              "b": "music:a pump organ"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "parity",
-          "a": "music:a hurdy-gurdy",
-          "b": "slot:slot three",
-          "same": true
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
           "kind": "immediately_before",
           "a": "slot:slot two",
           "b": "puppet:a moth queen"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "adjacent",
-              "a": "music:a musical saw",
-              "b": "puppet:a tin soldier"
-            },
-            {
-              "kind": "gap",
-              "a": "puppeteer:Lorcan",
-              "b": "slot:slot four",
-              "k": 2,
-              "rel": "eq"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "music:a pump organ",
-          "b": "slot:slot two"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "not_link",
-          "a": "music:a bowed psaltery",
-          "b": "puppet:a brass magistrate"
-        },
-        {
-          "kind": "between",
-          "a": "puppeteer:Mirabel",
-          "b": "puppet:a brass magistrate",
-          "c": "slot:slot two"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "between",
-          "a": "slot:slot three",
-          "b": "music:a prepared piano",
-          "c": "puppeteer:Halima"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "puppet:a one-eyed cat",
-          "b": "slot:slot five"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "link",
-              "a": "play:The Drowned Bell",
-              "b": "slot:slot two"
-            },
-            {
-              "kind": "not_link",
-              "a": "puppet:a drowned sailor",
-              "b": "puppeteer:Bowen"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "between",
-          "a": "music:a prepared piano",
-          "b": "puppeteer:Lorcan",
-          "c": "slot:slot one"
         }
       ]
     },
@@ -272,6 +141,64 @@
       "style": "sentences",
       "atoms": [
         {
+          "kind": "between",
+          "a": "puppeteer:Mirabel",
+          "b": "puppet:a brass magistrate",
+          "c": "slot:slot two"
+        },
+        {
+          "kind": "not_link",
+          "a": "music:a musical saw",
+          "b": "puppet:a brass magistrate"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "link",
+              "a": "play:Six Spoons",
+              "b": "slot:slot three"
+            },
+            {
+              "kind": "parity",
+              "a": "play:Hollowmas",
+              "b": "puppet:a one-eyed cat",
+              "same": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "slot:slot three",
+          "b": "music:a prepared piano",
+          "c": "puppeteer:Halima"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "music:a pump organ",
+          "b": "slot:slot two"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
           "kind": "adjacent",
           "a": "music:two kettle drums",
           "b": "slot:slot four"
@@ -282,9 +209,10 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "immediately_before",
-          "a": "puppeteer:Josefa",
-          "b": "play:Marrowbone"
+          "kind": "between",
+          "a": "music:a prepared piano",
+          "b": "puppeteer:Lorcan",
+          "c": "slot:slot one"
         }
       ]
     },
@@ -292,24 +220,98 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "before",
-          "a": "puppeteer:Halima",
-          "b": "play:The Clockwork Orchard"
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "music:a hurdy-gurdy",
+              "b": "play:The Clockwork Orchard"
+            },
+            {
+              "kind": "before",
+              "a": "slot:slot five",
+              "b": "music:a bowed psaltery"
+            }
+          ]
         }
       ]
     },
     {
-      "style": "and",
+      "style": "sentences",
       "atoms": [
         {
-          "kind": "not_link",
-          "a": "music:a musical saw",
-          "b": "puppet:a brass magistrate"
-        },
+          "kind": "if_then",
+          "x": {
+            "kind": "before",
+            "a": "slot:slot five",
+            "b": "music:a bowed psaltery"
+          },
+          "y": {
+            "kind": "adjacent",
+            "a": "music:a pump organ",
+            "b": "play:The Clockwork Orchard"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "music:a hurdy-gurdy",
+          "b": "slot:slot three",
+          "same": true
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
         {
           "kind": "not_link",
           "a": "play:The Clockwork Orchard",
           "b": "puppet:a brass magistrate"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "gap",
+            "a": "music:a prepared piano",
+            "b": "puppet:a one-eyed cat",
+            "k": 2,
+            "rel": "eq"
+          },
+          "y": {
+            "kind": "link",
+            "a": "music:a pump organ",
+            "b": "puppet:a moth queen"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "puppet:a moth queen",
+              "b": "puppeteer:Bowen"
+            },
+            {
+              "kind": "link",
+              "a": "music:a bowed psaltery",
+              "b": "play:Six Spoons"
+            }
+          ]
         }
       ]
     },
@@ -328,17 +330,27 @@
       "style": "sentences",
       "atoms": [
         {
+          "kind": "immediately_before",
+          "a": "puppeteer:Josefa",
+          "b": "play:Marrowbone"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
           "kind": "or",
           "options": [
             {
-              "kind": "before",
-              "a": "music:a hurdy-gurdy",
-              "b": "play:The Drowned Bell"
+              "kind": "adjacent",
+              "a": "puppet:a one-eyed cat",
+              "b": "puppeteer:Stellan"
             },
             {
-              "kind": "before",
-              "a": "puppet:a one-eyed cat",
-              "b": "play:Marrowbone"
+              "kind": "link",
+              "a": "play:The Clockwork Orchard",
+              "b": "puppet:a moth queen"
             }
           ]
         }
@@ -398,34 +410,35 @@
     ]
   },
   "stats": {
-    "atoms": 22,
+    "atoms": 21,
     "numbered_clues": 19,
     "kinds": {
       "between": 5,
-      "or": 4,
-      "parity": 2,
       "immediately_before": 2,
-      "adjacent": 3,
-      "not_link": 3,
       "gap": 1,
-      "before": 2
+      "not_link": 2,
+      "or": 4,
+      "adjacent": 2,
+      "if_then": 2,
+      "parity": 2,
+      "before": 1
     },
     "positives": 0,
-    "compounds": 4
+    "compounds": 6
   },
   "solve": {
     "solved": true,
-    "max_tier": 6,
-    "max_technique": "trial",
-    "steps": 68,
+    "max_tier": 5,
+    "max_technique": "subset",
+    "steps": 71,
     "tier_counts": {
-      "direct": 3,
-      "bijection": 33,
-      "order": 27,
-      "disjunction": 4,
-      "trial": 1
+      "direct": 2,
+      "bijection": 34,
+      "order": 24,
+      "disjunction": 7,
+      "subset": 4
     },
-    "trial_eliminations": 1,
+    "trial_eliminations": 0,
     "unknown_cells": 24
   }
 }

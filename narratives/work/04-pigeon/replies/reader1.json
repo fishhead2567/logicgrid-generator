@@ -1,0 +1,101 @@
+{
+  "subject_count": 4,
+  "categories": [
+    {
+      "label": "Pigeon",
+      "members": ["Alabaster", "Nutmeg", "Hieronymus", "Cadwallader"],
+      "ordered": false
+    },
+    {
+      "label": "Race distance",
+      "members": ["200 miles", "300 miles", "400 miles", "500 miles"],
+      "ordered": true
+    },
+    {
+      "label": "Strain",
+      "members": ["Delbar", "Janssen", "Stichelbaut", "Sion"],
+      "ordered": false
+    }
+  ],
+  "clues": [
+    {
+      "number": 1,
+      "facts": [
+        {
+          "kind": "link",
+          "args": ["Cadwallader", "200 miles"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "facts": [
+        {
+          "kind": "link",
+          "args": ["Alabaster", "Sion"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        },
+        {
+          "kind": "link",
+          "args": ["Alabaster", "300 miles"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "facts": [
+        {
+          "kind": "link",
+          "args": ["Hieronymus", "Janssen"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "facts": [
+        {
+          "kind": "not_link",
+          "args": ["Nutmeg", "500 miles"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "facts": [
+        {
+          "kind": "not_link",
+          "args": ["Delbar", "400 miles"],
+          "k": 0,
+          "rel": "none",
+          "op": "none",
+          "same": false,
+          "sub": []
+        }
+      ]
+    }
+  ]
+}

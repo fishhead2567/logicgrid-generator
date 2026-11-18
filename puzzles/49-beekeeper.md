@@ -1,6 +1,6 @@
 # The Honey Show Scandal
 
-**Difficulty** 7/7 (expert) &nbsp;&nbsp; **Grid** 5 x 6 &nbsp;&nbsp; **Clues** 18 &nbsp;&nbsp; **id** `cff23af7210c`
+**Difficulty** 7/7 (expert) &nbsp;&nbsp; **Grid** 5 x 6 &nbsp;&nbsp; **Clues** 14 &nbsp;&nbsp; **id** `cff23af7210c`
 
 ## Introduction
 
@@ -15,24 +15,20 @@ Every beekeeper has a different entry fee, honey, hive and note, so within each 
 
 ## Clues
 
-1. $6 has an entry fee exactly 3 times that of Breda.
-2. The beekeeper who enters chestnut honey and $4 are exactly one fee step apart in entry fee order, in one direction or the other.
-3. The beekeeper who has a jar noted as crystallised early and $6 are exactly one fee step apart in entry fee order, in one direction or the other.
-4. At least one of the following holds, and possibly more than one: (a) The beekeeper who keeps a WBC hive and the beekeeper who has a jar noted as a cloudy jar are exactly one fee step apart in entry fee order, in one direction or the other. (b) The beekeeper who enters lime blossom honey is dearer than $6 in entry fee order.
-5. The beekeeper who has a jar noted as an unlabelled lid is exactly one fee step cheaper than the beekeeper who enters lime blossom honey, with no entry fee in between.
-6. The beekeeper who keeps a Warre hive does not have a jar noted as a trace of wax.
-7. The beekeeper who enters sea lavender honey falls somewhere between the beekeeper who keeps a long deep hive and Breda in entry fee order.
-8. The beekeeper who enters sea lavender honey is exactly one fee step cheaper than the beekeeper who keeps a WBC hive, with no entry fee in between.
-9. The following two do NOT both hold; either one alone may hold, and so may neither: (a) The beekeeper who enters sea lavender honey and the beekeeper who has a jar noted as an overbearing aroma are exactly one fee step apart in entry fee order, in one direction or the other. (b) The beekeeper who enters clover honey has a jar noted as an overbearing aroma.
-10. The beekeeper who enters lime blossom honey falls somewhere between Breda and Wilhelmina in entry fee order.
-11. Mungo falls somewhere between the beekeeper who keeps a Langstroth hive and the beekeeper who has a jar noted as an overbearing aroma in entry fee order.
-12. At least one of the following holds, and possibly more than one: (a) The beekeeper who has a jar noted as slightly over-filtered is exactly one fee step cheaper than the beekeeper who enters clover honey, with no entry fee in between. (b) The beekeeper who keeps a top-bar hive enters sea lavender honey.
-13. The beekeeper who keeps a Warre hive and Antonina are exactly one fee step apart in entry fee order, in one direction or the other.
-14. Wilhelmina has an entry fee exactly 3 times that of the beekeeper who enters clover honey.
-15. At least one of the following holds, and possibly more than one: (a) The beekeeper who keeps a long deep hive and Antonina are exactly one fee step apart in entry fee order, in one direction or the other. (b) The beekeeper who keeps a national hive and the beekeeper who enters heather honey are exactly one fee step apart in entry fee order, in one direction or the other.
-16. The beekeeper who keeps a Langstroth hive and the beekeeper who has a jar noted as a trace of wax are exactly one fee step apart in entry fee order, in one direction or the other.
-17. The beekeeper who enters lime blossom honey is cheaper than Priya in entry fee order. Mungo does not enter lime blossom honey.
-18. The beekeeper who enters clover honey is cheaper than the beekeeper who has a jar noted as a trace of wax in entry fee order.
+1. At least one of the following holds, and possibly more than one: (a) Wilhelmina pays $2. (b) The beekeeper who keeps a national hive enters sea lavender honey.
+2. Priya falls somewhere between $8 and the beekeeper who enters borage honey in entry fee order.
+3. The beekeeper who keeps a WBC hive and $12 are exactly one fee step apart in entry fee order, in one direction or the other.
+4. If (a) holds then (b) also holds, but not necessarily the reverse: (a) Ezekiel does not have a jar noted as a trace of wax. (b) The beekeeper who has a jar noted as an overbearing aroma pays $6.
+5. The beekeeper who enters chestnut honey is exactly one fee step cheaper than $4, with no entry fee in between.
+6. If (a) holds then (b) also holds, but not necessarily the reverse: (a) The beekeeper who enters borage honey does not have a jar noted as an overbearing aroma. (b) The beekeeper who keeps a Langstroth hive does not pay $2.
+7. Priya is exactly one fee step cheaper than the beekeeper who has a jar noted as a cloudy jar, with no entry fee in between.
+8. Wilhelmina has an entry fee exactly $6 more than the beekeeper who enters lime blossom honey.
+9. Mungo has an entry fee exactly $4 more than the beekeeper who enters clover honey.
+10. If (a) holds then (b) also holds, but not necessarily the reverse: (a) Breda and the beekeeper who has a jar noted as a trace of wax are exactly one fee step apart in entry fee order, in one direction or the other. (b) Mungo has a jar noted as a cloudy jar.
+11. The following is NOT true: The beekeeper who keeps a top-bar hive is cheaper than the beekeeper who has a jar noted as a trace of wax in entry fee order.
+12. At least one of the following holds, and possibly more than one: (a) The beekeeper who enters lime blossom honey is cheaper than the beekeeper who keeps a top-bar hive in entry fee order. (b) Mungo is cheaper than the beekeeper who has a jar noted as an overbearing aroma in entry fee order.
+13. The beekeeper who keeps a long deep hive has an entry fee exactly $10 more than the beekeeper who has a jar noted as slightly over-filtered.
+14. At least one of the following holds, and possibly more than one: (a) Ezekiel has a jar noted as a cloudy jar. (b) The beekeeper who keeps a Langstroth hive does not have a jar noted as crystallised early.
 
 ## Solving chart
 
@@ -159,48 +155,48 @@ Every beekeeper has a different entry fee, honey, hive and note, so within each 
 
 ## How it falls out
 
-1. [order] from clue 19 honey:sea lavender honey: ruled out position(s) 1,6
-2. [order] from clue 18 honey:chestnut honey: ruled out position(s) 2,4,5,6
-3. [order] from clue 15 honey:lime blossom honey: ruled out position(s) 6
-4. [order] from clue 15 keeper:Priya: ruled out position(s) 1
-5. [order] from clue 12 honey:clover honey: ruled out position(s) 6
-6. [order] from clue 12 verdict:a trace of wax: ruled out position(s) 1
-7. [order] from clue 11 verdict:an unlabelled lid: ruled out position(s) 5,6
-8. [order] from clue 11 honey:lime blossom honey: ruled out position(s) 1
-9. [order] from clue 15 keeper:Priya: ruled out position(s) 2
-10. [order] from clue 8 hive:a WBC hive: ruled out position(s) 1,2
-11. [order] from clue 7 keeper:Mungo: ruled out position(s) 1,6
-12. [order] from clue 6 keeper:Wilhelmina: ruled out position(s) 1,2,4,5
-13. [order] from clue 6 honey:clover honey: ruled out position(s) 3,4,5
-14. [order] from clue 2 keeper:Breda: ruled out position(s) 2,3,4,5,6
-15. [order] from clue 19 hive:a long deep hive: ruled out position(s) 1,2
-16. [order] from clue 1 verdict:crystallised early: ruled out position(s) 1,3,5,6
-17. [bijection] keeper:Ezekiel: ruled out position(s) 1
-18. [bijection] keeper:Antonina: ruled out position(s) 1
-19. [trial] honey:clover honey: ruled out position(s) 1
-20. [bijection] honey:borage honey: ruled out position(s) 2
-21. [bijection] honey:lime blossom honey: ruled out position(s) 2
-22. [bijection] honey:heather honey: ruled out position(s) 2
-23. [bijection] honey:sea lavender honey: ruled out position(s) 2
-24. [order] from clue 19 hive:a long deep hive: ruled out position(s) 3
-25. [order] from clue 15 keeper:Priya: ruled out position(s) 3
-26. [order] from clue 12 verdict:a trace of wax: ruled out position(s) 2
-27. [order] from clue 13 hive:a Langstroth hive: ruled out position(s) 1
-28. [order] from clue 11 verdict:an unlabelled lid: ruled out position(s) 1
-29. [order] from clue 9 keeper:Wilhelmina: ruled out position(s) 3
-30. [order] from clue 8 hive:a WBC hive: ruled out position(s) 3
-31. [bijection] keeper:Priya: ruled out position(s) 6
-32. [bijection] keeper:Ezekiel: ruled out position(s) 6
-33. [bijection] keeper:Antonina: ruled out position(s) 6
-34. [order] from clue 15 honey:lime blossom honey: ruled out position(s) 5
-35. [order] from clue 11 verdict:an unlabelled lid: ruled out position(s) 4
-36. [trial] honey:chestnut honey: ruled out position(s) 3
-37. [bijection] honey:borage honey: ruled out position(s) 1
-38. [bijection] honey:heather honey: ruled out position(s) 1
-39. [trial] hive:a WBC hive: ruled out position(s) 4
-40. [order] from clue 8 honey:sea lavender honey: ruled out position(s) 3
-_... and 51 further steps._
+1. [order] from clue 13 hive:a long deep hive: ruled out position(s) 1,2,3,4,5
+2. [order] from clue 13 verdict:slightly over-filtered: ruled out position(s) 2,3,4,5,6
+3. [order] from clue 11 keeper:Mungo: ruled out position(s) 1,2
+4. [order] from clue 11 honey:clover honey: ruled out position(s) 5,6
+5. [order] from clue 10 keeper:Priya: ruled out position(s) 6
+6. [order] from clue 10 verdict:a cloudy jar: ruled out position(s) 1
+7. [order] from clue 9 hive:a WBC hive: ruled out position(s) 1,2,3,4,6
+8. [order] from clue 4 keeper:Priya: ruled out position(s) 1,4
+9. [order] from clue 4 honey:borage honey: ruled out position(s) 3,4,5
+10. [order] from clue 10 verdict:a cloudy jar: ruled out position(s) 2,5
+11. [order] from clue 2 keeper:Wilhelmina: ruled out position(s) 1,2,3
+12. [order] from clue 2 honey:lime blossom honey: ruled out position(s) 4,5,6
+13. [order] from clue 1 honey:chestnut honey: ruled out position(s) 2,3,4,5,6
+14. [bijection] hive:a national hive: ruled out position(s) 5,6
+15. [bijection] hive:a Langstroth hive: ruled out position(s) 5,6
+16. [bijection] hive:a Warre hive: ruled out position(s) 5,6
+17. [bijection] hive:a top-bar hive: ruled out position(s) 5,6
+18. [bijection] honey:clover honey: ruled out position(s) 1
+19. [bijection] honey:borage honey: ruled out position(s) 1
+20. [bijection] honey:lime blossom honey: ruled out position(s) 1
+21. [bijection] honey:heather honey: ruled out position(s) 1
+22. [bijection] honey:sea lavender honey: ruled out position(s) 1
+23. [bijection] verdict:an overbearing aroma: ruled out position(s) 1
+24. [bijection] verdict:crystallised early: ruled out position(s) 1
+25. [bijection] verdict:an unlabelled lid: ruled out position(s) 1
+26. [bijection] verdict:a trace of wax: ruled out position(s) 1
+27. [order] from clue 2 keeper:Wilhelmina: ruled out position(s) 4
+28. [order] from clue 4 keeper:Priya: ruled out position(s) 2
+29. [order] from clue 10 verdict:a cloudy jar: ruled out position(s) 3
+30. [order] from clue 11 keeper:Mungo: ruled out position(s) 3
+31. [disjunction] from clue 14 hive:a top-bar hive: ruled out position(s) 1
+32. [disjunction] from clue 14 verdict:a trace of wax: ruled out position(s) 5,6
+33. [disjunction] from clue 3 hive:a national hive: ruled out position(s) 1
+34. [disjunction] from clue 3 honey:sea lavender honey: ruled out position(s) 5,6
+35. [bijection] honey:heather honey: ruled out position(s) 2,3,4,6
+36. [bijection] honey:borage honey: ruled out position(s) 2
+37. [order] from clue 4 keeper:Priya: ruled out position(s) 3
+38. [order] from clue 10 verdict:a cloudy jar: ruled out position(s) 4
+39. [disjunction] from clue 7 verdict:crystallised early: ruled out position(s) 6
+40. [bijection] keeper:Wilhelmina: ruled out position(s) 5
+_... and 41 further steps._
 
 ---
 
-<sub>seed `2026173172925` &middot; score 17.1894 &middot; atoms 19 &middot; positives 0 &middot; solved by trial</sub>
+<sub>seed `2026173172925` &middot; score 17.2771 &middot; atoms 14 &middot; positives 0 &middot; solved by trial</sub>

@@ -1,0 +1,13 @@
+# The Hollow Creek Pie Judging
+
+At the Hollow Creek county fair, the pie judging is conducted with more ceremony than the state legislature: a velvet rope, a silver spoon, and a tent full of neighbours holding their breath. This year four bakers brought pies to the judges' table, and when the judges finally rose they announced a Placing for each one, listed here from better to worse: first, second, third, fourth. The four bakers are Bramwell, Odette, Thaddeus and Winnie. The Filling of their pies was green tomato, rhubarb, buttermilk and sour cherry. Their Home county was Fenwick, Sweetwater, Quarry Hill and Hobbs Bend. Each baker has exactly one Placing, one Filling and one Home county, and within each of those categories every member belongs to a different baker, so no two bakers share a placing, a filling or a home county, and nothing on any of the three lists goes unused. From the ribbons, the recipes and the loyalties of the crowd, work out which placing, which filling and which home county belongs to each baker.
+
+## Clues
+
+1. In the placing order, Bramwell finished somewhere between first place and third place, and was neither of them; the rhubarb pie was the work of the baker who placed first.
+2. The baker who comes from Sweetwater placed exactly one place better than fourth place, with no placing in between; in the placing order, Winnie finished somewhere between first place and fourth place, and was neither of them.
+3. The baker who comes from Hobbs Bend and second place are exactly one place apart in the placing order, in one direction or the other.
+4. The baker who bakes green tomato and third place are exactly one place apart in the placing order, in one direction or the other.
+5. In the placing order, the baker who comes from Quarry Hill finished somewhere between Odette and Thaddeus, and was neither of them.
+6. Thaddeus placed better than the baker who comes from Quarry Hill.
+7. The baker who bakes sour cherry placed exactly one place better than the baker who comes from Sweetwater, with no placing in between.

@@ -13,11 +13,11 @@ Every pigeon has a different distance and breed, so within each category every i
 
 ## Clues
 
-1. Cadwallader flies 200 miles.
-2. Alabaster descends from a Sion. Alabaster flies 300 miles.
-3. Hieronymus descends from a Janssen.
-4. Nutmeg does not fly 500 miles.
-5. The pigeon that descends from a Delbar does not fly 400 miles.
+1. The pigeon that descends from a Sion and 200 miles are exactly one hundred miles apart in distance order, in one direction or the other. Cadwallader flies 200 miles.
+2. The pigeon that descends from a Delbar flies 200 miles.
+3. The pigeon that descends from a Stichelbaut flies 400 miles.
+4. Alabaster descends from a Sion.
+5. Nutmeg does not fly 500 miles.
 
 ## Solving chart
 
@@ -59,22 +59,23 @@ Every pigeon has a different distance and breed, so within each category every i
 
 ## How it falls out
 
-1. [direct] from clue 6 bird:Nutmeg: ruled out position(s) 4
-2. [direct] from clue 4 bird:Cadwallader: ruled out position(s) 2,3,4
-3. [direct] from clue 3 breed:a Delbar: ruled out position(s) 3
-4. [direct] from clue 1 bird:Alabaster: ruled out position(s) 1,3,4
-5. [direct] from clue 2 breed:a Sion: ruled out position(s) 1,3,4
-6. [bijection] bird:Nutmeg: ruled out position(s) 1,2
-7. [bijection] bird:Hieronymus: ruled out position(s) 1,2
-8. [bijection] bird:Hieronymus: ruled out position(s) 3
-9. [bijection] breed:a Delbar: ruled out position(s) 2
-10. [bijection] breed:a Janssen: ruled out position(s) 2
-11. [bijection] breed:a Stichelbaut: ruled out position(s) 2
-12. [direct] from clue 5 breed:a Janssen: ruled out position(s) 1,3
-13. [bijection] breed:a Delbar: ruled out position(s) 4
-14. [bijection] breed:a Stichelbaut: ruled out position(s) 4
-15. [bijection] breed:a Stichelbaut: ruled out position(s) 1
+1. [direct] from clue 6 breed:a Stichelbaut: ruled out position(s) 1,2,4
+2. [direct] from clue 4 breed:a Delbar: ruled out position(s) 2,3,4
+3. [direct] from clue 2 bird:Nutmeg: ruled out position(s) 4
+4. [direct] from clue 1 bird:Cadwallader: ruled out position(s) 2,3,4
+5. [bijection] bird:Alabaster: ruled out position(s) 1
+6. [bijection] bird:Nutmeg: ruled out position(s) 1
+7. [bijection] bird:Hieronymus: ruled out position(s) 1
+8. [bijection] breed:a Janssen: ruled out position(s) 1,3
+9. [bijection] breed:a Sion: ruled out position(s) 1,3
+10. [direct] from clue 3 bird:Alabaster: ruled out position(s) 3
+11. [order] from clue 5 breed:a Sion: ruled out position(s) 4
+12. [direct] from clue 3 bird:Alabaster: ruled out position(s) 4
+13. [bijection] bird:Nutmeg: ruled out position(s) 2
+14. [bijection] bird:Hieronymus: ruled out position(s) 2
+15. [bijection] bird:Hieronymus: ruled out position(s) 3
+16. [bijection] breed:a Janssen: ruled out position(s) 2
 
 ---
 
-<sub>seed `2026172607112` &middot; score 2.585 &middot; atoms 6 &middot; positives 4 &middot; solved by bijection</sub>
+<sub>seed `2026172607112` &middot; score 3.67 &middot; atoms 6 &middot; positives 4 &middot; solved by order</sub>

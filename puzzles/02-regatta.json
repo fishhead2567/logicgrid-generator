@@ -4,8 +4,8 @@
   "theme": "regatta",
   "blurb": "The Mudflat Regatta is rowed over a course that is only a course at high tide, which is where most of the trouble starts.",
   "profile": "gentle",
-  "rating": 2,
-  "score": 4.27,
+  "rating": 1,
+  "score": 3.97,
   "seed": 2026172591274,
   "spec": {
     "difficulty": "gentle",
@@ -67,33 +67,33 @@
       "atoms": [
         {
           "kind": "link",
-          "a": "crew:the Brickworks crew",
-          "b": "place:third"
-        },
-        {
-          "kind": "link",
-          "a": "boat:the Obstinate",
-          "b": "crew:the Brickworks crew"
+          "a": "crew:the Customs crew",
+          "b": "place:first"
         }
       ]
     },
     {
       "style": "sentences",
       "atoms": [
+        {
+          "kind": "link",
+          "a": "boat:the Last Resort",
+          "b": "crew:the Almshouse crew"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "boat:the Gilded Eel",
+          "b": "crew:the Tannery crew"
+        },
         {
           "kind": "before",
           "a": "boat:the Last Resort",
-          "b": "place:fourth"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "before",
-          "a": "crew:the Customs crew",
-          "b": "boat:the Last Resort"
+          "b": "crew:the Tannery crew"
         }
       ]
     },
@@ -102,8 +102,8 @@
       "atoms": [
         {
           "kind": "immediately_before",
-          "a": "boat:the Dauntless",
-          "b": "crew:the Almshouse crew"
+          "a": "place:second",
+          "b": "boat:the Obstinate"
         }
       ]
     }
@@ -132,22 +132,22 @@
     "atoms": 5,
     "numbered_clues": 4,
     "kinds": {
-      "link": 2,
-      "before": 2,
+      "link": 3,
+      "before": 1,
       "immediately_before": 1
     },
-    "positives": 2,
+    "positives": 3,
     "compounds": 0
   },
   "solve": {
     "solved": true,
     "max_tier": 3,
     "max_technique": "order",
-    "steps": 16,
+    "steps": 18,
     "tier_counts": {
-      "direct": 2,
+      "direct": 7,
       "bijection": 8,
-      "order": 6
+      "order": 3
     },
     "trial_eliminations": 0,
     "unknown_cells": 8

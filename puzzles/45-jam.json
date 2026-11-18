@@ -5,7 +5,7 @@
   "blurb": "The preserves tent is the most competitive building at the show, and the only one with a locked door.",
   "profile": "expert",
   "rating": 7,
-  "score": 16.5732,
+  "score": 11.3378,
   "seed": 2026172931791,
   "spec": {
     "difficulty": "expert",
@@ -111,18 +111,14 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "arith",
-          "a": "price:$13",
-          "b": "secret:nothing whatsoever",
-          "k": 2,
-          "op": "add"
+          "kind": "before",
+          "a": "jar:a recycled honey jar",
+          "b": "price:$11"
         },
         {
-          "kind": "arith",
-          "a": "price:$13",
-          "b": "preserve:rosehip syrup",
-          "k": 4,
-          "op": "add"
+          "kind": "before",
+          "a": "preserve:medlar jam",
+          "b": "price:$11"
         }
       ]
     },
@@ -130,56 +126,16 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "adjacent",
-              "a": "preserve:hot pepper jelly",
-              "b": "price:$9"
-            },
-            {
-              "kind": "immediately_before",
-              "a": "entrant:Emeka",
-              "b": "preserve:sloe and apple butter"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "adjacent",
-              "a": "preserve:quince jelly",
-              "b": "secret:a bay leaf"
-            },
-            {
-              "kind": "link",
-              "a": "jar:a recycled honey jar",
-              "b": "price:$13"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "if_then",
+          "kind": "not_both",
           "x": {
-            "kind": "immediately_before",
-            "a": "jar:an unlabelled jar",
-            "b": "price:$11"
+            "kind": "adjacent",
+            "a": "preserve:hot pepper jelly",
+            "b": "secret:star anise"
           },
           "y": {
-            "kind": "not_link",
-            "a": "jar:a recycled honey jar",
-            "b": "price:$11"
+            "kind": "adjacent",
+            "a": "price:$13",
+            "b": "secret:a splash of gin"
           }
         }
       ]
@@ -198,68 +154,16 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "or",
-          "options": [
-            {
-              "kind": "adjacent",
-              "a": "preserve:medlar jam",
-              "b": "price:$13"
-            },
-            {
-              "kind": "not_link",
-              "a": "jar:a squat kilner",
-              "b": "secret:nothing whatsoever"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "adjacent",
-          "a": "preserve:quince jelly",
-          "b": "price:$13"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "between",
-          "a": "price:$11",
-          "b": "entrant:Bernadette",
-          "c": "entrant:Ottilie"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "between",
-          "a": "entrant:Ottilie",
-          "b": "preserve:hot pepper jelly",
-          "c": "price:$11"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
-          "kind": "not_both",
+          "kind": "if_then",
           "x": {
-            "kind": "adjacent",
-            "a": "entrant:Harriet",
-            "b": "jar:a hexagonal jar"
+            "kind": "before",
+            "a": "price:$11",
+            "b": "entrant:Harriet"
           },
           "y": {
-            "kind": "immediately_before",
-            "a": "secret:star anise",
-            "b": "price:$5"
+            "kind": "adjacent",
+            "a": "jar:a hexagonal jar",
+            "b": "preserve:medlar jam"
           }
         }
       ]
@@ -268,24 +172,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "not_link",
-          "a": "price:$7",
-          "b": "secret:orange zest"
-        },
-        {
-          "kind": "before",
-          "a": "secret:orange zest",
-          "b": "entrant:Harriet"
-        }
-      ]
-    },
-    {
-      "style": "sentences",
-      "atoms": [
-        {
           "kind": "immediately_before",
-          "a": "entrant:Rafferty",
-          "b": "preserve:rosehip syrup"
+          "a": "price:$5",
+          "b": "entrant:Rafferty"
         }
       ]
     },
@@ -293,11 +182,26 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "not",
-          "inner": {
-            "kind": "before",
-            "a": "preserve:damson cheese",
-            "b": "secret:a bay leaf"
+          "kind": "adjacent",
+          "a": "preserve:rosehip syrup",
+          "b": "price:$11"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "adjacent",
+            "a": "preserve:sloe and apple butter",
+            "b": "secret:a splash of gin"
+          },
+          "y": {
+            "kind": "adjacent",
+            "a": "preserve:hot pepper jelly",
+            "b": "price:$9"
           }
         }
       ]
@@ -307,10 +211,77 @@
       "atoms": [
         {
           "kind": "arith",
-          "a": "jar:a squat kilner",
-          "b": "secret:orange zest",
-          "k": 2,
-          "op": "add"
+          "a": "entrant:Ottilie",
+          "b": "secret:star anise",
+          "k": 3.0,
+          "op": "mul"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "preserve:hot pepper jelly",
+          "b": "entrant:Drusilla",
+          "c": "jar:a squat kilner"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "adjacent",
+            "a": "jar:a tall french jar",
+            "b": "secret:a bay leaf"
+          },
+          "y": {
+            "kind": "link",
+            "a": "entrant:Rafferty",
+            "b": "secret:a bay leaf"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "jar:an unlabelled jar",
+          "b": "preserve:sloe and apple butter"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "jar:an unlabelled jar",
+          "b": "secret:a spoon of treacle"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "before",
+            "a": "entrant:Rafferty",
+            "b": "secret:orange zest"
+          },
+          "y": {
+            "kind": "adjacent",
+            "a": "jar:a jar with a cloth lid",
+            "b": "secret:orange zest"
+          }
         }
       ]
     },
@@ -328,14 +299,9 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "before",
-          "a": "jar:a recycled honey jar",
-          "b": "secret:a splash of gin"
-        },
-        {
-          "kind": "not_link",
-          "a": "jar:an unlabelled jar",
-          "b": "secret:a splash of gin"
+          "kind": "immediately_before",
+          "a": "entrant:Emeka",
+          "b": "secret:a spoon of treacle"
         }
       ]
     },
@@ -343,9 +309,32 @@
       "style": "sentences",
       "atoms": [
         {
-          "kind": "adjacent",
-          "a": "jar:an unlabelled jar",
-          "b": "secret:a spoon of treacle"
+          "kind": "before",
+          "a": "jar:a hexagonal jar",
+          "b": "preserve:damson cheese"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "secret:orange zest",
+          "b": "entrant:Drusilla",
+          "c": "jar:a squat kilner"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "arith",
+          "a": "jar:a squat kilner",
+          "b": "secret:orange zest",
+          "k": 2,
+          "op": "add"
         }
       ]
     }
@@ -393,36 +382,31 @@
     ]
   },
   "stats": {
-    "atoms": 20,
-    "numbered_clues": 17,
+    "atoms": 19,
+    "numbered_clues": 18,
     "kinds": {
-      "arith": 3,
-      "or": 3,
-      "if_then": 1,
-      "immediately_before": 3,
-      "adjacent": 2,
-      "between": 2,
+      "before": 3,
       "not_both": 1,
-      "not_link": 2,
-      "before": 2,
-      "not": 1
+      "immediately_before": 4,
+      "if_then": 4,
+      "adjacent": 3,
+      "arith": 2,
+      "between": 2
     },
     "positives": 0,
-    "compounds": 6
+    "compounds": 5
   },
   "solve": {
     "solved": true,
-    "max_tier": 6,
-    "max_technique": "trial",
-    "steps": 78,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 77,
     "tier_counts": {
-      "direct": 2,
-      "bijection": 40,
-      "order": 28,
-      "disjunction": 6,
-      "trial": 2
+      "bijection": 39,
+      "order": 32,
+      "disjunction": 6
     },
-    "trial_eliminations": 2,
+    "trial_eliminations": 0,
     "unknown_cells": 24
   }
 }
