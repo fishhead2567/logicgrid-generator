@@ -843,7 +843,7 @@ class Deal:
     four -- sampled *with replacement*, so over 50 puzzles a 27-theme pool
     produced heavy repeats while technically never repeating back to back. A
     deck exhausts itself before reshuffling, which is the property that was
-    actually wanted: with 37 packs, 50 puzzles use 37 once and 13 twice, and the
+    actually wanted: with 49 packs, 50 puzzles use 48 once and 1 twice, and the
     repeats are as far apart as the deal can put them.
     """
 

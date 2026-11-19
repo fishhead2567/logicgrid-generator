@@ -155,7 +155,7 @@ PuzzleSpec(
 mostly flat pairings is easy however large the grid.
 
 The built-in 50-puzzle ramp is 8 gentle, 10 easy, 12 moderate, 12 hard, 8
-expert, across 27 themes and grids from 3×4 to 5×6.
+expert, across 49 themes and grids from 3×4 to 5×6.
 
 ---
 
@@ -334,7 +334,7 @@ not you.
 | `logicgrid show P.json --trace` | print a puzzle, with the deduction walkthrough |
 | `logicgrid solve P.json` | re-verify uniqueness and hand-solve |
 | `logicgrid stats puzzles` | verify and summarise a folder |
-| `logicgrid themes` | list the 27 theme packs |
+| `logicgrid themes` | list the 49 theme packs |
 | `logicgrid narrate puzzles --dry-run` | assemble phase-2 prompts without calling the API |
 
 ---
@@ -349,7 +349,7 @@ src/logicgrid/
   human_solver.py  the technique ladder; difficulty's raw material
   difficulty.py    score, 1-7 rating, generation profiles
   generate.py      solution -> pool -> grow -> minimise -> rate
-  themes.py        27 theme packs and 9 spines
+  themes.py        49 theme packs and 15 spines
   render.py        canonical text, solving charts, solution pages
   llm.py           Claude client: single, concurrent and batch
   narrate.py       narrator prompt and reply decoding

@@ -428,7 +428,7 @@ def test_deal_exhausts_the_deck_before_repeating():
 
 
 def test_a_pack_spreads_its_themes():
-    """Eight puzzles from 37 packs should be eight different packs."""
+    """Eight puzzles from 49 packs should be eight different packs."""
     from logicgrid import generate_many
 
     pack = generate_many(8, seed=3)

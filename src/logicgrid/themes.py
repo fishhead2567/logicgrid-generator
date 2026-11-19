@@ -207,7 +207,9 @@ POINTS = SpineSpec(
     items=("61 points", "64 points", "67 points", "70 points", "73 points", "76 points"),
     cmp_less="lower",
     cmp_more="higher",
-    step_noun="point",
+    # "score step", not "point": the scores step by 3, so "exactly one
+    # point apart" states a distance that is false.
+    step_noun="score step",
     values=(61, 64, 67, 70, 73, 76),
     unit_suffix=" points",
     allow_gap=False,
@@ -221,9 +223,64 @@ THROWS = SpineSpec(
     items=("28 feet", "32 feet", "36 feet", "40 feet", "44 feet", "48 feet"),
     cmp_less="shorter",
     cmp_more="longer",
-    step_noun="foot",
+    # Likewise: the throws step by 4 feet, not 1.
+    step_noun="throw step",
     values=(28, 32, 36, 40, 44, 48),
     unit_suffix=" feet",
+    allow_gap=False,
+    allow_parity=False,
+)
+
+AGES = SpineSpec(
+    name="age",
+    label="Age",
+    noun="age",
+    items=(
+        "8 years old",
+        "9 years old",
+        "10 years old",
+        "11 years old",
+        "12 years old",
+        "13 years old",
+    ),
+    cmp_less="younger",
+    cmp_more="older",
+    step_noun="year",
+    values=(8, 9, 10, 11, 12, 13),
+    allow_gap=False,
+    allow_parity=False,
+)
+
+VOTES = SpineSpec(
+    name="votes",
+    label="Votes",
+    noun="vote count",
+    items=("4 votes", "6 votes", "8 votes", "10 votes", "12 votes", "14 votes"),
+    # "lower"/"higher" rather than "fewer"/"more": the renderer puts these in
+    # "... is lower than ... in vote count", where "fewer than" does not fit.
+    cmp_less="lower",
+    cmp_more="higher",
+    # Likewise: the vote counts step by 2.
+    step_noun="vote step",
+    values=(4, 6, 8, 10, 12, 14),
+    unit_suffix=" votes",
+    allow_gap=False,
+    allow_parity=False,
+)
+
+SPEEDS = SpineSpec(
+    name="speed",
+    label="Top speed",
+    noun="top speed",
+    items=("120 mph", "130 mph", "140 mph", "150 mph", "160 mph", "170 mph"),
+    cmp_less="slower",
+    cmp_more="faster",
+    # "speed step", as PRICES does, because the literal unit gives "exactly
+    # one ten mph apart".  DISTANCES gets away with "hundred miles" only
+    # because "one hundred miles apart" happens to read as a number.
+    step_noun="speed step",
+    values=(120, 130, 140, 150, 160, 170),
+    unit_suffix=" mph",
     allow_gap=False,
     allow_parity=False,
 )
@@ -233,6 +290,7 @@ SPINES = {
     for s in (
         WEEKDAYS, MONTHS, PLACINGS, SLOTS, MORNINGS, SHELVES,
         PRICES, DISTANCES, ENTRY_FEES, ROUNDS, POINTS, THROWS,
+        AGES, VOTES, SPEEDS,
     )
 }
 
@@ -1331,6 +1389,355 @@ THEMES: tuple[Theme, ...] = (
                   "a soft run-up", "a turned ankle", "a crosswind",
                   "a borrowed caber", "a judge's long measure",
                   "a slipped grip", "no excuse whatsoever"),
+        ),
+    ),
+    # -----------------------------------------------------------------------
+    # American packs.  The first 37 drifted into one register -- village fete,
+    # drizzle, a committee -- and a solver meeting them back to back finds the
+    # same world every time, whatever the puzzle is doing.  These are set in
+    # the present-day US: school, a food court, a vote, a cook-off, a game
+    # server, a road trip.  No brands or franchises, only the kinds of thing
+    # people actually do, so nothing dates and nothing needs a license.
+    # -----------------------------------------------------------------------
+    Theme(
+        slug="electives",
+        title="Elective Sign-Up at Ridgeline High",
+        entity_noun="student",
+        entity_noun_plural="students",
+        blurb=(
+            "A gym full of sign-up tables, a line out the door, and a "
+            "counselor who gave up on alphabetical order an hour ago."
+        ),
+        spine=MONTHS,
+        spine_verb="was born in",
+        spine_noun="birthday month",
+        axes=(
+            _actor("student", "Student", "student", "Darnell", "Priya",
+                   "Mateo", "Shoshana", "Trey", "Linnea", "Omar"),
+            _axis("elective", "Elective", "elective", "signs up for",
+                  "wood shop", "marching band", "digital art", "Spanish",
+                  "robotics", "theater tech", "yearbook"),
+            _axis("school", "Middle school", "middle school", "comes from",
+                  "Eastbrook Middle", "Pinecrest Middle", "Las Palmas Middle",
+                  "Dutch Hollow Middle", "Watermill Middle",
+                  "North Terrace Middle", "Candlewood Middle"),
+            _axis("ambition", "Ambition", "ambition", "wants to be",
+                  "a veterinarian", "a game designer", "a paramedic",
+                  "a park ranger", "an architect", "a pastry chef",
+                  "a storm chaser"),
+        ),
+    ),
+    Theme(
+        slug="class_pet",
+        title="The Room 12 Class Pet Vote",
+        entity_noun="kid",
+        entity_noun_plural="kids",
+        blurb=(
+            "Mr. Ocampo said the class could pick one pet. Nobody warned him "
+            "that would mean campaign posters."
+        ),
+        spine=VOTES,
+        spine_verb="wins",
+        spine_noun="vote count",
+        axes=(
+            _actor("kid", "Kid", "kid", "Josefina", "Kwame", "Dashiell",
+                   "Sanjay", "Marisol", "Ezra", "Tilly"),
+            _axis("pet", "Pet", "pet", "nominates", "a leopard gecko",
+                  "a pair of fancy rats", "a hermit crab", "a bearded dragon",
+                  "a corn snake", "a dwarf hamster", "a box turtle"),
+            _axis("petname", "Name", "name", "calls it", "Noodle",
+                  "Sir Pickles", "Mango", "Rocket", "Biscuit", "Zuzu", "Taco"),
+            _axis("habitat", "Habitat", "habitat", "keeps it in",
+                  "a glass terrarium", "a wire cage", "a mesh playpen",
+                  "a plastic tub", "a wooden hutch", "a tall aviary",
+                  "a felt-lined shoebox"),
+        ),
+    ),
+    Theme(
+        slug="fast_food",
+        title="The Food Court Standoff",
+        entity_noun="friend",
+        entity_noun_plural="friends",
+        blurb=(
+            "Six friends, one food court, and a shared conviction that "
+            "everybody else ordered wrong."
+        ),
+        spine=PRICES,
+        spine_verb="spends",
+        spine_noun="total",
+        axes=(
+            _actor("friend", "Friend", "friend", "Reggie", "Noor", "Colton",
+                   "Aaliyah", "Dmitri", "Paloma", "Hank"),
+            _axis("stand", "Stand", "stand", "eats at", "Burger Barn",
+                  "Taco Tower", "the Fry Shack", "the Chicken Coop",
+                  "Pizza Wheel", "Sub Stop", "the Noodle Cart"),
+            _axis("main", "Main", "main", "orders", "a double cheeseburger",
+                  "three crunchy tacos", "a chicken sandwich",
+                  "a personal pepperoni", "a foot-long sub", "six nuggets",
+                  "a bean burrito"),
+            _axis("drink", "Drink", "drink", "drinks", "a root beer",
+                  "a lemonade", "a chocolate shake", "an iced tea",
+                  "a blue slushie", "an orange soda", "just water"),
+        ),
+    ),
+    Theme(
+        slug="christmas",
+        title="Christmas Morning on Lark Street",
+        entity_noun="kid",
+        entity_noun_plural="kids",
+        blurb=(
+            "Six kids, six wish lists, and one set of parents trying very "
+            "hard to remember who asked for what."
+        ),
+        spine=AGES,
+        spine_verb="is",
+        spine_noun="age",
+        axes=(
+            _actor("kid", "Kid", "kid", "Rosalind", "Deshawn", "Yuki",
+                   "Frankie", "Esperanza", "Alton", "Margo"),
+            _axis("toy", "Toy", "toy", "hopes for",
+                  "a remote-control dump truck", "a telescope",
+                  "a karaoke machine", "a pink skateboard", "a robot dog",
+                  "a bug-collecting kit", "an electric keyboard"),
+            _axis("pajamas", "Pajamas", "pajamas", "wears",
+                  "red flannel pajamas", "reindeer pajamas",
+                  "blue star pajamas", "yellow footed pajamas",
+                  "purple fleece pajamas", "orange striped pajamas",
+                  "snowflake pajamas"),
+            _axis("snack", "Snack", "snack", "leaves out for Santa",
+                  "oatmeal cookies", "a candy cane", "gingerbread",
+                  "a slice of fruitcake", "peanut butter crackers",
+                  "sugar cookies", "carrot sticks"),
+        ),
+    ),
+    Theme(
+        slug="medals",
+        title="The Medals Got Mixed Up",
+        entity_noun="athlete",
+        entity_noun_plural="athletes",
+        blurb=(
+            "A volunteer handed out the medal boxes in the wrong order, and "
+            "the scoreboard went dark an hour ago."
+        ),
+        spine=PLACINGS,
+        spine_verb="finishes",
+        spine_noun="placing",
+        axes=(
+            _actor("athlete", "Athlete", "athlete", "Camille Boyd",
+                   "Rashad Ellery", "Ingrid Solheim", "Tobias Pike",
+                   "Wren Abernathy", "Diego Vasquez", "Nadia Kell"),
+            _axis("event", "Event", "event", "competes in",
+                  "the 400 meter hurdles", "the long jump", "the pole vault",
+                  "the shot put", "the 100 meter dash", "the high jump",
+                  "the triple jump"),
+            _axis("jersey", "Jersey", "jersey", "wears", "a teal jersey",
+                  "a maroon jersey", "a silver jersey", "a lime jersey",
+                  "a navy jersey", "a coral jersey", "a charcoal jersey"),
+            _axis("hometown", "Hometown", "hometown", "trains in",
+                  "Cedar Rapids", "Flagstaff", "Shreveport", "Walla Walla",
+                  "Kalamazoo", "Boca Raton", "Fargo"),
+        ),
+    ),
+    Theme(
+        slug="dream_cars",
+        title="The Dream Garage",
+        entity_noun="kid",
+        entity_noun_plural="kids",
+        blurb=(
+            "Six kids turned loose at the auto show, each one certain they "
+            "have found the only car worth owning."
+        ),
+        spine=SPEEDS,
+        spine_verb="wants a car that does",
+        spine_noun="top speed",
+        axes=(
+            _actor("kid", "Kid", "kid", "Benicio", "Harriet", "Jalen",
+                   "Svetlana", "Cormac", "Imani", "Dov"),
+            _axis("make", "Make", "make", "is set on", "a Comet GT",
+                  "a Pinebrook Wagon", "a Vulcan 500", "a Harrier Coupe",
+                  "a Meridian Sedan", "a Trailhawk Pickup", "a Lark Hatchback"),
+            _axis("paint", "Paint", "paint", "picks", "candy-apple red",
+                  "matte black", "sea-foam green", "butter yellow",
+                  "deep purple", "arctic white", "burnt orange"),
+            _axis("body", "Body", "body style", "goes for", "a two-seater",
+                  "a four-door", "a three-row", "a long bed", "a subcompact",
+                  "a hardtop", "a tiny city car"),
+        ),
+    ),
+    Theme(
+        slug="esports",
+        title="The Lakeshore Esports Bracket",
+        entity_noun="player",
+        entity_noun_plural="players",
+        blurb=(
+            "The school esports club booked the library after hours. Six "
+            "players, a double-elimination bracket, and a very long argument "
+            "about seeding."
+        ),
+        spine=ROUNDS,
+        spine_verb="is knocked out in",
+        spine_noun="exit round",
+        axes=(
+            _actor("player", "Player", "player", "Oksana", "Tyrell", "Mina",
+                   "Gus Villalobos", "Priyanka", "Beau", "Saoirse"),
+            _axis("game", "Game", "game", "mains", "the kart racer",
+                  "the soccer sim", "the block-builder", "the rhythm game",
+                  "the platformer", "the puzzle brawler", "the farming sim"),
+            _axis("gear", "Gear", "gear", "plays with",
+                  "a borrowed controller", "a split keyboard", "a trackball",
+                  "an arcade stick", "a tournament pad", "a wireless headset",
+                  "the club's old mouse"),
+            _axis("tag", "Tag", "tag", "goes by", "Pocketwatch", "BlueHeron",
+                  "Static", "Nine Lives", "Marmalade", "Downhill", "Sparrow"),
+        ),
+    ),
+    Theme(
+        slug="build_server",
+        title="The Build Server Contest",
+        entity_noun="builder",
+        entity_noun_plural="builders",
+        blurb=(
+            "A creative-mode server, one weekend, and six builders who all "
+            "swore they would stay under the block limit."
+        ),
+        spine=POINTS,
+        spine_verb="scores",
+        spine_noun="score",
+        axes=(
+            _actor("builder", "Builder", "builder", "Thandiwe", "Milo",
+                   "Keiko", "Rafferty", "Nadine", "Oscar Pell", "Jun"),
+            _axis("build", "Build", "build", "builds", "a floating island",
+                  "a glass observatory", "a clock tower", "an underwater dome",
+                  "a mountain railway", "a desert bazaar",
+                  "a treetop village"),
+            _axis("biome", "Biome", "biome", "builds in", "a snowy tundra",
+                  "a jungle", "a mushroom field", "a badlands mesa",
+                  "a cherry grove", "a swamp", "a flower meadow"),
+            _axis("material", "Material", "material", "builds it from",
+                  "quartz", "dark oak", "copper", "sandstone", "deepslate",
+                  "sea lantern", "packed ice"),
+        ),
+    ),
+    Theme(
+        slug="chili_cookoff",
+        title="The Firehouse Chili Cook-Off",
+        entity_noun="cook",
+        entity_noun_plural="cooks",
+        blurb=(
+            "The volunteer fire department holds a chili cook-off every fall, "
+            "and the judging has never once ended quietly."
+        ),
+        spine=PLACINGS,
+        spine_verb="places",
+        spine_noun="placing",
+        axes=(
+            _actor("cook", "Cook", "cook", "Verna", "Luis Ortega", "Bobbi Jo",
+                   "Amir", "Sunny Deel", "Hollis", "Gracie Mapp"),
+            _axis("chili", "Chili", "chili", "enters",
+                  "a white chicken chili", "a five-bean chili",
+                  "a brisket chili", "a green chile stew",
+                  "a smoky chipotle chili", "a pumpkin chili",
+                  "a plain old beef chili"),
+            _axis("secret", "Secret", "secret", "swears by",
+                  "a square of dark chocolate", "cold coffee",
+                  "a splash of cider vinegar", "cinnamon", "root beer",
+                  "fire-roasted corn", "nothing but salt"),
+            _axis("topping", "Topping", "topping", "tops it with",
+                  "shredded cheddar", "sour cream", "crushed corn chips",
+                  "pickled onions", "scallions", "oyster crackers",
+                  "a fried egg"),
+        ),
+    ),
+    Theme(
+        slug="pickleball",
+        title="The Tuesday Pickleball Ladder",
+        entity_noun="player",
+        entity_noun_plural="players",
+        blurb=(
+            "The rec center runs a pickleball ladder on Tuesdays. Courts go "
+            "by start time, and the sign-up sheet gets rewritten more than "
+            "once."
+        ),
+        spine=MORNINGS,
+        spine_verb="plays at",
+        spine_noun="start time",
+        axes=(
+            _actor("player", "Player", "player", "Dot Feeney", "Ramesh",
+                   "Charlene", "Buzz Kovacs", "Yolanda", "Pete Ng", "Arlene"),
+            _axis("paddle", "Paddle", "paddle", "plays with",
+                  "a graphite paddle", "a bright orange paddle",
+                  "a wooden loaner", "a carbon-fiber paddle",
+                  "an oversize paddle", "a hand-me-down paddle",
+                  "a paddle with a taped grip"),
+            _axis("serve", "Serve", "serve", "serves with", "a high lob",
+                  "a flat drive", "a soft drop", "a spin serve",
+                  "a lefty slice", "a sidearm toss",
+                  "the same serve every time"),
+            _axis("gripe", "Gripe", "gripe", "blames", "a bad knee",
+                  "the sun", "a dead ball", "a wet court",
+                  "the noisy court next door", "a late night",
+                  "nobody at all"),
+        ),
+    ),
+    Theme(
+        slug="trivia_night",
+        title="Trivia Night at the Public Library",
+        entity_noun="player",
+        entity_noun_plural="players",
+        blurb=(
+            "The library runs trivia on the first Thursday of the month. Six "
+            "regulars, six team names, and a scorekeeper who will not be "
+            "hurried."
+        ),
+        spine=POINTS,
+        spine_verb="scores",
+        spine_noun="score",
+        axes=(
+            _actor("player", "Player", "player", "Odalys", "Chet",
+                   "Priscilla", "Vikram", "Lou Ann", "Takeshi", "Darby"),
+            _axis("team", "Team", "team", "plays for", "the Quizzard of Oz",
+                  "Les Quizerables", "the Smarty Pants",
+                  "the Wi-Fighters", "Nacho Average Team",
+                  "the Library Cards", "the Trivia Newtons"),
+            _axis("category", "Category", "category",
+                  "takes the questions on", "state capitals", "90s cartoons",
+                  "cloud formations", "one-hit wonders", "dinosaurs",
+                  "world flags", "breakfast cereals"),
+            _axis("charm", "Charm", "charm", "brings along",
+                  "a lucky pencil", "a thermos of cocoa",
+                  "a laminated periodic table", "a stuffed owl",
+                  "a four-leaf clover in a locket", "a pocket atlas",
+                  "absolutely nothing"),
+        ),
+    ),
+    Theme(
+        slug="road_trip",
+        title="The Great American Road Trip",
+        entity_noun="driver",
+        entity_noun_plural="drivers",
+        blurb=(
+            "Six families set out the same weekend, each for a different "
+            "national park, each certain theirs is the better drive."
+        ),
+        spine=DISTANCES,
+        spine_verb="covers",
+        spine_noun="distance",
+        axes=(
+            _actor("driver", "Driver", "driver", "Marguerite", "Hector Salas",
+                   "Wendell", "Anneke", "Roy Tubbs", "Simone",
+                   "Gil Ostrander"),
+            _axis("park", "Park", "park", "heads for", "Yellowstone",
+                  "the Grand Canyon", "Acadia", "Zion",
+                  "the Great Smoky Mountains", "the Badlands", "Olympic"),
+            _axis("ride", "Ride", "ride", "drives",
+                  "a minivan with a roof box", "a rented camper",
+                  "a station wagon", "a pickup with a topper",
+                  "a hatchback packed to the roof", "an old convertible",
+                  "a hybrid sedan"),
+            _axis("snag", "Snag", "snag", "is delayed by", "a flat tire",
+                  "a closed pass", "a wrong turn in Nebraska",
+                  "a thunderstorm", "a dead phone battery",
+                  "a long line at the gate", "nothing at all"),
         ),
     ),
 )
