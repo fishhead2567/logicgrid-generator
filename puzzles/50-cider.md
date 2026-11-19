@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Six makers press in six different months and each is privately certain the others have let theirs go to vinegar.
+Every maker presses in a different month, and each is privately certain the others have let theirs go to vinegar.
 Six makers are involved. Determine each maker's pressing month, apple, vessel and fault.
 - **Maker**: Petroc, Silas Vane, Araminta, Bryony, Morwenna and Jethro.
 - **Pressing month** (listed from earlier to later): January, February, March, April, May and June.

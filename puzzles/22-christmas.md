@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Six kids, six wish lists, and one set of parents trying very hard to remember who asked for what.
+A pile of wish lists, and one set of parents trying very hard to remember who asked for what.
 Five kids are involved. Determine each kid's age, toy and snack.
 - **Kid**: Frankie, Deshawn, Esperanza, Alton and Margo.
 - **Age** (listed from younger to older): 8 years old, 9 years old, 10 years old, 11 years old and 12 years old.

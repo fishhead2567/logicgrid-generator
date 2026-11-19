@@ -4,7 +4,7 @@
 
 ## Introduction
 
-A creative-mode server, one weekend, and six builders who all swore they would stay under the block limit.
+A creative-mode server, one weekend, and a block limit everybody swore they would stay under.
 Five builders are involved. Determine each builder's score and biome.
 - **Builder**: Milo, Thandiwe, Keiko, Nadine and Rafferty.
 - **Score** (listed from lower to higher): 61 points, 64 points, 67 points, 70 points and 73 points.

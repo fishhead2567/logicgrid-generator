@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Six friends, one food court, and a shared conviction that everybody else ordered wrong.
+One food court, and a shared conviction that everybody else ordered wrong.
 Five friends are involved. Determine each friend's total, stand and drink.
 - **Friend**: Paloma, Colton, Hank, Reggie and Dmitri.
 - **Total** (listed from cheaper to dearer): $3, $5, $7, $9 and $11.

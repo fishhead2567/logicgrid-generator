@@ -1126,8 +1126,8 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="ringer",
         entity_noun_plural="ringers",
         blurb=(
-            "Six ringers, six rounds of the Tuesday practice, and a tower "
-            "captain keeping a ledger of everyone's mistakes."
+            "The Tuesday practice, and a tower captain keeping a ledger of "
+            "everyone's mistakes."
         ),
         spine=ROUNDS,
         spine_verb="rings in",
@@ -1153,8 +1153,9 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="handler",
         entity_noun_plural="handlers",
         blurb=(
-            "A hillside, six handlers, and a judge who deducts for a wide "
-            "outrun with the enthusiasm of a man settling an old score."
+            "A hillside, a flock with its own ideas, and a judge who "
+            "deducts for a wide outrun with the enthusiasm of someone "
+            "settling an old score."
         ),
         spine=POINTS,
         spine_verb="scores",
@@ -1177,8 +1178,8 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="maker",
         entity_noun_plural="makers",
         blurb=(
-            "Six makers press in six different months and each is privately "
-            "certain the others have let theirs go to vinegar."
+            "Every maker presses in a different month, and each is "
+            "privately certain the others have let theirs go to vinegar."
         ),
         spine=MONTHS,
         spine_verb="presses in",
@@ -1203,7 +1204,7 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="compositor",
         entity_noun_plural="compositors",
         blurb=(
-            "A jobbing print shop with six compositors, six quoted prices and "
+            "A jobbing print shop where every job has its quoted price, and "
             "one hell-box filling up faster than anybody will admit to."
         ),
         spine=PRICES,
@@ -1231,8 +1232,8 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="rider",
         entity_noun_plural="riders",
         blurb=(
-            "Six riders, six entry fees paid in cash at the gate, and a "
-            "scoreboard that nobody trusts."
+            "Entry fees paid in cash at the gate, and a scoreboard that "
+            "nobody trusts."
         ),
         spine=ENTRY_FEES,
         spine_verb="pays",
@@ -1258,7 +1259,7 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="exhibitor",
         entity_noun_plural="exhibitors",
         blurb=(
-            "Six trees on six stands, judged on a hundred-point sheet, and the "
+            "Trees on stands, judged on a hundred-point sheet, and the "
             "wiring marks are what everybody is looking for."
         ),
         spine=POINTS,
@@ -1285,9 +1286,9 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="waller",
         entity_noun_plural="wallers",
         blurb=(
-            "Six wallers, a measured length of fallen wall each, and a whole "
-            "morning in which to rebuild it to the satisfaction of a judge "
-            "who will push on every cope."
+            "A measured length of fallen wall each, and a whole morning in "
+            "which to rebuild it to the satisfaction of a judge who will "
+            "push on every cope."
         ),
         spine=MORNINGS,
         spine_verb="finishes at",
@@ -1340,8 +1341,8 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="shearer",
         entity_noun_plural="shearers",
         blurb=(
-            "Six shearers down the board, judged on the floor as much as on "
-            "the clock, and the wool classer is taking notes."
+            "Down the board, judged on the floor as much as on the clock, "
+            "and the wool classer is taking notes."
         ),
         spine=PLACINGS,
         spine_verb="places",
@@ -1368,8 +1369,8 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="thrower",
         entity_noun_plural="throwers",
         blurb=(
-            "Six throwers in the heavy events, measured to the foot, in a "
-            "field where the wind counts for more than anybody admits."
+            "The heavy events, measured to the foot, in a field where the "
+            "wind counts for more than anybody admits."
         ),
         spine=THROWS,
         spine_verb="throws",
@@ -1459,8 +1460,8 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="friend",
         entity_noun_plural="friends",
         blurb=(
-            "Six friends, one food court, and a shared conviction that "
-            "everybody else ordered wrong."
+            "One food court, and a shared conviction that everybody else "
+            "ordered wrong."
         ),
         spine=PRICES,
         spine_verb="spends",
@@ -1486,8 +1487,8 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="kid",
         entity_noun_plural="kids",
         blurb=(
-            "Six kids, six wish lists, and one set of parents trying very "
-            "hard to remember who asked for what."
+            "A pile of wish lists, and one set of parents trying very hard "
+            "to remember who asked for what."
         ),
         spine=AGES,
         spine_verb="is",
@@ -1548,8 +1549,8 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="kid",
         entity_noun_plural="kids",
         blurb=(
-            "Six kids turned loose at the auto show, each one certain they "
-            "have found the only car worth owning."
+            "Kids turned loose at the auto show, each one certain they have "
+            "found the only car worth owning."
         ),
         spine=SPEEDS,
         spine_verb="wants a car that does",
@@ -1574,9 +1575,9 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="player",
         entity_noun_plural="players",
         blurb=(
-            "The school esports club booked the library after hours. Six "
-            "players, a double-elimination bracket, and a very long argument "
-            "about seeding."
+            "The school esports club booked the library after hours: a "
+            "double-elimination bracket, and a very long argument about "
+            "seeding."
         ),
         spine=ROUNDS,
         spine_verb="is knocked out in",
@@ -1601,8 +1602,8 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="builder",
         entity_noun_plural="builders",
         blurb=(
-            "A creative-mode server, one weekend, and six builders who all "
-            "swore they would stay under the block limit."
+            "A creative-mode server, one weekend, and a block limit "
+            "everybody swore they would stay under."
         ),
         spine=POINTS,
         spine_verb="scores",
@@ -1689,9 +1690,8 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="player",
         entity_noun_plural="players",
         blurb=(
-            "The library runs trivia on the first Thursday of the month. Six "
-            "regulars, six team names, and a scorekeeper who will not be "
-            "hurried."
+            "The library runs trivia on the first Thursday of the month, "
+            "and the scorekeeper will not be hurried."
         ),
         spine=POINTS,
         spine_verb="scores",
@@ -1720,7 +1720,7 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="driver",
         entity_noun_plural="drivers",
         blurb=(
-            "Six families set out the same weekend, each for a different "
+            "Everybody set out the same weekend, each for a different "
             "national park, each certain theirs is the better drive."
         ),
         spine=DISTANCES,

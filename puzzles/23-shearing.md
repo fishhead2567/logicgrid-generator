@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Six shearers down the board, judged on the floor as much as on the clock, and the wool classer is taking notes.
+Down the board, judged on the floor as much as on the clock, and the wool classer is taking notes.
 Five shearers are involved. Determine each shearer's placing, handpiece and penalty.
 - **Shearer**: Rangi, Manaia, Deirdre Pollok, Tipene and Bevan Toft.
 - **Placing** (listed from better to worse): first, second, third, fourth and fifth.

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Six ringers, six rounds of the Tuesday practice, and a tower captain keeping a ledger of everyone's mistakes.
+The Tuesday practice, and a tower captain keeping a ledger of everyone's mistakes.
 Six ringers are involved. Determine each ringer's round, method, bell and slip.
 - **Ringer**: Lavinia, Dorcas, Ambrose, Fenwick, Osbert and Prudence.
 - **Round** (listed from earlier to later): round one, round two, round three, round four, round five and round six.

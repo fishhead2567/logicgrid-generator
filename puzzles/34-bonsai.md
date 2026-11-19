@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Six trees on six stands, judged on a hundred-point sheet, and the wiring marks are what everybody is looking for.
+Trees on stands, judged on a hundred-point sheet, and the wiring marks are what everybody is looking for.
 Five exhibitors are involved. Determine each exhibitor's judged score, style and species.
 - **Exhibitor**: Hiroshi Mita, Emi Tsuchida, Jun Kawabe, Takumi Ishii and Noriko Hase.
 - **Judged score** (listed from lower to higher): 61 points, 64 points, 67 points, 70 points and 73 points.

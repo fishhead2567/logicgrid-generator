@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Six riders, six entry fees paid in cash at the gate, and a scoreboard that nobody trusts.
+Entry fees paid in cash at the gate, and a scoreboard that nobody trusts.
 Five riders are involved. Determine each rider's entry fee, animal and outcome.
 - **Rider**: Cody Vance, Buck Jessup, Dalton Reese, Roselle Kerr and Earlene Tate.
 - **Entry fee** (listed from cheaper to dearer): $2, $4, $6, $8 and $10.

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The library runs trivia on the first Thursday of the month. Six regulars, six team names, and a scorekeeper who will not be hurried.
+The library runs trivia on the first Thursday of the month, and the scorekeeper will not be hurried.
 Five players are involved. Determine each player's score, team and category.
 - **Player**: Takeshi, Priscilla, Darby, Vikram and Odalys.
 - **Score** (listed from lower to higher): 61 points, 64 points, 67 points, 70 points and 73 points.

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Six families set out the same weekend, each for a different national park, each certain theirs is the better drive.
+Everybody set out the same weekend, each for a different national park, each certain theirs is the better drive.
 Five drivers are involved. Determine each driver's distance, park and ride.
 - **Driver**: Anneke, Hector Salas, Roy Tubbs, Simone and Wendell.
 - **Distance** (listed from shorter to longer): 200 miles, 300 miles, 400 miles, 500 miles and 600 miles.

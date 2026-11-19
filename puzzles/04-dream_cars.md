@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Six kids turned loose at the auto show, each one certain they have found the only car worth owning.
+Kids turned loose at the auto show, each one certain they have found the only car worth owning.
 Five kids are involved. Determine each kid's top speed and paint.
 - **Kid**: Harriet, Imani, Svetlana, Cormac and Jalen.
 - **Top speed** (listed from slower to faster): 120 mph, 130 mph, 140 mph, 150 mph and 160 mph.

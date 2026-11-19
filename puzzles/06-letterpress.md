@@ -4,7 +4,7 @@
 
 ## Introduction
 
-A jobbing print shop with six compositors, six quoted prices and one hell-box filling up faster than anybody will admit to.
+A jobbing print shop where every job has its quoted price, and one hell-box filling up faster than anybody will admit to.
 Four compositors are involved. Determine each compositor's quoted price and job.
 - **Compositor**: Harriet Lisle, Ned Ashby, Winifred Oakes and Alfred Nunn.
 - **Quoted price** (listed from cheaper to dearer): $3, $5, $7 and $9.

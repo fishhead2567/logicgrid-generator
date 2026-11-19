@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Six throwers in the heavy events, measured to the foot, in a field where the wind counts for more than anybody admits.
+The heavy events, measured to the foot, in a field where the wind counts for more than anybody admits.
 Five throwers are involved. Determine each thrower's best throw, event and grumble.
 - **Thrower**: Duncan Rait, Lachlan Cree, Angus Dunbar, Morag Inglis and Isla Kinnear.
 - **Best throw** (listed from shorter to longer): 28 feet, 32 feet, 36 feet, 40 feet and 44 feet.

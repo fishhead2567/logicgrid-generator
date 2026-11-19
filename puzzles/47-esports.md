@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The school esports club booked the library after hours. Six players, a double-elimination bracket, and a very long argument about seeding.
+The school esports club booked the library after hours: a double-elimination bracket, and a very long argument about seeding.
 Six players are involved. Determine each player's exit round, game, gear and tag.
 - **Player**: Gus Villalobos, Beau, Tyrell, Oksana, Saoirse and Mina.
 - **Exit round** (listed from earlier to later): round one, round two, round three, round four, round five and round six.

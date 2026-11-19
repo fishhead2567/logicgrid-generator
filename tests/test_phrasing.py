@@ -348,3 +348,40 @@ def test_is_vacuous_spots_the_endpoint_cases():
     assert not is_vacuous(Before(first, who), schema)
     assert not is_vacuous(Adjacent(who, last), schema)
     assert not is_vacuous(Gap(who, last, 2), schema)
+
+
+def test_no_blurb_counts_the_cast():
+    """A blurb must not say how many there are, because it cannot know.
+
+    A blurb is authored once; the puzzle is built at 4, 5 or 6 items.  So
+    "six builders" is wrong two times in three, and wrong in the worst way:
+    the solver reads "six builders", then reads "Five builders are involved",
+    and goes hunting for a builder who was never there.  The intro states the
+    cast size already, computed from the schema.
+
+    Counts that are not the cast are fine -- an altitude, a time, people
+    writing letters -- so this allows a number word only when the words after
+    it make it something other than a tally of the puzzle's actors.
+    """
+    import re
+
+    from logicgrid.themes import THEMES
+
+    number = re.compile(
+        # \S+ rather than \w+: \w stops at the apostrophe, which turns
+        # "four o'clock" into the bare token "o".
+        r"\b(two|three|four|five|six|seven|eight|nine|ten)\b\s+(\S+)",
+        re.I,
+    )
+    allowed = {
+        "thousand",  # "two thousand feet" -- an altitude
+        "hundred",
+        "o'clock",  # "four o'clock" -- a time
+        "people",  # "at least two people are writing letters" -- not the cast
+    }
+    offenders = []
+    for theme in THEMES:
+        for count, nxt in number.findall(theme.blurb):
+            if nxt.casefold().strip(".,;:!?\"'") not in allowed:
+                offenders.append(f"{theme.slug}: {count!r} {nxt!r}")
+    assert not offenders, "blurbs that count the cast: " + "; ".join(offenders)

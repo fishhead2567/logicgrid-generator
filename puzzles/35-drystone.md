@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Six wallers, a measured length of fallen wall each, and a whole morning in which to rebuild it to the satisfaction of a judge who will push on every cope.
+A measured length of fallen wall each, and a whole morning in which to rebuild it to the satisfaction of a judge who will push on every cope.
 Five wallers are involved. Determine each waller's finishing time, stone, feature and snag.
 - **Waller**: Mab Teasdale, Hilda Crowther, Ewart Beck, Ossian Baird and Clem Hartley.
 - **Finishing time** (listed from earlier to later): 8am, 9am, 10am, 11am and noon.

@@ -4,7 +4,7 @@
 
 ## Introduction
 
-A hillside, six handlers, and a judge who deducts for a wide outrun with the enthusiasm of a man settling an old score.
+A hillside, a flock with its own ideas, and a judge who deducts for a wide outrun with the enthusiasm of someone settling an old score.
 Five handlers are involved. Determine each handler's score, dog and flock.
 - **Handler**: Idris, Huw Pryce, Nerys, Eiddwen and Constance.
 - **Score** (listed from lower to higher): 61 points, 64 points, 67 points, 70 points and 73 points.
