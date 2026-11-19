@@ -114,6 +114,16 @@ one has been read back by three independent extractors and proved to yield the
 same unique solution as the canonical clues. `verdict` is `pass`, or
 `pass_equivalent` where the readers agreed on the answer by differently-shaped
 routes.
+
+## Licence
+
+MIT -- see [LICENSE](LICENSE). That covers the puzzle content here as well as
+the manifest.
+
+Logic grid puzzles of this shape are a long-standing magazine format. These are
+written in the style of Penny Dell's "Logic Problems", but "Penny Dell" is
+someone else's trademark and nothing here is affiliated with or endorsed by
+them.
 """
 
 

@@ -9,7 +9,7 @@ description = "Generator, solver and difficulty rater for Penny Dell-style logic
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [{ name = "logicgrid" }]
+authors = [{ name = "Andrew Best" }]
 keywords = ["logic puzzle", "zebra puzzle", "einstein riddle", "constraint", "puzzle generator"]
 dependencies = []
 
