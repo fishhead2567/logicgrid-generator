@@ -34,6 +34,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from logicgrid import __version__  # noqa: E402
 from logicgrid.generate import Puzzle  # noqa: E402
+from logicgrid.render import canonical_intro, clue_text  # noqa: E402
 
 SCHEMA = 1
 
@@ -99,7 +100,14 @@ on `id` means a regeneration silently marks the wrong puzzles done.
 ## Puzzle format
 
 `puzzles/<id>.json` carries `schema` (the categories and their items), `clues`
-(typed clue atoms) and `solution`. Every puzzle in here has been verified to
+(typed clue atoms), `solution`, and `text` -- the canonical prose, pre-rendered.
+
+**Use `text`.** Rendering a clue from the atoms means re-implementing ~375 lines
+of English morphology (irregular verb stems, do-support negation, article
+insertion, pluralisation, number words, per-spine comparatives). `text.intro`
+and `text.clues` are exactly what the reference terminal player shows, so every
+client reads identically. The atoms are there for anything that needs the
+logic -- a hint engine, a solver -- not for display. Every puzzle in here has been verified to
 have exactly one solution, reachable without guessing unless its profile says
 otherwise.
 
@@ -141,6 +149,24 @@ def build(out: Path, puzzles: Path, narratives: Path, init_git: bool) -> int:
         raw = path.read_bytes()
         puzzle = Puzzle.from_json(json.loads(raw.decode("utf-8")))
         stem = path.stem
+
+        # Ship the canonical prose alongside the clue IR.
+        #
+        # Without this a client has to re-implement the renderer to show a
+        # puzzle at all -- and that is ~375 lines of English morphology:
+        # irregular verb stems, do-support negation, article insertion,
+        # -ies/-ves/-es pluralisation, number words, per-spine comparatives.
+        # Only 5 of 50 puzzles have a narrative, so the canonical text is the
+        # *common* path, not a fallback. Pre-rendering it here keeps that
+        # subsystem in one language and guarantees every client shows byte
+        # identical wording.
+        data = json.loads(raw.decode("utf-8"))
+        data["text"] = {
+            "intro": canonical_intro(puzzle),
+            "clues": [clue_text(clue, puzzle.schema) for clue in puzzle.clues],
+        }
+        raw = (json.dumps(data, indent=2) + "\n").encode("utf-8")
+
         dest = out / "puzzles" / f"{stem}.json"
         dest.write_bytes(raw)
         entry = {

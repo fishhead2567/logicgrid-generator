@@ -264,3 +264,30 @@ def test_assist_on_real_puzzles_stays_sound(path):
                 board.set_mark(ref, target, YES)
             assert board.mistakes() == [], f"assist went wrong after {ref.item}"
     assert board.solved()
+
+
+def test_ruling_out_every_cell_in_a_row_is_a_conflict(puzzle):
+    """An item with nowhere left to go is an impossible state, so say so.
+
+    Found by review: the closure's last-cell-standing rule did nothing when
+    *zero* cells remained, so the board accepted a puzzle that could never be
+    finished -- no conflict, no mistake, no complaint. The check belongs in the
+    always-on phase: the state is equally impossible with assist off.
+    """
+    for assist in (False, True):
+        board = Board(puzzle, assist=assist)
+        board.set_mark(R("Odette"), R("Monday"), NO)
+        board.set_mark(R("Odette"), R("Tuesday"), NO)
+        before = dict(board.user_marks)
+        with pytest.raises(Conflict, match="nowhere for it to go"):
+            board.set_mark(R("Odette"), R("Wednesday"), NO)
+        assert board.user_marks == before, "a refused mark must change nothing"
+
+
+def test_the_last_cell_is_still_claimed_rather_than_emptied(puzzle):
+    """The new check must not pre-empt last-cell-standing under assist."""
+    board = Board(puzzle, assist=True)
+    board.set_mark(R("Odette"), R("Monday"), NO)
+    board.set_mark(R("Odette"), R("Tuesday"), NO)
+    # Two of three ruled out: assist should claim the third, not complain.
+    assert board.get(R("Odette"), R("Wednesday")) is YES

@@ -172,6 +172,27 @@ class Board:
 
         by_name = self.schema.by_name
 
+        def check_no_row_is_empty() -> None:
+            """Every item must still have somewhere to go.
+
+            Ruling out all of an item's cells against some category leaves a
+            state nothing can satisfy. Without this the board accepted it
+            silently -- no conflict, no mistake, just a puzzle that could never
+            be finished. Checked in the always-on phase, not under assist,
+            because the state is equally impossible either way.
+            """
+            for cat_a, cat_b in self.pairs:
+                for first, second in ((cat_a, cat_b), (cat_b, cat_a)):
+                    for ref in by_name[first].refs():
+                        options = by_name[second].refs()
+                        if any(marks.get(cell(ref, o)) is not NO for o in options):
+                            continue
+                        raise Conflict(
+                            f"that would rule out every "
+                            f"{by_name[second].label.lower()} for {ref.item}, "
+                            f"leaving nowhere for it to go"
+                        )
+
         def propagate_forced() -> None:
             while queue:
                 key = queue.pop()
@@ -184,6 +205,7 @@ class Board:
                 for other in by_name[a.cat].refs():
                     if other != a:
                         put(cell(other, b), NO)
+            check_no_row_is_empty()
 
         propagate_forced()
         if not self._assist:
