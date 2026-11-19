@@ -59,9 +59,14 @@ def test_every_theme_verb_negates_cleanly(verb):
     negative = negate_verb(verb)
     assert negative != verb
     if negative.startswith("does not "):
+        head = verb.split()[0]
         stem = negative[len("does not ") :].split()[0]
-        assert not stem.endswith("s"), f"{verb!r} -> {negative!r} kept the -s"
         assert stem, f"{verb!r} negated to an empty stem"
+        # The defect this guards is do-support applied to a head that was never
+        # stripped: "contained" -> "does not contained".  Testing that the stem
+        # *changed* catches that, where testing that it does not end in -s
+        # also rejects honest stems like "press", "pass", "toss" and "cross".
+        assert stem != head, f"{verb!r} -> {negative!r} kept the third-person head"
     else:
         assert negative.split()[1] == "not", f"{verb!r} -> {negative!r}"
 
@@ -70,6 +75,9 @@ def test_every_theme_verb_negates_cleanly(verb):
     "verb,expected",
     [
         ("harvests in", "does not harvest in"),
+        ("presses in", "does not press in"),
+        ("crosses", "does not cross"),
+        ("has grown", "has not grown"),
         ("is troubled by", "is not troubled by"),
         ("was bought by", "was not bought by"),
         ("flies", "does not fly"),

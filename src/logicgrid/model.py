@@ -217,7 +217,13 @@ class Ref:
 #: Verbs that negate by taking "not" directly, with no do-support.
 #: "has" is deliberately absent: in a clue it is a main verb ("has a price of"),
 #: which needs "does not have", not "has not".
+#: Heads that take a bare "not" rather than do-support.
 _AUX = frozenset({"is", "was", "are", "were"})
+
+#: Heads that take a bare "not" only when they are auxiliary to something else.
+#: "has grown" negates to "has not grown", but bare "has" wants do-support --
+#: "does not have a trowel", since "has not a trowel" is a century out of date.
+_PERFECT = frozenset({"has", "had", "have"})
 
 #: Third-person forms the -s rules get wrong.
 _IRREGULAR_STEMS = {"has": "have", "does": "do", "goes": "go", "is": "be"}
@@ -247,10 +253,10 @@ def negate_verb(phrase: str) -> str:
     """Negate a third-person verb phrase.
 
     "is troubled by" -> "is not troubled by"; "harvests in" -> "does not
-    harvest in".
+    harvest in"; "has grown" -> "has not grown".
     """
     head, _, tail = phrase.partition(" ")
-    if head.casefold() in _AUX:
+    if head.casefold() in _AUX or (head.casefold() in _PERFECT and tail):
         return f"{head} not {tail}".strip()
     stem = third_person_stem(head)
     return f"does not {stem} {tail}".strip()

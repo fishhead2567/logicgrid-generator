@@ -183,9 +183,57 @@ ENTRY_FEES = SpineSpec(
     allow_parity=False,
 )
 
+ROUNDS = SpineSpec(
+    name="round",
+    label="Round",
+    noun="round",
+    items=(
+        "round one",
+        "round two",
+        "round three",
+        "round four",
+        "round five",
+        "round six",
+    ),
+    cmp_less="earlier",
+    cmp_more="later",
+    step_noun="round",
+)
+
+POINTS = SpineSpec(
+    name="points",
+    label="Score",
+    noun="score",
+    items=("61 points", "64 points", "67 points", "70 points", "73 points", "76 points"),
+    cmp_less="lower",
+    cmp_more="higher",
+    step_noun="point",
+    values=(61, 64, 67, 70, 73, 76),
+    unit_suffix=" points",
+    allow_gap=False,
+    allow_parity=False,
+)
+
+THROWS = SpineSpec(
+    name="throw",
+    label="Best throw",
+    noun="best throw",
+    items=("28 feet", "32 feet", "36 feet", "40 feet", "44 feet", "48 feet"),
+    cmp_less="shorter",
+    cmp_more="longer",
+    step_noun="foot",
+    values=(28, 32, 36, 40, 44, 48),
+    unit_suffix=" feet",
+    allow_gap=False,
+    allow_parity=False,
+)
+
 SPINES = {
     s.name: s
-    for s in (WEEKDAYS, MONTHS, PLACINGS, SLOTS, MORNINGS, SHELVES, PRICES, DISTANCES, ENTRY_FEES)
+    for s in (
+        WEEKDAYS, MONTHS, PLACINGS, SLOTS, MORNINGS, SHELVES,
+        PRICES, DISTANCES, ENTRY_FEES, ROUNDS, POINTS, THROWS,
+    )
 }
 
 
@@ -1005,6 +1053,284 @@ THEMES: tuple[Theme, ...] = (
                   "choir practice", "a bus replacement service",
                   "a locked greenhouse", "watching the snooker",
                   "no alibi whatsoever"),
+        ),
+    ),
+    # -----------------------------------------------------------------
+    # Research-backed packs.  The vocabulary in these is the real thing --
+    # Grandsire Triples is a method, Dabinett is a cider apple, a lunky hole
+    # is a sheep gap at the foot of a wall -- because specificity does work
+    # that invention cannot: a solver who knows the domain feels the setting
+    # is real, and one who does not still feels that somebody knew.
+    # -----------------------------------------------------------------
+    Theme(
+        slug="bellringing",
+        title="The Quarter-Peal at St Botolph's",
+        entity_noun="ringer",
+        entity_noun_plural="ringers",
+        blurb=(
+            "Six ringers, six rounds of the Tuesday practice, and a tower "
+            "captain keeping a ledger of everyone's mistakes."
+        ),
+        spine=ROUNDS,
+        spine_verb="rings in",
+        spine_noun="round",
+        axes=(
+            _actor("ringer", "Ringer", "ringer", "Hesketh", "Prudence", "Osbert",
+                   "Lavinia", "Fenwick", "Dorcas", "Ambrose"),
+            _axis("method", "Method", "method", "calls", "Grandsire Triples",
+                  "Plain Bob Major", "Stedman Caters", "Kent Treble Bob",
+                  "Cambridge Surprise Minor", "Grandsire Doubles",
+                  "Plain Bob Minor"),
+            _axis("bell", "Bell", "bell", "takes", "the treble", "the second",
+                  "the third", "the fourth", "the fifth", "the tenor",
+                  "the sharp second"),
+            _axis("slip", "Slip", "slip", "is blamed for", "a fired shot",
+                  "a missed dodge", "going methodless", "a clipped backstroke",
+                  "an early snap lead", "a dropped rope", "nothing at all"),
+        ),
+    ),
+    Theme(
+        slug="sheepdog",
+        title="The Clun Forest Trials",
+        entity_noun="handler",
+        entity_noun_plural="handlers",
+        blurb=(
+            "A hillside, six handlers, and a judge who deducts for a wide "
+            "outrun with the enthusiasm of a man settling an old score."
+        ),
+        spine=POINTS,
+        spine_verb="scores",
+        spine_noun="score",
+        axes=(
+            _actor("handler", "Handler", "handler", "Eiddwen", "Tarrant",
+                   "Marged", "Huw Pryce", "Constance", "Idris", "Nerys"),
+            _axis("dog", "Dog", "dog", "runs", "Nell", "Moss", "Gyp", "Craig",
+                  "Bute", "Tweed", "Fly"),
+            _axis("flock", "Flock", "flock", "gathers", "Swaledales", "Cheviots",
+                  "Herdwicks", "Rough Fells", "Dalesbreds", "Lonks", "Beulahs"),
+            _axis("fault", "Fault", "fault", "loses points for", "a wide outrun",
+                  "a hard lift", "an off-line fetch", "crossing on the drive",
+                  "a missed shed", "a refusal at the pen", "a clean run"),
+        ),
+    ),
+    Theme(
+        slug="cider",
+        title="The Pomace and the Prize",
+        entity_noun="maker",
+        entity_noun_plural="makers",
+        blurb=(
+            "Six makers press in six different months and each is privately "
+            "certain the others have let theirs go to vinegar."
+        ),
+        spine=MONTHS,
+        spine_verb="presses in",
+        spine_noun="pressing month",
+        axes=(
+            _actor("maker", "Maker", "maker", "Haskell", "Morwenna", "Jethro",
+                   "Araminta", "Silas Vane", "Petroc", "Bryony"),
+            _axis("apple", "Apple", "apple", "presses", "Kingston Black",
+                  "Yarlington Mill", "Dabinett", "Foxwhelp",
+                  "Somerset Redstreak", "Harry Masters Jersey", "Browns Apple"),
+            _axis("vessel", "Vessel", "vessel", "ferments in", "an oak hogshead",
+                  "a plastic barrel", "a glass demijohn", "a rum cask",
+                  "a stainless tank", "an earthenware jar", "a sherry butt"),
+            _axis("fault", "Fault", "fault", "is accused of", "mousiness",
+                  "acetification", "ropiness", "a stuck ferment",
+                  "a framboise note", "sulphur", "nothing detectable"),
+        ),
+    ),
+    Theme(
+        slug="letterpress",
+        title="The Jobbing Shop on Dyer's Row",
+        entity_noun="compositor",
+        entity_noun_plural="compositors",
+        blurb=(
+            "A jobbing print shop with six compositors, six quoted prices and "
+            "one hell-box filling up faster than anybody will admit to."
+        ),
+        spine=PRICES,
+        spine_verb="quotes",
+        spine_noun="quoted price",
+        axes=(
+            _actor("compositor", "Compositor", "compositor", "Verity Stallard",
+                   "Alfred Nunn", "Josiah Peake", "Winifred Oakes",
+                   "Cecil Braddock", "Harriet Lisle", "Ned Ashby"),
+            _axis("face", "Typeface", "typeface", "sets in", "Caslon",
+                  "Baskerville", "Gill Sans", "Bodoni", "Garamond", "Perpetua",
+                  "Plantin"),
+            _axis("job", "Job", "job", "is setting", "a parish newsletter",
+                  "an auction bill", "a wedding order of service",
+                  "a seed catalogue", "a funeral card", "a regatta programme",
+                  "a hardware invoice"),
+            _axis("mishap", "Mishap", "mishap", "owns up to", "a pied forme",
+                  "a loose quoin", "an inverted sort", "a slurred impression",
+                  "a cracked chase", "type left in the galley", "a clean run"),
+        ),
+    ),
+    Theme(
+        slug="rodeo",
+        title="The Cutbank County Rodeo",
+        entity_noun="rider",
+        entity_noun_plural="riders",
+        blurb=(
+            "Six riders, six entry fees paid in cash at the gate, and a "
+            "scoreboard that nobody trusts."
+        ),
+        spine=ENTRY_FEES,
+        spine_verb="pays",
+        spine_noun="entry fee",
+        axes=(
+            _actor("rider", "Rider", "rider", "Dalton Reese", "Marla Hobbs",
+                   "Cody Vance", "Earlene Tate", "Buck Jessup", "Roselle Kerr",
+                   "Travis Mundy"),
+            _axis("event", "Event", "event", "enters", "bull riding",
+                  "saddle bronc", "bareback", "steer wrestling", "team roping",
+                  "tie-down roping", "barrel racing"),
+            _axis("stock", "Stock drawn", "animal", "draws", "Widowmaker",
+                  "Little Sister", "Tumbleweed", "Brimstone", "Half Past Three",
+                  "Copper Penny", "Sunday Sermon"),
+            _axis("outcome", "Outcome", "outcome", "finishes with", "a clean ride",
+                  "a no-score", "a broken barrier", "a slap of the free hand",
+                  "a blown stirrup", "a re-ride", "a disqualification"),
+        ),
+    ),
+    Theme(
+        slug="bonsai",
+        title="The Autumn Show at Kiyosumi",
+        entity_noun="exhibitor",
+        entity_noun_plural="exhibitors",
+        blurb=(
+            "Six trees on six stands, judged on a hundred-point sheet, and the "
+            "wiring marks are what everybody is looking for."
+        ),
+        spine=POINTS,
+        spine_verb="is awarded",
+        spine_noun="judged score",
+        axes=(
+            _actor("exhibitor", "Exhibitor", "exhibitor", "Keiko Tanabe",
+                   "Hiroshi Mita", "Sumire Oda", "Takumi Ishii", "Noriko Hase",
+                   "Jun Kawabe", "Emi Tsuchida"),
+            _axis("style", "Style", "style", "shows", "moyogi", "shakan",
+                  "kengai", "han-kengai", "chokkan", "bunjin", "ikadabuki"),
+            _axis("species", "Species", "species", "has grown", "a trident maple",
+                  "a Japanese black pine", "a satsuki azalea", "a zelkova",
+                  "a hinoki cypress", "a Chinese quince", "a winged elm"),
+            _axis("flaw", "Flaw noted", "flaw", "is marked down for",
+                  "visible wiring scars", "reverse taper", "a bar branch",
+                  "an eye-poking branch", "a weak nebari", "a crossing root",
+                  "no flaw at all"),
+        ),
+    ),
+    Theme(
+        slug="drystone",
+        title="The Walling Match at Gunnerside",
+        entity_noun="waller",
+        entity_noun_plural="wallers",
+        blurb=(
+            "Six wallers, a measured length of fallen wall each, and a whole "
+            "morning in which to rebuild it to the satisfaction of a judge "
+            "who will push on every cope."
+        ),
+        spine=MORNINGS,
+        spine_verb="finishes at",
+        spine_noun="finishing time",
+        axes=(
+            _actor("waller", "Waller", "waller", "Ewart Beck", "Hilda Crowther",
+                   "Tam Ridley", "Jenny Fawcett", "Ossian Baird", "Mab Teasdale",
+                   "Clem Hartley"),
+            _axis("stone", "Stone", "stone", "works in", "Dales limestone",
+                  "millstone grit", "green slate", "red sandstone",
+                  "river cobble", "Cotswold oolite", "Welsh rubble"),
+            _axis("feature", "Feature built", "feature", "builds in",
+                  "a lunky hole", "a wall head", "a set of throughstones",
+                  "a stile", "a cripple hole", "a water smoot",
+                  "a plain run of copes"),
+            _axis("snag", "Snag", "snag", "is pulled up for", "a running joint",
+                  "gravel hearting", "a slipped cope", "too little batter",
+                  "a wobbly wall head", "stone left unused", "nothing at all"),
+        ),
+    ),
+    Theme(
+        slug="hamradio",
+        title="Field Day on Barrow Hill",
+        entity_noun="operator",
+        entity_noun_plural="operators",
+        blurb=(
+            "A club field day spread over a week, one operator a night, and a "
+            "generator that has its own opinions."
+        ),
+        spine=WEEKDAYS,
+        spine_verb="operates on",
+        spine_noun="night",
+        axes=(
+            _actor("operator", "Operator", "operator", "Ingrid", "Bartholomew",
+                   "Nkem", "Rosalind", "Yusuf", "Clementine", "Horace"),
+            _axis("band", "Band", "band", "works", "160 metres", "80 metres",
+                  "40 metres", "20 metres", "15 metres", "10 metres",
+                  "6 metres"),
+            _axis("mode", "Mode", "mode", "operates", "CW", "SSB", "FT8",
+                  "RTTY", "AM", "PSK31", "slow-scan television"),
+            _axis("trouble", "Trouble", "trouble", "is defeated by",
+                  "a flat battery", "mains hum", "a snapped dipole leg",
+                  "a drifting VFO", "a static crash", "a neighbour's doorbell",
+                  "nothing but good propagation"),
+        ),
+    ),
+    Theme(
+        slug="shearing",
+        title="The Blades Final at Waihopai",
+        entity_noun="shearer",
+        entity_noun_plural="shearers",
+        blurb=(
+            "Six shearers down the board, judged on the floor as much as on "
+            "the clock, and the wool classer is taking notes."
+        ),
+        spine=PLACINGS,
+        spine_verb="places",
+        spine_noun="placing",
+        axes=(
+            _actor("shearer", "Shearer", "shearer", "Rangi", "Deirdre Pollok",
+                   "Tipene", "Wiremu", "Shona Garrick", "Manaia", "Bevan Toft"),
+            _axis("breed", "Breed", "breed", "shears", "a Merino",
+                  "a Corriedale", "a Romney", "a Perendale", "a Polwarth",
+                  "a Coopworth", "a Border Leicester"),
+            _axis("handpiece", "Handpiece", "handpiece", "uses",
+                  "Lister blades", "a narrow comb", "a wide comb",
+                  "a cover comb", "a spare set of blades",
+                  "a borrowed handpiece", "an old Sunbeam"),
+            _axis("penalty", "Penalty", "penalty", "is docked for",
+                  "second cuts", "a skin nick", "a missed belly",
+                  "tufts on the britch", "a dropped sheep", "a slow pen",
+                  "a faultless board"),
+        ),
+    ),
+    Theme(
+        slug="highland",
+        title="The Heavies at Kinloch Rannoch",
+        entity_noun="thrower",
+        entity_noun_plural="throwers",
+        blurb=(
+            "Six throwers in the heavy events, measured to the foot, in a "
+            "field where the wind counts for more than anybody admits."
+        ),
+        spine=THROWS,
+        spine_verb="throws",
+        spine_noun="best throw",
+        axes=(
+            _actor("thrower", "Thrower", "thrower", "Angus Dunbar",
+                   "Fiona Strachan", "Lachlan Cree", "Morag Inglis",
+                   "Duncan Rait", "Isla Kinnear", "Rab Souter"),
+            _axis("event", "Event", "event", "competes in", "the caber toss",
+                  "the Braemar stone", "the open stone",
+                  "the weight for distance", "the weight over the bar",
+                  "the Scottish hammer", "the sheaf toss"),
+            _axis("tartan", "Tartan", "tartan", "wears", "Fraser hunting",
+                  "Gordon dress", "Cameron of Erracht", "Buchanan",
+                  "Mackenzie weathered", "Lamont ancient", "Murray of Atholl"),
+            _axis("grumble", "Grumble", "grumble", "complains of",
+                  "a soft run-up", "a turned ankle", "a crosswind",
+                  "a borrowed caber", "a judge's long measure",
+                  "a slipped grip", "no excuse whatsoever"),
         ),
     ),
 )

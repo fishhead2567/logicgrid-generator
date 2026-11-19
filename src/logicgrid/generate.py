@@ -836,6 +836,44 @@ def generate(spec: PuzzleSpec | None = None, **kwargs) -> Puzzle:
     return best
 
 
+class Deal:
+    """Deal themes like cards: every one used before any is used twice.
+
+    The old spread -- generate, then reject if the theme matched one of the last
+    four -- sampled *with replacement*, so over 50 puzzles a 27-theme pool
+    produced heavy repeats while technically never repeating back to back. A
+    deck exhausts itself before reshuffling, which is the property that was
+    actually wanted: with 37 packs, 50 puzzles use 37 once and 13 twice, and the
+    repeats are as far apart as the deal can put them.
+    """
+
+    __slots__ = ("_all", "_rng", "_remaining")
+
+    def __init__(self, slugs: Sequence[str], rng: Random) -> None:
+        self._all = list(slugs)
+        self._rng = rng
+        self._remaining: list[str] = []
+        self._refill()
+
+    def _refill(self) -> None:
+        fresh = [s for s in self._all if s not in self._remaining]
+        self._rng.shuffle(fresh)
+        self._remaining.extend(fresh)
+
+    def hand(self, size: int) -> list[str]:
+        """The next few candidates, nearest the top of the deck first."""
+        if len(self._remaining) < size:
+            self._refill()
+        return self._remaining[:size]
+
+    def take(self, slug: str) -> None:
+        """Spend a card. It cannot come round again until the deck reshuffles."""
+        if slug in self._remaining:
+            self._remaining.remove(slug)
+        if not self._remaining:
+            self._refill()
+
+
 def generate_many(
     count: int = 50,
     seed: int = 0,
@@ -855,15 +893,43 @@ def generate_many(
         while len(names) < count:
             names.append(names[-1])
 
-    out: list[Puzzle] = []
-    used_recent: list[str] = []
+    if kwargs.get("theme"):
+        # An explicit theme is an instruction, not a preference.
+        out: list[Puzzle] = []
+        for i, name in enumerate(names):
+            sub = seed * 100003 + i * 7919 + 1
+            out.append(generate(PuzzleSpec(difficulty=name, seed=sub, **kwargs)))
+        return out
+
+    deck = Deal([t.slug for t in THEMES], Random(seed * 31 + 7))
+    out = []
+    used: dict[str, list[tuple[int, int]]] = {}
     for i, name in enumerate(names):
         sub = seed * 100003 + i * 7919 + 1
-        for bump in range(24):
-            spec = PuzzleSpec(difficulty=name, seed=sub + bump * 104729, **kwargs)
-            puzzle = generate(spec)
-            if puzzle.theme not in used_recent[-4:]:
-                break
+        puzzle = None
+        for attempt, slug in enumerate(deck.hand(8)):
+            spec = PuzzleSpec(
+                difficulty=name,
+                seed=sub + attempt * 104729,
+                theme=slug,
+                **kwargs,
+            )
+            try:
+                candidate = generate(spec)
+            except PuzzleError:
+                # This theme cannot land in this profile's band at this seed.
+                # Hold it back rather than burning it: it will come round again.
+                continue
+            shape = (len(candidate.schema.categories), candidate.schema.size)
+            if shape in used.get(slug, ()):  # same pack, same grid: too alike
+                continue
+            deck.take(slug)
+            used.setdefault(slug, []).append(shape)
+            puzzle = candidate
+            break
+        if puzzle is None:
+            # Nothing in the hand worked; fall back to a free choice so the
+            # pack is never short, and say so by leaving the deck untouched.
+            puzzle = generate(PuzzleSpec(difficulty=name, seed=sub, **kwargs))
         out.append(puzzle)
-        used_recent.append(puzzle.theme)
     return out

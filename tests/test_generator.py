@@ -351,3 +351,104 @@ def test_bundles_cleanly_rejects_the_shape_it_exists_for():
         Link(Ref("place", "third"), Ref("pie", "pecan")),
         schema,
     )
+
+
+def test_no_theme_pack_collides_with_itself():
+    """Item names must be globally unique inside a built puzzle, and
+    ``Schema`` enforces that -- but only for the shape that happened to be
+    sampled.  A pack that repeats a name across two axes ships fine until the
+    seed that draws both, so check the pools themselves.
+
+    This is the check that makes authoring packs in bulk safe: two axes both
+    offering "the Peregrine" is the easy mistake, and it would otherwise
+    surface as an intermittent generation failure.
+    """
+    import collections
+
+    from logicgrid.themes import THEMES
+
+    for theme in THEMES:
+        names = [i for axis in theme.axes for i in axis.pool] + list(theme.spine.items)
+        dupes = [n for n, c in collections.Counter(names).items() if c > 1]
+        assert not dupes, f"theme {theme.slug!r} repeats {dupes}"
+
+
+def test_every_theme_builds_at_every_shape_it_claims():
+    """``max_categories``/``max_items`` are promises ``themes_for`` relies on."""
+    from random import Random
+
+    from logicgrid.themes import THEMES
+
+    for theme in THEMES:
+        for cats in range(3, theme.max_categories() + 1):
+            for items in range(3, theme.max_items() + 1):
+                schema = theme.build(cats, items, Random(7))
+                assert len(schema.categories) == cats
+                assert schema.size == items
+                assert any(c.subject for c in schema.categories), (
+                    f"{theme.slug} at {cats}x{items} lost its names axis"
+                )
+
+
+@pytest.mark.parametrize("name,seed", [("easy", 23)])
+def test_plain_text_states_the_blurb_once(generated, name, seed):
+    """``canonical_intro`` opens with the blurb, so ``to_text`` must not."""
+    puzzle = generated[(name, seed)]
+    blurb = puzzle.blurb.strip()
+    assert blurb
+    assert to_text(puzzle).count(blurb) == 1
+
+
+# ---------------------------------------------------------------------------
+# theme spread
+# ---------------------------------------------------------------------------
+
+
+def test_deal_exhausts_the_deck_before_repeating():
+    """The property the old spread lacked.  Rejecting a theme that matched one
+    of the last four sampled *with replacement*, so over 50 puzzles a 27-theme
+    pool repeated heavily while never repeating back to back."""
+    import collections
+    from random import Random
+
+    from logicgrid.generate import Deal
+
+    slugs = [f"t{i}" for i in range(7)]
+    deck = Deal(slugs, Random(1))
+    drawn = []
+    for _ in range(21):
+        slug = deck.hand(3)[0]
+        deck.take(slug)
+        drawn.append(slug)
+
+    # Every card appears before any appears a fourth time.
+    counts = collections.Counter(drawn)
+    assert set(counts) == set(slugs), f"never dealt: {set(slugs) - set(counts)}"
+    assert max(counts.values()) - min(counts.values()) <= 2
+
+
+def test_a_pack_spreads_its_themes():
+    """Eight puzzles from 37 packs should be eight different packs."""
+    from logicgrid import generate_many
+
+    pack = generate_many(8, seed=3)
+    slugs = [p.theme for p in pack]
+    assert len(set(slugs)) == len(slugs), f"repeated inside one pack: {slugs}"
+    assert len(pack) == 8
+
+
+def test_a_reused_theme_gets_a_different_grid():
+    """Over a run longer than the deck, a pack may come round again -- but not
+    at the same shape, or the two puzzles read as the same puzzle twice."""
+    from logicgrid import generate_many
+    from logicgrid.themes import THEMES
+
+    # Long enough to force reuse without being slow: one more than the deck.
+    pack = generate_many(len(THEMES) + 3, seed=11, difficulty="gentle")
+    seen: dict[str, set[tuple[int, int]]] = {}
+    for p in pack:
+        shape = (len(p.schema.categories), p.schema.size)
+        assert shape not in seen.get(p.theme, set()), (
+            f"{p.theme} reused at the same {shape[0]}x{shape[1]} grid"
+        )
+        seen.setdefault(p.theme, set()).add(shape)

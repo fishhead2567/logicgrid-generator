@@ -220,7 +220,9 @@ def to_markdown(
 def to_text(puzzle, *, solution: bool = False) -> str:
     """Plain text, for terminals and for feeding to an LLM."""
     schema = puzzle.schema
-    out = [puzzle.title, "=" * len(puzzle.title), "", puzzle.blurb, ""]
+    # No blurb here: ``canonical_intro`` already opens with it, and printing
+    # both gave every plain-text puzzle its setting twice over.
+    out = [puzzle.title, "=" * len(puzzle.title), ""]
     intro = canonical_intro(puzzle).replace("**", "").replace("- ", "  - ")
     out += [intro, "", "CLUES", "-----"]
     for i, clue in enumerate(puzzle.clues, start=1):
