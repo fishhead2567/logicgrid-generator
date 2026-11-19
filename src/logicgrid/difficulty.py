@@ -23,6 +23,7 @@ from __future__ import annotations
 import bisect
 import math
 from dataclasses import dataclass, field
+from itertools import combinations
 from typing import Mapping, Sequence
 
 from .clues import (
@@ -97,6 +98,76 @@ def clue_stats(schema: Schema, clues: Sequence) -> dict:
     }
 
 
+def clue_balance(schema: Schema, clues: Sequence) -> dict:
+    """How evenly a clue set spreads over the grid's category pairs.
+
+    A clue set can be minimal, unique and solvable while still being tedious to
+    read, because nothing in the uniqueness oracle cares *where* the information
+    sits.  With three categories, pinning A-B and A-C leaves B-C derivable by
+    transitivity, so the generator will happily ship a puzzle in which one
+    sub-grid is never mentioned and four of five clues are flat "X is Y".
+    That puzzle is correct and dull.
+
+    Three numbers, measured on the flat atom set:
+
+    ``pair_coverage``
+        fraction of category pairs that at least one atom touches.
+    ``top_pair_share``
+        fraction of atoms crowded onto the single busiest pair.
+    ``positive_share``
+        fraction of atoms that are flat positive links -- the ones that hand a
+        cell over rather than asking for a deduction.
+
+    ``degenerate`` counts a different defect: a positional or compound atom
+    every one of whose refs is *also* pinned outright by a flat link elsewhere
+    in the set.  "The crew who rows the Last Resort is better than the Tannery
+    crew" is such a clue when another line already says the Almshouse crew rows
+    the Last Resort -- the solver substitutes and the indirection was theatre.
+    """
+    atoms = flatten(clues)
+    if not atoms:
+        return {
+            "pair_coverage": 0.0,
+            "top_pair_share": 0.0,
+            "positive_share": 0.0,
+            "degenerate": 0,
+            "pairs": 0,
+            "pairs_covered": 0,
+        }
+
+    names = [c.name for c in schema.categories]
+    all_pairs = {frozenset(p) for p in combinations(names, 2)}
+    counts: dict[frozenset, int] = {}
+    pinned: set = set()
+    positives = 0
+    for atom in atoms:
+        cats = {r.cat for r in atom.refs()}
+        for pair in combinations(sorted(cats), 2):
+            key = frozenset(pair)
+            counts[key] = counts.get(key, 0) + 1
+        if atom.is_positive_link():
+            positives += 1
+            pinned |= set(atom.refs())
+
+    degenerate = 0
+    for atom in atoms:
+        if atom.is_positive_link():
+            continue
+        refs = set(atom.refs())
+        if refs and refs <= pinned:
+            degenerate += 1
+
+    total = sum(counts.values()) or 1
+    return {
+        "pair_coverage": len(set(counts) & all_pairs) / max(1, len(all_pairs)),
+        "top_pair_share": max(counts.values()) / total,
+        "positive_share": positives / len(atoms),
+        "degenerate": degenerate,
+        "pairs": len(all_pairs),
+        "pairs_covered": len(set(counts) & all_pairs),
+    }
+
+
 def score(schema: Schema, clues: Sequence, report: SolveReport) -> float:
     """A continuous difficulty score. Higher is harder."""
     stats = clue_stats(schema, clues)
@@ -150,6 +221,17 @@ class Profile:
     require_numeric: bool = False
     #: Maximum atoms bundled under one numbered clue.
     max_bundle: int = 2
+    #: Reject a clue set that crowds more than this share of its atoms onto a
+    #: single category pair.  ``1.0`` disables the check.
+    max_pair_share: float = 0.45
+    #: Reject a clue set that leaves this fraction of the grid's category pairs
+    #: unmentioned, whenever there are at least as many atoms as pairs.
+    min_pair_coverage: float = 1.0
+    #: Reject a clue set in which more than this share of atoms are flat
+    #: positive links.  Distinct from :attr:`max_positive`, which is a hard
+    #: count applied while growing; this is a ratio applied after minimising,
+    #: when the final clue count is known.
+    max_positive_share: float = 0.5
 
     def weight(self, kind: str) -> float:
         return self.weights.get(kind, 1.0)
@@ -163,12 +245,16 @@ GENTLE = Profile(
     band=(1, 2),
     shapes=((3, 4), (3, 4), (3, 5)),
     kinds=TIER_A_KINDS + ("before", "adjacent", "immediately_before"),
-    weights={"link": 3.0, "not_link": 2.4, "before": 1.0, "adjacent": 0.7,
-             "immediately_before": 0.7},
-    max_positive=None,
+    weights={"link": 2.2, "not_link": 2.4, "before": 1.2, "adjacent": 0.9,
+             "immediately_before": 0.9},
+    max_positive=4,
     allow_trial=False,
     subset_size=2,
     max_bundle=2,
+    # A gentle puzzle is allowed to be generous with flat links -- that is what
+    # makes it gentle -- but not to be nothing else.
+    max_pair_share=0.5,
+    max_positive_share=0.62,
 )
 
 EASY = Profile(
@@ -182,6 +268,8 @@ EASY = Profile(
     allow_trial=False,
     subset_size=2,
     max_bundle=2,
+    max_pair_share=0.5,
+    max_positive_share=0.45,
 )
 
 MODERATE = Profile(

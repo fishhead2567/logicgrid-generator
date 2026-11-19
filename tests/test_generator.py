@@ -160,3 +160,194 @@ def test_all_themes_declare_enough_material():
         assert theme.max_categories() >= 5, theme.slug
         assert theme.max_items() >= 6, theme.slug
         assert theme.blurb and theme.title and theme.entity_noun, theme.slug
+
+
+# ---------------------------------------------------------------------------
+# clue balance: a puzzle can be correct and still tedious
+# ---------------------------------------------------------------------------
+
+
+def _toy_schema():
+    """A 3x3 grid with an ordered spine, built by hand so the balance tests
+    describe exactly the clue sets they care about."""
+    from logicgrid.model import Category, Schema
+
+    place = Category(
+        name="place",
+        label="Placing",
+        items=("first", "second", "third"),
+        ordered=True,
+        noun="placing",
+        cmp_less="better",
+        cmp_more="worse",
+        step_noun="place",
+        verb="places",
+    )
+    baker = Category(
+        name="baker", label="Baker", items=("Ada", "Bram", "Cleo"),
+        noun="baker", subject=True,
+    )
+    pie = Category(
+        name="pie", label="Pie", items=("rhubarb", "pecan", "mincemeat"),
+        noun="pie", verb="bakes",
+    )
+    return Schema([place, baker, pie], "place")
+
+
+def test_clue_balance_counts_an_uncovered_pair():
+    """The defect this gate exists for: with three categories, pinning
+    place-baker and place-pie leaves baker-pie derivable, so the generator
+    will happily never mention it."""
+    from logicgrid.clues import Link
+    from logicgrid.difficulty import clue_balance
+    from logicgrid.model import Clue, Ref
+
+    schema = _toy_schema()
+    atoms = (
+        Link(Ref("place", "first"), Ref("baker", "Ada")),
+        Link(Ref("place", "second"), Ref("baker", "Bram")),
+        Link(Ref("place", "first"), Ref("pie", "rhubarb")),
+        Link(Ref("place", "third"), Ref("pie", "pecan")),
+    )
+    bal = clue_balance(schema, [Clue((a,)) for a in atoms])
+    assert bal["pairs"] == 3
+    assert bal["pairs_covered"] == 2
+    assert bal["pair_coverage"] == pytest.approx(2 / 3)
+    # Every atom is a flat link, which is the other half of the same complaint.
+    assert bal["positive_share"] == 1.0
+    assert bal["degenerate"] == 0
+
+
+def test_clue_balance_flags_a_compound_whose_refs_are_already_pinned():
+    """"The baker who bakes rhubarb places better than Bram" carries nothing
+    once another clue says Ada bakes rhubarb: the solver substitutes and the
+    indirection was decoration."""
+    from logicgrid.clues import Before, Link
+    from logicgrid.difficulty import clue_balance
+    from logicgrid.model import Clue, Ref
+
+    schema = _toy_schema()
+    pinned = (
+        Link(Ref("baker", "Ada"), Ref("pie", "rhubarb")),
+        Link(Ref("baker", "Bram"), Ref("pie", "pecan")),
+    )
+    leaning = Before(Ref("pie", "rhubarb"), Ref("baker", "Bram"))
+    bal = clue_balance(schema, [Clue((a,)) for a in pinned + (leaning,)])
+    assert bal["degenerate"] == 1
+
+    # Swap one pinning link for a negative and the indirection is real again.
+    loose = (
+        Link(Ref("baker", "Ada"), Ref("pie", "rhubarb")),
+        Before(Ref("pie", "rhubarb"), Ref("baker", "Bram")),
+    )
+    assert clue_balance(schema, [Clue((a,)) for a in loose])["degenerate"] == 0
+
+
+def test_balance_ok_rejects_the_uncovered_pair_and_the_crowded_pair():
+    from logicgrid.clues import Link, NotLink
+    from logicgrid.generate import balance_ok
+    from logicgrid.model import Ref
+
+    schema = _toy_schema()
+    prof = PROFILES["gentle"]
+
+    uncovered = [
+        Link(Ref("place", "first"), Ref("baker", "Ada")),
+        NotLink(Ref("place", "second"), Ref("baker", "Bram")),
+        Link(Ref("place", "first"), Ref("pie", "rhubarb")),
+    ]
+    assert not balance_ok(schema, uncovered, prof)
+
+    crowded = [
+        NotLink(Ref("place", "first"), Ref("baker", "Ada")),
+        NotLink(Ref("place", "second"), Ref("baker", "Bram")),
+        NotLink(Ref("place", "third"), Ref("baker", "Cleo")),
+        NotLink(Ref("place", "first"), Ref("baker", "Bram")),
+        Link(Ref("baker", "Ada"), Ref("pie", "rhubarb")),
+        Link(Ref("place", "second"), Ref("pie", "pecan")),
+    ]
+    assert not balance_ok(schema, crowded, prof)
+
+
+@pytest.mark.parametrize("name,seed", CASES)
+def test_generated_clues_mention_every_pair_of_categories(generated, name, seed):
+    """Every sub-grid gets said something about, so no block of the chart is
+    reachable only by transitivity."""
+    from logicgrid.difficulty import clue_balance
+
+    puzzle = generated[(name, seed)]
+    bal = clue_balance(puzzle.schema, puzzle.clues)
+    assert bal["pair_coverage"] == 1.0, (
+        f"{bal['pairs_covered']}/{bal['pairs']} category pairs mentioned"
+    )
+
+
+@pytest.mark.parametrize("name,seed", CASES)
+def test_generated_clues_are_not_crowded_onto_one_pair(generated, name, seed):
+    from logicgrid.difficulty import clue_balance
+
+    puzzle = generated[(name, seed)]
+    prof = PROFILES[name]
+    bal = clue_balance(puzzle.schema, puzzle.clues)
+    assert bal["top_pair_share"] <= prof.max_pair_share
+    assert bal["positive_share"] <= prof.max_positive_share
+    assert bal["degenerate"] == 0
+
+
+@pytest.mark.parametrize("name,seed", CASES)
+def test_no_numbered_clue_answers_its_own_riddle(generated, name, seed):
+    """A clue may point at an entity by descriptor, and another clue may name
+    that entity -- that connection is the solver's job.  What it may not do is
+    both inside one numbered clue: "The grower who pots in perlite is earlier
+    than Taavi.  Rowena pots in perlite."
+    """
+    from logicgrid.generate import _described_refs, _named_refs
+
+    puzzle = generated[(name, seed)]
+    for i, clue in enumerate(puzzle.clues, 1):
+        named: set = set()
+        described: set = set()
+        for atom in clue.atoms:
+            named |= _named_refs(atom)
+            described |= _described_refs(atom, puzzle.schema)
+        overlap = named & described
+        assert not overlap, (
+            f"clue {i} of {name}/{seed} names and describes {sorted(r.key for r in overlap)}: "
+            f"{clue.render(puzzle.schema) if hasattr(clue, 'render') else clue}"
+        )
+
+
+def test_bundles_cleanly_rejects_the_shape_it_exists_for():
+    """Measured at 14% of puzzles before the guard, but none of the seeds in
+    ``CASES`` happen to hit it -- so the property test above is not on its own
+    a regression guard.  This pins the exact shape.
+    """
+    from logicgrid.clues import Before, Link, NotLink
+    from logicgrid.generate import _bundles_cleanly
+    from logicgrid.model import Ref
+
+    schema = _toy_schema()
+    # "The baker who bakes rhubarb places better than Bram. Ada bakes rhubarb."
+    riddle = Before(Ref("pie", "rhubarb"), Ref("baker", "Bram"))
+    answer = Link(Ref("baker", "Ada"), Ref("pie", "rhubarb"))
+    assert not _bundles_cleanly([riddle], answer, schema)
+    assert not _bundles_cleanly([answer], riddle, schema)
+
+    # A link naming an unrelated item is fine beside the same comparison.
+    elsewhere = Link(Ref("baker", "Cleo"), Ref("pie", "pecan"))
+    assert _bundles_cleanly([riddle], elsewhere, schema)
+
+    # The house style survives: two statements about one baker still bundle.
+    assert _bundles_cleanly(
+        [Link(Ref("baker", "Ada"), Ref("place", "first"))],
+        NotLink(Ref("baker", "Ada"), Ref("pie", "pecan")),
+        schema,
+    )
+
+    # A spine value is its own label, never a riddle, so a comparison against
+    # one bundles with a link that mentions it.
+    assert _bundles_cleanly(
+        [Before(Ref("baker", "Ada"), Ref("place", "third"))],
+        Link(Ref("place", "third"), Ref("pie", "pecan")),
+        schema,
+    )

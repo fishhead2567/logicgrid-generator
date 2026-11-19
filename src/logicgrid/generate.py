@@ -32,6 +32,7 @@ from typing import Iterable, Mapping, Sequence
 
 from .clues import (
     ALL_KINDS,
+    TIER_A_KINDS,
     TIER_C_KINDS,
     Adjacent,
     Arith,
@@ -53,7 +54,14 @@ from .clues import (
     make_not,
 )
 from .csp import Contradiction, Engine, Grid, flatten, is_unique, revise_atom
-from .difficulty import Profile, clue_stats, profile as get_profile, ramp_sequence, rate
+from .difficulty import (
+    Profile,
+    clue_balance,
+    clue_stats,
+    profile as get_profile,
+    ramp_sequence,
+    rate,
+)
 from .human_solver import SolveReport, human_solve
 from .model import Clue, PuzzleError, Ref, Schema, Solution
 from .themes import THEMES, Theme, theme as get_theme, themes_for
@@ -443,18 +451,55 @@ def build_pool(
     return {k: v for k, v in pool.items() if v}
 
 
-def weighted_order(pool: Mapping[str, Sequence[Atom]], prof: Profile, rng: Random) -> list[Atom]:
-    """Interleave the per-kind pools according to the profile's weights."""
+def _pair_keys(atom: Atom) -> tuple[frozenset, ...]:
+    """Every unordered category pair this atom says something about."""
+    cats = sorted({r.cat for r in atom.refs()})
+    return tuple(frozenset(p) for p in combinations(cats, 2))
+
+
+def weighted_order(
+    pool: Mapping[str, Sequence[Atom]],
+    prof: Profile,
+    rng: Random,
+    *,
+    spread: int = 12,
+) -> list[Atom]:
+    """Interleave the per-kind pools according to the profile's weights.
+
+    The *kind* is drawn from the profile's weights, as before.  Which atom of
+    that kind comes next is then biased towards the category pairs the order has
+    said least about so far, so that an early prefix of the list -- which is all
+    :func:`grow` usually consumes -- touches the whole grid rather than piling
+    onto one sub-grid.  Only a small window of each bucket is considered, which
+    keeps the bias cheap and leaves the rest of the choice to the shuffle.
+
+    This is a *tendency*, not a guarantee: :func:`minimize` drops atoms
+    afterwards and can re-concentrate what is left.  The guarantee comes from
+    the gate in :func:`attempt_once`, which measures the finished set.
+    """
     buckets = {k: list(v) for k, v in pool.items() if v}
     for lst in buckets.values():
         rng.shuffle(lst)
+    seen: dict[frozenset, int] = {}
     out: list[Atom] = []
     while buckets:
         kinds = list(buckets)
         weights = [max(prof.weight(k), 1e-6) for k in kinds]
         kind = rng.choices(kinds, weights=weights, k=1)[0]
-        out.append(buckets[kind].pop())
-        if not buckets[kind]:
+        bucket = buckets[kind]
+        window = range(max(0, len(bucket) - spread), len(bucket))
+        best = min(
+            window,
+            key=lambda i: (
+                max((seen.get(pk, 0) for pk in _pair_keys(bucket[i])), default=0),
+                sum(seen.get(pk, 0) for pk in _pair_keys(bucket[i])),
+            ),
+        )
+        atom = bucket.pop(best)
+        for pk in _pair_keys(atom):
+            seen[pk] = seen.get(pk, 0) + 1
+        out.append(atom)
+        if not bucket:
             del buckets[kind]
     return out
 
@@ -526,6 +571,51 @@ def _style_for(group: Sequence[Atom]) -> str:
     return "sentences"
 
 
+def _named_refs(atom: Atom) -> set[Ref]:
+    """Refs this atom states outright, by name, rather than pointing at."""
+    return set(atom.refs()) if atom.is_positive_link() else set()
+
+
+def _described_refs(atom: Atom, schema: Schema) -> set[Ref]:
+    """Refs this atom poses as a riddle rather than stating.
+
+    Mirrors ``clues._entity``: the names axis speaks for itself and a spine
+    value is its own label, so anything else becomes "the grower who pots in
+    tree fern fibre".
+
+    A link or a plain negative is exempt however it renders, because it *states*
+    both of its items -- "the grower who pots in perlite is troubled by thrips"
+    leaves nothing dangling, since the sentence has just named the perlite.
+    Only the positional and compound forms point at an entity they do not name.
+    """
+    if atom.kind in TIER_A_KINDS:
+        return set()
+    out = set()
+    for ref in atom.refs():
+        cat = schema.category_of(ref)
+        if not cat.subject and not schema.is_spine(ref):
+            out.add(ref)
+    return out
+
+
+def _bundles_cleanly(group: Sequence[Atom], other: Atom, schema: Schema) -> bool:
+    """Would adding ``other`` make a clue that answers its own riddle?
+
+    "The grower who pots in perlite and charcoal is earlier than Taavi.  Rowena
+    pots in perlite and charcoal." -- one numbered clue that poses an
+    indirection and resolves it in the next breath.  Both halves are
+    load-bearing, so the minimiser keeps them and the oracle is satisfied; it is
+    purely a presentation fault, and this is where presentation is decided.
+    """
+    members = list(group) + [other]
+    named: set[Ref] = set()
+    described: set[Ref] = set()
+    for atom in members:
+        named |= _named_refs(atom)
+        described |= _described_refs(atom, schema)
+    return not (named & described)
+
+
 def bundle(
     atoms: Sequence[Atom],
     schema: Schema,
@@ -563,6 +653,8 @@ def bundle(
                 # actually produces rather than by a fixed number of facts.
                 extra = len(other.render(schema))
                 if length + extra > MAX_CLUE_CHARS:
+                    continue
+                if not _bundles_cleanly(group, other, schema):
                     continue
                 if set(other.refs()) & shared:
                     group.append(other)
@@ -615,6 +707,31 @@ def _choose_theme(spec: PuzzleSpec, prof: Profile, cats: int, items: int, rng: R
     return rng.choice(options)
 
 
+def balance_ok(schema: Schema, atoms: Sequence[Atom], prof: Profile) -> bool:
+    """Is this minimised clue set worth reading, as well as correct?
+
+    Uniqueness and minimality say nothing about where the information sits, so
+    this is the one place that asks.  Rejecting here rather than repairing the
+    clue set keeps the guarantee trivially sound -- a rejected attempt is simply
+    discarded, and :func:`generate` already has an attempt budget to spend --
+    and it cannot interact with the uniqueness proof at all.
+
+    See :func:`~logicgrid.difficulty.clue_balance` for what the numbers mean.
+    """
+    bal = clue_balance(schema, atoms)
+    if bal["degenerate"]:
+        return False
+    if bal["top_pair_share"] > prof.max_pair_share:
+        return False
+    if bal["positive_share"] > prof.max_positive_share:
+        return False
+    # Coverage is only a fair demand when there is enough material to go round:
+    # four atoms cannot touch ten pairs.
+    if len(atoms) >= bal["pairs"] and bal["pair_coverage"] < prof.min_pair_coverage:
+        return False
+    return True
+
+
 def attempt_once(
     spec: PuzzleSpec, prof: Profile, rng: Random, attempt: int = 0
 ) -> Puzzle | None:
@@ -645,6 +762,8 @@ def attempt_once(
         return None
     atoms = minimize(schema, grown, rng)
     if len(atoms) < 3:
+        return None
+    if not balance_ok(schema, atoms, prof):
         return None
     report = human_solve(
         schema,
