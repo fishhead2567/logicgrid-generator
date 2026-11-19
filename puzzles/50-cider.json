@@ -1,0 +1,431 @@
+{
+  "pid": "c9fcbda5e771",
+  "title": "The Pomace and the Prize",
+  "theme": "cider",
+  "blurb": "Six makers press in six different months and each is privately certain the others have let theirs go to vinegar.",
+  "profile": "expert",
+  "rating": 7,
+  "score": 17.7169,
+  "seed": 2026173071389,
+  "spec": {
+    "difficulty": "expert",
+    "seed": 2026173071389,
+    "theme": "cider"
+  },
+  "schema": {
+    "spine": "month",
+    "entity_noun": "maker",
+    "entity_noun_plural": "makers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "month",
+        "label": "Pressing month",
+        "items": [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June"
+        ],
+        "ordered": true,
+        "noun": "pressing month",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "month",
+        "verb": "presses in"
+      },
+      {
+        "name": "maker",
+        "label": "Maker",
+        "items": [
+          "Petroc",
+          "Silas Vane",
+          "Araminta",
+          "Bryony",
+          "Morwenna",
+          "Jethro"
+        ],
+        "ordered": false,
+        "noun": "maker",
+        "subject": true
+      },
+      {
+        "name": "apple",
+        "label": "Apple",
+        "items": [
+          "Kingston Black",
+          "Browns Apple",
+          "Yarlington Mill",
+          "Foxwhelp",
+          "Dabinett",
+          "Harry Masters Jersey"
+        ],
+        "ordered": false,
+        "noun": "apple",
+        "verb": "presses"
+      },
+      {
+        "name": "vessel",
+        "label": "Vessel",
+        "items": [
+          "a sherry butt",
+          "a glass demijohn",
+          "a stainless tank",
+          "an earthenware jar",
+          "an oak hogshead",
+          "a rum cask"
+        ],
+        "ordered": false,
+        "noun": "vessel",
+        "verb": "ferments in"
+      },
+      {
+        "name": "fault",
+        "label": "Fault",
+        "items": [
+          "mousiness",
+          "sulphur",
+          "ropiness",
+          "a framboise note",
+          "acetification",
+          "nothing detectable"
+        ],
+        "ordered": false,
+        "noun": "fault",
+        "verb": "is accused of"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "link",
+              "a": "maker:Silas Vane",
+              "b": "vessel:an oak hogshead"
+            },
+            {
+              "kind": "link",
+              "a": "month:June",
+              "b": "vessel:an oak hogshead"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "month:February",
+          "b": "vessel:an earthenware jar",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "maker:Jethro",
+          "b": "fault:ropiness",
+          "c": "month:June"
+        },
+        {
+          "kind": "before",
+          "a": "maker:Jethro",
+          "b": "apple:Dabinett"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not",
+          "inner": {
+            "kind": "adjacent",
+            "a": "maker:Morwenna",
+            "b": "month:April"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "apple:Yarlington Mill",
+              "b": "month:February"
+            },
+            {
+              "kind": "adjacent",
+              "a": "fault:mousiness",
+              "b": "month:February"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "immediately_before",
+            "a": "vessel:a sherry butt",
+            "b": "month:April"
+          },
+          "y": {
+            "kind": "before",
+            "a": "vessel:a sherry butt",
+            "b": "maker:Petroc"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "maker:Bryony",
+          "b": "month:February",
+          "same": false
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "apple:Kingston Black",
+          "b": "fault:nothing detectable",
+          "c": "vessel:a stainless tank"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "apple:Dabinett",
+          "b": "vessel:a stainless tank",
+          "same": false
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "fault:sulphur",
+          "b": "maker:Jethro"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "apple:Yarlington Mill",
+          "b": "vessel:a sherry butt",
+          "same": true
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "adjacent",
+            "a": "fault:mousiness",
+            "b": "vessel:a sherry butt"
+          },
+          "y": {
+            "kind": "parity",
+            "a": "fault:ropiness",
+            "b": "maker:Morwenna",
+            "same": false
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "link",
+              "a": "apple:Foxwhelp",
+              "b": "vessel:a rum cask"
+            },
+            {
+              "kind": "link",
+              "a": "fault:acetification",
+              "b": "vessel:a sherry butt"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "apple:Harry Masters Jersey",
+          "b": "fault:a framboise note",
+          "same": false
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "apple:Browns Apple",
+          "b": "vessel:a sherry butt"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "apple:Harry Masters Jersey",
+          "b": "fault:ropiness"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "maker:Morwenna",
+          "b": "apple:Foxwhelp",
+          "c": "apple:Harry Masters Jersey"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "apple:Browns Apple",
+          "b": "fault:acetification",
+          "same": true
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "fault:mousiness",
+          "b": "vessel:an earthenware jar"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "month": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June"
+    ],
+    "maker": [
+      "Silas Vane",
+      "Araminta",
+      "Jethro",
+      "Morwenna",
+      "Bryony",
+      "Petroc"
+    ],
+    "apple": [
+      "Yarlington Mill",
+      "Harry Masters Jersey",
+      "Kingston Black",
+      "Browns Apple",
+      "Dabinett",
+      "Foxwhelp"
+    ],
+    "vessel": [
+      "an oak hogshead",
+      "a stainless tank",
+      "a sherry butt",
+      "a glass demijohn",
+      "an earthenware jar",
+      "a rum cask"
+    ],
+    "fault": [
+      "ropiness",
+      "sulphur",
+      "a framboise note",
+      "acetification",
+      "nothing detectable",
+      "mousiness"
+    ]
+  },
+  "stats": {
+    "atoms": 20,
+    "numbered_clues": 19,
+    "kinds": {
+      "or": 3,
+      "gap": 1,
+      "between": 3,
+      "before": 2,
+      "not": 1,
+      "if_then": 1,
+      "parity": 5,
+      "not_both": 1,
+      "adjacent": 3
+    },
+    "positives": 0,
+    "compounds": 6
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 6,
+    "max_technique": "trial",
+    "steps": 85,
+    "tier_counts": {
+      "bijection": 42,
+      "order": 27,
+      "disjunction": 9,
+      "trial": 7
+    },
+    "trial_eliminations": 7,
+    "unknown_cells": 24
+  }
+}

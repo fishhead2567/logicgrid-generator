@@ -1,0 +1,270 @@
+{
+  "pid": "81dbc64fc4c9",
+  "title": "The Cheesemongers' Standoff",
+  "theme": "cheese",
+  "blurb": "A case of opinionated cheeses, their equally opinionated makers, and one display that has begun to smell like a political scandal.",
+  "profile": "hard",
+  "rating": 6,
+  "score": 9.7475,
+  "seed": 2026172928847,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026172928847,
+    "theme": "cheese"
+  },
+  "schema": {
+    "spine": "price",
+    "entity_noun": "cheese",
+    "entity_noun_plural": "cheeses",
+    "entity_animate": false,
+    "categories": [
+      {
+        "name": "price",
+        "label": "Price",
+        "items": [
+          "$3",
+          "$5",
+          "$7",
+          "$9",
+          "$11"
+        ],
+        "ordered": true,
+        "values": [
+          3,
+          5,
+          7,
+          9,
+          11
+        ],
+        "unit": "$",
+        "noun": "price",
+        "cmp_less": "cheaper",
+        "cmp_more": "dearer",
+        "step_noun": "price step",
+        "verb": "sells for"
+      },
+      {
+        "name": "cheese",
+        "label": "Cheese",
+        "items": [
+          "Bellringer",
+          "Old Thrashing",
+          "Saltpans",
+          "Oakmoss",
+          "Fenland Blue"
+        ],
+        "ordered": false,
+        "noun": "cheese",
+        "subject": true
+      },
+      {
+        "name": "maker",
+        "label": "Maker",
+        "items": [
+          "Olubunmi",
+          "Perdita",
+          "Sigrid",
+          "Lachlan",
+          "Ambrose"
+        ],
+        "ordered": false,
+        "noun": "maker",
+        "verb": "was made by"
+      },
+      {
+        "name": "rind",
+        "label": "Rind",
+        "items": [
+          "a natural rind",
+          "a cider-washed rind",
+          "a cloth-bound rind",
+          "an ash-coated rind",
+          "a nettle-wrapped rind"
+        ],
+        "ordered": false,
+        "noun": "rind",
+        "verb": "has"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "cheese:Oakmoss",
+          "b": "maker:Perdita"
+        },
+        {
+          "kind": "between",
+          "a": "cheese:Oakmoss",
+          "b": "price:$3",
+          "c": "price:$9"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "rind:a natural rind",
+          "b": "price:$3",
+          "c": "price:$7"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "immediately_before",
+              "a": "price:$5",
+              "b": "cheese:Bellringer"
+            },
+            {
+              "kind": "link",
+              "a": "cheese:Fenland Blue",
+              "b": "rind:an ash-coated rind"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "rind:an ash-coated rind",
+          "b": "price:$7"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "price:$5",
+          "b": "maker:Ambrose"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "cheese:Old Thrashing",
+          "b": "rind:a cloth-bound rind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "maker:Olubunmi",
+          "b": "rind:a cider-washed rind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "cheese:Saltpans",
+              "b": "maker:Ambrose"
+            },
+            {
+              "kind": "immediately_before",
+              "a": "cheese:Saltpans",
+              "b": "maker:Sigrid"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "rind:an ash-coated rind",
+          "b": "cheese:Fenland Blue"
+        },
+        {
+          "kind": "before",
+          "a": "cheese:Fenland Blue",
+          "b": "maker:Lachlan"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "price": [
+      "$3",
+      "$5",
+      "$7",
+      "$9",
+      "$11"
+    ],
+    "cheese": [
+      "Saltpans",
+      "Oakmoss",
+      "Bellringer",
+      "Fenland Blue",
+      "Old Thrashing"
+    ],
+    "maker": [
+      "Perdita",
+      "Sigrid",
+      "Ambrose",
+      "Olubunmi",
+      "Lachlan"
+    ],
+    "rind": [
+      "an ash-coated rind",
+      "a natural rind",
+      "a nettle-wrapped rind",
+      "a cloth-bound rind",
+      "a cider-washed rind"
+    ]
+  },
+  "stats": {
+    "atoms": 11,
+    "numbered_clues": 9,
+    "kinds": {
+      "adjacent": 2,
+      "between": 2,
+      "or": 2,
+      "before": 4,
+      "immediately_before": 1
+    },
+    "positives": 0,
+    "compounds": 2
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 40,
+    "tier_counts": {
+      "bijection": 21,
+      "order": 15,
+      "disjunction": 4
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}

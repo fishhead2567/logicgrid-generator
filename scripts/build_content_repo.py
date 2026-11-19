@@ -184,9 +184,27 @@ def build(out: Path, puzzles: Path, narratives: Path, init_git: bool) -> int:
         nar = narratives / f"{stem}.json"
         if nar.exists():
             nraw = nar.read_bytes()
-            (out / "narratives" / f"{stem}.json").write_bytes(nraw)
-            entry["narrative"] = _entry(Path("narratives") / f"{stem}.json", nraw)
-            narrated += 1
+            # Match on pid, not on the filename.
+            #
+            # A narrative is prose about one specific puzzle's clues, and the
+            # stems are reused on every regeneration: "04-pigeon.json" is a
+            # different puzzle after a new seed, and may not even be the pigeon
+            # theme.  Pairing by stem alone therefore attaches last set's prose
+            # to this set's puzzle, which ships clue text describing clues that
+            # do not exist -- silently, since the hashes would all check out.
+            npid = json.loads(nraw.decode("utf-8")).get("pid")
+            if npid != puzzle.pid:
+                print(
+                    f"  skipping narratives/{stem}.json: it narrates pid "
+                    f"{npid}, but {stem} is now pid {puzzle.pid}",
+                    file=sys.stderr,
+                )
+            else:
+                (out / "narratives" / f"{stem}.json").write_bytes(nraw)
+                entry["narrative"] = _entry(
+                    Path("narratives") / f"{stem}.json", nraw
+                )
+                narrated += 1
         entries.append(entry)
         ratings.append(puzzle.rating)
 

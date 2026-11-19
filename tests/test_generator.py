@@ -452,3 +452,26 @@ def test_a_reused_theme_gets_a_different_grid():
             f"{p.theme} reused at the same {shape[0]}x{shape[1]} grid"
         )
         seen.setdefault(p.theme, set()).add(shape)
+
+
+def test_generate_many_accepts_an_explicit_none_theme():
+    """``theme=None`` means "you choose", and must not collide with the deal.
+
+    This is how ``logicgrid gen`` calls it whenever ``--theme`` is absent:
+    ``generate_many(..., theme=args.theme)`` with ``args.theme`` None.  The
+    deal supplies a theme per attempt, so a ``None`` left sitting in kwargs
+    produced "got multiple values for keyword argument 'theme'" -- which broke
+    the CLI's primary command while every test still passed, because the tests
+    all omitted the argument instead of passing it as None.
+    """
+    from logicgrid import generate_many
+
+    pack = generate_many(count=2, seed=11, theme=None)
+    assert len(pack) == 2
+
+
+def test_generate_many_still_honours_an_explicit_theme():
+    from logicgrid import generate_many
+
+    pack = generate_many(count=3, seed=11, theme="fast_food")
+    assert {p.theme for p in pack} == {"fast_food"}

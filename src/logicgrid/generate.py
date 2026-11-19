@@ -893,12 +893,24 @@ def generate_many(
         while len(names) < count:
             names.append(names[-1])
 
-    if kwargs.get("theme"):
+    # Pop rather than peek.  A caller that passes ``theme=None`` to mean "you
+    # choose" -- which is exactly what the CLI does with an absent --theme --
+    # leaves it in kwargs, and the deal below then supplies its own ``theme``
+    # on top of it: "got multiple values for keyword argument 'theme'".
+    forced = kwargs.pop("theme", None)
+
+    if forced:
         # An explicit theme is an instruction, not a preference.
         out: list[Puzzle] = []
         for i, name in enumerate(names):
             sub = seed * 100003 + i * 7919 + 1
-            out.append(generate(PuzzleSpec(difficulty=name, seed=sub, **kwargs)))
+            out.append(
+                generate(
+                    PuzzleSpec(
+                        difficulty=name, seed=sub, theme=forced, **kwargs
+                    )
+                )
+            )
         return out
 
     deck = Deal([t.slug for t in THEMES], Random(seed * 31 + 7))

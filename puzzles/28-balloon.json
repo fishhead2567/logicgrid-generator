@@ -1,0 +1,246 @@
+{
+  "pid": "c911d3778874",
+  "title": "The Thistledown Balloon Ascent",
+  "theme": "balloon",
+  "blurb": "The Thistledown Ascent is less a race than a slow argument conducted at two thousand feet.",
+  "profile": "moderate",
+  "rating": 4,
+  "score": 5.515,
+  "seed": 2026172897171,
+  "spec": {
+    "difficulty": "moderate",
+    "seed": 2026172897171,
+    "theme": "balloon"
+  },
+  "schema": {
+    "spine": "time",
+    "entity_noun": "pilot",
+    "entity_noun_plural": "pilots",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "time",
+        "label": "Start time",
+        "items": [
+          "8am",
+          "9am",
+          "10am",
+          "11am",
+          "noon"
+        ],
+        "ordered": true,
+        "noun": "start time",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "hour",
+        "verb": "launches at"
+      },
+      {
+        "name": "pilot",
+        "label": "Pilot",
+        "items": [
+          "Grover",
+          "Delphine",
+          "Horatio",
+          "Anneliese",
+          "Montague"
+        ],
+        "ordered": false,
+        "noun": "pilot",
+        "subject": true
+      },
+      {
+        "name": "landing",
+        "label": "Landed at",
+        "items": [
+          "a cabbage field",
+          "a flooded quarry",
+          "a golf course bunker",
+          "a caravan park",
+          "a cricket pitch"
+        ],
+        "ordered": false,
+        "noun": "landing site",
+        "verb": "comes down in"
+      },
+      {
+        "name": "ballast",
+        "label": "Ballast",
+        "items": [
+          "iron filings",
+          "bottled water",
+          "dried beans",
+          "rock salt",
+          "lead shot"
+        ],
+        "ordered": false,
+        "noun": "ballast",
+        "verb": "carries"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "landing:a golf course bunker",
+          "b": "time:9am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "landing:a caravan park",
+          "b": "time:10am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "ballast:rock salt",
+          "b": "time:11am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "pilot:Montague",
+          "b": "time:8am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "ballast:iron filings",
+          "b": "time:noon"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "pilot:Delphine",
+          "b": "ballast:bottled water",
+          "c": "ballast:rock salt"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "landing:a flooded quarry",
+          "b": "pilot:Horatio"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "ballast:lead shot",
+          "b": "landing:a flooded quarry",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "ballast:rock salt",
+          "b": "pilot:Grover"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "landing:a cabbage field",
+          "b": "ballast:iron filings",
+          "c": "ballast:lead shot"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "time": [
+      "8am",
+      "9am",
+      "10am",
+      "11am",
+      "noon"
+    ],
+    "pilot": [
+      "Anneliese",
+      "Delphine",
+      "Montague",
+      "Grover",
+      "Horatio"
+    ],
+    "landing": [
+      "a caravan park",
+      "a golf course bunker",
+      "a cabbage field",
+      "a flooded quarry",
+      "a cricket pitch"
+    ],
+    "ballast": [
+      "bottled water",
+      "lead shot",
+      "rock salt",
+      "iron filings",
+      "dried beans"
+    ]
+  },
+  "stats": {
+    "atoms": 10,
+    "numbered_clues": 10,
+    "kinds": {
+      "link": 1,
+      "before": 1,
+      "adjacent": 1,
+      "not_link": 2,
+      "between": 2,
+      "immediately_before": 2,
+      "gap": 1
+    },
+    "positives": 1,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 36,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 15,
+      "order": 18
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}
