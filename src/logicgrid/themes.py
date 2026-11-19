@@ -1504,7 +1504,11 @@ THEMES: tuple[Theme, ...] = (
                   "blue star pajamas", "yellow footed pajamas",
                   "purple fleece pajamas", "orange striped pajamas",
                   "snowflake pajamas"),
-            _axis("snack", "Snack", "snack", "leaves out for Santa",
+            # "leaves out", not "leaves out for Santa": a descriptor renders
+            # as "the kid who <verb> <item>", which put the object after the
+            # prepositional phrase -- "who leaves out for Santa gingerbread".
+            # Santa stays in the blurb, where the word order is mine to pick.
+            _axis("snack", "Snack", "snack", "leaves out",
                   "oatmeal cookies", "a candy cane", "gingerbread",
                   "a slice of fruitcake", "peanut butter crackers",
                   "sugar cookies", "carrot sticks"),

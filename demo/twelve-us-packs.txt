@@ -1,0 +1,390 @@
+TWELVE AMERICAN THEME PACKS
+===========================
+
+One puzzle from each new pack, answer at the end of each.  Each is at a
+different seed and a different point on the difficulty ramp, so these show
+the range rather than twelve copies of one clue skeleton.
+
+----------------------------------------------------------------------
+
+Elective Sign-Up at Ridgeline High
+==================================
+
+A gym full of sign-up tables, a line out the door, and a counselor who gave up on alphabetical order an hour ago.
+Four students are involved. Determine each student's birthday month and middle school.
+  - Student: Priya, Linnea, Omar and Darnell.
+  - Birthday month (listed from earlier to later): January, February, March and April.
+  - Middle school: Candlewood Middle, Watermill Middle, Dutch Hollow Middle and Las Palmas Middle.
+Every student has a different birthday month and middle school, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. Priya was born in February. Linnea is later than February in birthday month order.
+ 2. The student who comes from Watermill Middle was born in March.
+ 3. The student who comes from Candlewood Middle was not born in January. The student who comes from Candlewood Middle is earlier than April in birthday month order.
+ 4. The student who comes from Las Palmas Middle and Omar are exactly one month apart in birthday month order, in one direction or the other.
+
+SOLUTION
+--------
+  Birthday month: January, Student: Darnell, Middle school: Dutch Hollow Middle
+  Birthday month: February, Student: Priya, Middle school: Candlewood Middle
+  Birthday month: March, Student: Omar, Middle school: Watermill Middle
+  Birthday month: April, Student: Linnea, Middle school: Las Palmas Middle
+----------------------------------------------------------------------
+
+The Room 12 Class Pet Vote
+==========================
+
+Mr. Ocampo said the class could pick one pet. Nobody warned him that would mean campaign posters.
+Four kids are involved. Determine each kid's vote count, pet and habitat.
+  - Kid: Tilly, Marisol, Dashiell and Josefina.
+  - Vote count (listed from lower to higher): 4 votes, 6 votes, 8 votes and 10 votes.
+  - Pet: a box turtle, a hermit crab, a dwarf hamster and a corn snake.
+  - Habitat: a wire cage, a plastic tub, a wooden hutch and a glass terrarium.
+Every kid has a different vote count, pet and habitat, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. The kid who keeps it in a plastic tub nominates a dwarf hamster.
+ 2. Marisol falls somewhere between the kid who nominates a box turtle and 10 votes in vote count order.
+ 3. The kid who nominates a corn snake and 6 votes are exactly one vote step apart in vote count order, in one direction or the other.
+ 4. 6 votes is exactly one vote step lower than the kid who keeps it in a glass terrarium, with no vote count in between.
+ 5. The kid who nominates a corn snake falls somewhere between Marisol and Tilly in vote count order.
+ 6. The kid who keeps it in a wire cage is exactly one vote step lower than Dashiell, with no vote count in between.
+
+SOLUTION
+--------
+  Vote count: 4 votes, Kid: Josefina, Pet: a box turtle, Habitat: a wooden hutch
+  Vote count: 6 votes, Kid: Marisol, Pet: a hermit crab, Habitat: a wire cage
+  Vote count: 8 votes, Kid: Dashiell, Pet: a corn snake, Habitat: a glass terrarium
+  Vote count: 10 votes, Kid: Tilly, Pet: a dwarf hamster, Habitat: a plastic tub
+----------------------------------------------------------------------
+
+The Food Court Standoff
+=======================
+
+Six friends, one food court, and a shared conviction that everybody else ordered wrong.
+Five friends are involved. Determine each friend's total, stand and drink.
+  - Friend: Dmitri, Paloma, Hank, Noor and Colton.
+  - Total (listed from cheaper to dearer): $3, $5, $7, $9 and $11.
+  - Stand: the Chicken Coop, Taco Tower, the Fry Shack, Burger Barn and the Noodle Cart.
+  - Drink: just water, a root beer, an iced tea, a blue slushie and an orange soda.
+Every friend has a different total, stand and drink, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. The friend who drinks an iced tea is cheaper than $9 in total order. The friend who drinks just water falls somewhere between $3 and $9 in total order.
+ 2. The friend who eats at the Fry Shack does not spend $7. The friend who drinks a blue slushie is cheaper than the friend who eats at the Fry Shack in total order.
+ 3. The friend who drinks an iced tea is exactly one price step cheaper than Colton, with no total in between. $7 falls somewhere between Colton and Dmitri in total order.
+ 4. Dmitri and the friend who eats at the Chicken Coop are exactly one price step apart in total order, in one direction or the other.
+ 5. The friend who drinks a root beer and Hank are exactly one price step apart in total order, in one direction or the other.
+ 6. The friend who drinks an orange soda is cheaper than the friend who eats at the Noodle Cart in total order.
+ 7. Noor is exactly one price step cheaper than the friend who eats at Taco Tower, with no total in between.
+
+SOLUTION
+--------
+  Total: $3, Friend: Noor, Stand: Burger Barn, Drink: an iced tea
+  Total: $5, Friend: Colton, Stand: Taco Tower, Drink: an orange soda
+  Total: $7, Friend: Paloma, Stand: the Noodle Cart, Drink: just water
+  Total: $9, Friend: Hank, Stand: the Chicken Coop, Drink: a blue slushie
+  Total: $11, Friend: Dmitri, Stand: the Fry Shack, Drink: a root beer
+----------------------------------------------------------------------
+
+Christmas Morning on Lark Street
+================================
+
+Six kids, six wish lists, and one set of parents trying very hard to remember who asked for what.
+Five kids are involved. Determine each kid's age, toy, pajamas and snack.
+  - Kid: Frankie, Alton, Margo, Rosalind and Esperanza.
+  - Age (listed from younger to older): 8 years old, 9 years old, 10 years old, 11 years old and 12 years old.
+  - Toy: a telescope, a pink skateboard, a remote-control dump truck, a bug-collecting kit and an electric keyboard.
+  - Pajamas: snowflake pajamas, red flannel pajamas, reindeer pajamas, yellow footed pajamas and purple fleece pajamas.
+  - Snack: sugar cookies, gingerbread, peanut butter crackers, a candy cane and a slice of fruitcake.
+Every kid has a different age, toy, pajamas and snack, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. The kid who wears snowflake pajamas is 10 years old.
+ 2. The kid who leaves out gingerbread falls somewhere between 10 years old and 12 years old in age order.
+ 3. The kid who hopes for a remote-control dump truck falls somewhere between 12 years old and 8 years old in age order.
+ 4. 9 years old is exactly one year younger than the kid who leaves out a slice of fruitcake, with no age in between.
+ 5. 8 years old is exactly one year younger than Margo, with no age in between.
+ 6. 9 years old falls somewhere between the kid who hopes for a bug-collecting kit and the kid who hopes for an electric keyboard in age order.
+ 7. The following two do NOT both hold; either one alone may hold, and so may neither: (a) Margo is younger than the kid who wears snowflake pajamas in age order. (b) Rosalind is younger than the kid who leaves out gingerbread in age order.
+ 8. The kid who hopes for a bug-collecting kit falls somewhere between the kid who wears purple fleece pajamas and the kid who wears red flannel pajamas in age order.
+ 9. At least one of the following holds, and possibly more than one: (a) Margo wears purple fleece pajamas. (b) The kid who wears reindeer pajamas does not leave out a candy cane.
+10. Alton is younger than the kid who leaves out peanut butter crackers in age order.
+11. The kid who wears red flannel pajamas is younger than Frankie in age order.
+12. The kid who wears yellow footed pajamas and the kid who leaves out peanut butter crackers are exactly one year apart in age order, in one direction or the other.
+13. At least one of the following holds, and possibly more than one: (a) The kid who leaves out peanut butter crackers and the kid who hopes for a remote-control dump truck are exactly one year apart in age order, in one direction or the other. (b) The kid who leaves out a candy cane does not hope for an electric keyboard.
+14. Esperanza falls somewhere between the kid who hopes for a bug-collecting kit and the kid who hopes for a telescope in age order.
+15. The kid who wears yellow footed pajamas is exactly one year younger than Frankie, with no age in between.
+
+SOLUTION
+--------
+  Age: 8 years old, Kid: Alton, Toy: an electric keyboard, Pajamas: reindeer pajamas, Snack: sugar cookies
+  Age: 9 years old, Kid: Margo, Toy: a telescope, Pajamas: red flannel pajamas, Snack: a candy cane
+  Age: 10 years old, Kid: Esperanza, Toy: a remote-control dump truck, Pajamas: snowflake pajamas, Snack: a slice of fruitcake
+  Age: 11 years old, Kid: Rosalind, Toy: a bug-collecting kit, Pajamas: yellow footed pajamas, Snack: gingerbread
+  Age: 12 years old, Kid: Frankie, Toy: a pink skateboard, Pajamas: purple fleece pajamas, Snack: peanut butter crackers
+----------------------------------------------------------------------
+
+The Medals Got Mixed Up
+=======================
+
+A volunteer handed out the medal boxes in the wrong order, and the scoreboard went dark an hour ago.
+Five athletes are involved. Determine each athlete's placing, event, jersey and hometown.
+  - Athlete: Ingrid Solheim, Tobias Pike, Diego Vasquez, Rashad Ellery and Nadia Kell.
+  - Placing (listed from better to worse): first, second, third, fourth and fifth.
+  - Event: the pole vault, the triple jump, the long jump, the shot put and the high jump.
+  - Jersey: a charcoal jersey, a navy jersey, a coral jersey, a teal jersey and a maroon jersey.
+  - Hometown: Flagstaff, Kalamazoo, Shreveport, Boca Raton and Cedar Rapids.
+Every athlete has a different placing, event, jersey and hometown, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. Second is exactly one place better than Rashad Ellery, with no placing in between. The athlete who trains in Kalamazoo falls somewhere between fourth and second in placing order.
+ 2. At least one of the following holds, and possibly more than one: (a) The athlete who competes in the high jump and second are exactly one place apart in placing order, in one direction or the other. (b) The athlete who competes in the triple jump finishes third.
+ 3. The athlete who wears a maroon jersey and fourth are exactly one place apart in placing order, in one direction or the other.
+ 4. Diego Vasquez and the athlete who competes in the triple jump are exactly one place apart in placing order, in one direction or the other.
+ 5. Nadia Kell and the athlete who wears a teal jersey are exactly one place apart in placing order, in one direction or the other.
+ 6. Ingrid Solheim does not compete in the shot put.
+ 7. If (a) holds then (b) also holds, but not necessarily the reverse: (a) Ingrid Solheim is better than the athlete who trains in Kalamazoo in placing order. (b) Tobias Pike is better than the athlete who competes in the high jump in placing order.
+ 8. At least one of the following holds, and possibly more than one: (a) Nadia Kell and the athlete who trains in Boca Raton are exactly one place apart in placing order, in one direction or the other. (b) Nadia Kell and the athlete who trains in Shreveport are exactly one place apart in placing order, in one direction or the other.
+ 9. The athlete who trains in Shreveport is exactly one place better than the athlete who competes in the pole vault, with no placing in between.
+10. The athlete who competes in the triple jump and the athlete who trains in Flagstaff are exactly two places apart in placing order.
+11. The athlete who competes in the triple jump is exactly one place better than the athlete who wears a coral jersey, with no placing in between.
+12. The athlete who wears a navy jersey falls somewhere between Diego Vasquez and Ingrid Solheim in placing order.
+13. The athlete who trains in Kalamazoo falls somewhere between the athlete who wears a charcoal jersey and the athlete who wears a teal jersey in placing order.
+14. Tobias Pike falls somewhere between the athlete who trains in Boca Raton and the athlete who trains in Cedar Rapids in placing order.
+
+SOLUTION
+--------
+  Placing: first, Athlete: Diego Vasquez, Event: the high jump, Jersey: a teal jersey, Hometown: Boca Raton
+  Placing: second, Athlete: Nadia Kell, Event: the triple jump, Jersey: a navy jersey, Hometown: Shreveport
+  Placing: third, Athlete: Rashad Ellery, Event: the pole vault, Jersey: a coral jersey, Hometown: Kalamazoo
+  Placing: fourth, Athlete: Tobias Pike, Event: the shot put, Jersey: a charcoal jersey, Hometown: Flagstaff
+  Placing: fifth, Athlete: Ingrid Solheim, Event: the long jump, Jersey: a maroon jersey, Hometown: Cedar Rapids
+----------------------------------------------------------------------
+
+The Dream Garage
+================
+
+Six kids turned loose at the auto show, each one certain they have found the only car worth owning.
+Four kids are involved. Determine each kid's top speed and make.
+  - Kid: Harriet, Imani, Jalen and Svetlana.
+  - Top speed (listed from slower to faster): 120 mph, 130 mph, 140 mph and 150 mph.
+  - Make: a Meridian Sedan, a Vulcan 500, a Lark Hatchback and a Pinebrook Wagon.
+Every kid has a different top speed and make, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. Svetlana wants a car that does 120 mph.
+ 2. Imani wants a car that does 130 mph.
+ 3. Imani is set on a Lark Hatchback. The kid who is set on a Vulcan 500 is exactly one speed step slower than Imani, with no top speed in between.
+ 4. The kid who is set on a Pinebrook Wagon does not want a car that does 150 mph.
+ 5. Jalen is not set on a Meridian Sedan.
+
+SOLUTION
+--------
+  Top speed: 120 mph, Kid: Svetlana, Make: a Vulcan 500
+  Top speed: 130 mph, Kid: Imani, Make: a Lark Hatchback
+  Top speed: 140 mph, Kid: Jalen, Make: a Pinebrook Wagon
+  Top speed: 150 mph, Kid: Harriet, Make: a Meridian Sedan
+----------------------------------------------------------------------
+
+The Lakeshore Esports Bracket
+=============================
+
+The school esports club booked the library after hours. Six players, a double-elimination bracket, and a very long argument about seeding.
+Five players are involved. Determine each player's exit round and game.
+  - Player: Priyanka, Saoirse, Mina, Tyrell and Gus Villalobos.
+  - Exit round (listed from earlier to later): round one, round two, round three, round four and round five.
+  - Game: the puzzle brawler, the rhythm game, the soccer sim, the farming sim and the kart racer.
+Every player has a different exit round and game, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. The player who mains the soccer sim is knocked out in round five. Mina is earlier than round five in exit round order.
+ 2. Gus Villalobos is earlier than round four in exit round order.
+ 3. Gus Villalobos is not knocked out in round one.
+ 4. Round two falls somewhere between the player who mains the farming sim and the player who mains the kart racer in exit round order.
+ 5. The player who mains the farming sim and round five are exactly one round apart in exit round order, in one direction or the other.
+ 6. Tyrell is earlier than the player who mains the farming sim in exit round order.
+ 7. Saoirse falls somewhere between the player who mains the kart racer and the player who mains the rhythm game in exit round order.
+
+SOLUTION
+--------
+  Exit round: round one, Player: Tyrell, Game: the kart racer
+  Exit round: round two, Player: Saoirse, Game: the puzzle brawler
+  Exit round: round three, Player: Gus Villalobos, Game: the rhythm game
+  Exit round: round four, Player: Mina, Game: the farming sim
+  Exit round: round five, Player: Priyanka, Game: the soccer sim
+----------------------------------------------------------------------
+
+The Build Server Contest
+========================
+
+A creative-mode server, one weekend, and six builders who all swore they would stay under the block limit.
+Five builders are involved. Determine each builder's score, build and material.
+  - Builder: Keiko, Jun, Nadine, Rafferty and Oscar Pell.
+  - Score (listed from lower to higher): 61 points, 64 points, 67 points, 70 points and 73 points.
+  - Build: a clock tower, a glass observatory, a floating island, a treetop village and an underwater dome.
+  - Material: packed ice, dark oak, sea lantern, sandstone and quartz.
+Every builder has a different score, build and material, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. Rafferty builds a treetop village.
+ 2. The builder who builds it from sea lantern does not score 64 points.
+ 3. The builder who builds it from quartz is exactly one score step lower than 73 points, with no score in between.
+ 4. The builder who builds an underwater dome is exactly one score step lower than 70 points, with no score in between.
+ 5. Keiko does not build it from packed ice. 67 points falls somewhere between Keiko and Nadine in score order.
+ 6. The builder who builds it from sandstone is exactly one score step lower than Nadine, with no score in between.
+ 7. Jun is exactly one score step lower than the builder who builds a glass observatory, with no score in between.
+ 8. Nadine is exactly one score step lower than the builder who builds a treetop village, with no score in between.
+ 9. The builder who builds a glass observatory is lower than the builder who builds it from dark oak in score order.
+10. Keiko does not build a floating island.
+
+SOLUTION
+--------
+  Score: 61 points, Builder: Keiko, Build: a clock tower, Material: sea lantern
+  Score: 64 points, Builder: Oscar Pell, Build: a floating island, Material: packed ice
+  Score: 67 points, Builder: Jun, Build: an underwater dome, Material: sandstone
+  Score: 70 points, Builder: Nadine, Build: a glass observatory, Material: quartz
+  Score: 73 points, Builder: Rafferty, Build: a treetop village, Material: dark oak
+----------------------------------------------------------------------
+
+The Firehouse Chili Cook-Off
+============================
+
+The volunteer fire department holds a chili cook-off every fall, and the judging has never once ended quietly.
+Five cooks are involved. Determine each cook's placing, secret and topping.
+  - Cook: Bobbi Jo, Amir, Gracie Mapp, Luis Ortega and Verna.
+  - Placing (listed from better to worse): first, second, third, fourth and fifth.
+  - Secret: fire-roasted corn, a square of dark chocolate, cold coffee, root beer and nothing but salt.
+  - Topping: a fried egg, pickled onions, shredded cheddar, crushed corn chips and oyster crackers.
+Every cook has a different placing, secret and topping, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. Amir falls somewhere between fifth and second in placing order. The cook who tops it with pickled onions falls somewhere between fifth and third in placing order.
+ 2. Bobbi Jo is worse than second in placing order.
+ 3. The cook who swears by a square of dark chocolate does not place fourth.
+ 4. The cook who swears by fire-roasted corn is worse than second in placing order.
+ 5. Fourth is exactly one place better than the cook who tops it with oyster crackers, with no placing in between.
+ 6. The cook who tops it with a fried egg is better than Gracie Mapp in placing order.
+ 7. Amir does not swear by a square of dark chocolate. The cook who tops it with shredded cheddar is better than the cook who swears by a square of dark chocolate in placing order.
+ 8. At least one of the following holds, and possibly more than one: (a) Luis Ortega is better than the cook who swears by a square of dark chocolate in placing order. (b) Verna and the cook who swears by root beer are exactly four places apart in placing order.
+ 9. The cook who tops it with pickled onions is exactly one place better than Luis Ortega, with no placing in between.
+10. The cook who swears by cold coffee and the cook who tops it with shredded cheddar are exactly one place apart in placing order, in one direction or the other.
+
+SOLUTION
+--------
+  Placing: first, Cook: Verna, Secret: cold coffee, Topping: a fried egg
+  Placing: second, Cook: Gracie Mapp, Secret: nothing but salt, Topping: shredded cheddar
+  Placing: third, Cook: Bobbi Jo, Secret: a square of dark chocolate, Topping: crushed corn chips
+  Placing: fourth, Cook: Amir, Secret: fire-roasted corn, Topping: pickled onions
+  Placing: fifth, Cook: Luis Ortega, Secret: root beer, Topping: oyster crackers
+----------------------------------------------------------------------
+
+The Tuesday Pickleball Ladder
+=============================
+
+The rec center runs a pickleball ladder on Tuesdays. Courts go by start time, and the sign-up sheet gets rewritten more than once.
+Six players are involved. Determine each player's start time, paddle, serve and gripe.
+  - Player: Charlene, Dot Feeney, Pete Ng, Arlene, Ramesh and Buzz Kovacs.
+  - Start time (listed from earlier to later): 8am, 9am, 10am, 11am, noon and 1pm.
+  - Paddle: a bright orange paddle, a graphite paddle, a hand-me-down paddle, a wooden loaner, a carbon-fiber paddle and an oversize paddle.
+  - Serve: a high lob, a flat drive, the same serve every time, a spin serve, a soft drop and a sidearm toss.
+  - Gripe: a bad knee, the sun, a late night, a dead ball, the noisy court next door and a wet court.
+Every player has a different start time, paddle, serve and gripe, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. The player who serves with the same serve every time and 9am are exactly three hours apart in start time order.
+ 2. At least one of the following holds, and possibly more than one: (a) The player who blames a dead ball and the player who serves with a spin serve are exactly one hour apart in start time order, in one direction or the other. (b) One of the player who blames a bad knee and 10am sits at an odd-numbered start time and the other at an even-numbered start time.
+ 3. At least one of the following holds, and possibly more than one: (a) The player who blames a dead ball and the player who plays with an oversize paddle are exactly one hour apart in start time order, in one direction or the other. (b) The player who blames the sun and noon are exactly one hour apart in start time order, in one direction or the other.
+ 4. At least one of the following holds, and possibly more than one: (a) Charlene plays at noon. (b) The player who blames the noisy court next door and Ramesh both sit at odd-numbered hours or both at even-numbered hours.
+ 5. One of the player who plays with an oversize paddle and noon sits at an odd-numbered start time and the other at an even-numbered start time.
+ 6. At least one of the following holds, and possibly more than one: (a) Buzz Kovacs plays with a hand-me-down paddle. (b) The player who serves with a soft drop plays at 9am.
+ 7. The player who plays with a wooden loaner and Dot Feeney are exactly four hours apart in start time order.
+ 8. Charlene is earlier than the player who blames the sun in start time order.
+ 9. Arlene is earlier than the player who plays with a graphite paddle in start time order. Pete Ng is earlier than the player who plays with a graphite paddle in start time order.
+10. The player who plays with a carbon-fiber paddle and Charlene are exactly one hour apart in start time order, in one direction or the other.
+11. The player who blames a late night and the player who serves with a flat drive are exactly one hour apart in start time order, in one direction or the other.
+12. If (a) holds then (b) also holds, but not necessarily the reverse: (a) The player who blames a wet court and the player who serves with a high lob are exactly one hour apart in start time order, in one direction or the other. (b) The player who plays with a hand-me-down paddle does not serve with a flat drive.
+13. At least one of the following holds, and possibly more than one: (a) The player who blames a bad knee plays with a graphite paddle. (b) The player who blames a bad knee and the player who serves with a spin serve both sit at odd-numbered hours or both at even-numbered hours.
+14. The player who plays with a bright orange paddle and Pete Ng are exactly one hour apart in start time order, in one direction or the other.
+15. At least one of the following holds, and possibly more than one: (a) Arlene blames the noisy court next door. (b) One of Ramesh and the player who serves with a soft drop sits at an odd-numbered start time and the other at an even-numbered start time.
+16. The player who plays with a carbon-fiber paddle and the player who serves with the same serve every time are exactly three hours apart in start time order.
+17. The player who blames a dead ball and Buzz Kovacs are exactly two hours apart in start time order.
+18. The player who plays with an oversize paddle does not serve with a spin serve. The player who plays with an oversize paddle does not serve with a high lob.
+19. The player who serves with a flat drive is exactly one hour earlier than the player who blames a bad knee, with no start time in between.
+20. Dot Feeney does not play with a graphite paddle. The player who blames the sun is earlier than the player who plays with a graphite paddle in start time order.
+
+SOLUTION
+--------
+  Start time: 8am, Player: Charlene, Paddle: a wooden loaner, Serve: a soft drop, Gripe: a wet court
+  Start time: 9am, Player: Arlene, Paddle: a carbon-fiber paddle, Serve: a spin serve, Gripe: a late night
+  Start time: 10am, Player: Buzz Kovacs, Paddle: a hand-me-down paddle, Serve: a flat drive, Gripe: the sun
+  Start time: 11am, Player: Pete Ng, Paddle: an oversize paddle, Serve: a sidearm toss, Gripe: a bad knee
+  Start time: noon, Player: Dot Feeney, Paddle: a bright orange paddle, Serve: the same serve every time, Gripe: a dead ball
+  Start time: 1pm, Player: Ramesh, Paddle: a graphite paddle, Serve: a high lob, Gripe: the noisy court next door
+----------------------------------------------------------------------
+
+Trivia Night at the Public Library
+==================================
+
+The library runs trivia on the first Thursday of the month. Six regulars, six team names, and a scorekeeper who will not be hurried.
+Five players are involved. Determine each player's score and team.
+  - Player: Lou Ann, Priscilla, Chet, Darby and Takeshi.
+  - Score (listed from lower to higher): 61 points, 64 points, 67 points, 70 points and 73 points.
+  - Team: the Trivia Newtons, the Smarty Pants, Nacho Average Team, Les Quizerables and the Library Cards.
+Every player has a different score and team, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. The player who plays for Nacho Average Team scores 73 points.
+ 2. Takeshi plays for Les Quizerables.
+ 3. Lou Ann plays for the Library Cards.
+ 4. Priscilla is lower than 70 points in score order. The player who plays for the Library Cards and 70 points are exactly one score step apart in score order, in one direction or the other.
+ 5. The player who plays for the Trivia Newtons and 64 points are exactly one score step apart in score order, in one direction or the other.
+ 6. Darby and the player who plays for Nacho Average Team are exactly one score step apart in score order, in one direction or the other.
+
+SOLUTION
+--------
+  Score: 61 points, Player: Priscilla, Team: the Trivia Newtons
+  Score: 64 points, Player: Takeshi, Team: Les Quizerables
+  Score: 67 points, Player: Lou Ann, Team: the Library Cards
+  Score: 70 points, Player: Darby, Team: the Smarty Pants
+  Score: 73 points, Player: Chet, Team: Nacho Average Team
+----------------------------------------------------------------------
+
+The Great American Road Trip
+============================
+
+Six families set out the same weekend, each for a different national park, each certain theirs is the better drive.
+Five drivers are involved. Determine each driver's distance and park.
+  - Driver: Gil Ostrander, Roy Tubbs, Simone, Anneke and Hector Salas.
+  - Distance (listed from shorter to longer): 200 miles, 300 miles, 400 miles, 500 miles and 600 miles.
+  - Park: Olympic, Yellowstone, the Grand Canyon, the Great Smoky Mountains and Acadia.
+Every driver has a different distance and park, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. The driver who heads for the Grand Canyon is shorter than Roy Tubbs in distance order. Roy Tubbs heads for Olympic.
+ 2. Hector Salas falls somewhere between 200 miles and 600 miles in distance order.
+ 3. Simone and 500 miles are exactly one hundred miles apart in distance order, in one direction or the other.
+ 4. 300 miles is exactly one hundred miles shorter than Gil Ostrander, with no distance in between.
+ 5. 400 miles falls somewhere between the driver who heads for Yellowstone and the driver who heads for the Grand Canyon in distance order.
+ 6. Gil Ostrander and the driver who heads for the Great Smoky Mountains are exactly one hundred miles apart in distance order, in one direction or the other.
+ 7. Gil Ostrander is shorter than the driver who heads for the Great Smoky Mountains in distance order.
+
+SOLUTION
+--------
+  Distance: 200 miles, Driver: Anneke, Park: the Grand Canyon
+  Distance: 300 miles, Driver: Roy Tubbs, Park: Olympic
+  Distance: 400 miles, Driver: Gil Ostrander, Park: Acadia
+  Distance: 500 miles, Driver: Hector Salas, Park: the Great Smoky Mountains
+  Distance: 600 miles, Driver: Simone, Park: Yellowstone

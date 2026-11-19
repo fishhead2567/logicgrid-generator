@@ -1,0 +1,309 @@
+TEN RESEARCH-BACKED THEME PACKS
+===============================
+
+One puzzle from each new pack. The vocabulary is the real thing:
+methods, cider apples, walling terms, bonsai styles, rodeo events.
+
+
+----------------------------------------------------------------------
+
+The Quarter-Peal at St Botolph's
+================================
+
+Six ringers, six rounds of the Tuesday practice, and a tower captain keeping a ledger of everyone's mistakes.
+Five ringers are involved. Determine each ringer's round and slip.
+  - Ringer: Lavinia, Ambrose, Prudence, Dorcas and Hesketh.
+  - Round (listed from earlier to later): round one, round two, round three, round four and round five.
+  - Slip: a clipped backstroke, nothing at all, a dropped rope, an early snap lead and going methodless.
+Every ringer has a different round and slip, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. Hesketh falls somewhere between round five and round one in round order. The ringer who is blamed for going methodless is later than round one in round order.
+ 2. Ambrose is later than round three in round order. Round three is exactly one round earlier than the ringer who is blamed for nothing at all, with no round in between.
+ 3. Dorcas and round four are exactly one round apart in round order, in one direction or the other.
+ 4. Round two is exactly one round earlier than the ringer who is blamed for a clipped backstroke, with no round in between.
+ 5. Prudence and the ringer who is blamed for going methodless are exactly one round apart in round order, in one direction or the other.
+ 6. The ringer who is blamed for a dropped rope is exactly one round earlier than Dorcas, with no round in between.
+
+ANSWER:
+  Round: round one, Ringer: Lavinia, Slip: an early snap lead
+  Round: round two, Ringer: Hesketh, Slip: a dropped rope
+  Round: round three, Ringer: Dorcas, Slip: a clipped backstroke
+  Round: round four, Ringer: Prudence, Slip: nothing at all
+  Round: round five, Ringer: Ambrose, Slip: going methodless
+
+----------------------------------------------------------------------
+
+The Clun Forest Trials
+======================
+
+A hillside, six handlers, and a judge who deducts for a wide outrun with the enthusiasm of a man settling an old score.
+Five handlers are involved. Determine each handler's score, flock and fault.
+  - Handler: Marged, Idris, Eiddwen, Constance and Tarrant.
+  - Score (listed from lower to higher): 61 points, 64 points, 67 points, 70 points and 73 points.
+  - Flock: Dalesbreds, Rough Fells, Lonks, Herdwicks and Cheviots.
+  - Fault: a hard lift, a refusal at the pen, crossing on the drive, a missed shed and a wide outrun.
+Every handler has a different score, flock and fault, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. 64 points is exactly one point lower than the handler who loses points for a refusal at the pen, with no score in between. The handler who gathers Herdwicks scores 64 points.
+ 2. Tarrant loses points for a hard lift. Tarrant is lower than the handler who loses points for a wide outrun in score order.
+ 3. Idris is exactly one point lower than 73 points, with no score in between.
+ 4. The handler who loses points for a wide outrun and 67 points are exactly one point apart in score order, in one direction or the other.
+ 5. Eiddwen does not lose points for a missed shed. The handler who gathers Herdwicks falls somewhere between Eiddwen and Marged in score order. Eiddwen does not score 73 points.
+ 6. The handler who gathers Cheviots is exactly one point lower than 70 points, with no score in between.
+ 7. The handler who gathers Lonks and Idris are exactly one point apart in score order, in one direction or the other.
+ 8. The handler who loses points for a missed shed and the handler who gathers Herdwicks are exactly one point apart in score order, in one direction or the other.
+ 9. The handler who gathers Dalesbreds is lower than the handler who loses points for a refusal at the pen in score order.
+
+ANSWER:
+  Score: 61 points, Handler: Marged, Flock: Dalesbreds, Fault: a missed shed
+  Score: 64 points, Handler: Tarrant, Flock: Herdwicks, Fault: a hard lift
+  Score: 67 points, Handler: Eiddwen, Flock: Cheviots, Fault: a refusal at the pen
+  Score: 70 points, Handler: Idris, Flock: Rough Fells, Fault: a wide outrun
+  Score: 73 points, Handler: Constance, Flock: Lonks, Fault: crossing on the drive
+
+----------------------------------------------------------------------
+
+The Pomace and the Prize
+========================
+
+Six makers press in six different months and each is privately certain the others have let theirs go to vinegar.
+Five makers are involved. Determine each maker's pressing month and fault.
+  - Maker: Araminta, Bryony, Morwenna, Petroc and Haskell.
+  - Pressing month (listed from earlier to later): January, February, March, April and May.
+  - Fault: a stuck ferment, nothing detectable, sulphur, a framboise note and ropiness.
+Every maker has a different pressing month and fault, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. Haskell falls somewhere between January and May in pressing month order. The maker who is accused of ropiness is later than January in pressing month order.
+ 2. Bryony is later than March in pressing month order. March is exactly one month earlier than the maker who is accused of nothing detectable, with no pressing month in between.
+ 3. Petroc and April are exactly one month apart in pressing month order, in one direction or the other.
+ 4. February is exactly one month earlier than the maker who is accused of a stuck ferment, with no pressing month in between.
+ 5. The maker who is accused of ropiness and Morwenna are exactly one month apart in pressing month order, in one direction or the other.
+ 6. The maker who is accused of sulphur is exactly one month earlier than Petroc, with no pressing month in between.
+
+ANSWER:
+  Pressing month: January, Maker: Araminta, Fault: a framboise note
+  Pressing month: February, Maker: Haskell, Fault: sulphur
+  Pressing month: March, Maker: Petroc, Fault: a stuck ferment
+  Pressing month: April, Maker: Morwenna, Fault: nothing detectable
+  Pressing month: May, Maker: Bryony, Fault: ropiness
+
+----------------------------------------------------------------------
+
+The Jobbing Shop on Dyer's Row
+==============================
+
+A jobbing print shop with six compositors, six quoted prices and one hell-box filling up faster than anybody will admit to.
+Five compositors are involved. Determine each compositor's quoted price, job and mishap.
+  - Compositor: Josiah Peake, Harriet Lisle, Verity Stallard, Cecil Braddock and Alfred Nunn.
+  - Quoted price (listed from cheaper to dearer): $3, $5, $7, $9 and $11.
+  - Job: a funeral card, a seed catalogue, a regatta programme, a wedding order of service and an auction bill.
+  - Mishap: a loose quoin, type left in the galley, a slurred impression, a cracked chase and a pied forme.
+Every compositor has a different quoted price, job and mishap, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. The compositor who is setting a wedding order of service quotes $5.
+ 2. Alfred Nunn owns up to a loose quoin. Alfred Nunn is cheaper than the compositor who owns up to a pied forme in quoted price order.
+ 3. Verity Stallard does not quote $11. Harriet Lisle is exactly one price step cheaper than $11, with no quoted price in between.
+ 4. The compositor who owns up to a pied forme and $7 are exactly one price step apart in quoted price order, in one direction or the other.
+ 5. The compositor who is setting an auction bill is exactly one price step cheaper than $9, with no quoted price in between.
+ 6. $5 is exactly one price step cheaper than the compositor who owns up to type left in the galley, with no quoted price in between.
+ 7. Verity Stallard does not own up to a cracked chase. The compositor who is setting a wedding order of service falls somewhere between Josiah Peake and Verity Stallard in quoted price order.
+ 8. The compositor who is setting a funeral card is cheaper than the compositor who owns up to type left in the galley in quoted price order.
+ 9. Harriet Lisle and the compositor who is setting a regatta programme are exactly one price step apart in quoted price order, in one direction or the other.
+10. The compositor who is setting a wedding order of service and the compositor who owns up to a cracked chase are exactly one price step apart in quoted price order, in one direction or the other.
+
+ANSWER:
+  Quoted price: $3, Compositor: Josiah Peake, Job: a funeral card, Mishap: a cracked chase
+  Quoted price: $5, Compositor: Alfred Nunn, Job: a wedding order of service, Mishap: a loose quoin
+  Quoted price: $7, Compositor: Verity Stallard, Job: an auction bill, Mishap: type left in the galley
+  Quoted price: $9, Compositor: Harriet Lisle, Job: a seed catalogue, Mishap: a pied forme
+  Quoted price: $11, Compositor: Cecil Braddock, Job: a regatta programme, Mishap: a slurred impression
+
+----------------------------------------------------------------------
+
+The Cutbank County Rodeo
+========================
+
+Six riders, six entry fees paid in cash at the gate, and a scoreboard that nobody trusts.
+Five riders are involved. Determine each rider's entry fee and outcome.
+  - Rider: Earlene Tate, Travis Mundy, Marla Hobbs, Roselle Kerr and Dalton Reese.
+  - Entry fee (listed from cheaper to dearer): $2, $4, $6, $8 and $10.
+  - Outcome: a slap of the free hand, a disqualification, a re-ride, a blown stirrup and a broken barrier.
+Every rider has a different entry fee and outcome, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. Dalton Reese falls somewhere between $10 and $2 in entry fee order. The rider who finishes with a broken barrier is dearer than $2 in entry fee order.
+ 2. Travis Mundy is dearer than $6 in entry fee order. $6 is exactly one fee step cheaper than the rider who finishes with a disqualification, with no entry fee in between.
+ 3. Roselle Kerr and $8 are exactly one fee step apart in entry fee order, in one direction or the other.
+ 4. $4 is exactly one fee step cheaper than the rider who finishes with a slap of the free hand, with no entry fee in between.
+ 5. The rider who finishes with a broken barrier and Marla Hobbs are exactly one fee step apart in entry fee order, in one direction or the other.
+ 6. The rider who finishes with a re-ride is exactly one fee step cheaper than Roselle Kerr, with no entry fee in between.
+
+ANSWER:
+  Entry fee: $2, Rider: Earlene Tate, Outcome: a blown stirrup
+  Entry fee: $4, Rider: Dalton Reese, Outcome: a re-ride
+  Entry fee: $6, Rider: Roselle Kerr, Outcome: a slap of the free hand
+  Entry fee: $8, Rider: Marla Hobbs, Outcome: a disqualification
+  Entry fee: $10, Rider: Travis Mundy, Outcome: a broken barrier
+
+----------------------------------------------------------------------
+
+The Autumn Show at Kiyosumi
+===========================
+
+Six trees on six stands, judged on a hundred-point sheet, and the wiring marks are what everybody is looking for.
+Five exhibitors are involved. Determine each exhibitor's judged score, species and flaw.
+  - Exhibitor: Sumire Oda, Jun Kawabe, Keiko Tanabe, Noriko Hase and Hiroshi Mita.
+  - Judged score (listed from lower to higher): 61 points, 64 points, 67 points, 70 points and 73 points.
+  - Species: a hinoki cypress, a zelkova, a Chinese quince, a satsuki azalea and a Japanese black pine.
+  - Flaw noted: reverse taper, a crossing root, an eye-poking branch, a weak nebari and visible wiring scars.
+Every exhibitor has a different judged score, species and flaw, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. The exhibitor who has grown a satsuki azalea is awarded 64 points.
+ 2. Hiroshi Mita is marked down for reverse taper. Hiroshi Mita is lower than the exhibitor who is marked down for visible wiring scars in judged score order.
+ 3. Keiko Tanabe is not awarded 73 points. Jun Kawabe is exactly one point lower than 73 points, with no judged score in between.
+ 4. The exhibitor who is marked down for visible wiring scars and 67 points are exactly one point apart in judged score order, in one direction or the other.
+ 5. The exhibitor who has grown a Japanese black pine is exactly one point lower than 70 points, with no judged score in between.
+ 6. 64 points is exactly one point lower than the exhibitor who is marked down for a crossing root, with no judged score in between.
+ 7. Keiko Tanabe is not marked down for a weak nebari. The exhibitor who has grown a satsuki azalea falls somewhere between Keiko Tanabe and Sumire Oda in judged score order.
+ 8. The exhibitor who has grown a hinoki cypress is lower than the exhibitor who is marked down for a crossing root in judged score order.
+ 9. Jun Kawabe and the exhibitor who has grown a Chinese quince are exactly one point apart in judged score order, in one direction or the other.
+10. The exhibitor who is marked down for a weak nebari and the exhibitor who has grown a satsuki azalea are exactly one point apart in judged score order, in one direction or the other.
+
+ANSWER:
+  Judged score: 61 points, Exhibitor: Sumire Oda, Species: a hinoki cypress, Flaw noted: a weak nebari
+  Judged score: 64 points, Exhibitor: Hiroshi Mita, Species: a satsuki azalea, Flaw noted: reverse taper
+  Judged score: 67 points, Exhibitor: Keiko Tanabe, Species: a Japanese black pine, Flaw noted: a crossing root
+  Judged score: 70 points, Exhibitor: Jun Kawabe, Species: a zelkova, Flaw noted: visible wiring scars
+  Judged score: 73 points, Exhibitor: Noriko Hase, Species: a Chinese quince, Flaw noted: an eye-poking branch
+
+----------------------------------------------------------------------
+
+The Walling Match at Gunnerside
+===============================
+
+Six wallers, a measured length of fallen wall each, and a whole morning in which to rebuild it to the satisfaction of a judge who will push on every cope.
+Five wallers are involved. Determine each waller's finishing time and snag.
+  - Waller: Jenny Fawcett, Clem Hartley, Hilda Crowther, Mab Teasdale and Ewart Beck.
+  - Finishing time (listed from earlier to later): 8am, 9am, 10am, 11am and noon.
+  - Snag: too little batter, nothing at all, stone left unused, a wobbly wall head and a slipped cope.
+Every waller has a different finishing time and snag, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. Ewart Beck falls somewhere between 8am and noon in finishing time order. The waller who is pulled up for a slipped cope is later than 8am in finishing time order.
+ 2. Clem Hartley is later than 10am in finishing time order. 10am is exactly one hour earlier than the waller who is pulled up for nothing at all, with no finishing time in between.
+ 3. Mab Teasdale and 11am are exactly one hour apart in finishing time order, in one direction or the other.
+ 4. 9am is exactly one hour earlier than the waller who is pulled up for too little batter, with no finishing time in between.
+ 5. The waller who is pulled up for a slipped cope and Hilda Crowther are exactly one hour apart in finishing time order, in one direction or the other.
+ 6. The waller who is pulled up for stone left unused is exactly one hour earlier than Mab Teasdale, with no finishing time in between.
+
+ANSWER:
+  Finishing time: 8am, Waller: Jenny Fawcett, Snag: a wobbly wall head
+  Finishing time: 9am, Waller: Ewart Beck, Snag: stone left unused
+  Finishing time: 10am, Waller: Mab Teasdale, Snag: too little batter
+  Finishing time: 11am, Waller: Hilda Crowther, Snag: nothing at all
+  Finishing time: noon, Waller: Clem Hartley, Snag: a slipped cope
+
+----------------------------------------------------------------------
+
+Field Day on Barrow Hill
+========================
+
+A club field day spread over a week, one operator a night, and a generator that has its own opinions.
+Five operators are involved. Determine each operator's night, band and trouble.
+  - Operator: Rosalind, Clementine, Nkem, Ingrid and Bartholomew.
+  - Night (listed from earlier to later): Monday, Tuesday, Wednesday, Thursday and Friday.
+  - Band: 10 metres, 40 metres, 160 metres, 20 metres and 6 metres.
+  - Trouble: nothing but good propagation, a flat battery, a snapped dipole leg, a neighbour's doorbell and a drifting VFO.
+Every operator has a different night, band and trouble, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. Bartholomew operates on Thursday.
+ 2. The operator who is defeated by a flat battery falls somewhere between Monday and Thursday in night order.
+ 3. Clementine falls somewhere between Friday and Monday in night order.
+ 4. The operator who works 20 metres and Tuesday are exactly three days apart in night order.
+ 5. The operator who works 6 metres and Friday are exactly one day apart in night order, in one direction or the other.
+ 6. Tuesday falls somewhere between the operator who works 10 metres and the operator who works 160 metres in night order.
+ 7. The operator who works 20 metres and Ingrid are exactly two days apart in night order.
+ 8. The operator who is defeated by a neighbour's doorbell falls somewhere between the operator who works 40 metres and the operator who works 6 metres in night order.
+ 9. The operator who is defeated by nothing but good propagation is earlier than the operator who works 160 metres in night order.
+10. Nkem and the operator who is defeated by a snapped dipole leg are exactly three days apart in night order.
+
+ANSWER:
+  Night: Monday, Operator: Nkem, Band: 10 metres, Trouble: nothing but good propagation
+  Night: Tuesday, Operator: Clementine, Band: 40 metres, Trouble: a flat battery
+  Night: Wednesday, Operator: Ingrid, Band: 160 metres, Trouble: a neighbour's doorbell
+  Night: Thursday, Operator: Bartholomew, Band: 6 metres, Trouble: a snapped dipole leg
+  Night: Friday, Operator: Rosalind, Band: 20 metres, Trouble: a drifting VFO
+
+----------------------------------------------------------------------
+
+The Blades Final at Waihopai
+============================
+
+Six shearers down the board, judged on the floor as much as on the clock, and the wool classer is taking notes.
+Five shearers are involved. Determine each shearer's placing and penalty.
+  - Shearer: Wiremu, Bevan Toft, Deirdre Pollok, Manaia and Rangi.
+  - Placing (listed from better to worse): first, second, third, fourth and fifth.
+  - Penalty: tufts on the britch, a faultless board, a slow pen, a dropped sheep and a missed belly.
+Every shearer has a different placing and penalty, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. Rangi falls somewhere between fifth and first in placing order. The shearer who is docked for a missed belly is worse than first in placing order.
+ 2. Bevan Toft is worse than third in placing order. Third is exactly one place better than the shearer who is docked for a faultless board, with no placing in between.
+ 3. Manaia and fourth are exactly one place apart in placing order, in one direction or the other.
+ 4. Second is exactly one place better than the shearer who is docked for tufts on the britch, with no placing in between.
+ 5. The shearer who is docked for a missed belly and Deirdre Pollok are exactly one place apart in placing order, in one direction or the other.
+ 6. The shearer who is docked for a slow pen is exactly one place better than Manaia, with no placing in between.
+
+ANSWER:
+  Placing: first, Shearer: Wiremu, Penalty: a dropped sheep
+  Placing: second, Shearer: Rangi, Penalty: a slow pen
+  Placing: third, Shearer: Manaia, Penalty: tufts on the britch
+  Placing: fourth, Shearer: Deirdre Pollok, Penalty: a faultless board
+  Placing: fifth, Shearer: Bevan Toft, Penalty: a missed belly
+
+----------------------------------------------------------------------
+
+The Heavies at Kinloch Rannoch
+==============================
+
+Six throwers in the heavy events, measured to the foot, in a field where the wind counts for more than anybody admits.
+Five throwers are involved. Determine each thrower's best throw, tartan and grumble.
+  - Thrower: Lachlan Cree, Isla Kinnear, Angus Dunbar, Duncan Rait and Fiona Strachan.
+  - Best throw (listed from shorter to longer): 28 feet, 32 feet, 36 feet, 40 feet and 44 feet.
+  - Tartan: Mackenzie weathered, Buchanan, Lamont ancient, Cameron of Erracht and Gordon dress.
+  - Grumble: a turned ankle, a slipped grip, a borrowed caber, a judge's long measure and a soft run-up.
+Every thrower has a different best throw, tartan and grumble, so within each category every item is used exactly once.
+
+CLUES
+-----
+ 1. 32 feet is exactly one foot shorter than the thrower who complains of a slipped grip, with no best throw in between. The thrower who wears Cameron of Erracht throws 32 feet.
+ 2. Fiona Strachan complains of a turned ankle. Fiona Strachan is shorter than the thrower who complains of a soft run-up in best throw order.
+ 3. Angus Dunbar does not throw 44 feet. Isla Kinnear is exactly one foot shorter than 44 feet, with no best throw in between.
+ 4. The thrower who complains of a soft run-up and 36 feet are exactly one foot apart in best throw order, in one direction or the other.
+ 5. The thrower who wears Gordon dress is exactly one foot shorter than 40 feet, with no best throw in between.
+ 6. The thrower who complains of a judge's long measure and the thrower who wears Cameron of Erracht are exactly one foot apart in best throw order, in one direction or the other.
+ 7. The thrower who wears Lamont ancient and Isla Kinnear are exactly one foot apart in best throw order, in one direction or the other.
+ 8. Angus Dunbar does not complain of a judge's long measure. The thrower who wears Cameron of Erracht falls somewhere between Angus Dunbar and Lachlan Cree in best throw order.
+ 9. The thrower who wears Mackenzie weathered is shorter than the thrower who complains of a slipped grip in best throw order.
+
+ANSWER:
+  Best throw: 28 feet, Thrower: Lachlan Cree, Tartan: Mackenzie weathered, Grumble: a judge's long measure
+  Best throw: 32 feet, Thrower: Fiona Strachan, Tartan: Cameron of Erracht, Grumble: a turned ankle
+  Best throw: 36 feet, Thrower: Angus Dunbar, Tartan: Gordon dress, Grumble: a slipped grip
+  Best throw: 40 feet, Thrower: Isla Kinnear, Tartan: Buchanan, Grumble: a soft run-up
+  Best throw: 44 feet, Thrower: Duncan Rait, Tartan: Lamont ancient, Grumble: a borrowed caber
