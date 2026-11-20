@@ -266,7 +266,27 @@ def cmd_narrate(args: argparse.Namespace) -> int:
         (out / f"{stem}.roundtrip.json").write_text(
             json.dumps(result.to_json(), indent=2) + "\n", encoding="utf-8"
         )
-        if not result.passed:
+        if result.passed:
+            # Publish the shippable form too, in the shape
+            # scripts/build_content_repo.py reads: narratives/<stem>.json,
+            # carrying the pid so a narrative can never be paired with the
+            # wrong puzzle after a reseed.
+            #
+            # Without this the API path verified narratives and then wrote
+            # them somewhere nothing ships from, while the file-driven path in
+            # scripts/narrative_batch.py published properly. Two routes to the
+            # same place, one of which quietly did not arrive.
+            publish = Path("narratives")
+            publish.mkdir(parents=True, exist_ok=True)
+            (publish / f"{stem}.json").write_text(
+                json.dumps(
+                    {**result.narrative.to_json(), "verdict": result.verdict},
+                    indent=2,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+        else:
             failures += 1
             print(f"  {path.name}: FAILED after {args.max_attempts} attempts")
 

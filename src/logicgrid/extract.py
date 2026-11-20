@@ -103,7 +103,10 @@ Pairing:
 Position (only for the ordered category):
   before(A, B)                A is strictly earlier than B, by any amount.
   immediately_before(A, B)    B is exactly one step after A. Direction matters.
-  adjacent(A, B)              One step apart, direction unspecified.
+  adjacent(A, B)              One step apart, direction unspecified. ALWAYS use
+                              this for "exactly one apart", never gap with k=1:
+                              the two say the same thing, and this is the one
+                              to say it with.
   between(A, B, C)            A is strictly between B and C; B and C are in no
                               particular order. A is the MIDDLE one -- put it
                               first.
@@ -128,9 +131,22 @@ Compound (each holds simple facts only, never another compound):
 OUTPUT
 
 Fill `args` with the member names in the order shown above. Use `sub` for the
-facts inside a compound, and leave it null otherwise. Leave `k`, `rel`, `op`
-and `same` null unless the fact type uses them. Also report the categories and
-their members exactly as the introduction lists them.\
+facts inside a compound, and `[]` otherwise. Where a fact type does not use
+`k`, `rel`, `op` or `same`, write that field's "unused" sentinel -- 0, "none",
+"none" and false, as each field's own description says. Every field is always
+present; nothing is omitted, and nothing is null.
+
+Report EVERY category the introduction lists, with its members exactly as
+written there, INCLUDING the one that names the subjects themselves. If the
+introduction says the archivists are Dr Mwangi, Mr Pelletier and Ms Castellano,
+then "archivist" is a category with those three members, exactly like the
+shelves and the decades. Leaving it out is the commonest way this reply goes
+wrong: the names are a category, even though they are also what every other
+category is about.
+
+That is a separate matter from the rule about facts. Counts and membership are
+structural and are never emitted as *facts* -- but every category must still be
+reported here.\
 """
 
 # Strict structured outputs want ``additionalProperties: false`` with every

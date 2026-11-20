@@ -10,3 +10,16 @@ venv/
 
 # Personal Claude Code overrides for this project
 .claude/settings.local.json
+
+# Narration scratch. `work/` holds one directory per puzzle per run -- prompts,
+# raw model replies, intermediate JSON -- and `isolated/` is the staging that
+# keeps each reader from seeing the puzzle it is meant to read blind. Both are
+# rebuilt by `prepare`/`ingest` and mean nothing after the run that made them.
+#
+# They were tracked until now, which left five directories in the repo for
+# puzzles that no longer exist: the set has been reseeded twice since, so their
+# pids match nothing. Published narratives still live in narratives/*.json,
+# which is the artefact worth keeping.
+narratives/work/
+narratives/isolated/
+narratives/run1/

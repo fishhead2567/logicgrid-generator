@@ -69,7 +69,19 @@ class Library:
         return cls(base, paths, narratives)
 
     def narration(self, index: int) -> Narration | None:
-        """The verified narrative for a puzzle, if one has been published."""
+        """The verified narrative for a puzzle, if one has been published.
+
+        Found by stem, then **confirmed by pid**. The stem alone is not an
+        identity: ``45-jam.json`` and ``45-mushroom.json`` are both the
+        forty-fifth puzzle of some set, and a reseed reuses the numbers. Pair
+        on the filename and a narrative eventually gets served for a puzzle it
+        does not describe -- prose about clues that are not on the chart,
+        silently, because nothing else would disagree.
+
+        ``scripts/build_content_repo.py`` already refuses that pairing when it
+        assembles the content repo. This is the same check on the way in to the
+        terminal player, which had been matching on the stem alone.
+        """
         if self.narratives is None:
             return None
         path = self.narratives / f"{self.label(index)}.json"
@@ -77,13 +89,15 @@ class Library:
             return None
         try:
             data = json.loads(path.read_text(encoding="utf-8"))
+            if data.get("pid") != self.puzzle(index).pid:
+                return None
             return Narration(
                 title=str(data["title"]),
                 introduction=str(data["introduction"]),
                 clues=tuple(str(c) for c in data["clues"]),
                 verdict=str(data.get("verdict", "")),
             )
-        except (OSError, ValueError, KeyError):
+        except (OSError, ValueError, KeyError, LibraryError):
             # A malformed narrative is not worth failing a game over; the
             # canonical clues are always there.
             return None

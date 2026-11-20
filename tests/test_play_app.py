@@ -442,6 +442,13 @@ def narrated(tmp_path, library) -> Library:
     (narratives / f"{stem}.json").write_text(
         json.dumps(
             {
+                # The pid is not decoration. A published narrative always
+                # carries the pid of the puzzle it was verified against, and
+                # the library refuses one that does not match -- so a fixture
+                # without it is a narrative that could never have been
+                # published, and the test would be exercising a shape that
+                # does not occur.
+                "pid": library.puzzle(0).pid,
                 "title": "A Narrated Title",
                 "introduction": "Four of them turned up. Work out who did what.",
                 "clues": [
@@ -492,6 +499,7 @@ def test_flagged_narratives_are_marked(tmp_path, library):
     (narratives / f"{library.label(0)}.json").write_text(
         json.dumps(
             {
+                "pid": library.puzzle(0).pid,
                 "title": "T",
                 "introduction": "I",
                 "clues": ["c"],
@@ -536,8 +544,24 @@ async def test_canonical_flag_starts_on_the_canonical_text(narrated):
         assert "A NARRATED TITLE" not in str(app.query_one("#clues", Static).content)
 
 
-async def test_toggle_says_so_when_there_is_no_narrative(library):
-    app = PlayApp(library)
+async def test_toggle_says_so_when_there_is_no_narrative(tmp_path):
+    """Built in a tmp dir rather than from the repo's own puzzles.
+
+    This used to take the `library` fixture, which is `Library.load("puzzles")`
+    -- and that call guesses a sibling `narratives/` directory when it is not
+    told one. So the test passed only while the repo happened to contain no
+    narrative for its first puzzle, and publishing one broke it. The test was
+    asserting a fact about the working tree, not about the app.
+    """
+    import shutil
+
+    puzzles = tmp_path / "puzzles"
+    puzzles.mkdir()
+    shutil.copy(sorted(Path(PUZZLES).glob("*.json"))[0], puzzles / "01.json")
+    empty = tmp_path / "narratives"
+    empty.mkdir()
+
+    app = PlayApp(Library.load(puzzles, narratives=empty))
     async with app.run_test() as pilot:
         await pilot.pause()
         await pilot.press("t")
@@ -557,3 +581,44 @@ async def test_the_narrative_does_not_change_the_grid_or_the_answer(narrated):
         await pilot.pause()
         assert app.board.solution.to_json() == baseline
         assert (len(app.board.schema.categories), app.board.schema.size) == shape
+
+
+async def test_a_narrative_for_a_different_puzzle_is_not_served(tmp_path):
+    """Stems repeat between sets; pids do not.
+
+    The narratives directory accumulates files named after the puzzle numbers
+    of whatever set produced them, and a reseed reuses those numbers. Pairing
+    on the stem alone therefore serves prose describing clues that are not on
+    the chart -- and every file involved is well-formed, so nothing complains.
+    """
+    import shutil
+
+    puzzles = tmp_path / "puzzles"
+    puzzles.mkdir()
+    shutil.copy(sorted(Path(PUZZLES).glob("*.json"))[0], puzzles / "01.json")
+    narratives = tmp_path / "narratives"
+    narratives.mkdir()
+
+    library = Library.load(puzzles, narratives=narratives)
+    real_pid = library.puzzle(0).pid
+
+    body = {
+        "title": "A NARRATED TITLE",
+        "introduction": "Prose about some other puzzle entirely.",
+        "clues": ["A clue that is not on this chart."],
+        "verdict": "pass",
+    }
+
+    # Right stem, wrong puzzle.
+    (narratives / "01.json").write_text(
+        json.dumps({**body, "pid": "0000deadbeef"}), encoding="utf-8"
+    )
+    assert library.narration(0) is None, "a narrative for another puzzle was served"
+    assert library.narrated_count() == 0
+
+    # Same file, correct pid: now it is this puzzle's narrative.
+    (narratives / "01.json").write_text(
+        json.dumps({**body, "pid": real_pid}), encoding="utf-8"
+    )
+    assert library.narration(0) is not None
+    assert library.narrated_count() == 1
