@@ -1,0 +1,401 @@
+{
+  "pid": "d15277230140",
+  "title": "The Heavies at Kinloch Rannoch",
+  "theme": "highland",
+  "blurb": "The heavy events, measured to the foot, in a field where the wind counts for more than anybody admits.",
+  "profile": "expert",
+  "rating": 7,
+  "score": 16.2033,
+  "seed": 2026173239719,
+  "spec": {
+    "difficulty": "expert",
+    "seed": 2026173239719,
+    "theme": "highland"
+  },
+  "schema": {
+    "spine": "throw",
+    "entity_noun": "thrower",
+    "entity_noun_plural": "throwers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "throw",
+        "label": "Best throw",
+        "items": [
+          "28 feet",
+          "32 feet",
+          "36 feet",
+          "40 feet",
+          "44 feet"
+        ],
+        "ordered": true,
+        "values": [
+          28,
+          32,
+          36,
+          40,
+          44
+        ],
+        "unit_suffix": " feet",
+        "noun": "best throw",
+        "cmp_less": "shorter",
+        "cmp_more": "longer",
+        "step_noun": "throw step",
+        "verb": "throws"
+      },
+      {
+        "name": "thrower",
+        "label": "Thrower",
+        "items": [
+          "Rab Souter",
+          "Fiona Strachan",
+          "Lachlan Cree",
+          "Angus Dunbar",
+          "Morag Inglis"
+        ],
+        "ordered": false,
+        "noun": "thrower",
+        "subject": true
+      },
+      {
+        "name": "event",
+        "label": "Event",
+        "items": [
+          "the weight for distance",
+          "the Scottish hammer",
+          "the caber toss",
+          "the sheaf toss",
+          "the weight over the bar"
+        ],
+        "ordered": false,
+        "noun": "event",
+        "verb": "competes in"
+      },
+      {
+        "name": "tartan",
+        "label": "Tartan",
+        "items": [
+          "Cameron of Erracht",
+          "Lamont ancient",
+          "Murray of Atholl",
+          "Fraser hunting",
+          "Buchanan"
+        ],
+        "ordered": false,
+        "noun": "tartan",
+        "verb": "wears"
+      },
+      {
+        "name": "grumble",
+        "label": "Grumble",
+        "items": [
+          "a turned ankle",
+          "a crosswind",
+          "a borrowed caber",
+          "a slipped grip",
+          "a soft run-up"
+        ],
+        "ordered": false,
+        "noun": "grumble",
+        "verb": "complains of"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "tartan:Murray of Atholl",
+              "b": "throw:32 feet"
+            },
+            {
+              "kind": "not_link",
+              "a": "throw:36 feet",
+              "b": "thrower:Angus Dunbar"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "link",
+            "a": "tartan:Lamont ancient",
+            "b": "thrower:Lachlan Cree"
+          },
+          "y": {
+            "kind": "not_link",
+            "a": "tartan:Lamont ancient",
+            "b": "throw:36 feet"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "throw:40 feet",
+          "b": "thrower:Angus Dunbar"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "throw:40 feet",
+          "b": "tartan:Fraser hunting",
+          "c": "tartan:Murray of Atholl"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "adjacent",
+            "a": "grumble:a slipped grip",
+            "b": "thrower:Lachlan Cree"
+          },
+          "y": {
+            "kind": "link",
+            "a": "throw:36 feet",
+            "b": "thrower:Rab Souter"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "throw:40 feet",
+          "b": "grumble:a borrowed caber"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "event:the Scottish hammer",
+          "b": "throw:44 feet"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "grumble:a turned ankle",
+          "b": "tartan:Cameron of Erracht"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "event:the sheaf toss",
+          "b": "grumble:a soft run-up"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "event:the weight over the bar",
+              "b": "grumble:a slipped grip"
+            },
+            {
+              "kind": "link",
+              "a": "event:the sheaf toss",
+              "b": "thrower:Lachlan Cree"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "grumble:a slipped grip",
+          "b": "event:the weight for distance",
+          "c": "thrower:Morag Inglis"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "tartan:Lamont ancient",
+          "b": "event:the weight for distance",
+          "c": "event:the weight over the bar"
+        }
+      ]
+    },
+    {
+      "style": "and",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "event:the caber toss",
+          "b": "thrower:Morag Inglis"
+        },
+        {
+          "kind": "not_link",
+          "a": "event:the caber toss",
+          "b": "grumble:a crosswind"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "event:the weight over the bar",
+              "b": "grumble:a slipped grip"
+            },
+            {
+              "kind": "not_link",
+              "a": "event:the Scottish hammer",
+              "b": "tartan:Lamont ancient"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "arith",
+          "a": "tartan:Murray of Atholl",
+          "b": "grumble:a turned ankle",
+          "k": 16,
+          "op": "add"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "tartan:Lamont ancient",
+          "b": "thrower:Rab Souter"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "thrower:Fiona Strachan",
+          "b": "event:the sheaf toss"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "throw": [
+      "28 feet",
+      "32 feet",
+      "36 feet",
+      "40 feet",
+      "44 feet"
+    ],
+    "thrower": [
+      "Rab Souter",
+      "Fiona Strachan",
+      "Lachlan Cree",
+      "Morag Inglis",
+      "Angus Dunbar"
+    ],
+    "event": [
+      "the caber toss",
+      "the weight for distance",
+      "the sheaf toss",
+      "the Scottish hammer",
+      "the weight over the bar"
+    ],
+    "tartan": [
+      "Fraser hunting",
+      "Cameron of Erracht",
+      "Lamont ancient",
+      "Buchanan",
+      "Murray of Atholl"
+    ],
+    "grumble": [
+      "a turned ankle",
+      "a crosswind",
+      "a slipped grip",
+      "a soft run-up",
+      "a borrowed caber"
+    ]
+  },
+  "stats": {
+    "atoms": 18,
+    "numbered_clues": 17,
+    "kinds": {
+      "or": 3,
+      "not_both": 1,
+      "adjacent": 1,
+      "between": 3,
+      "if_then": 1,
+      "before": 2,
+      "immediately_before": 3,
+      "not_link": 3,
+      "arith": 1
+    },
+    "positives": 0,
+    "compounds": 5
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 6,
+    "max_technique": "trial",
+    "steps": 56,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 25,
+      "order": 22,
+      "disjunction": 1,
+      "trial": 5
+    },
+    "trial_eliminations": 5,
+    "unknown_cells": 20
+  }
+}

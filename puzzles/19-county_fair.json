@@ -1,0 +1,250 @@
+{
+  "pid": "a08194eea68e",
+  "title": "The Hollow Creek Pie Judging",
+  "theme": "county_fair",
+  "blurb": "The Hollow Creek county fair runs its pie judging with more ceremony than the state legislature.",
+  "profile": "moderate",
+  "rating": 4,
+  "score": 5.515,
+  "seed": 2026173025906,
+  "spec": {
+    "difficulty": "moderate",
+    "seed": 2026173025906,
+    "theme": "county_fair"
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "baker",
+    "entity_noun_plural": "bakers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth",
+          "fifth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place",
+        "verb": "places"
+      },
+      {
+        "name": "baker",
+        "label": "Baker",
+        "items": [
+          "Bramwell",
+          "Thaddeus",
+          "Odette",
+          "Winnie",
+          "Marigold"
+        ],
+        "ordered": false,
+        "noun": "baker",
+        "subject": true
+      },
+      {
+        "name": "county",
+        "label": "Home county",
+        "items": [
+          "Little Pell",
+          "Ardmore",
+          "Fenwick",
+          "Quarry Hill",
+          "Sweetwater"
+        ],
+        "ordered": false,
+        "noun": "county",
+        "verb": "comes from"
+      },
+      {
+        "name": "crust",
+        "label": "Crust",
+        "items": [
+          "a double crust",
+          "a crumb topping",
+          "a fluted rim",
+          "a cut-out star top",
+          "a braided edge"
+        ],
+        "ordered": false,
+        "noun": "crust",
+        "verb": "uses"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "crust:a crumb topping",
+          "b": "place:third"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "baker:Odette",
+          "b": "place:second"
+        },
+        {
+          "kind": "adjacent",
+          "a": "baker:Thaddeus",
+          "b": "place:second"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "county:Fenwick",
+          "b": "place:second"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "county:Sweetwater",
+          "b": "place:fourth"
+        },
+        {
+          "kind": "not_link",
+          "a": "baker:Thaddeus",
+          "b": "county:Sweetwater"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "place:fourth",
+          "b": "county:Quarry Hill"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "baker:Bramwell",
+          "b": "crust:a cut-out star top"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "county:Little Pell",
+          "b": "crust:a cut-out star top"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "crust:a double crust",
+          "b": "baker:Winnie"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "baker:Thaddeus",
+          "b": "crust:a double crust"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "county:Fenwick",
+          "b": "crust:a fluted rim"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth",
+      "fifth"
+    ],
+    "baker": [
+      "Thaddeus",
+      "Marigold",
+      "Odette",
+      "Bramwell",
+      "Winnie"
+    ],
+    "county": [
+      "Fenwick",
+      "Ardmore",
+      "Sweetwater",
+      "Little Pell",
+      "Quarry Hill"
+    ],
+    "crust": [
+      "a braided edge",
+      "a double crust",
+      "a crumb topping",
+      "a fluted rim",
+      "a cut-out star top"
+    ]
+  },
+  "stats": {
+    "atoms": 12,
+    "numbered_clues": 10,
+    "kinds": {
+      "link": 1,
+      "adjacent": 6,
+      "not_link": 2,
+      "before": 2,
+      "immediately_before": 1
+    },
+    "positives": 1,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 36,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 20,
+      "order": 13
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}

@@ -1,0 +1,360 @@
+{
+  "pid": "ef46a88409d6",
+  "title": "Field Day on Cedar Butte",
+  "theme": "hamradio",
+  "blurb": "A club field day spread over a week, one operator a night, and a generator that has its own opinions.",
+  "profile": "hard",
+  "rating": 6,
+  "score": 10.4962,
+  "seed": 2026173192205,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026173192205,
+    "theme": "hamradio"
+  },
+  "schema": {
+    "spine": "day",
+    "entity_noun": "operator",
+    "entity_noun_plural": "operators",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "day",
+        "label": "Night",
+        "items": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "ordered": true,
+        "noun": "night",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "day",
+        "verb": "operates on"
+      },
+      {
+        "name": "operator",
+        "label": "Operator",
+        "items": [
+          "Marcus",
+          "Ingrid",
+          "Lorna",
+          "Hank",
+          "Trish"
+        ],
+        "ordered": false,
+        "noun": "operator",
+        "subject": true
+      },
+      {
+        "name": "band",
+        "label": "Band",
+        "items": [
+          "15 meters",
+          "6 meters",
+          "80 meters",
+          "10 meters",
+          "20 meters"
+        ],
+        "ordered": false,
+        "noun": "band",
+        "verb": "works"
+      },
+      {
+        "name": "mode",
+        "label": "Mode",
+        "items": [
+          "RTTY",
+          "CW",
+          "AM",
+          "slow-scan television",
+          "SSB"
+        ],
+        "ordered": false,
+        "noun": "mode",
+        "verb": "operates"
+      },
+      {
+        "name": "trouble",
+        "label": "Trouble",
+        "items": [
+          "a snapped dipole leg",
+          "a dead battery",
+          "sixty-cycle hum",
+          "a static crash",
+          "a drifting VFO"
+        ],
+        "ordered": false,
+        "noun": "trouble",
+        "verb": "is defeated by"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "trouble:a static crash",
+          "b": "day:Thursday",
+          "c": "day:Tuesday"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "adjacent",
+            "a": "day:Thursday",
+            "b": "operator:Lorna"
+          },
+          "y": {
+            "kind": "immediately_before",
+            "a": "mode:CW",
+            "b": "day:Friday"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "mode:AM",
+          "b": "trouble:a snapped dipole leg"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "trouble:a snapped dipole leg",
+          "b": "day:Tuesday"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "day:Monday",
+          "b": "operator:Marcus",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "day:Wednesday",
+          "b": "mode:CW"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "band:15 meters",
+              "b": "day:Monday"
+            },
+            {
+              "kind": "immediately_before",
+              "a": "band:10 meters",
+              "b": "mode:slow-scan television"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "day:Wednesday",
+          "b": "trouble:a drifting VFO"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "band:10 meters",
+          "b": "operator:Ingrid",
+          "k": 3,
+          "rel": "eq"
+        },
+        {
+          "kind": "gap",
+          "a": "mode:SSB",
+          "b": "operator:Ingrid",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "operator:Trish",
+          "b": "trouble:a static crash",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "before",
+            "a": "band:80 meters",
+            "b": "mode:SSB"
+          },
+          "y": {
+            "kind": "not_link",
+            "a": "band:20 meters",
+            "b": "mode:RTTY"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "band:6 meters",
+          "b": "trouble:sixty-cycle hum"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "mode:SSB",
+          "b": "band:20 meters",
+          "c": "band:80 meters"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "adjacent",
+            "a": "band:15 meters",
+            "b": "operator:Ingrid"
+          },
+          "y": {
+            "kind": "gap",
+            "a": "mode:RTTY",
+            "b": "operator:Hank",
+            "k": 2,
+            "rel": "eq"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "operator:Trish",
+          "b": "trouble:sixty-cycle hum"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "day": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "operator": [
+      "Trish",
+      "Lorna",
+      "Hank",
+      "Marcus",
+      "Ingrid"
+    ],
+    "band": [
+      "20 meters",
+      "10 meters",
+      "6 meters",
+      "80 meters",
+      "15 meters"
+    ],
+    "mode": [
+      "RTTY",
+      "SSB",
+      "slow-scan television",
+      "CW",
+      "AM"
+    ],
+    "trouble": [
+      "a snapped dipole leg",
+      "sixty-cycle hum",
+      "a static crash",
+      "a drifting VFO",
+      "a dead battery"
+    ]
+  },
+  "stats": {
+    "atoms": 16,
+    "numbered_clues": 14,
+    "kinds": {
+      "between": 2,
+      "not_both": 3,
+      "not_link": 1,
+      "immediately_before": 2,
+      "gap": 4,
+      "or": 1,
+      "adjacent": 3
+    },
+    "positives": 0,
+    "compounds": 4
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 52,
+    "tier_counts": {
+      "direct": 1,
+      "bijection": 26,
+      "order": 21,
+      "disjunction": 4
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

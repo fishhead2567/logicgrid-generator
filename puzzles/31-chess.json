@@ -1,0 +1,322 @@
+{
+  "pid": "50633fd57c4b",
+  "title": "The Riverside Chess Club Ladder",
+  "theme": "chess",
+  "blurb": "The Riverside Chess Club ladder is recalculated monthly and disputed continuously.",
+  "profile": "hard",
+  "rating": 6,
+  "score": 9.9344,
+  "seed": 2026173120934,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026173120934,
+    "theme": "chess"
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "player",
+    "entity_noun_plural": "players",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth",
+          "fifth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place",
+        "verb": "places"
+      },
+      {
+        "name": "player",
+        "label": "Player",
+        "items": [
+          "Hannah",
+          "Birgitta",
+          "Olumide",
+          "Dermot",
+          "Casimir"
+        ],
+        "ordered": false,
+        "noun": "player",
+        "subject": true
+      },
+      {
+        "name": "opening",
+        "label": "Favourite opening",
+        "items": [
+          "the Grunfeld",
+          "the Dutch Defence",
+          "the London System",
+          "the Bird's Opening",
+          "the Catalan"
+        ],
+        "ordered": false,
+        "noun": "opening",
+        "verb": "favours"
+      },
+      {
+        "name": "clock",
+        "label": "Clock",
+        "items": [
+          "a hotel alarm clock",
+          "a wooden analog clock",
+          "a chipped BHB clock",
+          "no clock at all",
+          "a borrowed digital clock"
+        ],
+        "ordered": false,
+        "noun": "clock",
+        "verb": "uses"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "clock:a hotel alarm clock",
+          "b": "opening:the Grunfeld"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "opening:the Dutch Defence",
+          "b": "place:second",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "clock:a chipped BHB clock",
+              "b": "opening:the Dutch Defence"
+            },
+            {
+              "kind": "link",
+              "a": "opening:the London System",
+              "b": "place:third"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "clock:a wooden analog clock",
+          "b": "place:first",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "clock:a chipped BHB clock",
+              "b": "place:second"
+            },
+            {
+              "kind": "adjacent",
+              "a": "clock:a chipped BHB clock",
+              "b": "player:Olumide"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "clock:no clock at all",
+          "b": "place:first",
+          "same": false
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "player:Olumide",
+          "b": "opening:the Dutch Defence",
+          "c": "opening:the London System"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "clock:a wooden analog clock",
+          "b": "opening:the Bird's Opening"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "opening:the Bird's Opening",
+          "b": "player:Birgitta",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "clock:a wooden analog clock",
+          "b": "player:Hannah",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "opening:the Dutch Defence",
+              "b": "player:Dermot"
+            },
+            {
+              "kind": "before",
+              "a": "opening:the Bird's Opening",
+              "b": "player:Casimir"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "clock:a chipped BHB clock",
+          "b": "opening:the Catalan",
+          "same": false
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "adjacent",
+            "a": "opening:the Dutch Defence",
+            "b": "player:Dermot"
+          },
+          "y": {
+            "kind": "not_link",
+            "a": "opening:the Bird's Opening",
+            "b": "player:Dermot"
+          }
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth",
+      "fifth"
+    ],
+    "player": [
+      "Hannah",
+      "Dermot",
+      "Olumide",
+      "Birgitta",
+      "Casimir"
+    ],
+    "opening": [
+      "the London System",
+      "the Bird's Opening",
+      "the Catalan",
+      "the Dutch Defence",
+      "the Grunfeld"
+    ],
+    "clock": [
+      "a borrowed digital clock",
+      "a chipped BHB clock",
+      "a wooden analog clock",
+      "no clock at all",
+      "a hotel alarm clock"
+    ]
+  },
+  "stats": {
+    "atoms": 13,
+    "numbered_clues": 13,
+    "kinds": {
+      "link": 1,
+      "gap": 4,
+      "or": 3,
+      "parity": 2,
+      "between": 1,
+      "not_link": 1,
+      "not_both": 1
+    },
+    "positives": 1,
+    "compounds": 4
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 41,
+    "tier_counts": {
+      "direct": 5,
+      "bijection": 20,
+      "order": 11,
+      "disjunction": 5
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}

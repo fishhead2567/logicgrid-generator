@@ -1,0 +1,363 @@
+{
+  "pid": "deefc147c273",
+  "title": "The Build Server Contest",
+  "theme": "build_server",
+  "blurb": "A creative-mode server, one weekend, and a block limit everybody swore they would stay under.",
+  "profile": "hard",
+  "rating": 6,
+  "score": 10.0883,
+  "seed": 2026173208043,
+  "spec": {
+    "difficulty": "hard",
+    "seed": 2026173208043,
+    "theme": "build_server"
+  },
+  "schema": {
+    "spine": "points",
+    "entity_noun": "builder",
+    "entity_noun_plural": "builders",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "points",
+        "label": "Score",
+        "items": [
+          "61 points",
+          "64 points",
+          "67 points",
+          "70 points",
+          "73 points"
+        ],
+        "ordered": true,
+        "values": [
+          61,
+          64,
+          67,
+          70,
+          73
+        ],
+        "unit_suffix": " points",
+        "noun": "score",
+        "cmp_less": "lower",
+        "cmp_more": "higher",
+        "step_noun": "score step",
+        "verb": "scores"
+      },
+      {
+        "name": "builder",
+        "label": "Builder",
+        "items": [
+          "Oscar Pell",
+          "Thandiwe",
+          "Milo",
+          "Rafferty",
+          "Keiko"
+        ],
+        "ordered": false,
+        "noun": "builder",
+        "subject": true
+      },
+      {
+        "name": "build",
+        "label": "Build",
+        "items": [
+          "a clock tower",
+          "a desert bazaar",
+          "a floating island",
+          "a mountain railway",
+          "a treetop village"
+        ],
+        "ordered": false,
+        "noun": "build",
+        "verb": "builds"
+      },
+      {
+        "name": "biome",
+        "label": "Biome",
+        "items": [
+          "a snowy tundra",
+          "a swamp",
+          "a cherry grove",
+          "a jungle",
+          "a mushroom field"
+        ],
+        "ordered": false,
+        "noun": "biome",
+        "verb": "builds in"
+      },
+      {
+        "name": "material",
+        "label": "Material",
+        "items": [
+          "dark oak",
+          "copper",
+          "packed ice",
+          "sea lantern",
+          "quartz"
+        ],
+        "ordered": false,
+        "noun": "material",
+        "verb": "builds it from"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "biome:a swamp",
+          "b": "builder:Keiko",
+          "c": "builder:Thandiwe"
+        },
+        {
+          "kind": "link",
+          "a": "build:a desert bazaar",
+          "b": "builder:Thandiwe"
+        },
+        {
+          "kind": "not_link",
+          "a": "builder:Keiko",
+          "b": "material:dark oak"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "material:sea lantern",
+          "b": "points:61 points",
+          "c": "points:73 points"
+        },
+        {
+          "kind": "before",
+          "a": "points:61 points",
+          "b": "material:copper"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_both",
+          "x": {
+            "kind": "adjacent",
+            "a": "biome:a cherry grove",
+            "b": "points:70 points"
+          },
+          "y": {
+            "kind": "not_link",
+            "a": "builder:Keiko",
+            "b": "points:64 points"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "biome:a swamp",
+          "b": "points:70 points"
+        },
+        {
+          "kind": "adjacent",
+          "a": "builder:Oscar Pell",
+          "b": "points:70 points"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "biome:a mushroom field",
+          "b": "points:73 points"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "build:a mountain railway",
+          "b": "points:70 points"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "points:70 points",
+              "b": "builder:Thandiwe"
+            },
+            {
+              "kind": "link",
+              "a": "builder:Keiko",
+              "b": "points:70 points"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "biome:a mushroom field",
+          "b": "material:quartz"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "build:a clock tower",
+          "b": "material:dark oak"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "biome:a jungle",
+          "b": "build:a mountain railway"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "biome:a snowy tundra",
+          "b": "builder:Milo",
+          "c": "builder:Thandiwe"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "build:a clock tower",
+          "b": "builder:Rafferty"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "not_link",
+              "a": "build:a floating island",
+              "b": "builder:Rafferty"
+            },
+            {
+              "kind": "not_link",
+              "a": "builder:Milo",
+              "b": "material:quartz"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "biome:a swamp",
+          "b": "material:packed ice"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "points": [
+      "61 points",
+      "64 points",
+      "67 points",
+      "70 points",
+      "73 points"
+    ],
+    "builder": [
+      "Milo",
+      "Keiko",
+      "Oscar Pell",
+      "Rafferty",
+      "Thandiwe"
+    ],
+    "build": [
+      "a floating island",
+      "a mountain railway",
+      "a clock tower",
+      "a treetop village",
+      "a desert bazaar"
+    ],
+    "biome": [
+      "a jungle",
+      "a mushroom field",
+      "a swamp",
+      "a snowy tundra",
+      "a cherry grove"
+    ],
+    "material": [
+      "quartz",
+      "packed ice",
+      "sea lantern",
+      "dark oak",
+      "copper"
+    ]
+  },
+  "stats": {
+    "atoms": 18,
+    "numbered_clues": 14,
+    "kinds": {
+      "between": 3,
+      "link": 1,
+      "not_link": 3,
+      "before": 2,
+      "not_both": 1,
+      "adjacent": 6,
+      "or": 2
+    },
+    "positives": 1,
+    "compounds": 3
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 52,
+    "tier_counts": {
+      "direct": 4,
+      "bijection": 27,
+      "order": 18,
+      "disjunction": 3
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

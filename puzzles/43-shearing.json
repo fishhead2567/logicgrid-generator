@@ -1,0 +1,338 @@
+{
+  "pid": "5f590592a9bd",
+  "title": "The Blades Final at Waihopai",
+  "theme": "shearing",
+  "blurb": "Down the board, judged on the floor as much as on the clock, and the wool classer is taking notes.",
+  "profile": "expert",
+  "rating": 6,
+  "score": 10.8158,
+  "seed": 2026173215962,
+  "spec": {
+    "difficulty": "expert",
+    "seed": 2026173215962,
+    "theme": "shearing"
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "shearer",
+    "entity_noun_plural": "shearers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth",
+          "fifth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place",
+        "verb": "places"
+      },
+      {
+        "name": "shearer",
+        "label": "Shearer",
+        "items": [
+          "Manaia",
+          "Bevan Toft",
+          "Deirdre Pollok",
+          "Shona Garrick",
+          "Rangi"
+        ],
+        "ordered": false,
+        "noun": "shearer",
+        "subject": true
+      },
+      {
+        "name": "breed",
+        "label": "Breed",
+        "items": [
+          "a Coopworth",
+          "a Merino",
+          "a Corriedale",
+          "a Romney",
+          "a Polwarth"
+        ],
+        "ordered": false,
+        "noun": "breed",
+        "verb": "shears"
+      },
+      {
+        "name": "handpiece",
+        "label": "Handpiece",
+        "items": [
+          "Lister blades",
+          "a wide comb",
+          "a borrowed handpiece",
+          "an old Sunbeam",
+          "a narrow comb"
+        ],
+        "ordered": false,
+        "noun": "handpiece",
+        "verb": "uses"
+      },
+      {
+        "name": "penalty",
+        "label": "Penalty",
+        "items": [
+          "a slow pen",
+          "a dropped sheep",
+          "tufts on the britch",
+          "second cuts",
+          "a skin nick"
+        ],
+        "ordered": false,
+        "noun": "penalty",
+        "verb": "is docked for"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "breed:a Polwarth",
+          "b": "place:second",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "place:second",
+              "b": "penalty:a dropped sheep"
+            },
+            {
+              "kind": "parity",
+              "a": "handpiece:an old Sunbeam",
+              "b": "penalty:a skin nick",
+              "same": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "place:fifth",
+              "b": "shearer:Rangi"
+            },
+            {
+              "kind": "parity",
+              "a": "breed:a Corriedale",
+              "b": "shearer:Shona Garrick",
+              "same": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "penalty:tufts on the britch",
+          "b": "place:fifth",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "gap",
+              "a": "breed:a Romney",
+              "b": "shearer:Rangi",
+              "k": 3,
+              "rel": "eq"
+            },
+            {
+              "kind": "link",
+              "a": "breed:a Polwarth",
+              "b": "place:third"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "penalty:second cuts",
+          "b": "handpiece:a narrow comb"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "penalty:a slow pen",
+          "b": "shearer:Deirdre Pollok"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "breed:a Merino",
+          "b": "penalty:a skin nick",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "shearer:Manaia",
+          "b": "handpiece:a borrowed handpiece",
+          "c": "handpiece:a narrow comb"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "breed:a Coopworth",
+          "b": "penalty:a skin nick",
+          "k": 4,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "breed:a Merino",
+          "b": "penalty:a slow pen"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not",
+          "inner": {
+            "kind": "adjacent",
+            "a": "handpiece:an old Sunbeam",
+            "b": "penalty:a skin nick"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "breed:a Merino",
+          "b": "handpiece:a wide comb"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth",
+      "fifth"
+    ],
+    "shearer": [
+      "Rangi",
+      "Deirdre Pollok",
+      "Manaia",
+      "Shona Garrick",
+      "Bevan Toft"
+    ],
+    "breed": [
+      "a Coopworth",
+      "a Merino",
+      "a Corriedale",
+      "a Romney",
+      "a Polwarth"
+    ],
+    "handpiece": [
+      "a borrowed handpiece",
+      "an old Sunbeam",
+      "a wide comb",
+      "Lister blades",
+      "a narrow comb"
+    ],
+    "penalty": [
+      "a slow pen",
+      "a dropped sheep",
+      "tufts on the britch",
+      "second cuts",
+      "a skin nick"
+    ]
+  },
+  "stats": {
+    "atoms": 13,
+    "numbered_clues": 13,
+    "kinds": {
+      "gap": 4,
+      "or": 3,
+      "immediately_before": 2,
+      "adjacent": 2,
+      "between": 1,
+      "not": 1
+    },
+    "positives": 0,
+    "compounds": 4
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 4,
+    "max_technique": "disjunction",
+    "steps": 62,
+    "tier_counts": {
+      "bijection": 29,
+      "order": 27,
+      "disjunction": 6
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

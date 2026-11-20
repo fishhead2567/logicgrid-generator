@@ -1,0 +1,264 @@
+{
+  "pid": "f4c874a2d202",
+  "title": "The Loft Layout Dispute",
+  "theme": "train",
+  "blurb": "The members of the model railway society share one loft layout and a deep well of resentment.",
+  "profile": "moderate",
+  "rating": 3,
+  "score": 5.355,
+  "seed": 2026173081339,
+  "spec": {
+    "difficulty": "moderate",
+    "seed": 2026173081339,
+    "theme": "train"
+  },
+  "schema": {
+    "spine": "shelf",
+    "entity_noun": "modeller",
+    "entity_noun_plural": "modellers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "shelf",
+        "label": "Shelf",
+        "items": [
+          "the bottom shelf",
+          "the second shelf",
+          "the third shelf",
+          "the fourth shelf",
+          "the fifth shelf"
+        ],
+        "ordered": true,
+        "noun": "shelf",
+        "cmp_less": "lower",
+        "cmp_more": "higher",
+        "step_noun": "shelf",
+        "verb": "stores on"
+      },
+      {
+        "name": "modeller",
+        "label": "Modeller",
+        "items": [
+          "Gilbert",
+          "Esperanza",
+          "Rosamond",
+          "Lavinia",
+          "Abiodun"
+        ],
+        "ordered": false,
+        "noun": "modeller",
+        "subject": true
+      },
+      {
+        "name": "stock",
+        "label": "Rolling stock",
+        "items": [
+          "a kit-built brake van",
+          "a battered autocoach",
+          "a rake of milk tankers",
+          "a brass pannier tank",
+          "a gleaming Pacific"
+        ],
+        "ordered": false,
+        "noun": "stock",
+        "verb": "owns"
+      },
+      {
+        "name": "grievance",
+        "label": "Grievance",
+        "items": [
+          "somebody else's couplings",
+          "the choice of era",
+          "the position of the fiddle yard",
+          "the lighting",
+          "the timetable"
+        ],
+        "ordered": false,
+        "noun": "grievance",
+        "verb": "complains about"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "grievance:the lighting",
+          "b": "shelf:the third shelf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "grievance:the choice of era",
+          "b": "shelf:the fourth shelf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "shelf:the third shelf",
+          "b": "grievance:somebody else's couplings",
+          "c": "modeller:Lavinia"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "shelf:the fifth shelf",
+          "b": "stock:a kit-built brake van",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "modeller:Esperanza",
+          "b": "shelf:the fifth shelf"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "shelf:the second shelf",
+          "b": "stock:a battered autocoach",
+          "c": "stock:a rake of milk tankers"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "grievance:the position of the fiddle yard",
+          "b": "modeller:Rosamond",
+          "k": 2,
+          "rel": "eq"
+        },
+        {
+          "kind": "not_link",
+          "a": "modeller:Rosamond",
+          "b": "stock:a gleaming Pacific"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "grievance:the position of the fiddle yard",
+          "b": "modeller:Gilbert"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "grievance:the timetable",
+          "b": "stock:a battered autocoach",
+          "k": 4,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "modeller:Abiodun",
+          "b": "stock:a rake of milk tankers"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "grievance:the timetable",
+          "b": "stock:a kit-built brake van"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "shelf": [
+      "the bottom shelf",
+      "the second shelf",
+      "the third shelf",
+      "the fourth shelf",
+      "the fifth shelf"
+    ],
+    "modeller": [
+      "Lavinia",
+      "Abiodun",
+      "Esperanza",
+      "Rosamond",
+      "Gilbert"
+    ],
+    "stock": [
+      "a rake of milk tankers",
+      "a kit-built brake van",
+      "a gleaming Pacific",
+      "a brass pannier tank",
+      "a battered autocoach"
+    ],
+    "grievance": [
+      "the timetable",
+      "the position of the fiddle yard",
+      "the lighting",
+      "the choice of era",
+      "somebody else's couplings"
+    ]
+  },
+  "stats": {
+    "atoms": 12,
+    "numbered_clues": 11,
+    "kinds": {
+      "link": 2,
+      "between": 2,
+      "gap": 3,
+      "before": 2,
+      "not_link": 1,
+      "adjacent": 2
+    },
+    "positives": 2,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 33,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 15,
+      "order": 15
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 15
+  }
+}

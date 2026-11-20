@@ -1,0 +1,332 @@
+{
+  "pid": "71e760bf6828",
+  "title": "The Tuesday Pickleball Ladder",
+  "theme": "pickleball",
+  "blurb": "The rec center runs a pickleball ladder on Tuesdays. Courts go by start time, and the sign-up sheet gets rewritten more than once.",
+  "profile": "expert",
+  "rating": 7,
+  "score": 15.1415,
+  "seed": 2026173271395,
+  "spec": {
+    "difficulty": "expert",
+    "seed": 2026173271395,
+    "theme": "pickleball"
+  },
+  "schema": {
+    "spine": "time",
+    "entity_noun": "player",
+    "entity_noun_plural": "players",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "time",
+        "label": "Start time",
+        "items": [
+          "8am",
+          "9am",
+          "10am",
+          "11am",
+          "noon"
+        ],
+        "ordered": true,
+        "noun": "start time",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "hour",
+        "verb": "plays at"
+      },
+      {
+        "name": "player",
+        "label": "Player",
+        "items": [
+          "Yolanda",
+          "Pete Ng",
+          "Ramesh",
+          "Arlene",
+          "Buzz Kovacs"
+        ],
+        "ordered": false,
+        "noun": "player",
+        "subject": true
+      },
+      {
+        "name": "paddle",
+        "label": "Paddle",
+        "items": [
+          "an oversize paddle",
+          "a bright orange paddle",
+          "a carbon-fiber paddle",
+          "a graphite paddle",
+          "a wooden loaner"
+        ],
+        "ordered": false,
+        "noun": "paddle",
+        "verb": "plays with"
+      },
+      {
+        "name": "serve",
+        "label": "Serve",
+        "items": [
+          "a high lob",
+          "a lefty slice",
+          "the same serve every time",
+          "a flat drive",
+          "a spin serve"
+        ],
+        "ordered": false,
+        "noun": "serve",
+        "verb": "serves with"
+      },
+      {
+        "name": "gripe",
+        "label": "Gripe",
+        "items": [
+          "a bad knee",
+          "a late night",
+          "the noisy court next door",
+          "nobody at all",
+          "a dead ball"
+        ],
+        "ordered": false,
+        "noun": "gripe",
+        "verb": "blames"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "player:Buzz Kovacs",
+          "b": "time:11am",
+          "c": "time:8am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "paddle:an oversize paddle",
+          "b": "time:9am"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "paddle:a wooden loaner",
+          "b": "time:9am",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "time:10am",
+          "b": "gripe:a dead ball"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "time:10am",
+          "b": "paddle:a carbon-fiber paddle",
+          "c": "serve:a spin serve"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "serve:a flat drive",
+          "b": "paddle:a graphite paddle"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "not_link",
+              "a": "gripe:a late night",
+              "b": "paddle:a wooden loaner"
+            },
+            {
+              "kind": "parity",
+              "a": "paddle:an oversize paddle",
+              "b": "player:Ramesh",
+              "same": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "paddle:a graphite paddle",
+              "b": "gripe:the noisy court next door"
+            },
+            {
+              "kind": "gap",
+              "a": "gripe:nobody at all",
+              "b": "paddle:an oversize paddle",
+              "k": 2,
+              "rel": "eq"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "paddle:a graphite paddle",
+          "b": "serve:a lefty slice",
+          "same": true
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "paddle:a carbon-fiber paddle",
+              "b": "serve:a spin serve"
+            },
+            {
+              "kind": "link",
+              "a": "paddle:a graphite paddle",
+              "b": "player:Yolanda"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "player:Pete Ng",
+          "b": "gripe:a late night"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "gripe:the noisy court next door",
+          "b": "serve:a lefty slice",
+          "c": "serve:the same serve every time"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "serve:the same serve every time",
+          "b": "gripe:a late night"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "time": [
+      "8am",
+      "9am",
+      "10am",
+      "11am",
+      "noon"
+    ],
+    "player": [
+      "Pete Ng",
+      "Buzz Kovacs",
+      "Yolanda",
+      "Ramesh",
+      "Arlene"
+    ],
+    "paddle": [
+      "an oversize paddle",
+      "a carbon-fiber paddle",
+      "a graphite paddle",
+      "a bright orange paddle",
+      "a wooden loaner"
+    ],
+    "serve": [
+      "a lefty slice",
+      "a flat drive",
+      "a high lob",
+      "the same serve every time",
+      "a spin serve"
+    ],
+    "gripe": [
+      "a bad knee",
+      "the noisy court next door",
+      "nobody at all",
+      "a dead ball",
+      "a late night"
+    ]
+  },
+  "stats": {
+    "atoms": 13,
+    "numbered_clues": 13,
+    "kinds": {
+      "between": 3,
+      "before": 2,
+      "gap": 1,
+      "immediately_before": 3,
+      "or": 3,
+      "parity": 1
+    },
+    "positives": 0,
+    "compounds": 3
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 6,
+    "max_technique": "trial",
+    "steps": 50,
+    "tier_counts": {
+      "bijection": 25,
+      "order": 21,
+      "disjunction": 3,
+      "trial": 1
+    },
+    "trial_eliminations": 1,
+    "unknown_cells": 20
+  }
+}

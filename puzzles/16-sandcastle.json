@@ -1,0 +1,185 @@
+{
+  "pid": "8566d97f1849",
+  "title": "The Cannon Beach Sandcastle Open",
+  "theme": "sandcastle",
+  "blurb": "The Cannon Beach Open is judged at four o'clock, whatever the tide is doing.",
+  "profile": "easy",
+  "rating": 3,
+  "score": 4.62,
+  "seed": 2026173002149,
+  "spec": {
+    "difficulty": "easy",
+    "seed": 2026173002149,
+    "theme": "sandcastle"
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "builder",
+    "entity_noun_plural": "builders",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth",
+          "fifth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place",
+        "verb": "places"
+      },
+      {
+        "name": "builder",
+        "label": "Builder",
+        "items": [
+          "Hartley",
+          "Harper",
+          "Bridget",
+          "Khalid",
+          "Wes"
+        ],
+        "ordered": false,
+        "noun": "builder",
+        "subject": true
+      },
+      {
+        "name": "tool",
+        "label": "Chief tool",
+        "items": [
+          "a bucket with no handle",
+          "a paint scraper",
+          "a pastry brush",
+          "a soup spoon",
+          "a cake server"
+        ],
+        "ordered": false,
+        "noun": "tool",
+        "verb": "works with"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "builder:Harper",
+          "b": "place:fifth"
+        },
+        {
+          "kind": "link",
+          "a": "place:fifth",
+          "b": "tool:a soup spoon"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "builder:Hartley",
+          "b": "place:first",
+          "c": "place:fourth"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "tool:a paint scraper",
+          "b": "place:second"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "builder:Khalid",
+          "b": "tool:a cake server",
+          "c": "tool:a paint scraper"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "tool:a bucket with no handle",
+          "b": "builder:Wes"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "builder:Khalid",
+          "b": "tool:a bucket with no handle"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth",
+      "fifth"
+    ],
+    "builder": [
+      "Bridget",
+      "Khalid",
+      "Hartley",
+      "Wes",
+      "Harper"
+    ],
+    "tool": [
+      "a paint scraper",
+      "a pastry brush",
+      "a bucket with no handle",
+      "a cake server",
+      "a soup spoon"
+    ]
+  },
+  "stats": {
+    "atoms": 7,
+    "numbered_clues": 6,
+    "kinds": {
+      "link": 2,
+      "between": 2,
+      "immediately_before": 2,
+      "before": 1
+    },
+    "positives": 2,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 27,
+    "tier_counts": {
+      "direct": 2,
+      "bijection": 14,
+      "order": 11
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 10
+  }
+}

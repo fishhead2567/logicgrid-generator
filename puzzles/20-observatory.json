@@ -1,0 +1,326 @@
+{
+  "pid": "2db0c99d717a",
+  "title": "A Bad Week at the Pinhole Observatory",
+  "theme": "observatory",
+  "blurb": "The Pinhole Amateur Astronomical Society has one good telescope and a great many strong opinions about who may point it where.",
+  "profile": "moderate",
+  "rating": 4,
+  "score": 6.13,
+  "seed": 2026173033825,
+  "spec": {
+    "difficulty": "moderate",
+    "seed": 2026173033825,
+    "theme": "observatory"
+  },
+  "schema": {
+    "spine": "day",
+    "entity_noun": "astronomer",
+    "entity_noun_plural": "astronomers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "day",
+        "label": "Day",
+        "items": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "ordered": true,
+        "noun": "day",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "day",
+        "verb": "observes on"
+      },
+      {
+        "name": "astronomer",
+        "label": "Astronomer",
+        "items": [
+          "Beatrix",
+          "Sunniva",
+          "Ptolemy",
+          "Cornelius",
+          "Dmitri"
+        ],
+        "ordered": false,
+        "noun": "astronomer",
+        "subject": true
+      },
+      {
+        "name": "target",
+        "label": "Observed",
+        "items": [
+          "the Andromeda galaxy",
+          "a variable star",
+          "the Crab Nebula",
+          "a comet fragment",
+          "Saturn's rings"
+        ],
+        "ordered": false,
+        "noun": "target",
+        "verb": "studies"
+      },
+      {
+        "name": "mishap",
+        "label": "Mishap",
+        "items": [
+          "a neighbour's floodlight",
+          "a flat battery",
+          "a seized mount",
+          "an unexpected cloud bank",
+          "a dewed-up eyepiece"
+        ],
+        "ordered": false,
+        "noun": "mishap",
+        "verb": "is undone by"
+      },
+      {
+        "name": "snack",
+        "label": "Thermos contents",
+        "items": [
+          "barley water",
+          "black coffee",
+          "stewed tea",
+          "mulled cider",
+          "oxtail soup"
+        ],
+        "ordered": false,
+        "noun": "thermos",
+        "verb": "brings"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "link",
+          "a": "day:Friday",
+          "b": "snack:barley water"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "day:Tuesday",
+          "b": "snack:oxtail soup",
+          "c": "snack:stewed tea"
+        },
+        {
+          "kind": "between",
+          "a": "day:Tuesday",
+          "b": "astronomer:Ptolemy",
+          "c": "astronomer:Sunniva"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "day:Wednesday",
+          "b": "mishap:a flat battery"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "day:Wednesday",
+          "b": "target:the Andromeda galaxy"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "day:Tuesday",
+          "b": "mishap:a seized mount"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "day:Tuesday",
+          "b": "mishap:a dewed-up eyepiece",
+          "c": "mishap:a flat battery"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "day:Monday",
+          "b": "target:the Crab Nebula"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "snack:oxtail soup",
+          "b": "astronomer:Dmitri"
+        },
+        {
+          "kind": "between",
+          "a": "day:Thursday",
+          "b": "astronomer:Beatrix",
+          "c": "astronomer:Dmitri"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "mishap:an unexpected cloud bank",
+          "b": "snack:oxtail soup"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "astronomer:Sunniva",
+          "b": "target:Saturn's rings"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "mishap:a neighbour's floodlight",
+          "b": "astronomer:Beatrix"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "astronomer:Ptolemy",
+          "b": "snack:oxtail soup"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "mishap:a neighbour's floodlight",
+          "b": "target:a comet fragment"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "snack:black coffee",
+          "b": "target:the Andromeda galaxy"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "snack:oxtail soup",
+          "b": "target:a comet fragment"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "day": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "astronomer": [
+      "Ptolemy",
+      "Cornelius",
+      "Beatrix",
+      "Sunniva",
+      "Dmitri"
+    ],
+    "target": [
+      "a variable star",
+      "the Crab Nebula",
+      "a comet fragment",
+      "the Andromeda galaxy",
+      "Saturn's rings"
+    ],
+    "mishap": [
+      "a dewed-up eyepiece",
+      "a neighbour's floodlight",
+      "a seized mount",
+      "a flat battery",
+      "an unexpected cloud bank"
+    ],
+    "snack": [
+      "stewed tea",
+      "mulled cider",
+      "black coffee",
+      "oxtail soup",
+      "barley water"
+    ]
+  },
+  "stats": {
+    "atoms": 17,
+    "numbered_clues": 15,
+    "kinds": {
+      "link": 1,
+      "between": 4,
+      "before": 2,
+      "immediately_before": 2,
+      "adjacent": 6,
+      "not_link": 2
+    },
+    "positives": 1,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 60,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 23,
+      "order": 34
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 20
+  }
+}

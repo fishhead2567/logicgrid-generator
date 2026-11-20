@@ -1,0 +1,392 @@
+{
+  "pid": "5b4662f6245d",
+  "title": "The Foragers of Thorn Bottom",
+  "theme": "mushroom",
+  "blurb": "The Thorn Bottom foraging club keeps meticulous records, chiefly so that blame can be apportioned later.",
+  "profile": "expert",
+  "rating": 7,
+  "score": 16.4264,
+  "seed": 2026173231800,
+  "spec": {
+    "difficulty": "expert",
+    "seed": 2026173231800,
+    "theme": "mushroom"
+  },
+  "schema": {
+    "spine": "day",
+    "entity_noun": "forager",
+    "entity_noun_plural": "foragers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "day",
+        "label": "Day",
+        "items": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "ordered": true,
+        "noun": "day",
+        "cmp_less": "earlier",
+        "cmp_more": "later",
+        "step_noun": "day",
+        "verb": "forages on"
+      },
+      {
+        "name": "forager",
+        "label": "Forager",
+        "items": [
+          "Ramiro",
+          "Tobias",
+          "Ottokar",
+          "Solomon",
+          "Eilish",
+          "Guinevere"
+        ],
+        "ordered": false,
+        "noun": "forager",
+        "subject": true
+      },
+      {
+        "name": "find",
+        "label": "Find",
+        "items": [
+          "a cauliflower fungus",
+          "a chicken of the woods",
+          "a saffron milk cap",
+          "a hen of the woods",
+          "a horn of plenty",
+          "a penny bun"
+        ],
+        "ordered": false,
+        "noun": "find",
+        "verb": "finds"
+      },
+      {
+        "name": "wood",
+        "label": "Wood",
+        "items": [
+          "Nettlebed",
+          "the Old Deer Park",
+          "Hangman's Copse",
+          "the Larches",
+          "Scrag End",
+          "Bell Wood"
+        ],
+        "ordered": false,
+        "noun": "wood",
+        "verb": "searches"
+      },
+      {
+        "name": "basket",
+        "label": "Basket",
+        "items": [
+          "a wooden box",
+          "a string bag",
+          "a wicker trug",
+          "an upturned hat",
+          "a willow creel",
+          "a tin pail"
+        ],
+        "ordered": false,
+        "noun": "basket",
+        "verb": "carries"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "day:Saturday",
+          "b": "find:a cauliflower fungus",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "day:Monday",
+          "b": "forager:Solomon"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "adjacent",
+            "a": "day:Wednesday",
+            "b": "forager:Guinevere"
+          },
+          "y": {
+            "kind": "adjacent",
+            "a": "basket:an upturned hat",
+            "b": "forager:Eilish"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "wood:the Larches",
+          "b": "day:Friday",
+          "c": "forager:Tobias"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "day:Friday",
+          "b": "wood:Nettlebed",
+          "same": true
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "day:Saturday",
+          "b": "find:a saffron milk cap",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "basket:a wicker trug",
+          "b": "find:a horn of plenty"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "forager:Ottokar",
+          "b": "wood:the Old Deer Park"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "link",
+            "a": "basket:a wicker trug",
+            "b": "wood:Hangman's Copse"
+          },
+          "y": {
+            "kind": "before",
+            "a": "wood:Scrag End",
+            "b": "basket:a string bag"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "wood:the Old Deer Park",
+          "b": "basket:a willow creel"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "not_link",
+            "a": "forager:Ottokar",
+            "b": "wood:Nettlebed"
+          },
+          "y": {
+            "kind": "link",
+            "a": "forager:Ramiro",
+            "b": "wood:Nettlebed"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "basket:a string bag",
+          "b": "wood:Bell Wood"
+        },
+        {
+          "kind": "immediately_before",
+          "a": "find:a penny bun",
+          "b": "wood:Bell Wood"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "forager:Eilish",
+          "b": "wood:Bell Wood"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "find:a saffron milk cap",
+          "b": "wood:Scrag End"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "forager:Eilish",
+              "b": "wood:Scrag End"
+            },
+            {
+              "kind": "before",
+              "a": "forager:Guinevere",
+              "b": "basket:a tin pail"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "basket:a string bag",
+          "b": "forager:Eilish"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "find:a chicken of the woods",
+          "b": "forager:Ottokar"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "day": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
+    "forager": [
+      "Tobias",
+      "Solomon",
+      "Ottokar",
+      "Guinevere",
+      "Eilish",
+      "Ramiro"
+    ],
+    "find": [
+      "a horn of plenty",
+      "a chicken of the woods",
+      "a cauliflower fungus",
+      "a saffron milk cap",
+      "a penny bun",
+      "a hen of the woods"
+    ],
+    "wood": [
+      "Hangman's Copse",
+      "the Old Deer Park",
+      "Nettlebed",
+      "the Larches",
+      "Scrag End",
+      "Bell Wood"
+    ],
+    "basket": [
+      "a wooden box",
+      "a wicker trug",
+      "a willow creel",
+      "a string bag",
+      "a tin pail",
+      "an upturned hat"
+    ]
+  },
+  "stats": {
+    "atoms": 18,
+    "numbered_clues": 17,
+    "kinds": {
+      "gap": 2,
+      "adjacent": 6,
+      "if_then": 3,
+      "between": 1,
+      "parity": 1,
+      "before": 2,
+      "not_link": 1,
+      "immediately_before": 1,
+      "or": 1
+    },
+    "positives": 0,
+    "compounds": 4
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 6,
+    "max_technique": "trial",
+    "steps": 76,
+    "tier_counts": {
+      "direct": 1,
+      "bijection": 40,
+      "order": 25,
+      "disjunction": 9,
+      "trial": 1
+    },
+    "trial_eliminations": 1,
+    "unknown_cells": 24
+  }
+}
