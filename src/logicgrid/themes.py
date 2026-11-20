@@ -490,25 +490,25 @@ THEMES: tuple[Theme, ...] = (
     ),
     Theme(
         slug="balloon",
-        title="The Thistledown Balloon Ascent",
+        title="The Mesa Verde Balloon Ascent",
         entity_noun="pilot",
         entity_noun_plural="pilots",
         blurb=(
-            "The Thistledown Ascent is less a race than a slow argument conducted "
+            "The Mesa Verde Ascent is less a race than a slow argument conducted "
             "at two thousand feet."
         ),
         spine=MORNINGS,
         spine_verb="launches at",
         axes=(
-            _actor("pilot", "Pilot", "pilot", "Isolde", "Grover", "Anneliese",
-                  "Montague", "Delphine", "Horatio", "Rosalind"),
+            _actor("pilot", "Pilot", "pilot", "Shawna", "Grover", "Annika",
+                  "Monty", "Delia", "Rafael", "Rosa"),
             _axis("envelope", "Envelope", "envelope", "flies", "the striped envelope",
                   "the saffron envelope", "the kingfisher envelope",
                   "the patchwork envelope", "the oxblood envelope",
                   "the silver envelope", "the moss-green envelope"),
-            _axis("landing", "Landed at", "landing site", "comes down in", "a cricket pitch",
-                  "a flooded quarry", "a cabbage field", "a caravan park",
-                  "a railway siding", "a golf course bunker", "a reservoir bank"),
+            _axis("landing", "Landed at", "landing site", "comes down in", "a little-league outfield",
+                  "a flooded quarry", "a cabbage field", "an RV park",
+                  "a rail siding", "a golf course bunker", "a reservoir bank"),
             _axis("ballast", "Ballast", "ballast", "carries", "sandbags", "pea gravel",
                   "bottled water", "lead shot", "rock salt", "iron filings",
                   "dried beans"),
@@ -659,7 +659,7 @@ THEMES: tuple[Theme, ...] = (
                   "an anniversary clock"),
             _axis("owner", "Owner", "owner", "belongs to", "Ms Abernathy", "Dr Vasquez",
                   "Father Brennan", "Mrs Oyelaran", "Captain Mott",
-                  "Miss Trevelyan", "Mr Dziedzic"),
+                  "Ms Trevino", "Mr Dziedzic"),
             _axis("fault", "Fault", "fault", "suffers from", "a snapped mainspring",
                   "a worn escape wheel", "a bent pendulum rod",
                   "a seized fusee", "a cracked suspension spring",
@@ -848,28 +848,28 @@ THEMES: tuple[Theme, ...] = (
     ),
     Theme(
         slug="chess",
-        title="The Ravelston Chess Club Ladder",
+        title="The Riverside Chess Club Ladder",
         entity_noun="player",
         entity_noun_plural="players",
         blurb=(
-            "The Ravelston Chess Club ladder is recalculated monthly and disputed "
+            "The Riverside Chess Club ladder is recalculated monthly and disputed "
             "continuously."
         ),
         spine=PLACINGS,
         spine_verb="places",
         axes=(
             _actor("player", "Player", "player", "Yevgenia", "Dermot", "Adaeze",
-                  "Casimir", "Birgitta", "Olumide", "Hieronyma"),
+                  "Casimir", "Birgitta", "Olumide", "Hannah"),
             _axis("opening", "Favourite opening", "opening", "favours", "the Dutch Defence",
                   "the Catalan", "the Vienna Game", "the Scandinavian",
                   "the Grunfeld", "the London System", "the Bird's Opening"),
-            _axis("clock", "Clock", "clock", "uses", "a wooden analogue clock",
+            _axis("clock", "Clock", "clock", "uses", "a wooden analog clock",
                   "a borrowed digital clock", "a chipped BHB clock",
                   "a phone app", "a hotel alarm clock", "no clock at all",
                   "a tournament DGT clock"),
             _axis("habit", "Table habit", "habit", "is known for", "humming",
                   "rearranging the captured pieces", "leaving between moves",
-                  "narrating in a whisper", "eating boiled sweets",
+                  "narrating in a whisper", "eating hard candy",
                   "writing notation in pencil", "removing their shoes"),
         ),
     ),
@@ -901,26 +901,26 @@ THEMES: tuple[Theme, ...] = (
     ),
     Theme(
         slug="knitting",
-        title="The Ashfold Knitting Circle",
+        title="The Thornwood Knitting Circle",
         entity_noun="knitter",
         entity_noun_plural="knitters",
         blurb=(
-            "The Ashfold Knitting Circle meets weekly and has not agreed on "
+            "The Thornwood Knitting Circle meets weekly and has not agreed on "
             "anything since 1998."
         ),
         spine=WEEKDAYS,
         spine_verb="knits on",
         axes=(
             _actor("knitter", "Knitter", "knitter", "Ebba", "Lionel", "Nkechi",
-                  "Wilhelm", "Serafina", "Angus", "Maudie"),
+                  "Willem", "Serafina", "Angus", "Maddie"),
             _axis("project", "Project", "project", "is making", "a fisherman's gansey",
                   "a shawl of impossible lace", "a pair of argyle socks",
                   "a dog coat", "a Fair Isle tam", "a cable-knit blanket",
-                  "a tea cosy shaped like a hen"),
+                  "a toaster cover shaped like a hen"),
             _axis("yarn", "Yarn", "yarn", "works in", "undyed Shetland", "hand-spun alpaca",
                   "recycled sari silk", "oily Guernsey wool",
                   "mohair of great expense", "mill-end acrylic",
-                  "nettle fibre"),
+                  "nettle fiber"),
             _axis("snag", "Setback", "setback", "is set back by", "a dropped stitch in row nine",
                   "running out of dye lot", "a cat", "a misread chart",
                   "a broken circular needle", "unexplained shrinkage",
@@ -954,24 +954,24 @@ THEMES: tuple[Theme, ...] = (
     ),
     Theme(
         slug="aquarium",
-        title="The Night Shift at Coldwater Hall",
+        title="The Night Shift at Harbor Point",
         entity_noun="keeper",
         entity_noun_plural="keepers",
         blurb=(
-            "Coldwater Hall Aquarium keeps a night rota of tanks, and one keeper who "
+            "The Harbor Point Aquarium keeps a night rotation of tanks, and one keeper who "
             "is definitely feeding the wrong things."
         ),
         spine=SLOTS,
         spine_verb="works",
         axes=(
             _actor("keeper", "Keeper", "keeper", "Marisol", "Oskar", "Chiamaka",
-                  "Fitzwilliam", "Agnetha", "Bartolo", "Rhiannon"),
+                  "Everett", "Agnes", "Bartolo", "Rhiannon"),
             _axis("tank", "Tank", "tank", "tends", "the kelp tank", "the jellyfish column",
                   "the touch pool", "the deep reef", "the estuary tank",
                   "the seahorse nursery", "the octopus enclosure"),
             _axis("feed", "Feed", "feed", "feeds", "brine shrimp", "chopped squid",
                   "frozen krill", "live mysis", "nori sheets",
-                  "mussel meat", "a gelatine cube of unclear provenance"),
+                  "mussel meat", "a gelatin cube of unclear provenance"),
             _axis("incident", "Logged incident", "incident", "logs", "a cracked viewing pane",
                   "an escapee", "a failed chiller", "an algal bloom",
                   "a blocked skimmer", "a visitor's dropped phone",
@@ -980,11 +980,11 @@ THEMES: tuple[Theme, ...] = (
     ),
     Theme(
         slug="karaoke",
-        title="Tuesday Night at the Dented Bell",
+        title="Tuesday Night at the Rusty Anchor",
         entity_noun="singer",
         entity_noun_plural="singers",
         blurb=(
-            "The Dented Bell runs karaoke on Tuesdays. Attendance is loyal; "
+            "The Rusty Anchor runs karaoke on Tuesdays. Attendance is loyal; "
             "talent is not."
         ),
         spine=SLOTS,
@@ -996,38 +996,38 @@ THEMES: tuple[Theme, ...] = (
                   "a novelty country number", "an eight-minute prog epic",
                   "a disco standard", "a maudlin folk song",
                   "a rap performed entirely from memory", "a sea shanty"),
-            _axis("drink", "Drink", "drink", "orders", "a pint of mild", "a lime and soda",
-                  "a double whisky", "a cider in a plastic cup",
-                  "a glass of the house red", "a rum and coke", "tap water"),
+            _axis("drink", "Drink", "drink", "orders", "a pitcher of light beer", "a lime seltzer",
+                  "a double bourbon", "a hard cider in a plastic cup",
+                  "a glass of the house zinfandel", "a rum and coke", "tap water"),
             _axis("reception", "Reception", "reception", "gets", "a standing ovation",
                   "polite silence", "a singalong", "one heckler",
-                  "the landlord cutting the power", "scattered applause",
+                  "the manager cutting the power", "scattered applause",
                   "a request for an encore nobody wanted"),
         ),
     ),
     Theme(
         slug="sandcastle",
-        title="The Grindle Bay Sandcastle Open",
+        title="The Cannon Beach Sandcastle Open",
         entity_noun="builder",
         entity_noun_plural="builders",
         blurb=(
-            "The Grindle Bay Open is judged at four o'clock, whatever the tide is "
+            "The Cannon Beach Open is judged at four o'clock, whatever the tide is "
             "doing."
         ),
         spine=PLACINGS,
         spine_verb="places",
         axes=(
-            _actor("builder", "Builder", "builder", "Juniper", "Aleksy", "Temperance",
-                  "Khalid", "Fenwick", "Bronagh", "Hartley"),
+            _actor("builder", "Builder", "builder", "Juniper", "Aleksy", "Harper",
+                  "Khalid", "Wes", "Bridget", "Hartley"),
             _axis("build", "Build", "build", "builds", "a moated keep",
-                  "a scale model of the pier", "a sleeping dragon",
+                  "a scale model of the boardwalk", "a sleeping dragon",
                   "a cathedral with flying buttresses", "a hollow lighthouse",
                   "a recumbent walrus", "a spiral ziggurat"),
-            _axis("tool", "Chief tool", "tool", "works with", "a cake slice", "a soup spoon",
+            _axis("tool", "Chief tool", "tool", "works with", "a cake server", "a soup spoon",
                   "a paint scraper", "a bucket with no handle",
                   "a pastry brush", "bare hands", "a child's rake"),
             _axis("ruin", "Undone by", "cause", "is undone by", "the incoming tide",
-                  "a loose dog", "a gull", "a cricket ball",
+                  "a loose dog", "a gull", "a stray frisbee",
                   "structural overreach", "a sudden shower", "a rival's elbow"),
         ),
     ),
@@ -1065,7 +1065,7 @@ THEMES: tuple[Theme, ...] = (
         entity_noun="grower",
         entity_noun_plural="growers",
         blurb=(
-            "The orchid house at Fenn Park is shared by its growers, each convinced "
+            "The orchid house at Ladd Park is shared by its growers, each convinced "
             "the others are overwatering."
         ),
         spine=MONTHS,
@@ -1073,13 +1073,13 @@ THEMES: tuple[Theme, ...] = (
         spine_noun="harvest month",
         axes=(
             _actor("grower", "Grower", "grower", "Leocadia", "Ambrose",
-                  "Nkiruka", "Sigismund", "Rowena", "Taavi", "Columbine"),
+                  "Nkiruka", "Sig", "Rowena", "Taavi", "Colleen"),
             _axis("orchid", "Orchid", "orchid", "grows", "a moth orchid",
                   "a slipper orchid", "a vanilla vine", "a dancing lady",
                   "a jewel orchid", "a ghost orchid", "a bucket orchid"),
             _axis("mix", "Potting mix", "potting mix", "pots in", "bark chip", "sphagnum moss",
                   "perlite and charcoal", "coconut husk", "lava rock",
-                  "tree fern fibre", "bare root on cork"),
+                  "tree fern fiber", "bare root on cork"),
             _axis("pest", "Pest", "pest", "is troubled by", "scale insects", "mealybug",
                   "thrips", "fungus gnats", "red spider mite",
                   "a persistent slug", "root rot"),
@@ -1311,7 +1311,7 @@ THEMES: tuple[Theme, ...] = (
     ),
     Theme(
         slug="hamradio",
-        title="Field Day on Barrow Hill",
+        title="Field Day on Cedar Butte",
         entity_noun="operator",
         entity_noun_plural="operators",
         blurb=(
@@ -1322,16 +1322,16 @@ THEMES: tuple[Theme, ...] = (
         spine_verb="operates on",
         spine_noun="night",
         axes=(
-            _actor("operator", "Operator", "operator", "Ingrid", "Bartholomew",
-                   "Nkem", "Rosalind", "Yusuf", "Clementine", "Horace"),
-            _axis("band", "Band", "band", "works", "160 metres", "80 metres",
-                  "40 metres", "20 metres", "15 metres", "10 metres",
-                  "6 metres"),
+            _actor("operator", "Operator", "operator", "Ingrid", "Marcus",
+                   "Nkem", "Trish", "Yusuf", "Lorna", "Hank"),
+            _axis("band", "Band", "band", "works", "160 meters", "80 meters",
+                  "40 meters", "20 meters", "15 meters", "10 meters",
+                  "6 meters"),
             _axis("mode", "Mode", "mode", "operates", "CW", "SSB", "FT8",
                   "RTTY", "AM", "PSK31", "slow-scan television"),
             _axis("trouble", "Trouble", "trouble", "is defeated by",
-                  "a flat battery", "mains hum", "a snapped dipole leg",
-                  "a drifting VFO", "a static crash", "a neighbour's doorbell",
+                  "a dead battery", "sixty-cycle hum", "a snapped dipole leg",
+                  "a drifting VFO", "a static crash", "a neighbor's doorbell",
                   "nothing but good propagation"),
         ),
     ),
@@ -1399,6 +1399,32 @@ THEMES: tuple[Theme, ...] = (
     # the present-day US: school, a food court, a vote, a cook-off, a game
     # server, a road trip.  No brands or franchises, only the kinds of thing
     # people actually do, so nothing dates and nothing needs a license.
+    #
+    # Twelve new packs could not outvote thirty-two old ones, so nine of the
+    # old ones were reskinned as well: hamradio, balloon, aquarium, sandcastle,
+    # chess, knitting, karaoke, orchid, clockmaker.  Those nine were English
+    # only in their names, a place and a few words -- ballooning, karaoke, club
+    # chess and clock repair are not British activities -- so the change was
+    # proper nouns, a dialect pass, and no new logic at all.  That took the
+    # British share from 32/49 to 23/49.
+    #
+    # Nine others were considered and deliberately left British, because there
+    # the Britishness IS the content and reskinning would mean rewriting the
+    # pack rather than renaming it:
+    #
+    #   bookshop     priced in shillings, half-crowns and guineas
+    #   train        British outline modelling: pannier tank, brake van, autocoach
+    #   jam          damson cheese, medlar jam, sloe and apple butter
+    #   tea          a blind tasting in the English sense
+    #   bellringing  change ringing is a British practice, not a flavour
+    #   drystone     walling matches, ditto
+    #   allotment    an allotment is not a community garden
+    #   sheepdog     trials in the Welsh and Border tradition
+    #   highland     the heavy events
+    #   cider        pomace, and the English cider vocabulary
+    #
+    # shearing (Waihopai) and bonsai (Kiyosumi) are set in New Zealand and
+    # Japan and stay there.
     # -----------------------------------------------------------------------
     Theme(
         slug="electives",

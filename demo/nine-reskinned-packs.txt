@@ -1,0 +1,257 @@
+NINE RESKINNED PACKS
+==========================================================================
+
+Same logic, same structure, different register. These nine were English
+only in their names, a place and a handful of words.
+
+Nine others stay British, because there the Britishness IS the content:
+shillings and guineas in the bookshop, damson and medlar in the jam,
+pannier tanks and brake vans in the model railway, change ringing,
+drystone walling, allotments, sheepdog trials, the heavy events, pomace.
+
+A different seed and profile per pack, so the clue skeletons differ.
+==========================================================================
+
+--------------------------------------------------------------------------
+[hamradio]  Field Day on Cedar Butte
+easy, rating 3/7, 4x4, 6 clues
+--------------------------------------------------------------------------
+A club field day spread over a week, one operator a night, and a generator that has its own opinions.
+Four operators are involved. Determine each operator's night, band and mode.
+- Operator: Marcus, Lorna, Hank and Ingrid.
+- Night (listed from earlier to later): Monday, Tuesday, Wednesday and Thursday.
+- Band: 10 meters, 6 meters, 20 meters and 15 meters.
+- Mode: slow-scan television, PSK31, CW and RTTY.
+Every operator has a different night, band and mode, so within each category every item is used exactly once.
+
+ 1. Marcus operates PSK31. The operator who works 6 meters is earlier than Marcus in night order.
+ 2. The operator who operates CW does not operate on Wednesday. The operator who works 15 meters is earlier than Wednesday in night order.
+ 3. Hank does not operate on Tuesday.
+ 4. The operator who works 10 meters falls somewhere between the operator who operates RTTY and the operator who operates slow-scan television in night order.
+ 5. Lorna is exactly one day earlier than the operator who works 20 meters, with no night in between.
+ 6. Ingrid is earlier than the operator who operates RTTY in night order.
+
+   answer:
+     Night            Monday | Tuesday | Wednesday | Thursday
+     Operator         Hank | Ingrid | Lorna | Marcus
+     Band             15 meters | 10 meters | 6 meters | 20 meters
+     Mode             slow-scan television | CW | RTTY | PSK31
+
+--------------------------------------------------------------------------
+[balloon]  The Mesa Verde Balloon Ascent
+moderate, rating 3/7, 4x5, 10 clues
+--------------------------------------------------------------------------
+The Mesa Verde Ascent is less a race than a slow argument conducted at two thousand feet.
+Five pilots are involved. Determine each pilot's start time, envelope and ballast.
+- Pilot: Rosa, Delia, Shawna, Rafael and Annika.
+- Start time (listed from earlier to later): 8am, 9am, 10am, 11am and noon.
+- Envelope: the saffron envelope, the patchwork envelope, the oxblood envelope, the kingfisher envelope and the moss-green envelope.
+- Ballast: pea gravel, lead shot, iron filings, rock salt and sandbags.
+Every pilot has a different start time, envelope and ballast, so within each category every item is used exactly once.
+
+ 1. The pilot who carries sandbags launches at noon.
+ 2. Rafael carries rock salt.
+ 3. The pilot who carries lead shot falls somewhere between 9am and noon in start time order.
+ 4. The pilot who flies the moss-green envelope and noon are exactly four hours apart in start time order.
+ 5. The pilot who flies the saffron envelope and 11am are exactly two hours apart in start time order.
+ 6. Shawna is earlier than 10am in start time order.
+ 7. Shawna does not fly the moss-green envelope.
+ 8. The pilot who carries iron filings and the pilot who flies the moss-green envelope both sit at odd-numbered hours or both at even-numbered hours. Rosa does not fly the moss-green envelope.
+ 9. The pilot who carries lead shot and the pilot who flies the oxblood envelope are exactly two hours apart in start time order.
+10. Annika falls somewhere between the pilot who flies the patchwork envelope and the pilot who flies the saffron envelope in start time order.
+
+   answer:
+     Start time       8am | 9am | 10am | 11am | noon
+     Pilot            Delia | Shawna | Annika | Rafael | Rosa
+     Envelope         the moss-green envelope | the saffron envelope | the kingfisher envelope | the patchwork envelope | the oxblood envelope
+     Ballast          iron filings | pea gravel | lead shot | rock salt | sandbags
+
+--------------------------------------------------------------------------
+[aquarium]  The Night Shift at Harbor Point
+gentle, rating 2/7, 3x5, 6 clues
+--------------------------------------------------------------------------
+The Harbor Point Aquarium keeps a night rotation of tanks, and one keeper who is definitely feeding the wrong things.
+Five keepers are involved. Determine each keeper's slot and feed.
+- Keeper: Marisol, Bartolo, Everett, Oskar and Chiamaka.
+- Running order (listed from earlier to later): slot one, slot two, slot three, slot four and slot five.
+- Feed: chopped squid, live mysis, nori sheets, frozen krill and a gelatine cube of unclear provenance.
+Every keeper has a different slot and feed, so within each category every item is used exactly once.
+
+ 1. Everett works slot one. The keeper who feeds nori sheets works slot one.
+ 2. Bartolo feeds frozen krill.
+ 3. Oskar feeds live mysis.
+ 4. The keeper who feeds frozen krill is earlier than slot three in slot order. The keeper who feeds a gelatine cube of unclear provenance does not work slot three.
+ 5. Chiamaka does not work slot five.
+ 6. The keeper who feeds chopped squid and slot three are exactly one slot apart in slot order, in one direction or the other.
+
+   answer:
+     Running order    slot one | slot two | slot three | slot four | slot five
+     Keeper           Everett | Bartolo | Oskar | Chiamaka | Marisol
+     Feed             nori sheets | frozen krill | live mysis | chopped squid | a gelatine cube of unclear provenance
+
+--------------------------------------------------------------------------
+[sandcastle]  The Cannon Beach Sandcastle Open
+hard, rating 6/7, 4x5, 11 clues
+--------------------------------------------------------------------------
+The Cannon Beach Open is judged at four o'clock, whatever the tide is doing.
+Five builders are involved. Determine each builder's placing, build and cause.
+- Builder: Wes, Harper, Juniper, Hartley and Bridget.
+- Placing (listed from better to worse): first, second, third, fourth and fifth.
+- Build: a spiral ziggurat, a cathedral with flying buttresses, a moated keep, a recumbent walrus and a scale model of the boardwalk.
+- Undone by: a rival's elbow, the incoming tide, a stray frisbee, structural overreach and a sudden shower.
+Every builder has a different placing, build and cause, so within each category every item is used exactly once.
+
+ 1. The builder who is undone by a rival's elbow and third are exactly one place apart in placing order, in one direction or the other.
+ 2. The builder who builds a scale model of the boardwalk is worse than fourth in placing order.
+ 3. One of Harper and first sits at an odd-numbered placing and the other at an even-numbered placing.
+ 4. At least one of the following holds, and possibly more than one: (a) The builder who is undone by structural overreach places third. (b) One of Juniper and the builder who is undone by a sudden shower sits at an odd-numbered placing and the other at an even-numbered placing.
+ 5. The builder who is undone by a sudden shower and fifth are exactly two places apart in placing order.
+ 6. At least one of the following holds, and possibly more than one: (a) The builder who builds a spiral ziggurat does not place third. (b) One of the builder who builds a moated keep and third sits at an odd-numbered placing and the other at an even-numbered placing.
+ 7. The builder who builds a cathedral with flying buttresses and Bridget are exactly one place apart in placing order, in one direction or the other.
+ 8. The builder who is undone by structural overreach is exactly one place better than the builder who builds a spiral ziggurat, with no placing in between.
+ 9. At least one of the following holds, and possibly more than one: (a) The builder who builds a recumbent walrus and Wes are exactly one place apart in placing order, in one direction or the other. (b) Harper and the builder who is undone by the incoming tide are exactly three places apart in placing order.
+10. The builder who builds a cathedral with flying buttresses falls somewhere between Juniper and Wes in placing order.
+11. The builder who builds a cathedral with flying buttresses is better than Juniper in placing order.
+
+   answer:
+     Placing          first | second | third | fourth | fifth
+     Builder          Wes | Harper | Bridget | Juniper | Hartley
+     Build            a recumbent walrus | a cathedral with flying buttresses | a spiral ziggurat | a moated keep | a scale model of the boardwalk
+     Undone by        a stray frisbee | structural overreach | a sudden shower | a rival's elbow | the incoming tide
+
+--------------------------------------------------------------------------
+[chess]  The Riverside Chess Club Ladder
+easy, rating 3/7, 4x5, 11 clues
+--------------------------------------------------------------------------
+The Riverside Chess Club ladder is recalculated monthly and disputed continuously.
+Five players are involved. Determine each player's placing, opening and habit.
+- Player: Adaeze, Yevgenia, Dermot, Olumide and Casimir.
+- Placing (listed from better to worse): first, second, third, fourth and fifth.
+- Favourite opening: the Catalan, the Vienna Game, the Dutch Defence, the Scandinavian and the Grunfeld.
+- Table habit: writing notation in pencil, removing their shoes, rearranging the captured pieces, narrating in a whisper and leaving between moves.
+Every player has a different placing, opening and habit, so within each category every item is used exactly once.
+
+ 1. Yevgenia is known for removing their shoes.
+ 2. Casimir favours the Dutch Defence.
+ 3. The player who favours the Catalan falls somewhere between first and third in placing order.
+ 4. The player who favours the Scandinavian and fifth are exactly one place apart in placing order, in one direction or the other.
+ 5. The player who is known for writing notation in pencil and third are exactly one place apart in placing order, in one direction or the other.
+ 6. Olumide falls somewhere between the player who is known for writing notation in pencil and fifth in placing order.
+ 7. Adaeze and third are exactly one place apart in placing order, in one direction or the other.
+ 8. The player who is known for leaving between moves does not place first.
+ 9. The player who favours the Scandinavian is exactly one place better than the player who is known for removing their shoes, with no placing in between.
+10. The player who favours the Vienna Game is better than Casimir in placing order.
+11. The player who is known for narrating in a whisper and Yevgenia are exactly one place apart in placing order, in one direction or the other.
+
+   answer:
+     Placing          first | second | third | fourth | fifth
+     Player           Dermot | Adaeze | Casimir | Olumide | Yevgenia
+     Favourite opening the Vienna Game | the Catalan | the Dutch Defence | the Scandinavian | the Grunfeld
+     Table habit      rearranging the captured pieces | writing notation in pencil | leaving between moves | narrating in a whisper | removing their shoes
+
+--------------------------------------------------------------------------
+[knitting]  The Thornwood Knitting Circle
+moderate, rating 4/7, 4x5, 8 clues
+--------------------------------------------------------------------------
+The Thornwood Knitting Circle meets weekly and has not agreed on anything since 1998.
+Five knitters are involved. Determine each knitter's day, yarn and setback.
+- Knitter: Ebba, Nkechi, Serafina, Maddie and Angus.
+- Day (listed from earlier to later): Monday, Tuesday, Wednesday, Thursday and Friday.
+- Yarn: mohair of great expense, undyed Shetland, hand-spun alpaca, mill-end acrylic and nettle fibre.
+- Setback: a misread chart, losing the pattern entirely, a broken circular needle, unexplained shrinkage and a dropped stitch in row nine.
+Every knitter has a different day, yarn and setback, so within each category every item is used exactly once.
+
+ 1. The knitter who works in hand-spun alpaca knits on Thursday.
+ 2. Angus is earlier than Wednesday in day order. The knitter who works in nettle fibre is later than Wednesday in day order.
+ 3. The knitter who is set back by a broken circular needle falls somewhere between Monday and Thursday in day order.
+ 4. The knitter who is set back by unexplained shrinkage is exactly one day earlier than Maddie, with no day in between.
+ 5. Maddie is exactly one day earlier than the knitter who is set back by a dropped stitch in row nine, with no day in between.
+ 6. Ebba and the knitter who works in undyed Shetland are exactly one day apart in day order, in one direction or the other.
+ 7. Serafina falls somewhere between the knitter who is set back by unexplained shrinkage and the knitter who works in mohair of great expense in day order.
+ 8. The knitter who is set back by a misread chart is earlier than the knitter who works in hand-spun alpaca in day order.
+
+   answer:
+     Day              Monday | Tuesday | Wednesday | Thursday | Friday
+     Knitter          Angus | Serafina | Ebba | Maddie | Nkechi
+     Yarn             mohair of great expense | undyed Shetland | mill-end acrylic | hand-spun alpaca | nettle fibre
+     Setback          a misread chart | a broken circular needle | unexplained shrinkage | losing the pattern entirely | a dropped stitch in row nine
+
+--------------------------------------------------------------------------
+[karaoke]  Tuesday Night at the Rusty Anchor
+gentle, rating 2/7, 3x4, 5 clues
+--------------------------------------------------------------------------
+The Rusty Anchor runs karaoke on Tuesdays. Attendance is loyal; talent is not.
+Four singers are involved. Determine each singer's slot and reception.
+- Singer: Caitriona, Bogdan, Deshawn and Mercy.
+- Running order (listed from earlier to later): slot one, slot two, slot three and slot four.
+- Reception: scattered applause, one heckler, the manager cutting the power and a singalong.
+Every singer has a different slot and reception, so within each category every item is used exactly once.
+
+ 1. The singer who gets one heckler sings in slot one.
+ 2. Bogdan sings in slot two. Bogdan does not get scattered applause.
+ 3. Deshawn is later than slot two in slot order.
+ 4. The singer who gets scattered applause and Mercy are exactly one slot apart in slot order, in one direction or the other.
+ 5. The singer who gets a singalong and Bogdan are exactly one slot apart in slot order, in one direction or the other.
+
+   answer:
+     Running order    slot one | slot two | slot three | slot four
+     Singer           Caitriona | Bogdan | Mercy | Deshawn
+     Reception        one heckler | the manager cutting the power | a singalong | scattered applause
+
+--------------------------------------------------------------------------
+[orchid]  The Orchid House Reckoning
+hard, rating 6/7, 4x5, 11 clues
+--------------------------------------------------------------------------
+The orchid house at Ladd Park is shared by its growers, each convinced the others are overwatering.
+Five growers are involved. Determine each grower's harvest month, orchid and potting mix.
+- Grower: Ambrose, Rowena, Colleen, Sig and Nkiruka.
+- Harvest month (listed from earlier to later): January, February, March, April and May.
+- Orchid: a ghost orchid, a bucket orchid, a slipper orchid, a moth orchid and a dancing lady.
+- Potting mix: bare root on cork, sphagnum moss, lava rock, tree fern fiber and coconut husk.
+Every grower has a different harvest month, orchid and potting mix, so within each category every item is used exactly once.
+
+ 1. The grower who pots in sphagnum moss grows a slipper orchid.
+ 2. The grower who pots in bare root on cork falls somewhere between January and March in harvest month order.
+ 3. Rowena is exactly one month earlier than April, with no harvest month in between.
+ 4. The grower who grows a slipper orchid is earlier than May in harvest month order.
+ 5. Nkiruka and May are exactly one month apart in harvest month order, in one direction or the other.
+ 6. At least one of the following holds, and possibly more than one: (a) The grower who pots in tree fern fiber does not harvest in January. (b) Sig and the grower who pots in lava rock both sit at odd-numbered months or both at even-numbered months.
+ 7. The grower who grows a ghost orchid and May are exactly four months apart in harvest month order.
+ 8. At least one of the following holds, and possibly more than one: (a) The grower who pots in bare root on cork and the grower who grows a moth orchid are exactly one month apart in harvest month order, in one direction or the other. (b) The grower who pots in tree fern fiber is earlier than the grower who grows a bucket orchid in harvest month order.
+ 9. Nkiruka and the grower who grows a moth orchid both sit at odd-numbered months or both at even-numbered months.
+10. The grower who pots in coconut husk and the grower who grows a bucket orchid are exactly one month apart in harvest month order, in one direction or the other.
+11. The grower who grows a bucket orchid falls somewhere between Colleen and Rowena in harvest month order.
+
+   answer:
+     Harvest month    January | February | March | April | May
+     Grower           Ambrose | Sig | Rowena | Nkiruka | Colleen
+     Orchid           a ghost orchid | a moth orchid | a slipper orchid | a bucket orchid | a dancing lady
+     Potting mix      tree fern fiber | bare root on cork | sphagnum moss | lava rock | coconut husk
+
+--------------------------------------------------------------------------
+[clockmaker]  A Benchful of Clocks, and No Agreement
+moderate, rating 4/7, 4x5, 9 clues
+--------------------------------------------------------------------------
+Mr Halloran repairs clocks. Those on the bench are all insisting on a different hour.
+Five clocks are involved. Determine each clock's shelf, owner and chime.
+- Clock: an anniversary clock, a station clock, a cuckoo clock, a carriage clock and a ship's chronometer.
+- Shelf (listed from lower to higher): the bottom shelf, the second shelf, the third shelf, the fourth shelf and the fifth shelf.
+- Owner: Mrs Oyelaran, Father Brennan, Captain Mott, Dr Vasquez and Ms Trevino.
+- Chime: a single strike, a cuckoo call, Westminster, Whittington and a ship's bell.
+Every clock has a different shelf, owner and chime, so within each category every item is used exactly once.
+
+ 1. A cuckoo clock sits on the fifth shelf.
+ 2. The second shelf is exactly one shelf lower than the clock that sounds Whittington, with no shelf in between.
+ 3. The clock that belongs to Mrs Oyelaran is higher than the second shelf in shelf order.
+ 4. An anniversary clock and the clock that belongs to Captain Mott are exactly three shelves apart in shelf order.
+ 5. A carriage clock and the clock that belongs to Dr Vasquez are exactly two shelves apart in shelf order.
+ 6. The clock that sounds a ship's bell is exactly one shelf lower than the clock that belongs to Father Brennan, with no shelf in between.
+ 7. The clock that sounds Westminster and an anniversary clock are exactly one shelf apart in shelf order, in one direction or the other.
+ 8. A station clock is exactly one shelf lower than the clock that belongs to Father Brennan, with no shelf in between.
+ 9. The clock that belongs to Father Brennan is exactly one shelf lower than the clock that sounds a cuckoo call, with no shelf in between.
+
+   answer:
+     Shelf            the bottom shelf | the second shelf | the third shelf | the fourth shelf | the fifth shelf
+     Clock            a ship's chronometer | a station clock | a carriage clock | an anniversary clock | a cuckoo clock
+     Owner            Captain Mott | Ms Trevino | Father Brennan | Mrs Oyelaran | Dr Vasquez
+     Chime            a single strike | a ship's bell | Whittington | a cuckoo call | Westminster
