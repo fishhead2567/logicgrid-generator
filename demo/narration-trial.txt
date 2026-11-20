@@ -1,0 +1,129 @@
+NARRATION TRIAL -- canonical vs narrated
+==========================================================================
+
+Sonnet narrator, three independent readers (two Haiku, one Sonnet).
+All three verdicts pass_equivalent: every reader recovered the one true
+solution from the prose alone, by a differently-shaped but equivalent
+route. The question this file is for is not whether the logic survived
+-- the gate settles that -- but whether the prose is BETTER.
+==========================================================================
+
+##########################################################################
+# 01-archive  --  gentle, rating 2/7, 3x4, 6 canonical clues -> 5 narrated
+##########################################################################
+
+--- CANONICAL (what the app ships today) ---------------------------------
+The Vance Municipal Archive was reorganised in 1974 by somebody who has since left no forwarding address.
+Four archivists are involved. Determine each archivist's shelf and decade.
+- Archivist: Dr Mwangi, Mr Pelletier, Ms Castellano and Mr Ravensworth.
+- Shelf (listed from lower to higher): the bottom shelf, the second shelf, the third shelf and the fourth shelf.
+- Decade: the 1890s, the 1950s, the 1830s and the 1910s.
+Every archivist has a different shelf and decade, so within each category every item is used exactly once.
+
+ 1. The archivist who covers the 1950s files on the third shelf.
+ 2. Mr Pelletier files on the second shelf.
+ 3. Ms Castellano is exactly one shelf lower than the fourth shelf, with no shelf in between.
+ 4. The archivist who covers the 1890s and the second shelf are exactly one shelf apart in shelf order, in one direction or the other.
+ 5. Mr Ravensworth and the archivist who covers the 1950s are exactly one shelf apart in shelf order, in one direction or the other.
+ 6. Mr Pelletier is lower than the archivist who covers the 1830s in shelf order.
+
+--- NARRATED -------------------------------------------------------------
+The Mislabelled Drawers
+
+The Vance Municipal Archive was reorganised in 1974 by somebody who has since left no forwarding address, and four archivists are still trying to work out who put what where. There are 4 archivists. Each files on a different one of four shelves, listed from lower to higher: the bottom shelf, the second shelf, the third shelf, the fourth shelf. The archivists are Dr Mwangi, Mr Pelletier, Ms Castellano and Mr Ravensworth, and each covers a different one of these decades: the 1890s, the 1950s, the 1830s and the 1910s. Within each category every member belongs to a different archivist, so each shelf, name and decade is used exactly once.
+
+ 1. The archivist who covers the 1950s files on the third shelf, and Mr Pelletier files on the second shelf.
+ 2. The archivist who files on the fourth shelf files exactly one shelf higher than Ms Castellano.
+ 3. The archivist who covers the 1890s and the archivist who files on the second shelf are exactly one shelf apart.
+ 4. Mr Ravensworth and the archivist who covers the 1950s are exactly one shelf apart.
+ 5. Mr Pelletier files on a lower shelf than the archivist who covers the 1830s.
+
+##########################################################################
+# 30-beekeeper  --  moderate, rating 4/7, 4x5, 9 canonical clues -> 9 narrated
+##########################################################################
+
+--- CANONICAL (what the app ships today) ---------------------------------
+The annual honey show has been judged, and at least two people are writing letters about it.
+Five beekeepers are involved. Determine each beekeeper's entry fee, honey and hive.
+- Beekeeper: Wilhelmina, Breda, Mungo, Priya and Fausto.
+- Entry fee (listed from cheaper to dearer): $2, $4, $6, $8 and $10.
+- Honey: borage honey, ivy honey, lime blossom honey, sea lavender honey and chestnut honey.
+- Hive type: a long deep hive, a Langstroth hive, a national hive, a Warre hive and a WBC hive.
+Every beekeeper has a different entry fee, honey and hive, so within each category every item is used exactly once.
+
+ 1. $2 is exactly one fee step cheaper than Wilhelmina, with no entry fee in between. Fausto falls somewhere between $10 and $2 in entry fee order. The beekeeper who keeps a WBC hive pays $2.
+ 2. The beekeeper who keeps a Warre hive falls somewhere between $2 and $6 in entry fee order. The beekeeper who enters chestnut honey does not pay $6.
+ 3. $8 is exactly one fee step cheaper than the beekeeper who keeps a long deep hive, with no entry fee in between.
+ 4. The beekeeper who enters ivy honey does not pay $6.
+ 5. The beekeeper who enters sea lavender honey and Priya are exactly one fee step apart in entry fee order, in one direction or the other.
+ 6. The beekeeper who keeps a WBC hive and the beekeeper who enters lime blossom honey are exactly one fee step apart in entry fee order, in one direction or the other.
+ 7. Mungo does not enter ivy honey.
+ 8. The beekeeper who keeps a Langstroth hive is exactly one fee step cheaper than Priya, with no entry fee in between.
+ 9. The beekeeper who enters chestnut honey falls somewhere between Breda and Wilhelmina in entry fee order.
+
+--- NARRATED -------------------------------------------------------------
+The Honey Show Scandal
+
+The annual honey show has been judged, and at least two people are writing letters about it. There are 5 beekeepers. Each pays a different entry fee, from cheaper to dearer: $2, $4, $6, $8, $10. The beekeepers are Wilhelmina, Breda, Mungo, Priya and Fausto. Each enters a different honey from this list: borage honey, ivy honey, lime blossom honey, sea lavender honey, chestnut honey. Each keeps a different type of hive from this list: a long deep hive, a Langstroth hive, a national hive, a Warre hive, a WBC hive. Within each category every member belongs to a different beekeeper, so each fee, name, honey and hive type is used exactly once.
+
+ 1. The beekeeper who keeps a WBC hive pays $2, and is exactly one fee step apart from the beekeeper who enters lime blossom honey.
+ 2. Wilhelmina pays exactly one fee step more than $2, with no entry fee in between.
+ 3. Fausto's entry fee falls somewhere between $10 and $2 in fee order, matching neither of them.
+ 4. The beekeeper who keeps a Warre hive pays a fee that falls somewhere between $2 and $6 in fee order, matching neither of them.
+ 5. The beekeeper who keeps a long deep hive pays exactly one fee step more than $8, with no entry fee in between.
+ 6. The beekeeper who keeps a Langstroth hive pays exactly one fee step less than Priya, with no entry fee in between, and the beekeeper who enters sea lavender honey and Priya are exactly one fee step apart.
+ 7. The beekeeper who enters chestnut honey pays a fee that falls somewhere between those of Breda and Wilhelmina in fee order, matching neither of them.
+ 8. Neither the beekeeper who enters chestnut honey nor the beekeeper who enters ivy honey pays $6.
+ 9. Mungo does not enter ivy honey.
+
+##########################################################################
+# 45-mushroom  --  expert, rating 7/7, 5x6, 17 canonical clues -> 14 narrated
+##########################################################################
+
+--- CANONICAL (what the app ships today) ---------------------------------
+The Thorn Bottom foraging club keeps meticulous records, chiefly so that blame can be apportioned later.
+Six foragers are involved. Determine each forager's day, find, wood and basket.
+- Forager: Ramiro, Tobias, Ottokar, Solomon, Eilish and Guinevere.
+- Day (listed from earlier to later): Monday, Tuesday, Wednesday, Thursday, Friday and Saturday.
+- Find: a cauliflower fungus, a chicken of the woods, a saffron milk cap, a hen of the woods, a horn of plenty and a penny bun.
+- Wood: Nettlebed, the Old Deer Park, Hangman's Copse, the Larches, Scrag End and Bell Wood.
+- Basket: a wooden box, a string bag, a wicker trug, an upturned hat, a willow creel and a tin pail.
+Every forager has a different day, find, wood and basket, so within each category every item is used exactly once.
+
+ 1. The forager who finds a cauliflower fungus and Saturday are exactly three days apart in day order.
+ 2. Solomon and Monday are exactly one day apart in day order, in one direction or the other.
+ 3. If (a) holds then (b) also holds, but not necessarily the reverse: (a) Guinevere and Wednesday are exactly one day apart in day order, in one direction or the other. (b) The forager who carries an upturned hat and Eilish are exactly one day apart in day order, in one direction or the other.
+ 4. The forager who searches the Larches falls somewhere between Friday and Tobias in day order.
+ 5. Friday and the forager who searches Nettlebed both sit at odd-numbered days or both at even-numbered days.
+ 6. The forager who finds a saffron milk cap and Saturday are exactly two days apart in day order.
+ 7. The forager who carries a wicker trug and the forager who finds a horn of plenty are exactly one day apart in day order, in one direction or the other.
+ 8. Ottokar and the forager who searches the Old Deer Park are exactly one day apart in day order, in one direction or the other.
+ 9. If (a) holds then (b) also holds, but not necessarily the reverse: (a) The forager who carries a wicker trug searches Hangman's Copse. (b) The forager who searches Scrag End is earlier than the forager who carries a string bag in day order.
+10. The forager who searches the Old Deer Park is earlier than the forager who carries a willow creel in day order.
+11. If (a) holds then (b) also holds, but not necessarily the reverse: (a) Ottokar does not search Nettlebed. (b) Ramiro searches Nettlebed.
+12. The forager who carries a string bag does not search Bell Wood. The forager who finds a penny bun is exactly one day earlier than the forager who searches Bell Wood, with no day in between.
+13. Eilish and the forager who searches Bell Wood are exactly one day apart in day order, in one direction or the other.
+14. The forager who finds a saffron milk cap and the forager who searches Scrag End are exactly one day apart in day order, in one direction or the other.
+15. At least one of the following holds, and possibly more than one: (a) Eilish and the forager who searches Scrag End are exactly one day apart in day order, in one direction or the other. (b) Guinevere is earlier than the forager who carries a tin pail in day order.
+16. The forager who carries a string bag and Eilish are exactly one day apart in day order, in one direction or the other.
+17. The forager who finds a chicken of the woods is earlier than Ottokar in day order.
+
+--- NARRATED -------------------------------------------------------------
+The Foragers of Thorn Bottom
+
+The Thorn Bottom foraging club keeps meticulous records, chiefly so that blame can be apportioned later. There are 6 foragers. Each went out on a different day, listed from earlier to later: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday. The foragers are Ramiro, Tobias, Ottokar, Solomon, Eilish and Guinevere. Each made a different find from this list: a cauliflower fungus, a chicken of the woods, a saffron milk cap, a hen of the woods, a horn of plenty, a penny bun. Each searched a different wood from this list: Nettlebed, the Old Deer Park, Hangman's Copse, the Larches, Scrag End, Bell Wood. Each carried a different basket from this list: a wooden box, a string bag, a wicker trug, an upturned hat, a willow creel, a tin pail. Within each category every member belongs to a different forager, so each day, name, find, wood and basket is used exactly once.
+
+ 1. The forager who finds a cauliflower fungus and Saturday are exactly three days apart in day order.
+ 2. The forager who finds a saffron milk cap and Saturday are exactly two days apart in day order, and the forager who finds a saffron milk cap and the forager who searches Scrag End are exactly one day apart in day order.
+ 3. Solomon and Monday are exactly one day apart in day order.
+ 4. If Guinevere and Wednesday are exactly one day apart in day order, then the forager who carries an upturned hat and Eilish are exactly one day apart in day order.
+ 5. The forager who searches the Larches falls somewhere between Friday and Tobias in day order, matching neither of them.
+ 6. Counting Monday as the first day, Friday and the forager who searches Nettlebed are either both at odd-numbered days or both at even-numbered days.
+ 7. The forager who carries a wicker trug and the forager who finds a horn of plenty are exactly one day apart in day order.
+ 8. Ottokar and the forager who searches the Old Deer Park are exactly one day apart in day order, and the forager who searches the Old Deer Park is earlier than the forager who carries a willow creel.
+ 9. If the forager who carries a wicker trug searches Hangman's Copse, then the forager who searches Scrag End is earlier than the forager who carries a string bag in day order.
+10. If Ottokar does not search Nettlebed, then Ramiro searches Nettlebed.
+11. The forager who carries a string bag does not search Bell Wood, but the forager who carries a string bag and Eilish are exactly one day apart in day order.
+12. The forager who finds a penny bun is exactly one day earlier than the forager who searches Bell Wood, with no day in between. Eilish and the forager who searches Bell Wood are exactly one day apart in day order.
+13. At least one of these is true, and possibly both: Eilish and the forager who searches Scrag End are exactly one day apart in day order; Guinevere is earlier than the forager who carries a tin pail in day order.
+14. The forager who finds a chicken of the woods is earlier than Ottokar in day order.
