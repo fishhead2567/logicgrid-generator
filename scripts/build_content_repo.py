@@ -51,7 +51,10 @@ README = """\
 # {name}
 
 Puzzle content for the LogicGrid app. **Generated, not hand-edited** -- rebuilt
-from the generator repo with `scripts/build_content_repo.py`.
+from [logicgrid-generator][gen] with `scripts/build_content_repo.py`. Edits
+here are lost on the next rebuild; change the generator instead.
+
+[gen]: https://github.com/fishhead2567/logicgrid-generator
 
 {count} puzzles, ratings {lo}-{hi}, {narrated} with a verified narrative.
 Generated {when} by logicgrid {version}.
