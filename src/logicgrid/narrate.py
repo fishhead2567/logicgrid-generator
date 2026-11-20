@@ -26,7 +26,7 @@ from typing import Any, Mapping, Sequence
 
 from .llm import ModelConfig, Request
 from .csp import flatten
-from .render import canonical_intro, clue_text
+from .render import canonical_intro, canonical_preamble, clue_text
 
 SYSTEM = """\
 You are a puzzle editor for a logic-problem magazine in the Penny Dell tradition.
@@ -44,16 +44,29 @@ It is never welcome in the logical content.
 
 INTRODUCTION REQUIREMENTS
 
-The introduction carries logical weight. It must state, in flowing prose:
-  - how many subjects there are;
-  - every category, with its complete list of members, spelled exactly as
-    given;
-  - that within each category every member belongs to a different subject
-    (each is used exactly once);
-  - for any category marked as ordered, the order its members are listed in.
-Anything else in the introduction must be pure scene-setting that constrains
-nothing. If a solver could deduce a single cell from your backstory, the
-backstory is wrong.
+Write TWO OR THREE SENTENCES of scene-setting. Be funny where the subject lets
+you; dry is worse than silly. This is the only part of the puzzle where you
+have a free hand, so use it.
+
+DO NOT list the cast, the categories, the members, the count of subjects, the
+one-each condition, or the order of the ordered category. Those are printed
+separately, above your text and on the solver's chart, exactly as given. Say
+them again and you have written a worse copy of something already on the page.
+
+Your sentences must constrain NOTHING. If a solver could deduce a single cell
+from your scene, the scene is wrong. Mention a member name only in passing
+colour that carries no fact: "the judges have not spoken to each other since
+the incident" is fine, "the judges arrived in order of seniority" is not.
+
+ONE EXTRA SENTENCE -- a fourth -- is allowed, and only for this: when the
+subject matter is one a reader may simply not know. Sheepdog trials, change
+ringing, drystone walling, a hell-box, pomace, the heavy events. Say plainly
+what the thing is, in passing, as a magazine would: "Change ringing is bells
+rung in strict mathematical sequences, by teams who care about this far more
+than you are about to." Do
+not take the extra sentence for a subject that explains itself -- a food court,
+a karaoke night and a school bake sale need no gloss, and padding them reads
+as condescension.
 
 CLUE REQUIREMENTS
 
@@ -129,9 +142,12 @@ NARRATIVE_SCHEMA: dict[str, Any] = {
         "introduction": {
             "type": "string",
             "description": (
-                "One or two paragraphs. Must name the subject count, every "
-                "category with its full member list, and the one-each "
-                "condition. Scene-setting must constrain nothing."
+                "Two or three sentences of scene-setting, funny where the "
+                "subject allows. A fourth is permitted only to say plainly "
+                "what an unfamiliar activity is. Never list the cast, the "
+                "categories, the members, the subject count, the one-each "
+                "condition or the ordering -- those are printed separately. "
+                "Must constrain nothing."
             ),
         },
         "clues": {
@@ -164,20 +180,40 @@ class Narrative:
 
     pid: str
     title: str
+    #: The narrator's scene: two or three sentences, and no cast list.
     introduction: str
     clues: tuple[str, ...]
     model: str = ""
     attempt: int = 1
+    #: The canonical preamble -- count, task, categories, members, ordering,
+    #: one-each -- printed verbatim between the scene and the clues.
+    #:
+    #: Not narrated, deliberately. The narrator used to be required to restate
+    #: all of it in prose, which produced a longer and less scannable copy of a
+    #: list the solver is looking at on the chart anyway, and left no room in
+    #: the paragraph for anything else.
+    #:
+    #: It still has to be part of the text. The extractors read the cast out of
+    #: what they are given, and the whole claim of the round trip is that they
+    #: see exactly what a solver sees. Drop it and every reading fails its cast
+    #: check for want of a list nobody was shown.
+    preamble: str = ""
 
     def to_text(self) -> str:
         """The full narrative, exactly as handed to the extractors."""
-        lines = [self.title, "", self.introduction.strip(), "", "Clues:"]
+        lines = [self.title, "", self.introduction.strip()]
+        if self.preamble.strip():
+            lines += ["", self.preamble.strip()]
+        lines += ["", "Clues:"]
         for i, clue in enumerate(self.clues, start=1):
             lines.append(f"{i}. {clue.strip()}")
         return "\n".join(lines)
 
     def to_markdown(self) -> str:
-        lines = [f"# {self.title}", "", self.introduction.strip(), "", "## Clues", ""]
+        lines = [f"# {self.title}", "", self.introduction.strip()]
+        if self.preamble.strip():
+            lines += ["", self.preamble.strip()]
+        lines += ["", "## Clues", ""]
         for i, clue in enumerate(self.clues, start=1):
             lines.append(f"{i}. {clue.strip()}")
         return "\n".join(lines)
@@ -187,6 +223,7 @@ class Narrative:
             "pid": self.pid,
             "title": self.title,
             "introduction": self.introduction,
+            "preamble": self.preamble,
             "clues": list(self.clues),
             "model": self.model,
             "attempt": self.attempt,
@@ -198,6 +235,7 @@ class Narrative:
             pid=data.get("pid", ""),
             title=data["title"],
             introduction=data["introduction"],
+            preamble=data.get("preamble", ""),
             clues=tuple(data["clues"]),
             model=data.get("model", ""),
             attempt=int(data.get("attempt", 1)),
@@ -286,6 +324,9 @@ def parse_reply(puzzle, text: str, model: str = "", attempt: int = 1) -> Narrati
         pid=puzzle.pid,
         title=str(data["title"]),
         introduction=str(data["introduction"]),
+        # Attached here rather than asked of the narrator, so that it is the
+        # canonical text character for character and cannot drift.
+        preamble=canonical_preamble(puzzle),
         clues=tuple(clues),
         model=model,
         attempt=attempt,

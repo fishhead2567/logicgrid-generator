@@ -97,6 +97,18 @@ def narrative_block(narration, width: int = 52) -> str:
     for para in narration.introduction.split("\n"):
         if para.strip():
             out += fill(para.strip(), width=width).splitlines()
+    # The cast block, laid out exactly as the canonical panel lays it out.
+    # The narrator no longer restates any of this in prose, so without it the
+    # reader gets a scene and then clues naming people nobody introduced.
+    preamble = getattr(narration, "preamble", "") or ""
+    if preamble.strip():
+        out.append("")
+        for line in preamble.replace("**", "").splitlines():
+            if line.startswith("- "):
+                out += fill(line[2:], width=width, initial_indent="  - ",
+                            subsequent_indent="    ").splitlines()
+            else:
+                out += fill(line, width=width).splitlines()
     out.append("")
     for i, clue in enumerate(narration.clues, start=1):
         out += fill(

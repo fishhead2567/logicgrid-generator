@@ -18,9 +18,18 @@ class Narration:
     """A verified narrative version of a puzzle, for reading in place of clues."""
 
     title: str
+    #: The narrator's scene. Two or three sentences, and no cast list.
     introduction: str
     clues: tuple[str, ...]
     verdict: str = ""
+    #: The canonical cast block, printed between the scene and the clues.
+    #:
+    #: The narrator used to restate all of this in prose and no longer does,
+    #: which freed the paragraph for an actual scene. The list still has to be
+    #: shown: without it a solver gets a joke and then clues full of names
+    #: nobody introduced. Older narratives have no preamble and fall back to
+    #: the canonical introduction.
+    preamble: str = ""
 
     @property
     def flagged(self) -> bool:
@@ -96,6 +105,7 @@ class Library:
                 introduction=str(data["introduction"]),
                 clues=tuple(str(c) for c in data["clues"]),
                 verdict=str(data.get("verdict", "")),
+                preamble=str(data.get("preamble", "")),
             )
         except (OSError, ValueError, KeyError, LibraryError):
             # A malformed narrative is not worth failing a game over; the

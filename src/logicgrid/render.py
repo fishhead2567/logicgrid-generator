@@ -53,7 +53,19 @@ COUNT_WORDS = {
 }
 
 
-def canonical_intro(puzzle) -> str:
+def canonical_preamble(puzzle) -> str:
+    """[canonical_intro] without the theme's blurb.
+
+    The part that carries logical weight and nothing else: the count, the task,
+    the categories with their members, the ordering, and the one-each
+    condition. A narrated puzzle prints this verbatim and spends its own words
+    on a scene instead, because re-stating the cast in prose produces a longer,
+    less scannable copy of a list the solver is looking at on the chart anyway.
+    """
+    return canonical_intro(puzzle, blurb=False)
+
+
+def canonical_intro(puzzle, blurb: bool = True) -> str:
     """The logically load-bearing introduction, written as a task.
 
     Everything a solver is entitled to assume before reading clue 1 -- how many
@@ -70,9 +82,9 @@ def canonical_intro(puzzle) -> str:
     others = [c for c in schema.categories if c is not subject]
     lines: list[str] = []
 
-    blurb = (getattr(puzzle, "blurb", "") or "").strip()
-    if blurb:
-        lines.append(blurb)
+    scene = (getattr(puzzle, "blurb", "") or "").strip() if blurb else ""
+    if scene:
+        lines.append(scene)
 
     nouns = [c.noun or c.label.casefold() for c in others]
     lines.append(

@@ -1,0 +1,181 @@
+NARRATION v2 -- scene and preamble split
+==========================================================================
+
+The narrator now writes two or three sentences of scene and lists
+nothing; the cast block is printed verbatim from the canonical text.
+A fourth sentence is allowed only to say what an unfamiliar activity
+is -- taken for pomace and sheepdog trials below, declined for a
+puppet theatre and for foraging.
+
+All four verified PASS: three independent readers each recovered the
+one true solution AND matched the clue set atom for atom.
+==========================================================================
+
+##########################################################################
+# 05-puppet  --  gentle 2/7, 3x4, 5 canonical clues -> 5 narrated
+##########################################################################
+
+--- CANONICAL ------------------------------------------------------------
+The Little Vesper Theatre seats forty people and employs a company of puppeteers who will not be in the same room together.
+Four puppeteers are involved. Determine each puppeteer's slot and accompaniment.
+- Puppeteer: Stellan, Halima, Bowen and Mirabel.
+- Running order (listed from earlier to later): slot one, slot two, slot three and slot four.
+- Accompaniment: a hurdy-gurdy, a bowed psaltery, two kettle drums and a prepared piano.
+Every puppeteer has a different slot and accompaniment, so within each category every item is used exactly once.
+
+ 1. The puppeteer who is accompanied by a bowed psaltery is later than slot one in slot order. Bowen performs in slot one.
+ 2. Halima is accompanied by a hurdy-gurdy.
+ 3. The puppeteer who is accompanied by a bowed psaltery does not perform in slot two.
+ 4. The puppeteer who is accompanied by two kettle drums is exactly one slot earlier than slot four, with no slot in between.
+ 5. Mirabel is earlier than slot four in slot order.
+
+--- NARRATED -------------------------------------------------------------
+A Fortnight at the Little Vesper Theatre
+
+The Little Vesper Theatre seats forty, which is plenty when the audience is mostly the puppeteers' relatives and one very still dog. Backstage, the company communicates chiefly by notes pinned to the wings. Nobody has forgiven anybody for the Punch and Judy incident.
+
+Four puppeteers are involved. Determine each puppeteer's slot and accompaniment.
+- Puppeteer: Stellan, Halima, Bowen and Mirabel.
+- Running order (listed from earlier to later): slot one, slot two, slot three and slot four.
+- Accompaniment: a hurdy-gurdy, a bowed psaltery, two kettle drums and a prepared piano.
+Every puppeteer has a different slot and accompaniment, so within each category every item is used exactly once.
+
+ 1. Bowen performs in slot one.
+ 2. The puppeteer accompanied by a bowed psaltery performs later than slot one, but not in slot two.
+ 3. Halima is accompanied by a hurdy-gurdy.
+ 4. The puppeteer accompanied by two kettle drums performs exactly one slot before slot four.
+ 5. Mirabel performs earlier than slot four.
+
+##########################################################################
+# 09-cider  --  easy 3/7, 3x5, 7 canonical clues -> 5 narrated
+##########################################################################
+
+--- CANONICAL ------------------------------------------------------------
+Every maker presses in a different month, and each is privately certain the others have let theirs go to vinegar.
+Five makers are involved. Determine each maker's pressing month and fault.
+- Maker: Jethro, Araminta, Haskell, Morwenna and Petroc.
+- Pressing month (listed from earlier to later): January, February, March, April and May.
+- Fault: a stuck ferment, mousiness, sulphur, acetification and ropiness.
+Every maker has a different pressing month and fault, so within each category every item is used exactly once.
+
+ 1. Haskell presses in January.
+ 2. The maker who is accused of mousiness presses in May.
+ 3. The maker who is accused of ropiness is exactly one month earlier than May, with no pressing month in between.
+ 4. The maker who is accused of acetification is exactly one month earlier than February, with no pressing month in between.
+ 5. March is exactly one month earlier than Araminta, with no pressing month in between.
+ 6. Jethro is exactly one month earlier than the maker who is accused of a stuck ferment, with no pressing month in between.
+ 7. The maker who is accused of a stuck ferment is earlier than Petroc in pressing month order.
+
+--- NARRATED -------------------------------------------------------------
+The Pomace and the Prize
+
+Cider-making round here is less an industry than a feud conducted in barns. Every maker will tell you, unprompted, that the neighbours' barrels smell of a pickled sock. Judging day brings a small silver cup and several long-standing grudges. Pomace, for the uninitiated, is the pulpy mash of crushed apples left in the press once the juice has run out.
+
+Five makers are involved. Determine each maker's pressing month and fault.
+- Maker: Jethro, Araminta, Haskell, Morwenna and Petroc.
+- Pressing month (listed from earlier to later): January, February, March, April and May.
+- Fault: a stuck ferment, mousiness, sulphur, acetification and ropiness.
+Every maker has a different pressing month and fault, so within each category every item is used exactly once.
+
+ 1. Haskell presses in January.
+ 2. The maker accused of mousiness presses in May, and the maker accused of ropiness presses in the month immediately before May.
+ 3. The maker accused of acetification presses in the month immediately before February.
+ 4. Araminta presses in the month immediately after March.
+ 5. Jethro presses in the month immediately before the maker accused of a stuck ferment, who in turn presses earlier than Petroc.
+
+##########################################################################
+# 10-sheepdog  --  easy 3/7, 3x5, 6 canonical clues -> 6 narrated
+##########################################################################
+
+--- CANONICAL ------------------------------------------------------------
+A hillside, a flock with its own ideas, and a judge who deducts for a wide outrun with the enthusiasm of someone settling an old score.
+Five handlers are involved. Determine each handler's score and dog.
+- Handler: Constance, Eiddwen, Marged, Huw Pryce and Tarrant.
+- Score (listed from lower to higher): 61 points, 64 points, 67 points, 70 points and 73 points.
+- Dog: Bute, Gyp, Fly, Nell and Craig.
+Every handler has a different score and dog, so within each category every item is used exactly once.
+
+ 1. The handler who runs Gyp scores 73 points.
+ 2. The handler who runs Bute is lower than Constance in score order. The handler who runs Bute falls somewhere between 61 points and 67 points in score order.
+ 3. Tarrant is higher than 70 points in score order.
+ 4. The handler who runs Fly and 67 points are exactly one score step apart in score order, in one direction or the other.
+ 5. Huw Pryce is exactly one score step lower than 70 points, with no score in between.
+ 6. The handler who runs Craig is lower than Marged in score order.
+
+--- NARRATED -------------------------------------------------------------
+The Clun Forest Trials
+
+On a windy hillside, sheep with firm views on being herded meet handlers with equally firm views on sheep. The judge deducts for a wide outrun with the relish of someone settling an old score. The dogs, it is generally agreed, are the only professionals present. A sheepdog trial is a contest in which a handler directs a dog by whistle and voice to fetch, drive and pen a small flock, with points lost for every fault.
+
+Five handlers are involved. Determine each handler's score and dog.
+- Handler: Constance, Eiddwen, Marged, Huw Pryce and Tarrant.
+- Score (listed from lower to higher): 61 points, 64 points, 67 points, 70 points and 73 points.
+- Dog: Bute, Gyp, Fly, Nell and Craig.
+Every handler has a different score and dog, so within each category every item is used exactly once.
+
+ 1. The handler who runs Gyp scores 73 points.
+ 2. The handler who runs Bute scores lower than Constance, and somewhere between 61 points and 67 points.
+ 3. Tarrant scores higher than 70 points.
+ 4. The handler who runs Fly scores exactly one score step away from 67 points, either above or below it.
+ 5. Huw Pryce scores exactly one score step lower than 70 points.
+ 6. The handler who runs Craig scores lower than Marged.
+
+##########################################################################
+# 45-mushroom  --  expert 7/7, 5x6, 17 canonical clues -> 14 narrated
+##########################################################################
+
+--- CANONICAL ------------------------------------------------------------
+The Thorn Bottom foraging club keeps meticulous records, chiefly so that blame can be apportioned later.
+Six foragers are involved. Determine each forager's day, find, wood and basket.
+- Forager: Ramiro, Tobias, Ottokar, Solomon, Eilish and Guinevere.
+- Day (listed from earlier to later): Monday, Tuesday, Wednesday, Thursday, Friday and Saturday.
+- Find: a cauliflower fungus, a chicken of the woods, a saffron milk cap, a hen of the woods, a horn of plenty and a penny bun.
+- Wood: Nettlebed, the Old Deer Park, Hangman's Copse, the Larches, Scrag End and Bell Wood.
+- Basket: a wooden box, a string bag, a wicker trug, an upturned hat, a willow creel and a tin pail.
+Every forager has a different day, find, wood and basket, so within each category every item is used exactly once.
+
+ 1. The forager who finds a cauliflower fungus and Saturday are exactly three days apart in day order.
+ 2. Solomon and Monday are exactly one day apart in day order, in one direction or the other.
+ 3. If (a) holds then (b) also holds, but not necessarily the reverse: (a) Guinevere and Wednesday are exactly one day apart in day order, in one direction or the other. (b) The forager who carries an upturned hat and Eilish are exactly one day apart in day order, in one direction or the other.
+ 4. The forager who searches the Larches falls somewhere between Friday and Tobias in day order.
+ 5. Friday and the forager who searches Nettlebed both sit at odd-numbered days or both at even-numbered days.
+ 6. The forager who finds a saffron milk cap and Saturday are exactly two days apart in day order.
+ 7. The forager who carries a wicker trug and the forager who finds a horn of plenty are exactly one day apart in day order, in one direction or the other.
+ 8. Ottokar and the forager who searches the Old Deer Park are exactly one day apart in day order, in one direction or the other.
+ 9. If (a) holds then (b) also holds, but not necessarily the reverse: (a) The forager who carries a wicker trug searches Hangman's Copse. (b) The forager who searches Scrag End is earlier than the forager who carries a string bag in day order.
+10. The forager who searches the Old Deer Park is earlier than the forager who carries a willow creel in day order.
+11. If (a) holds then (b) also holds, but not necessarily the reverse: (a) Ottokar does not search Nettlebed. (b) Ramiro searches Nettlebed.
+12. The forager who carries a string bag does not search Bell Wood. The forager who finds a penny bun is exactly one day earlier than the forager who searches Bell Wood, with no day in between.
+13. Eilish and the forager who searches Bell Wood are exactly one day apart in day order, in one direction or the other.
+14. The forager who finds a saffron milk cap and the forager who searches Scrag End are exactly one day apart in day order, in one direction or the other.
+15. At least one of the following holds, and possibly more than one: (a) Eilish and the forager who searches Scrag End are exactly one day apart in day order, in one direction or the other. (b) Guinevere is earlier than the forager who carries a tin pail in day order.
+16. The forager who carries a string bag and Eilish are exactly one day apart in day order, in one direction or the other.
+17. The forager who finds a chicken of the woods is earlier than Ottokar in day order.
+
+--- NARRATED -------------------------------------------------------------
+The Foragers of Thorn Bottom
+
+The Thorn Bottom foraging club keeps such meticulous records that every missing mushroom has a paper trail, chiefly so that blame can be apportioned later. Disputes over who found what first have been known to outlast the mushrooms. The minutes of the last meeting run to eleven pages, nine of them about a spelling.
+
+Six foragers are involved. Determine each forager's day, find, wood and basket.
+- Forager: Ramiro, Tobias, Ottokar, Solomon, Eilish and Guinevere.
+- Day (listed from earlier to later): Monday, Tuesday, Wednesday, Thursday, Friday and Saturday.
+- Find: a cauliflower fungus, a chicken of the woods, a saffron milk cap, a hen of the woods, a horn of plenty and a penny bun.
+- Wood: Nettlebed, the Old Deer Park, Hangman's Copse, the Larches, Scrag End and Bell Wood.
+- Basket: a wooden box, a string bag, a wicker trug, an upturned hat, a willow creel and a tin pail.
+Every forager has a different day, find, wood and basket, so within each category every item is used exactly once.
+
+ 1. The forager who finds a cauliflower fungus is exactly three days apart from Saturday, and the forager who finds a saffron milk cap is exactly two days apart from Saturday.
+ 2. Solomon and Monday are exactly one day apart.
+ 3. If Guinevere and Wednesday are exactly one day apart, then the forager who carries an upturned hat and Eilish are also exactly one day apart.
+ 4. The forager who searches the Larches comes somewhere between Friday and Tobias, whichever of those two is the earlier.
+ 5. Friday and the forager who searches Nettlebed fall on days of the same parity: both odd-numbered or both even-numbered, counting from Monday as day one.
+ 6. The forager who carries a wicker trug and the forager who finds a horn of plenty are exactly one day apart.
+ 7. Ottokar and the forager who searches the Old Deer Park are exactly one day apart, and the forager who searches the Old Deer Park is earlier than the forager who carries a willow creel.
+ 8. If the forager who carries a wicker trug searches Hangman's Copse, then the forager who searches Scrag End is earlier than the forager who carries a string bag.
+ 9. If Ottokar does not search Nettlebed, then Ramiro does.
+10. The forager who carries a string bag does not search Bell Wood, but is exactly one day apart from Eilish.
+11. The forager who finds a penny bun is exactly one day earlier than the forager who searches Bell Wood, and Eilish and the forager who searches Bell Wood are exactly one day apart.
+12. The forager who finds a saffron milk cap and the forager who searches Scrag End are exactly one day apart.
+13. Either Eilish and the forager who searches Scrag End are exactly one day apart, or Guinevere is earlier than the forager who carries a tin pail, or both.
+14. The forager who finds a chicken of the woods is earlier than Ottokar.
