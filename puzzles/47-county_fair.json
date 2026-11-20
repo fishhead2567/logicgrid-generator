@@ -1,0 +1,430 @@
+{
+  "pid": "8ecb8f012128",
+  "title": "The Hollow Creek Pie Judging",
+  "theme": "county_fair",
+  "blurb": "The Hollow Creek county fair runs its pie judging with more ceremony than the state legislature.",
+  "profile": "expert",
+  "rating": 7,
+  "score": 16.1859,
+  "seed": 2026173147635,
+  "spec": {
+    "difficulty": "expert",
+    "seed": 2026173147635,
+    "theme": "county_fair"
+  },
+  "schema": {
+    "spine": "place",
+    "entity_noun": "baker",
+    "entity_noun_plural": "bakers",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "place",
+        "label": "Placing",
+        "items": [
+          "first",
+          "second",
+          "third",
+          "fourth",
+          "fifth",
+          "sixth"
+        ],
+        "ordered": true,
+        "noun": "placing",
+        "cmp_less": "better",
+        "cmp_more": "worse",
+        "step_noun": "place",
+        "verb": "places"
+      },
+      {
+        "name": "baker",
+        "label": "Baker",
+        "items": [
+          "Winnie",
+          "Bramwell",
+          "Caspian",
+          "Marigold",
+          "Odette",
+          "Thaddeus"
+        ],
+        "ordered": false,
+        "noun": "baker",
+        "subject": true
+      },
+      {
+        "name": "filling",
+        "label": "Filling",
+        "items": [
+          "pecan",
+          "green tomato",
+          "rhubarb",
+          "sour cherry",
+          "buttermilk",
+          "mincemeat"
+        ],
+        "ordered": false,
+        "noun": "filling",
+        "verb": "bakes"
+      },
+      {
+        "name": "county",
+        "label": "Home county",
+        "items": [
+          "Dunmore",
+          "Quarry Hill",
+          "Ardmore",
+          "Sweetwater",
+          "Little Pell",
+          "Fenwick"
+        ],
+        "ordered": false,
+        "noun": "county",
+        "verb": "comes from"
+      },
+      {
+        "name": "crust",
+        "label": "Crust",
+        "items": [
+          "a fluted rim",
+          "a fork-crimped edge",
+          "a cut-out star top",
+          "a braided edge",
+          "a double crust",
+          "a crumb topping"
+        ],
+        "ordered": false,
+        "noun": "crust",
+        "verb": "uses"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "if_then",
+          "x": {
+            "kind": "before",
+            "a": "place:second",
+            "b": "crust:a fluted rim"
+          },
+          "y": {
+            "kind": "before",
+            "a": "place:fifth",
+            "b": "crust:a cut-out star top"
+          }
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "crust:a fork-crimped edge",
+              "b": "filling:sour cherry"
+            },
+            {
+              "kind": "gap",
+              "a": "crust:a double crust",
+              "b": "place:second",
+              "k": 4,
+              "rel": "eq"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "filling:sour cherry",
+          "b": "place:fifth"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "place:second",
+          "b": "baker:Thaddeus"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "filling:pecan",
+              "b": "county:Sweetwater"
+            },
+            {
+              "kind": "parity",
+              "a": "county:Fenwick",
+              "b": "place:sixth",
+              "same": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "before",
+              "a": "place:first",
+              "b": "county:Ardmore"
+            },
+            {
+              "kind": "link",
+              "a": "crust:a fork-crimped edge",
+              "b": "filling:buttermilk"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "county:Sweetwater",
+          "b": "place:sixth",
+          "k": 3,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "filling:mincemeat",
+          "b": "place:third"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "county:Little Pell",
+          "b": "baker:Winnie"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "before",
+          "a": "baker:Bramwell",
+          "b": "filling:pecan"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "baker:Bramwell",
+          "b": "filling:buttermilk"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "or",
+          "options": [
+            {
+              "kind": "adjacent",
+              "a": "crust:a double crust",
+              "b": "filling:buttermilk"
+            },
+            {
+              "kind": "before",
+              "a": "baker:Odette",
+              "b": "filling:green tomato"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "crust:a cut-out star top",
+          "b": "filling:mincemeat",
+          "c": "filling:rhubarb"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "baker:Marigold",
+          "b": "county:Little Pell",
+          "c": "filling:pecan"
+        },
+        {
+          "kind": "not_link",
+          "a": "county:Little Pell",
+          "b": "crust:a crumb topping"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "baker:Caspian",
+          "b": "crust:a braided edge",
+          "k": 4,
+          "rel": "eq"
+        },
+        {
+          "kind": "gap",
+          "a": "baker:Caspian",
+          "b": "crust:a cut-out star top",
+          "k": 2,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "gap",
+          "a": "baker:Winnie",
+          "b": "crust:a crumb topping",
+          "k": 5,
+          "rel": "eq"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "between",
+          "a": "county:Dunmore",
+          "b": "baker:Bramwell",
+          "c": "baker:Thaddeus"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "parity",
+          "a": "baker:Odette",
+          "b": "filling:green tomato",
+          "same": false
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "place": [
+      "first",
+      "second",
+      "third",
+      "fourth",
+      "fifth",
+      "sixth"
+    ],
+    "baker": [
+      "Caspian",
+      "Odette",
+      "Thaddeus",
+      "Marigold",
+      "Bramwell",
+      "Winnie"
+    ],
+    "filling": [
+      "buttermilk",
+      "mincemeat",
+      "green tomato",
+      "sour cherry",
+      "rhubarb",
+      "pecan"
+    ],
+    "county": [
+      "Quarry Hill",
+      "Little Pell",
+      "Sweetwater",
+      "Dunmore",
+      "Ardmore",
+      "Fenwick"
+    ],
+    "crust": [
+      "a crumb topping",
+      "a fluted rim",
+      "a cut-out star top",
+      "a fork-crimped edge",
+      "a braided edge",
+      "a double crust"
+    ]
+  },
+  "stats": {
+    "atoms": 20,
+    "numbered_clues": 18,
+    "kinds": {
+      "if_then": 1,
+      "or": 4,
+      "adjacent": 2,
+      "immediately_before": 1,
+      "gap": 4,
+      "before": 2,
+      "not_link": 2,
+      "between": 3,
+      "parity": 1
+    },
+    "positives": 0,
+    "compounds": 5
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 6,
+    "max_technique": "trial",
+    "steps": 77,
+    "tier_counts": {
+      "direct": 2,
+      "bijection": 36,
+      "order": 32,
+      "disjunction": 6,
+      "trial": 1
+    },
+    "trial_eliminations": 1,
+    "unknown_cells": 24
+  }
+}

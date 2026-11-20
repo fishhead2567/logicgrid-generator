@@ -1,0 +1,197 @@
+{
+  "pid": "90aff8119e2d",
+  "title": "The Dream Garage",
+  "theme": "dream_cars",
+  "blurb": "Kids turned loose at the auto show, each one certain they have found the only car worth owning.",
+  "profile": "easy",
+  "rating": 3,
+  "score": 5.1,
+  "seed": 2026172870470,
+  "spec": {
+    "difficulty": "easy",
+    "seed": 2026172870470,
+    "theme": "dream_cars"
+  },
+  "schema": {
+    "spine": "speed",
+    "entity_noun": "kid",
+    "entity_noun_plural": "kids",
+    "entity_animate": true,
+    "categories": [
+      {
+        "name": "speed",
+        "label": "Top speed",
+        "items": [
+          "120 mph",
+          "130 mph",
+          "140 mph",
+          "150 mph",
+          "160 mph"
+        ],
+        "ordered": true,
+        "values": [
+          120,
+          130,
+          140,
+          150,
+          160
+        ],
+        "unit_suffix": " mph",
+        "noun": "top speed",
+        "cmp_less": "slower",
+        "cmp_more": "faster",
+        "step_noun": "speed step",
+        "verb": "wants a car that does"
+      },
+      {
+        "name": "kid",
+        "label": "Kid",
+        "items": [
+          "Imani",
+          "Benicio",
+          "Dov",
+          "Harriet",
+          "Cormac"
+        ],
+        "ordered": false,
+        "noun": "kid",
+        "subject": true
+      },
+      {
+        "name": "make",
+        "label": "Make",
+        "items": [
+          "a Harrier Coupe",
+          "a Vulcan 500",
+          "a Trailhawk Pickup",
+          "a Comet GT",
+          "a Lark Hatchback"
+        ],
+        "ordered": false,
+        "noun": "make",
+        "verb": "is set on"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "speed:150 mph",
+          "b": "make:a Comet GT"
+        },
+        {
+          "kind": "not_link",
+          "a": "kid:Benicio",
+          "b": "speed:150 mph"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "make:a Harrier Coupe",
+          "b": "speed:120 mph"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "immediately_before",
+          "a": "kid:Harriet",
+          "b": "speed:140 mph"
+        },
+        {
+          "kind": "between",
+          "a": "make:a Lark Hatchback",
+          "b": "kid:Cormac",
+          "c": "kid:Harriet"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "make:a Harrier Coupe",
+          "b": "speed:130 mph"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "not_link",
+          "a": "kid:Benicio",
+          "b": "speed:120 mph"
+        }
+      ]
+    },
+    {
+      "style": "sentences",
+      "atoms": [
+        {
+          "kind": "adjacent",
+          "a": "kid:Imani",
+          "b": "make:a Vulcan 500"
+        }
+      ]
+    }
+  ],
+  "solution": {
+    "speed": [
+      "120 mph",
+      "130 mph",
+      "140 mph",
+      "150 mph",
+      "160 mph"
+    ],
+    "kid": [
+      "Imani",
+      "Harriet",
+      "Benicio",
+      "Dov",
+      "Cormac"
+    ],
+    "make": [
+      "a Trailhawk Pickup",
+      "a Vulcan 500",
+      "a Harrier Coupe",
+      "a Lark Hatchback",
+      "a Comet GT"
+    ]
+  },
+  "stats": {
+    "atoms": 8,
+    "numbered_clues": 6,
+    "kinds": {
+      "immediately_before": 2,
+      "not_link": 3,
+      "between": 1,
+      "adjacent": 2
+    },
+    "positives": 0,
+    "compounds": 0
+  },
+  "solve": {
+    "solved": true,
+    "max_tier": 3,
+    "max_technique": "order",
+    "steps": 25,
+    "tier_counts": {
+      "direct": 3,
+      "bijection": 14,
+      "order": 8
+    },
+    "trial_eliminations": 0,
+    "unknown_cells": 10
+  }
+}
