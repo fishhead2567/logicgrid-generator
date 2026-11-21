@@ -385,3 +385,49 @@ def test_no_blurb_counts_the_cast():
             if nxt.casefold().strip(".,;:!?\"'") not in allowed:
                 offenders.append(f"{theme.slug}: {count!r} {nxt!r}")
     assert not offenders, "blurbs that count the cast: " + "; ".join(offenders)
+
+
+def test_between_names_its_outer_points_in_spine_order():
+    """"Between fifth and second" is right, and reads backwards.
+
+    Between's two outer points are unordered and the solver is told so, so
+    either arrangement is correct. But `Between.__post_init__` canonicalises
+    them by sorting Refs, which is alphabetical -- "fifth" sorts before
+    "second" -- and a reader who has just been told the placings run from
+    better to worse then has to stop and re-sort the sentence.
+
+    Rendering only. The atom is untouched, so no pid moves.
+    """
+    import pathlib
+    from logicgrid.cli import _load
+    from logicgrid.csp import flatten
+    from logicgrid.model import Ref
+    from logicgrid.render import clue_text
+
+    offenders = []
+    checked = 0
+    for path in sorted(pathlib.Path("puzzles").glob("*.json")):
+        puzzle = _load(path)
+        spine = puzzle.schema.spine
+        for n, clue in enumerate(puzzle.clues, 1):
+            text = clue_text(clue, puzzle.schema)
+            for atom in flatten([clue]):
+                data = atom.to_json()
+                if data["kind"] != "between":
+                    continue
+                b = Ref(*data["b"].split(":", 1))
+                c = Ref(*data["c"].split(":", 1))
+                if b.cat != spine.name or c.cat != spine.name:
+                    continue  # position is what the solver is working out
+                checked += 1
+                lo, hi = spine.index(b.item), spine.index(c.item)
+                first, second = (b.item, c.item) if lo < hi else (c.item, b.item)
+                # Match the between phrase itself, not the two item names
+                # anywhere in the clue. A clue carries several facts, and an
+                # earlier one routinely mentions the same spine point -- which
+                # made the first version of this test report a false offender
+                # in 22-fast_food, where "$9" appears in the preceding sentence.
+                if f"between {first} and {second} in" not in text:
+                    offenders.append(f"{path.stem} c{n}: {text}")
+    assert checked >= 3, f"only {checked} spine-to-spine between clues to check"
+    assert not offenders, "between reads backwards:\n  " + "\n  ".join(offenders)

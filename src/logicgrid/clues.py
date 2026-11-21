@@ -469,10 +469,34 @@ class Between(Atom):
 
     def render(self, schema: Schema) -> str:
         noun, _less, _more, _step = _spine_words(schema)
+        lo, hi = self._outer_in_reading_order(schema)
         return (
             f"{_pos(schema, self.a, True)} falls somewhere between "
-            f"{_pos(schema, self.b)} and {_pos(schema, self.c)} in {noun} order."
+            f"{_pos(schema, lo)} and {_pos(schema, hi)} in {noun} order."
         )
+
+    def _outer_in_reading_order(self, schema: Schema) -> tuple[Ref, Ref]:
+        """The two outer points, spine-first where that is knowable.
+
+        ``__post_init__`` already puts them in a canonical order, but it sorts
+        Refs, which is alphabetical: "fifth" sorts before "second", so a medals
+        puzzle reads "somewhere between fifth and second". That is not wrong --
+        the two outer points are explicitly unordered and the solver is told so
+        -- but it reads backwards, and a reader who has just been told the
+        placings run from better to worse has to stop and re-sort it.
+
+        Only the rendering changes, never the atom, so no pid moves: a puzzle
+        is the same puzzle, written more plainly.
+
+        Both outer points have to be ON the spine for this to mean anything. If
+        either is "the athlete who trains in Fargo", its position is the thing
+        the solver is working out, and ordering the pair would leak it.
+        """
+        spine = schema.spine
+        if self.b.cat == spine.name and self.c.cat == spine.name:
+            if spine.index(self.c.item) < spine.index(self.b.item):
+                return self.c, self.b
+        return self.b, self.c
 
     def gloss(self, schema: Schema) -> str:
         noun, _less, _more, _step = _spine_words(schema)
