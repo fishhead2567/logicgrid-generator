@@ -472,7 +472,8 @@ class Between(Atom):
         lo, hi = self._outer_in_reading_order(schema)
         return (
             f"{_pos(schema, self.a, True)} falls somewhere between "
-            f"{_pos(schema, lo)} and {_pos(schema, hi)} in {noun} order."
+            f"{_pos(schema, lo)} and {_pos(schema, hi)} in {noun} order, "
+            f"and is neither of them."
         )
 
     def _outer_in_reading_order(self, schema: Schema) -> tuple[Ref, Ref]:

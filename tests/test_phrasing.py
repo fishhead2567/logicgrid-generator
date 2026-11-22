@@ -431,3 +431,39 @@ def test_between_names_its_outer_points_in_spine_order():
                     offenders.append(f"{path.stem} c{n}: {text}")
     assert checked >= 3, f"only {checked} spine-to-spine between clues to check"
     assert not offenders, "between reads backwards:\n  " + "\n  ".join(offenders)
+
+
+def test_between_says_it_is_exclusive():
+    """The shipped wording has to settle the reading, because it decides the puzzle.
+
+    "Hartley falls somewhere between first and fourth" invites the inclusive
+    reading, and the solver is given no way to tell. It matters more than a
+    wording quibble: relax `between` to inclusive and 33 of the 35 puzzles
+    that use it stop having a unique solution. A solver who reads it the wrong
+    way does not hit a contradiction and back up -- they finish, are told they
+    are wrong, and cannot see why.
+
+    The gloss has always said "'Between' is exclusive", but the gloss is
+    internal: it feeds the narrator brief and the verifier's feedback, and no
+    player ever sees it.
+    """
+    import pathlib
+    from logicgrid.cli import _load
+    from logicgrid.csp import flatten
+    from logicgrid.render import clue_text
+
+    checked, offenders = 0, []
+    for path in sorted(pathlib.Path("puzzles").glob("*.json")):
+        puzzle = _load(path)
+        for n, clue in enumerate(puzzle.clues, 1):
+            if not any(a.to_json()["kind"] == "between" for a in flatten([clue])):
+                continue
+            checked += 1
+            text = clue_text(clue, puzzle.schema)
+            if "neither of them" not in text:
+                offenders.append(f"{path.stem} c{n}: {text}")
+    assert checked >= 20, f"only {checked} between clues found"
+    assert not offenders, (
+        "between clues that do not say they are exclusive:\n  "
+        + "\n  ".join(offenders[:5])
+    )
