@@ -204,7 +204,17 @@ def test_adjacent_stays_symmetric_in_words(schema):
 
 
 def test_proper_nouns_are_never_recased(schema):
-    """The old bundling lowercased the second clause: 'but leocadia does not'."""
+    """The old bundling lowercased the second clause: 'but leocadia does not'.
+
+    That is the invariant, and it still holds. What changed is the count: the
+    clue used to be two sentences naming Leocadia twice, and the repeat is now
+    dropped in favour of ", and". The old assertion said `count == 2`, which
+    pinned the rendering rather than the rule it was there to protect.
+
+    The two are easy to confuse and pull in opposite directions, so both are
+    asserted here: the name appears exactly once, in its proper case, and
+    nothing anywhere in the clue is a recased version of it.
+    """
     from logicgrid.model import Clue
 
     clue = Clue(
@@ -216,7 +226,8 @@ def test_proper_nouns_are_never_recased(schema):
     )
     text = clue_text(clue, schema)
     assert "leocadia" not in text, text
-    assert text.count("Leocadia") == 2
+    assert text.count("Leocadia") == 1, text
+    assert text == "Leocadia harvests in April, and is not troubled by thrips.", text
 
 
 # ---------------------------------------------------------------------------
@@ -460,10 +471,104 @@ def test_between_says_it_is_exclusive():
                 continue
             checked += 1
             text = clue_text(clue, puzzle.schema)
-            if "neither of them" not in text:
+            if "matching neither" not in text:
                 offenders.append(f"{path.stem} c{n}: {text}")
     assert checked >= 20, f"only {checked} between clues found"
     assert not offenders, (
         "between clues that do not say they are exclusive:\n  "
         + "\n  ".join(offenders[:5])
     )
+
+
+def test_no_clue_names_its_own_subject_twice():
+    """"Rose is third. The person in third place does X" is two facts and bad prose.
+
+    Every multi-fact clue in the set shares a referent between its facts, and
+    the renderer used to name it once per sentence. Where the shared referent
+    opens both sentences, the repeat is dropped and the clauses are joined.
+
+    The guard is deliberately not "no sentence opening repeats", because a
+    clue may legitimately carry two facts about two different members of the
+    same category -- "The kid who wears snowflake pajamas ... The kid who
+    leaves out gingerbread ..." opens twice with "The kid who" and must stay
+    two sentences. Only a shared *ref* licenses the join.
+    """
+    import pathlib
+    from logicgrid.cli import _load
+    from logicgrid.clues import shared_opening
+    from logicgrid.render import clue_text
+
+    offenders, multi = [], 0
+    for path in sorted(pathlib.Path("puzzles").glob("*.json")):
+        puzzle = _load(path)
+        for n, clue in enumerate(puzzle.clues, 1):
+            atoms = list(clue.atoms)
+            if len(atoms) < 2:
+                continue
+            multi += 1
+            text = clue_text(clue, puzzle.schema)
+            for prev, atom in zip(atoms, atoms[1:]):
+                a, b = prev.render(puzzle.schema), atom.render(puzzle.schema)
+                lead = shared_opening(puzzle.schema, a, prev, b, atom)
+                # If the two facts share an opening subject, the rendered clue
+                # must not contain that subject followed by a sentence break.
+                if lead and f". {lead}" in text:
+                    offenders.append(f"{path.stem} c{n}: {text[:120]}")
+    assert multi >= 30, f"only {multi} multi-fact clues to check"
+    assert not offenders, "clues repeating their own subject:\n  " + "\n  ".join(
+        offenders[:5]
+    )
+
+
+def test_a_two_link_chain_is_said_from_the_entity_side(schema):
+    """"X is third. The third-place one does Y" becomes "X is third and does Y"."""
+    from logicgrid.model import Clue
+
+    # link(flaw, point) and link(name, point): two links meeting at one point.
+    clue = Clue((Link(R("thrips"), R("April")), Link(R("Leocadia"), R("April"))), "chain")
+    text = clue_text(clue, schema)
+
+    assert text.count("April") == 1, text
+    assert text.startswith("Leocadia"), f"should lead with the name: {text}"
+    assert ", and " in text, text
+    # Both facts still there.
+    assert "April" in text and "thrips" in text, text
+
+
+def test_two_links_that_share_nothing_stay_two_sentences(schema):
+    """The rewrite needs a shared point; without one the facts are unrelated."""
+    from logicgrid.model import Clue
+
+    clue = Clue((Link(R("Leocadia"), R("April")), Link(R("Ambrose"), R("March"))), "pair")
+    text = clue_text(clue, schema)
+    assert text.count(".") == 2, text
+    assert ", and " not in text, text
+
+
+def test_the_link_chain_rewrite_keeps_the_same_facts():
+    """Equivalence, checked by solving rather than by reading.
+
+    link(S,Y) and link(X,S) is rewritten to link(X,S) and link(X,Y). That is
+    sound -- all three refs are one entity either way -- but it is a rewrite
+    of a puzzle's clues, so it is worth proving rather than arguing. Every
+    puzzle in the set still has exactly one solution, and it is the recorded
+    one.
+    """
+    import pathlib
+    from logicgrid.cli import _load
+    from logicgrid.clues import rephrase_link_chain
+    from logicgrid.csp import count_solutions
+
+    touched = 0
+    for path in sorted(pathlib.Path("puzzles").glob("*.json")):
+        puzzle = _load(path)
+        rewritten = []
+        for clue in puzzle.clues:
+            atoms = rephrase_link_chain(puzzle.schema, list(clue.atoms))
+            if list(atoms) != list(clue.atoms):
+                touched += 1
+            rewritten.extend(atoms)
+        if not rewritten:
+            continue
+        assert count_solutions(puzzle.schema, rewritten, limit=2) == 1, path.stem
+    assert touched >= 2, f"the rewrite fired on {touched} clues, so this proves little"

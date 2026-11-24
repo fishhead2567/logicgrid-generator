@@ -86,6 +86,82 @@ def _pos(schema: Schema, ref: Ref, start: bool = False) -> str:
     return _entity(schema, ref, start)
 
 
+def rephrase_link_chain(schema: Schema, atoms: Sequence) -> list:
+    """Say a two-link chain from the entity's side.
+
+        The exhibitor who is marked down for reverse taper is awarded 64
+        points. Noriko Hase is awarded 64 points.
+
+    Two links sharing a point, each naming it, and the solver has to hold the
+    first sentence in mind to cash in the second. The same two facts from
+    Noriko's side read in one breath:
+
+        Noriko Hase is awarded 64 points, and is marked down for reverse
+        taper.
+
+    Sound in both directions, and not only for a spine point. ``link`` means
+    "the same entity", so from ``link(S, Y)`` and ``link(X, S)`` we get X = S
+    = Y; rewriting to ``link(X, S)`` and ``link(X, Y)`` gives X = S and X = Y,
+    from which S = Y follows again. Neither version says anything the other
+    does not.
+
+    The lead goes to a subject-category member where there is one, because a
+    clue that opens with a person's name reads better than one that opens
+    with "the exhibitor who is marked down for reverse taper".
+    """
+    if len(atoms) != 2 or any(a.kind != "link" for a in atoms):
+        return list(atoms)
+    first, second = atoms
+    common = set(first.refs()) & set(second.refs())
+    if len(common) != 1:
+        return list(atoms)
+    shared = next(iter(common))
+    others = [r for a in atoms for r in a.refs() if r != shared]
+    if len(others) != 2 or others[0] == others[1]:
+        return list(atoms)
+
+    def rank(ref: Ref) -> int:
+        cat = schema.category_of(ref)
+        if getattr(cat, "subject", False):
+            return 0          # a name: the best thing to open with
+        return 1 if not schema.is_spine(ref) else 2
+
+    lead, tail = sorted(others, key=rank)
+    return [Link(lead, shared), Link(lead, tail)]
+
+
+def shared_opening(schema: Schema, first: str, atom_a, second: str, atom_b) -> str:
+    """The subject phrase both sentences open with, or "" if there is none.
+
+    Two facts in one clue nearly always share a referent -- all 49 of the
+    multi-fact clues in the current set do -- and the renderer names it twice:
+
+        The handler who runs Bute is lower than Constance in score order. The
+        handler who runs Bute falls somewhere between 61 and 67 points.
+
+    Keyed on the shared *ref*, never on a common string prefix. "The player
+    who" opens two sentences about two different players, and eliding there
+    would silently reassign a fact to the wrong person.
+
+    The rendered name has to open both sentences, which is what makes removing
+    it safe: no word changes case. An earlier attempt at joining clauses
+    lowercased the second one's first word and mangled proper nouns -- "but
+    leocadia does not" -- and that is exactly the failure this avoids, because
+    the proper noun is deleted rather than recased.
+    """
+    common = set(atom_a.refs()) & set(atom_b.refs())
+    best = ""
+    for ref in common:
+        for name in {_pos(schema, ref, True), _entity(schema, ref, True)}:
+            if not name or len(name) <= len(best):
+                continue
+            # A trailing boundary, so "Bowen" does not match "Bowena".
+            if first.startswith(name) and second.startswith(name):
+                if second[len(name) : len(name) + 1] in (" ", ""):
+                    best = name
+    return best
+
+
 def _article(word: str) -> str:
     return "an" if word[:1].casefold() in "aeiou" else "a"
 
@@ -473,7 +549,7 @@ class Between(Atom):
         return (
             f"{_pos(schema, self.a, True)} falls somewhere between "
             f"{_pos(schema, lo)} and {_pos(schema, hi)} in {noun} order, "
-            f"and is neither of them."
+            f"matching neither."
         )
 
     def _outer_in_reading_order(self, schema: Schema) -> tuple[Ref, Ref]:

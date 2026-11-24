@@ -15,7 +15,7 @@ from __future__ import annotations
 
 from typing import Sequence
 
-from .clues import Atom
+from .clues import Atom, rephrase_link_chain, shared_opening
 from .model import Clue, Schema, Solution
 
 
@@ -39,12 +39,39 @@ def _listify(items: Sequence[str], conj: str = "and") -> str:
 def clue_text(clue: Clue, schema: Schema) -> str:
     """Render one numbered clue as sentences.
 
-    Atoms are joined as separate sentences rather than stitched with ", but ".
-    Stitching meant lowercasing the second clause's first word, which quietly
-    mangled proper nouns -- "but leocadia does not ...". The narrative pass is
-    where clauses get combined gracefully; here, correctness wins.
+    Facts stay separate sentences, with one exception: when the next sentence
+    opens with the same subject as the running one, the repeat is dropped and
+    the two are joined with ", and". So this --
+
+        Hector Salas does not drive a minivan with a roof box. Hector Salas is
+        not delayed by nothing at all.
+
+    -- becomes "Hector Salas does not drive a minivan with a roof box, and is
+    not delayed by nothing at all."
+
+    Clauses used to be stitched with ", but ", which meant lowercasing the
+    second clause's first word and quietly mangled proper nouns: "but leocadia
+    does not". Deleting a repeated subject has no such problem, because
+    nothing is recased -- the removed word is the one that was capitalised,
+    and what follows it was already lowercase.
+
+    The join only happens when both sentences open with the rendered name of a
+    ref the two facts actually share. A common string prefix is not enough:
+    "The player who" opens sentences about two different players, and eliding
+    there would hand one player's fact to another.
     """
-    return " ".join(a.render(schema) for a in clue.atoms)
+    atoms = rephrase_link_chain(schema, list(clue.atoms))
+    if not atoms:
+        return ""
+    text = atoms[0].render(schema)
+    for prev, atom in zip(atoms, atoms[1:]):
+        nxt = atom.render(schema)
+        lead = shared_opening(schema, text, prev, nxt, atom)
+        if lead:
+            text = f"{text.rstrip('.')}, and {nxt[len(lead):].lstrip()}"
+        else:
+            text = f"{text} {nxt}"
+    return text
 
 
 COUNT_WORDS = {

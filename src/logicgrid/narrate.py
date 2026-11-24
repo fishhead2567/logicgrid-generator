@@ -85,6 +85,32 @@ a template: what has to survive is the set of facts, not its arrangement.
   - Do not over-merge. Two or three facts to a clue reads well; six becomes a
     paragraph the solver has to parse twice. Keep each numbered clue to about
     one or two sentences.
+  - REARRANGE FREELY, so long as the set of facts is identical. The test is
+    always the same: could a solver deduce something from your version that
+    the fact list does not support, or fail to deduce something it does? If
+    no, the rearrangement is yours to make. Specifically, all of these are
+    yours:
+      * the order of the numbered clues;
+      * which facts share a clue, regardless of how the list numbers them;
+      * the order of facts within one clue -- lead with whichever reads
+        better, and name a shared subject once rather than twice ("Rose
+        places third and uses the cake server", never "Rose places third.
+        The builder who places third uses the cake server.");
+      * either side of a SYMMETRIC fact: "A and B are one apart" is the same
+        fact as "B and A are one apart", and for "between", which of the two
+        outer points you name first is not specified, so pick the one that
+        reads better;
+      * turning a comparison round WHEN THE COMPARATIVE TURNS WITH IT: "A is
+        earlier than B" and "B is later than A" are one fact said two ways.
+    These are NOT yours, because they change the fact:
+      * reversing a directional fact without reversing the comparative. "A is
+        immediately before B" is not "B is immediately before A".
+      * implying an order between the two outer points of a "between". They
+        are unordered; naming one first is prose, saying one is earlier is a
+        new fact.
+      * merging two facts into a claim stronger than either, such as turning
+        "A is earlier than B" and "B is earlier than C" into "A, B and C in
+        that order" when nothing rules out gaps you have not been told about.
   - Use the member names exactly as spelled in the category lists. Do not
     shorten, pluralise, re-case, translate or nickname them. "Mrs Abernathy"
     does not become "Abernathy".
