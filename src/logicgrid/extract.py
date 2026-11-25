@@ -100,7 +100,16 @@ Pairing:
   distinct(A, B, C, ...)  All named are different subjects (pairwise). Use for
                           "three different people" phrasing.
 
-Position (only for the ordered category):
+Position (these compare positions in the ordered category):
+
+  The ordered category supplies the positions, but EVERY subject sits at one of
+  them, so these facts take ANY members as arguments -- not only members of the
+  ordered category. "Constance scores lower than the handler who runs Bute" is
+  before(Constance, Bute): neither names a score, and the fact is still about
+  the scores they hold. Never leave a comparison out for want of a way to name
+  an unnamed subject's position. If you can name the subject, you can compare
+  it.
+
   before(A, B)                A is strictly earlier than B, by any amount.
   immediately_before(A, B)    B is exactly one step after A. Direction matters.
   adjacent(A, B)              One step apart, direction unspecified. ALWAYS use
