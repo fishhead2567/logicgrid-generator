@@ -32,7 +32,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Mapping, Sequence
 
-from .clues import Atom
+from .clues import Atom, normalise_set
 from .csp import Engine, flatten
 from .extract import Extraction, ExtractionError, build_request as extract_request, parse_reply
 from .llm import ModelConfig
@@ -251,8 +251,11 @@ def judge(
     else:
         out.checks.append(Check("solution", True, "unique, and the right answer"))
 
-    want = set(flatten(original))
-    got = set(atoms)
+    # Compare what the reader could actually have seen: a clue that pins a
+    # position is rendered as that position, so both sides are normalised
+    # before the sets are differenced.  See [logicgrid.clues.normalised].
+    want = normalise_set(schema, flatten(original))
+    got = normalise_set(schema, atoms)
     out.missing = tuple(sorted(want - got, key=lambda a: repr(a.to_json())))
     out.extra = tuple(sorted(got - want, key=lambda a: repr(a.to_json())))
     if not out.missing and not out.extra:

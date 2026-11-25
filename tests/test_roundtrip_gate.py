@@ -60,6 +60,7 @@ from logicgrid.verify import (
     judge,
     verdict_for,
 )
+from logicgrid.clues import Between, normalise_set
 
 DAYS = ("Monday", "Tuesday", "Wednesday", "Thursday")
 WOMEN = ("Anne", "Cathy", "Eve", "Fran")
@@ -465,3 +466,100 @@ def test_malformed_json_fails_to_parse(puzzle):
     reading = judge(0, "not json at all", puzzle.schema, puzzle.clues, puzzle.solution)
     assert not reading.solution_ok
     assert "JSON" in reading.error
+
+
+# ---------------------------------------------------------------------------
+# normalisations the *renderer* makes necessary
+#
+# Both of these undo a shape difference the renderer introduced, not one the
+# reader invented. Without them the gate fails narratives that are perfectly
+# faithful, which is exactly what it did: nine of ten narratives in one run
+# were rejected for prose the renderer itself had asked for.
+# ---------------------------------------------------------------------------
+
+
+def test_a_pinned_clue_is_compared_as_the_position_it_pins(puzzle):
+    """"One day earlier than Wednesday" is rendered "on Tuesday", so a reader
+    writes a link. The canonical atom is still an immediately_before, and
+    comparing the two shapes directly reports a fact lost and a fact invented
+    -- the same fact, twice, in two shapes.
+    """
+    schema = puzzle.schema
+    pinned = ImmediatelyBefore(_ref("Cathy"), _ref("Wednesday"))
+    assert normalise_set(schema, [pinned]) == {Link(_ref("Cathy"), _ref("Tuesday"))}
+    # Non-vacuity: an entity-to-entity step pins nothing and is left alone.
+    plain = ImmediatelyBefore(_ref("Eve"), _ref("Fran"))
+    assert normalise_set(schema, [plain]) == {plain}
+
+
+def test_the_exclusivity_a_between_spells_out_is_dropped(puzzle):
+    """[Between.render] ends "matching neither", and some readers write that
+    down as its own pair of facts while others treat it as already covered.
+    Both are right, so the pair is dropped from whichever side holds it.
+    """
+    schema = puzzle.schema
+    span = Between(_ref("Cathy"), _ref("Monday"), _ref("Thursday"))
+    spelled = [span, NotLink(_ref("Cathy"), _ref("Monday")),
+               NotLink(_ref("Cathy"), _ref("Thursday"))]
+    assert normalise_set(schema, spelled) == normalise_set(schema, [span])
+
+
+def test_a_not_link_no_between_implies_is_kept(puzzle):
+    """Non-vacuity: only the entailment of a between that is actually present
+    is dropped. A free-standing negative is a fact in its own right.
+    """
+    schema = puzzle.schema
+    loose = NotLink(_ref("Cathy"), _ref("Monday"))
+    assert normalise_set(schema, [loose]) == {loose}
+    # ... and the pair is only dropped for the between that implies it, not for
+    # any between at all.
+    other = Between(_ref("Eve"), _ref("Monday"), _ref("Thursday"))
+    assert normalise_set(schema, [other, loose]) == {other, loose}
+
+
+def test_a_pinned_reading_is_not_reported_as_drift():
+    """End to end: a puzzle holding a pinned clue, read exactly as rendered.
+
+    The reader is handed "Eve meets on Wednesday" and writes a link, because
+    that is what the sentence says. Before the normalisation this scored 3/3 on
+    the solution check and 0/3 on the IR, and the shared shape difference was
+    counted as consensus drift -- a fail.
+    """
+    schema = Schema(
+        [
+            Category("day", "Day", DAYS, ordered=True, noun="day",
+                     cmp_less="earlier", cmp_more="later", step_noun="day"),
+            Category("woman", "Woman", WOMEN, noun="woman"),
+            Category("man", "Man", MEN, noun="man"),
+        ],
+        spine="day",
+        entity_noun="couple",
+    )
+    solution = Solution(
+        schema,
+        {"day": list(DAYS), "woman": list(WOMEN), "man": list(MEN)},
+    )
+    clues = (
+        Clue((Link(_ref("Anne"), _ref("Monday")),)),
+        Clue((Before(_ref("Cathy"), _ref("Eve")),)),
+        # The pinned clue: Eve sits one day before Thursday, i.e. Wednesday.
+        Clue((ImmediatelyBefore(_ref("Eve"), _ref("Thursday")),)),
+        Clue((Link(_ref("Paul"), _ref("Anne")),)),
+        Clue((Adjacent(_ref("Rob"), _ref("Stan")),)),
+        Clue((Link(_ref("Vern"), _ref("Thursday")),)),
+        Clue((NotLink(_ref("Rob"), _ref("Wednesday")),)),
+    )
+    p = Puzzle(
+        pid="test0002", title="A Pinned Test", theme="test", blurb="A fixture.",
+        schema=schema, solution=solution, clues=clues, profile="moderate",
+        score=5.0, rating=4, seed=0,
+    )
+    p.verify()
+
+    facts = list(FAITHFUL)
+    facts[2] = _fact("link", "Eve", "Wednesday")   # what the prose says
+    readings = [_judge(p, facts, index=i) for i in range(3)]
+    for r in readings:
+        assert r.solution_ok, r.checks
+        assert not r.missing and not r.extra, (r.missing, r.extra)
+    assert verdict_for(readings, required=3) == "pass"

@@ -1155,3 +1155,72 @@ def is_trivial(atom: Atom, schema: Schema) -> bool:
         if len(cats_seen) != len(set(cats_seen)):
             return True
     return False
+
+
+def normalised(schema: Schema, atom: Atom) -> Atom:
+    """An atom in the shape its own rendering states.
+
+    [ImmediatelyBefore] against a literal spine item renders as the position
+    it pins -- "Ms Castellano files on the third shelf" -- so a reader of that
+    prose writes down a [Link].  Same constraint, different shape.
+
+    This matters because the round-trip gate compares the reader's facts with
+    the puzzle's as *sets*, and treats a difference that every reader shares as
+    systematic drift, which is disqualifying.  A shape difference the renderer
+    itself introduced would therefore fail every narrative of a puzzle holding
+    such a clue -- and it did, until both sides were put in this form first.
+    What the reader saw was the rendering, so the rendering is what the
+    comparison has to be about.
+
+    Compounds are normalised through their children, since a disjunct can be a
+    pinned fact too.
+    """
+    if atom.kind == "immediately_before":
+        pinned = _pinned_position(schema, *atom.refs())
+        if pinned is not None:
+            return Link(*pinned)
+        return atom
+    if isinstance(atom, Not):
+        return Not(normalised(schema, atom.inner))
+    if isinstance(atom, Or):
+        return Or(tuple(normalised(schema, a) for a in atom.options))
+    if isinstance(atom, NotBoth):
+        return NotBoth(normalised(schema, atom.x), normalised(schema, atom.y))
+    if isinstance(atom, IfThen):
+        return IfThen(normalised(schema, atom.x), normalised(schema, atom.y))
+    return atom
+
+def normalise_set(schema: Schema, atoms: Iterable[Atom]) -> set[Atom]:
+    """A clue set in the shape the prose states it, for set comparison.
+
+    Two normalisations, both undoing a difference the *renderer* introduced
+    rather than one the reader invented:
+
+    1. Each atom goes through [normalised], so a clue that pins a position is
+       compared as the position it pins.
+
+    2. A ``not_link`` spelled out by a ``between`` in the same set is dropped.
+       [Between.render] ends "matching neither", which exists because an
+       inclusive reading destroys uniqueness in 33 of the 35 puzzles that use
+       one -- so it has to be said. But saying it invites a reader to write the
+       entailment down as its own fact, and some readers do while others treat
+       it as already covered. Both readings are right; dropping them from
+       whichever set contains them makes the two agree.
+
+    Dropping rather than adding matters: adding the pair to the canonical side
+    would turn the readers who *don't* spell it out into readers who lost a
+    fact.
+
+    This is deliberately narrow. The general "the extra fact is implied by the
+    puzzle" excuse is worthless here, because a clue set with a unique solution
+    entails every true statement about that solution -- including a tightened
+    clue that the drift check exists to catch. What is excused is one named
+    entailment of one atom, not entailment at large.
+    """
+    out = {normalised(schema, a) for a in atoms}
+    implied: set[Atom] = set()
+    for atom in out:
+        if isinstance(atom, Between):
+            implied.add(NotLink(atom.a, atom.b))
+            implied.add(NotLink(atom.a, atom.c))
+    return out - implied

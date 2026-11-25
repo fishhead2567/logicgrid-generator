@@ -1,19 +1,19 @@
 {
   "pid": "0d7d0fe6c620",
   "title": "The Honey Show Scandal",
-  "introduction": "The annual honey show has been judged, and at least two people are writing letters about it. There are 5 beekeepers. Each pays a different entry fee, from cheaper to dearer: $2, $4, $6, $8, $10. The beekeepers are Wilhelmina, Breda, Mungo, Priya and Fausto. Each enters a different honey from this list: borage honey, ivy honey, lime blossom honey, sea lavender honey, chestnut honey. Each keeps a different type of hive from this list: a long deep hive, a Langstroth hive, a national hive, a Warre hive, a WBC hive. Within each category every member belongs to a different beekeeper, so each fee, name, honey and hive type is used exactly once.",
+  "introduction": "The judges have tasted, the ribbons are pinned, and the village hall now holds five beekeepers who each believe the result was a clerical error. At least two of them are already composing strongly worded letters, and one has been seen sharpening a hive tool in a manner that felt unnecessary. Some of the hives on display are less familiar than the jars: a long deep hive is a single horizontal box the bees work along its length, a Langstroth is the familiar stack of boxes with removable frames, a national is its squarer British cousin, a Warre is a tall stack to which new boxes are added from below, and a WBC is the double-walled one that looks like a garden ornament.",
+  "preamble": "Five beekeepers are involved. Determine each beekeeper's entry fee, honey and hive.\n- **Beekeeper**: Wilhelmina, Breda, Mungo, Priya and Fausto.\n- **Entry fee** (listed from cheaper to dearer): $2, $4, $6, $8 and $10.\n- **Honey**: borage honey, ivy honey, lime blossom honey, sea lavender honey and chestnut honey.\n- **Hive type**: a long deep hive, a Langstroth hive, a national hive, a Warre hive and a WBC hive.\nEvery beekeeper has a different entry fee, honey and hive, so within each category every item is used exactly once.",
   "clues": [
+    "Wilhelmina pays $4, and the beekeeper who enters chestnut honey falls somewhere between Breda and Wilhelmina in entry fee order, matching neither.",
+    "Fausto falls somewhere between $2 and $10 in entry fee order, matching neither.",
     "The beekeeper who keeps a WBC hive pays $2, and is exactly one fee step apart from the beekeeper who enters lime blossom honey.",
-    "Wilhelmina pays exactly one fee step more than $2, with no entry fee in between.",
-    "Fausto's entry fee falls somewhere between $10 and $2 in fee order, matching neither of them.",
-    "The beekeeper who keeps a Warre hive pays a fee that falls somewhere between $2 and $6 in fee order, matching neither of them.",
-    "The beekeeper who keeps a long deep hive pays exactly one fee step more than $8, with no entry fee in between.",
-    "The beekeeper who keeps a Langstroth hive pays exactly one fee step less than Priya, with no entry fee in between, and the beekeeper who enters sea lavender honey and Priya are exactly one fee step apart.",
-    "The beekeeper who enters chestnut honey pays a fee that falls somewhere between those of Breda and Wilhelmina in fee order, matching neither of them.",
-    "Neither the beekeeper who enters chestnut honey nor the beekeeper who enters ivy honey pays $6.",
+    "The beekeeper who keeps a Warre hive falls somewhere between $2 and $6 in entry fee order, matching neither.",
+    "The beekeeper who keeps a long deep hive pays $10.",
+    "The beekeeper who keeps a Langstroth hive is exactly one fee step cheaper than Priya, and the beekeeper who enters sea lavender honey and Priya are exactly one fee step apart.",
+    "The beekeeper who enters chestnut honey does not pay $6, and neither does the beekeeper who enters ivy honey.",
     "Mungo does not enter ivy honey."
   ],
-  "model": "sonnet (subagent)",
+  "model": "subagent",
   "attempt": 1,
-  "verdict": "pass_equivalent"
+  "verdict": "pass"
 }
