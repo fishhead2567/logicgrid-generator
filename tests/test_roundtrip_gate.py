@@ -57,10 +57,13 @@ from logicgrid.verify import (
     PASS,
     PASS_EQUIVALENT,
     consensus_drift,
+    failure_report,
     judge,
+    prose_problems,
     verdict_for,
 )
-from logicgrid.clues import Between, normalise_set
+from logicgrid.clues import Between, link_closure, normalise_set
+from logicgrid.narrate import Narrative
 
 DAYS = ("Monday", "Tuesday", "Wednesday", "Thursday")
 WOMEN = ("Anne", "Cathy", "Eve", "Fran")
@@ -563,3 +566,226 @@ def test_a_pinned_reading_is_not_reported_as_drift():
         assert r.solution_ok, r.checks
         assert not r.missing and not r.extra, (r.missing, r.extra)
     assert verdict_for(readings, required=3) == "pass"
+
+
+# ---------------------------------------------------------------------------
+# a clue that claims two subjects where the grid allows one
+# ---------------------------------------------------------------------------
+#
+# The defect no reading can report. "Haskell presses in January, as does the
+# maker accused of acetification" extracts as the two links it is built from,
+# so three readers recover the one true solution and the round trip is happy.
+# A human reads "as does" as introducing somebody else, rules out the identity
+# the clue exists to establish, and hits a contradiction. It shipped once.
+
+
+def _narrative(*clues: str) -> Narrative:
+    return Narrative(
+        pid="test0001",
+        title="A Test",
+        introduction="A scene that constrains nothing.",
+        clues=tuple(clues),
+    )
+
+
+@pytest.mark.parametrize(
+    "clue",
+    [
+        "Anne marries on Monday, as does the woman who marries Paul.",
+        "Anne marries on Monday, and so does the woman who marries Paul.",
+        "Anne marries on Monday. So does the woman who marries Paul.",
+        "Anne marries on Monday; likewise the woman who marries Paul.",
+        "Anne marries on Monday, and the woman who marries Paul, too.",
+        "Anne marries on Monday, and the woman who marries Paul, as well.",
+        "Anne marries on Monday, and the same goes for the woman who marries Paul.",
+        "Anne marries on Monday. Ditto the woman who marries Paul.",
+    ],
+)
+def test_a_clue_claiming_two_subjects_for_one_is_refused(clue):
+    problems = prose_problems(_narrative(clue))
+    assert len(problems) == 1, problems
+    assert "clue 1" in problems[0]
+    assert clue in problems[0]       # the narrator is shown its own sentence
+
+
+def test_the_merge_a_magazine_wants_is_accepted():
+    """The honest merge names the one subject, and must not be flagged.
+
+    This is the phrasing the fix asks the narrator for, so if the check
+    rejected it there would be nothing left to write.
+    """
+    assert prose_problems(_narrative(
+        "Anne, who marries Paul, marries on Monday.",
+        "Cathy marries earlier than Eve.",
+    )) == ()
+
+
+def test_separate_clues_about_one_item_are_accepted():
+    """Two plain facts that pin the same day: the canonical shape.
+
+    No distinctness is claimed, because nothing joins them.
+    """
+    assert prose_problems(_narrative(
+        "Anne marries on Monday.",
+        "The woman who marries Paul marries on Monday.",
+    )) == ()
+
+
+def test_also_about_one_subject_is_left_alone():
+    """The word "also" is not in the ban list, and must not creep into it.
+
+    Its common use attaches a second fact to the subject already named, which
+    is exactly the merge the narrator is told to write.
+    """
+    assert prose_problems(
+        _narrative("Anne marries on Monday, and also marries Paul.")
+    ) == ()
+
+
+def test_the_introduction_is_not_searched():
+    """The scene constrains nothing, so a shared predicate there asserts
+    nothing that could be wrong."""
+    n = Narrative(
+        pid="test0001",
+        title="A Test",
+        introduction="Anne has not spoken to the caterer since the incident, "
+        "and neither has the florist; likewise the vicar.",
+        clues=("Anne marries on Monday.",),
+    )
+    assert prose_problems(n) == ()
+
+
+def test_a_prose_defect_fails_a_narrative_the_readers_approved(puzzle):
+    """Every reader passes; the verdict is still fail.
+
+    Both halves matter. If the readings did not pass on their own, this would
+    prove nothing about the prose check.
+    """
+    readings = [_judge(puzzle, FAITHFUL, index=i) for i in range(3)]
+    assert verdict_for(readings, required=3) == PASS
+
+    bad = _narrative("Anne marries on Monday, as does the woman who marries Paul.")
+    assert prose_problems(bad)
+
+    # What verify_narrative does with the two, minus the API calls.
+    verdict = FAIL if prose_problems(bad) else verdict_for(readings, required=3)
+    assert verdict == FAIL
+
+
+def test_the_narrator_is_told_what_to_write_instead(puzzle):
+    """The feedback has to carry the remedy, or the retry repeats the mistake."""
+    report = failure_report(
+        [_judge(puzzle, FAITHFUL, index=i) for i in range(3)],
+        puzzle.schema,
+        puzzle.clues,
+        prose=prose_problems(
+            _narrative("Anne marries on Monday, as does the woman who marries Paul.")
+        ),
+    )
+    assert "Name that subject" in report
+    assert "separate clues" in report
+
+
+# ---------------------------------------------------------------------------
+# closing the triangle, so the honest merge survives the gate
+# ---------------------------------------------------------------------------
+
+
+def test_the_honest_merge_is_not_reported_as_drift(puzzle):
+    """A reader of the merged clue writes the identity and the day.
+
+    The fixture holds "Anne marries on Monday" and "Paul marries Anne". A
+    magazine prints those as one clue -- "Anne, who marries Paul, marries on
+    Monday" -- and a reader may write the day against Paul rather than Anne.
+    Same triangle, different two sides. Without the closure every reader
+    differs from the puzzle the same way, and the gate calls that systematic
+    drift: a fail earned by writing the clue correctly.
+    """
+    facts = list(FAITHFUL)
+    facts[0] = _fact("link", "Paul", "Monday")   # instead of Anne-Monday
+    readings = [_judge(puzzle, facts, index=i) for i in range(3)]
+    for r in readings:
+        assert r.solution_ok, r.checks
+        assert not r.missing and not r.extra, (r.missing, r.extra)
+    assert verdict_for(readings, required=3) == PASS
+
+
+def test_closure_does_not_excuse_a_lost_fact(puzzle):
+    """The guard on the test above: closure must not swallow real loss.
+
+    A reader that keeps the day and drops the couple leaves the triangle with
+    one side, which implies nothing. The fact is still missing and must be
+    reported as missing -- otherwise "it was implied" would excuse anything.
+    """
+    facts = [
+        f for f in FAITHFUL
+        if not (f["kind"] == "link" and f["args"] == ["Paul", "Anne"])
+    ]
+    reading = _judge(puzzle, facts)
+    assert any(
+        a.kind == "link" and "Paul" in {r.item for r in a.refs()}
+        for a in reading.missing
+    ), reading.missing
+
+
+def test_closure_adds_the_third_side_and_nothing_else():
+    links = {Link(_ref("Anne"), _ref("Monday")), Link(_ref("Paul"), _ref("Anne"))}
+    assert link_closure(links) == links | {Link(_ref("Paul"), _ref("Monday"))}
+
+
+def test_closure_never_links_two_items_of_one_category():
+    """No entity holds two days, so such a link is a contradiction rather than
+    an implication -- and inventing one would hand the solver a fact that
+    cannot be true. The solver is what should report the contradiction."""
+    links = {Link(_ref("Anne"), _ref("Monday")), Link(_ref("Anne"), _ref("Tuesday"))}
+    closed = link_closure(links)
+    assert Link(Ref("day", "Monday"), Ref("day", "Tuesday")) not in closed
+    assert closed == links
+
+
+def test_closure_leaves_unrelated_links_alone():
+    links = {Link(_ref("Anne"), _ref("Monday")), Link(_ref("Rob"), _ref("Tuesday"))}
+    assert link_closure(links) == links
+
+
+def test_closure_does_not_touch_negatives():
+    """Deliberately narrow: positive links only.
+
+    A not_link is implied by the triangle too, but widening the closure widens
+    what the drift check can no longer see, and nothing needs it.
+    """
+    atoms = {Link(_ref("Anne"), _ref("Monday")), NotLink(_ref("Paul"), _ref("Tuesday"))}
+    assert link_closure(atoms) == atoms
+
+
+def test_normalise_set_closes_the_triangle(puzzle):
+    """Through the function the gate actually calls."""
+    two_days = {Link(_ref("Anne"), _ref("Monday")), Link(_ref("Paul"), _ref("Monday"))}
+    identity = {Link(_ref("Anne"), _ref("Monday")), Link(_ref("Paul"), _ref("Anne"))}
+    assert normalise_set(puzzle.schema, two_days) == normalise_set(
+        puzzle.schema, identity
+    )
+
+
+def test_no_published_narrative_claims_two_subjects_for_one():
+    """The guard on the shelf, not on the pipeline.
+
+    The gate now refuses these, but the gate only runs when something is
+    narrated. Four clues across three published narratives had already got
+    past it, and a player found them before any test did. This reads what is
+    actually on disk, so a bad clue cannot sit in the repository unnoticed
+    however it arrived there.
+    """
+    import pathlib
+
+    root = pathlib.Path(__file__).resolve().parent.parent / "narratives"
+    files = sorted(root.glob("*.json")) if root.is_dir() else []
+    if not files:
+        pytest.skip("no published narratives in this checkout")
+
+    problems: list[str] = []
+    for path in files:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        for problem in prose_problems(Narrative.from_json(data)):
+            problems.append(f"{path.name}: {problem}")
+    assert not problems, "\n".join(problems)

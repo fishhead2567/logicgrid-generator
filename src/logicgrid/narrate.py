@@ -96,6 +96,12 @@ a template: what has to survive is the set of facts, not its arrangement.
         better, and name a shared subject once rather than twice ("Rose
         places third and uses the cake server", never "Rose places third.
         The builder who places third uses the cake server.");
+      * merging two facts that name the same item, BY NAMING THE ONE ENTITY
+        THEY ARE BOTH ABOUT. Each item belongs to exactly one subject, so two
+        facts that pin the same item are two facts about one subject, and the
+        clue should say so: "Rose places third and uses the cake server", or
+        "Rose, who uses the cake server, places third". See the rule below --
+        this is the only merge of such a pair you may write.
       * either side of a SYMMETRIC fact: "A and B are one apart" is the same
         fact as "B and A are one apart", and for "between", which of the two
         outer points you name first is not specified, so pick the one that
@@ -111,6 +117,34 @@ a template: what has to survive is the set of facts, not its arrangement.
       * merging two facts into a claim stronger than either, such as turning
         "A is earlier than B" and "B is earlier than C" into "A, B and C in
         that order" when nothing rules out gaps you have not been told about.
+      * joining two facts with a phrase that says a SECOND, DIFFERENT subject
+        does the same thing: "as does", "as do", "as is", "and so does",
+        "so is", "likewise", "the same goes for", ", too", ", as well". See
+        the rule below; this one is never safe.
+  - NEVER WRITE "AS DOES", "AND SO DOES", "LIKEWISE", ", TOO", ", AS WELL",
+    "THE SAME GOES FOR" or any other phrase whose job is to say that a second,
+    different subject shares a predicate. Every one of them is a lie here, and
+    you cannot tell which, because you are not shown the answer.
+
+    Each item belongs to exactly one subject. So if two facts name the same
+    item -- "Haskell presses in January" and "the maker accused of
+    acetification presses in January" -- they are not two subjects who happen
+    to agree. They are ONE subject named two ways, and "Haskell presses in
+    January, as does the maker accused of acetification" tells the solver the
+    opposite of the truth: that there are two makers here. A solver who
+    believes you, as a solver should, reaches a contradiction and blames the
+    puzzle.
+
+    Merge such a pair by naming the single subject: "Haskell, who stands
+    accused of acetification, presses in January." Or leave them as two
+    separate numbered clues, each stated plainly. Both are correct. Nothing
+    with "as does" in it is.
+
+    The same applies to two facts that relate different subjects to one shared
+    subject ("X is three days from Ingrid" and "Y is three days from Ingrid").
+    X and Y may or may not be the same subject -- you have no way to know, so
+    do not write prose that claims an answer. Give them separate sentences.
+
   - Use the member names exactly as spelled in the category lists. Do not
     shorten, pluralise, re-case, translate or nickname them. "Mrs Abernathy"
     does not become "Abernathy".
@@ -138,6 +172,8 @@ each clue and obey it:
   - "not both X and Y" permits neither. Do not write it as "exactly one of".
   - a negative clue stays negative. "A is not with B" must not become "A is
     with someone else, perhaps C".
+  - two facts naming the same item are about ONE subject. Never join them with
+    "as does" or its family, which asserts two. Name the subject instead.
 
 Return your answer in the required JSON format.\
 """

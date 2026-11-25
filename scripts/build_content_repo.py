@@ -34,7 +34,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from logicgrid import __version__  # noqa: E402
 from logicgrid.generate import Puzzle  # noqa: E402
+from logicgrid.narrate import Narrative  # noqa: E402
 from logicgrid.render import canonical_intro, clue_text  # noqa: E402
+from logicgrid.verify import prose_problems  # noqa: E402
 
 SCHEMA = 1
 
@@ -202,6 +204,17 @@ def build(out: Path, puzzles: Path, narratives: Path, init_git: bool) -> int:
                     f"{npid}, but {stem} is now pid {puzzle.pid}",
                     file=sys.stderr,
                 )
+            elif prose_problems(Narrative.from_json(json.loads(nraw.decode("utf-8")))):
+                # A clue that claims two subjects where the grid allows one.
+                #
+                # Checked here as well as in the gate because the gate only
+                # runs when something is narrated, and this script is the last
+                # thing between a narrative and a player's phone. Four such
+                # clues reached a phone; a player found them.
+                for problem in prose_problems(
+                    Narrative.from_json(json.loads(nraw.decode("utf-8")))
+                ):
+                    print(f"  skipping narratives/{stem}.json: {problem}", file=sys.stderr)
             else:
                 (out / "narratives" / f"{stem}.json").write_bytes(nraw)
                 entry["narrative"] = _entry(

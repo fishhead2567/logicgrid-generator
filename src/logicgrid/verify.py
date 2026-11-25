@@ -20,6 +20,13 @@ Hence three verdicts: ``pass`` (every reader agrees down to the IR),
 ``pass_equivalent`` (every reader recovers the right unique solution, but some
 phrased a clue differently) and ``fail``.
 
+One defect no reading can report is checked on the prose itself.  An extractor
+reads for facts; a solver reads English.  "Haskell presses in January, as does
+the maker accused of acetification" yields the right two facts and the right
+unique solution, and tells a human being that these are two different makers --
+which, one month to one maker, they can never be.  See [prose_problems]: it
+fails a narrative outright, after the readers have had their say.
+
 Why the solution check beats comparing clue text or clue IR: it is immune to
 harmless rewording and fatal to actual drift.  Tighten "earlier" into "just
 before" and the clue set usually goes to zero solutions; loosen "immediately
@@ -29,6 +36,7 @@ notices, and it notices for the right reason.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from typing import Mapping, Sequence
 
@@ -43,6 +51,65 @@ from .narrate import Narrative, narrate
 PASS = "pass"
 PASS_EQUIVALENT = "pass_equivalent"
 FAIL = "fail"
+
+
+#: Phrases whose job is to say that a SECOND, DIFFERENT subject shares a
+#: predicate -- "Haskell presses in January, as does the maker accused of
+#: acetification".
+#:
+#: In a one-each grid that sentence is always false. Each item belongs to
+#: exactly one subject, so two facts that pin the same item are one subject
+#: named twice, never two subjects who agree; the honest merge names the
+#: subject ("Haskell, who stands accused of acetification, presses in
+#: January"). And the narrator cannot be trusted to merge only the safe cases,
+#: because it is never shown the solution and so cannot tell which they are.
+#: The ban is therefore unconditional.
+_DISTINCTNESS = (
+    (re.compile(r",\s*as (?:does|do|did|is|are|was|were|has|have)\b", re.I), "as does"),
+    (re.compile(r"\band so (?:does|do|did|is|are|was|were|has|have)\b", re.I), "and so does"),
+    (re.compile(r"(?:^|\.\s+)So (?:does|do|did|is|are|was|were)\b"), "so does"),
+    (re.compile(r"\blikewise\b", re.I), "likewise"),
+    (re.compile(r",\s*too\b", re.I), ", too"),
+    (re.compile(r",\s*as well\b", re.I), ", as well"),
+    (re.compile(r"\bthe same (?:goes for|is true of|applies to|holds for)\b", re.I),
+     "the same goes for"),
+    (re.compile(r"\bditto\b", re.I), "ditto"),
+)
+
+
+def prose_problems(narrative: Narrative) -> tuple[str, ...]:
+    """Clues that claim two subjects where the grid allows only one.
+
+    The round trip cannot catch this on its own, and did not: three readers
+    read "Haskell presses in January, as does the maker accused of
+    acetification" as the two links it is built from, recovered the one true
+    solution, and the gate said ``pass``. The readers were extracting facts.
+    A human solver reads English, and English says "as does" introduces
+    somebody else -- so the solver rules out the very identity the clue exists
+    to establish, and the puzzle contradicts itself in their hands.
+
+    Hence a check on the prose rather than on what can be extracted from it.
+    Only the clues are searched: the introduction is required to constrain
+    nothing, so a shared predicate there asserts nothing to be wrong about.
+
+    This is a backstop, not a proof. It catches the constructions that carry
+    the claim outright; it cannot catch every paraphrase of them, and "also"
+    is deliberately absent because its innocent use ("Rose also uses the cake
+    server", one subject, two facts) is the common one. The prompt carries the
+    rule; this makes the common failures impossible to publish.
+    """
+    out: list[str] = []
+    for i, clue in enumerate(narrative.clues, start=1):
+        for pattern, label in _DISTINCTNESS:
+            if pattern.search(clue):
+                out.append(
+                    f"clue {i} joins two facts with {label!r}, which tells the "
+                    f"solver that two DIFFERENT subjects share a predicate. Two "
+                    f"facts naming the same item are one subject named twice. "
+                    f"Name that subject, or give the facts separate clues: {clue}"
+                )
+                break
+    return tuple(out)
 
 
 @dataclass(slots=True)
@@ -105,6 +172,10 @@ class RoundTrip:
     readings: list[Reading] = field(default_factory=list)
     attempt: int = 1
     required: int = 3
+    #: Clues that claim two subjects where one is possible. See
+    #: [prose_problems]: a defect the readers cannot see, so it is recorded
+    #: against the narrative rather than against any reading.
+    prose: tuple[str, ...] = ()
 
     @property
     def passed(self) -> bool:
@@ -131,10 +202,12 @@ class RoundTrip:
             bits.append(f"{len(extra)} fact(s) invented by EVERY reader")
         if disagree and not (missing or extra):
             bits.append("readers disagreed with each other")
+        if self.prose:
+            bits.append(f"{len(self.prose)} clue(s) claim two subjects for one")
         return ": ".join(bits[:1]) + " " + ", ".join(bits[1:])
 
     def feedback(self, schema: Schema, original: Sequence) -> str:
-        return failure_report(self.readings, schema, original)
+        return failure_report(self.readings, schema, original, prose=self.prose)
 
     def to_json(self) -> dict:
         return {
@@ -144,6 +217,7 @@ class RoundTrip:
             "agreement": self.agreement(),
             "narrative": self.narrative.to_json(),
             "readings": [r.to_json() for r in self.readings],
+            "prose": list(self.prose),
         }
 
 
@@ -341,7 +415,10 @@ def _clue_of(atom: Atom, clues: Sequence) -> int | None:
 
 
 def failure_report(
-    readings: Sequence[Reading] | RoundTrip, schema: Schema, original: Sequence
+    readings: Sequence[Reading] | RoundTrip,
+    schema: Schema,
+    original: Sequence,
+    prose: Sequence[str] = (),
 ) -> str:
     """A description of what went wrong, written for the narrator to act on.
 
@@ -351,8 +428,15 @@ def failure_report(
     in which direction.
     """
     if isinstance(readings, RoundTrip):
+        prose = prose or readings.prose
         readings = readings.readings
     lines: list[str] = []
+
+    # First, because it is the one defect the readers cannot report: they
+    # extract facts, and these clues extract correctly while reading as the
+    # opposite of what they mean.
+    for problem in prose:
+        lines.append(f"- {problem}")
 
     # Lead with drift every reader shares: that is the narrative's own fault and
     # the most actionable thing the narrator can be told.
@@ -441,13 +525,20 @@ def verify_narrative(
             judge(i, reply, puzzle.schema, puzzle.clues, puzzle.solution, model=model)
         )
 
+    # A prose defect is disqualifying on its own. The round trip can say the
+    # narrative still *means* the puzzle while the English says otherwise, and
+    # a clue that reads as the opposite of its meaning is not publishable
+    # however cleanly it extracts.
+    problems = prose_problems(narrative)
+    verdict = verdict_for(readings, required, require_exact_ir)
     return RoundTrip(
         pid=puzzle.pid,
-        verdict=verdict_for(readings, required, require_exact_ir),
+        verdict=FAIL if problems else verdict,
         narrative=narrative,
         readings=readings,
         attempt=attempt,
         required=required,
+        prose=problems,
     )
 
 
@@ -496,7 +587,7 @@ def roundtrip(
         if result.passed:
             return result
         previous = narrative
-        report = failure_report(result.readings, puzzle.schema, puzzle.clues)
+        report = result.feedback(puzzle.schema, puzzle.clues)
 
     assert last is not None
     return last

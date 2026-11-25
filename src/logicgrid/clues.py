@@ -1190,16 +1190,70 @@ def normalised(schema: Schema, atom: Atom) -> Atom:
         return IfThen(normalised(schema, atom.x), normalised(schema, atom.y))
     return atom
 
+def link_closure(atoms: Iterable[Atom]) -> set[Atom]:
+    """``atoms`` plus every link its links already force.
+
+    Two positive links that share a ref say three things, not two.  Given
+    "Haskell presses in January" and "the maker accused of acetification
+    presses in January", one month to one maker makes Haskell *be* that maker;
+    given "Haskell is the one accused of acetification" and either of the
+    others, the third follows the same way.  Any two sides of the triangle
+    imply the third, so all three ways of stating it are one fact set wearing
+    three faces.
+
+    The gate needs them to be one.  A magazine prints the clue as "Haskell,
+    who stands accused of acetification, presses in January" -- which is the
+    only honest way to merge the two, since the alternative ("as does the
+    maker accused of acetification") tells the solver the two are different
+    people, and in a one-each grid they never are.  A reader of that prose
+    writes down the identity and the month; the puzzle stores the month and
+    the month.  Without closing the triangle those sets differ, every reader
+    differs the same way, and the gate calls the correct phrasing systematic
+    drift.  It did exactly that, which is why this exists.
+
+    Closure, not entailment at large: a clue set with one solution entails
+    every true statement about it, so "it was implied" would excuse any
+    tightening the drift check exists to catch.  What is closed here is one
+    named consequence of the one-each condition, over positive links only.
+    Pairs inside a single category are skipped -- no entity holds two items of
+    one category, so such a link is not an implication but a contradiction,
+    and the solver is the thing that should say so.
+    """
+    atoms = set(atoms)
+    groups: list[set[Ref]] = []
+    for atom in atoms:
+        if not isinstance(atom, Link) or atom.a == atom.b:
+            continue
+        merged = {atom.a, atom.b}
+        for group in [g for g in groups if g & merged]:
+            merged |= group
+            groups.remove(group)
+        groups.append(merged)
+    out = set(atoms)
+    for group in groups:
+        refs = sorted(group)
+        for i, x in enumerate(refs):
+            for y in refs[i + 1 :]:
+                if x.cat != y.cat:
+                    out.add(Link(x, y))
+    return out
+
+
 def normalise_set(schema: Schema, atoms: Iterable[Atom]) -> set[Atom]:
     """A clue set in the shape the prose states it, for set comparison.
 
-    Two normalisations, both undoing a difference the *renderer* introduced
-    rather than one the reader invented:
+    Three normalisations.  None adds information: each undoes a difference
+    between two ways of writing one fact set -- two introduced by the
+    *renderer*, one by the merge a magazine clue list wants:
 
     1. Each atom goes through [normalised], so a clue that pins a position is
        compared as the position it pins.
 
-    2. A ``not_link`` spelled out by a ``between`` in the same set is dropped.
+    2. The positive links are closed under [link_closure], so a clue merged
+       the one honest way -- by naming the entity both facts are about -- is
+       compared as the same set as the two separate facts it came from.
+
+    3. A ``not_link`` spelled out by a ``between`` in the same set is dropped.
        [Between.render] ends "matching neither", which exists because an
        inclusive reading destroys uniqueness in 33 of the 35 puzzles that use
        one -- so it has to be said. But saying it invites a reader to write the
@@ -1217,7 +1271,7 @@ def normalise_set(schema: Schema, atoms: Iterable[Atom]) -> set[Atom]:
     clue that the drift check exists to catch. What is excused is one named
     entailment of one atom, not entailment at large.
     """
-    out = {normalised(schema, a) for a in atoms}
+    out = link_closure(normalised(schema, a) for a in atoms)
     implied: set[Atom] = set()
     for atom in out:
         if isinstance(atom, Between):
