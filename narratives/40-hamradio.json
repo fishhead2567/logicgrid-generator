@@ -1,0 +1,23 @@
+{
+  "pid": "ef46a88409d6",
+  "title": "Field Day on Cedar Butte",
+  "introduction": "The Cedar Butte Amateur Radio Club has spent a week on a windswept hilltop proving it can talk to strangers without a phone mast, a mains socket or any sense of shame. The generator has opinions about all of this, and shares them at volume. Amateur radio is talking to distant hobbyists over the airwaves, with each band reaching a different distance and each mode being a different way of encoding the conversation, which is exactly as complicated as the club members say it is and slightly more than their families believe.",
+  "preamble": "Five operators are involved. Determine each operator's night, band, mode and trouble.\n- **Operator**: Marcus, Ingrid, Lorna, Hank and Trish.\n- **Night** (listed from earlier to later): Monday, Tuesday, Wednesday, Thursday and Friday.\n- **Band**: 15 meters, 6 meters, 80 meters, 10 meters and 20 meters.\n- **Mode**: RTTY, CW, AM, slow-scan television and SSB.\n- **Trouble**: a snapped dipole leg, a dead battery, sixty-cycle hum, a static crash and a drifting VFO.\nEvery operator has a different night, band, mode and trouble, so within each category every item is used exactly once.",
+  "clues": [
+    "The operator defeated by a static crash falls somewhere between Tuesday and Thursday, matching neither, and is exactly two days apart from Trish.",
+    "The operator defeated by a snapped dipole leg is exactly one day earlier than Tuesday, with no night in between. The operator who operates AM is not the one defeated by a snapped dipole leg.",
+    "Wednesday is exactly one day earlier than the operator who operates CW, with no night in between.",
+    "Lorna and Thursday being exactly one day apart, and the operator who operates CW being exactly one day earlier than Friday with no night in between, do not both hold; either may hold alone, or neither.",
+    "Marcus and Monday are exactly three days apart.",
+    "The operator who works 10 meters and Ingrid are exactly three days apart, and so are the operator who operates SSB and Ingrid.",
+    "At least one of these holds, and possibly both: the operator who works 15 meters and Monday are exactly one day apart; the operator who works 10 meters is exactly one day earlier than the operator who operates slow-scan television, with no night in between.",
+    "The operator defeated by a drifting VFO and Wednesday are exactly one day apart.",
+    "Trish and the operator defeated by sixty-cycle hum are exactly one day apart, and so are the operator who works 6 meters and that same operator.",
+    "The operator who operates SSB falls somewhere between the operator who works 20 meters and the operator who works 80 meters, matching neither.",
+    "The operator who works 80 meters being earlier than the operator who operates SSB, and the operator who works 20 meters not operating RTTY, do not both hold; either may hold alone, or neither.",
+    "The operator who works 15 meters and Ingrid being exactly one day apart, and the operator who operates RTTY and Hank being exactly two days apart, do not both hold; either may hold alone, or neither."
+  ],
+  "model": "subagent",
+  "attempt": 1,
+  "verdict": "pass"
+}

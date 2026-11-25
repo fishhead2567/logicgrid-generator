@@ -162,6 +162,34 @@ def shared_opening(schema: Schema, first: str, atom_a, second: str, atom_b) -> s
     return best
 
 
+def _pinned_position(schema: Schema, a: Ref, b: Ref) -> tuple[Ref, "Ref"] | None:
+    """For ``immediately_before(a, b)``, the end that a literal spine item pins.
+
+    ``b`` sits exactly one position after ``a``, so naming either end with a
+    spine item fixes the other end outright: "one month earlier than February"
+    is January and nothing else.  Rendering that as arithmetic asks the solver
+    to compute what the clue could simply have said, which is the same defect
+    as naming a subject twice -- a direct fact wearing a relation's clothes.
+
+    Returns ``(pinned_ref, spine_ref)``, or ``None`` when neither end is a
+    spine item, when both are, or when the implied position falls off the end
+    of the spine.  An :class:`Adjacent` at the edge of the spine is
+    deliberately *not* treated this way: there the solver has to notice there
+    is no sixth place, and that is a real if small deduction.
+    """
+    spine_a, spine_b = schema.is_spine(a), schema.is_spine(b)
+    if spine_a == spine_b:
+        return None
+    items = schema.spine.items
+    if spine_b:
+        ref, pos = a, schema.spine_position(b) - 1
+    else:
+        ref, pos = b, schema.spine_position(a) + 1
+    if not 0 <= pos < len(items):
+        return None
+    return ref, Ref(schema.spine_name, items[pos])
+
+
 def _article(word: str) -> str:
     return "an" if word[:1].casefold() in "aeiou" else "a"
 
@@ -463,6 +491,11 @@ class ImmediatelyBefore(Atom):
         return assign[self.b] - assign[self.a] == 1
 
     def render(self, schema: Schema) -> str:
+        # When one end is a literal spine item the other end is pinned to a
+        # single position, so say the position.  See [_pinned_position].
+        pinned = _pinned_position(schema, self.a, self.b)
+        if pinned is not None:
+            return Link(*pinned).render(schema)
         noun, less, _more, step = _spine_words(schema)
         return (
             f"{_pos(schema, self.a, True)} is exactly one {step} {less} than "
@@ -470,6 +503,11 @@ class ImmediatelyBefore(Atom):
         )
 
     def gloss(self, schema: Schema) -> str:
+        # The gloss has to describe the sentence the narrator is handed, or it
+        # reads as a contradiction of it.
+        pinned = _pinned_position(schema, self.a, self.b)
+        if pinned is not None:
+            return Link(*pinned).gloss(schema)
         noun, less, _more, step = _spine_words(schema)
         return (
             f"{self.b.item} is exactly ONE {step} after {self.a.item}; they are "

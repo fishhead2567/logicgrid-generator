@@ -1,0 +1,23 @@
+{
+  "pid": "d15277230140",
+  "title": "The Heavies at Kinloch Rannoch",
+  "introduction": "Every year the glen empties its sheds of anything too heavy to be useful and invites five of its sturdiest residents to throw it as far as they can. The officials measure to the foot, the wind offers opinions nobody asked for, and by teatime every thrower has a grievance ready for the bar. The heavy events are Highland games throwing contests: hurling lead weights, hammers on springy handles, sheaves of straw and whole tree trunks, all for distance or height, and all taken far more seriously than the spectators with their shortbread.",
+  "preamble": "Five throwers are involved. Determine each thrower's best throw, event, tartan and grumble.\n- **Thrower**: Rab Souter, Fiona Strachan, Lachlan Cree, Angus Dunbar and Morag Inglis.\n- **Best throw** (listed from shorter to longer): 28 feet, 32 feet, 36 feet, 40 feet and 44 feet.\n- **Event**: the weight for distance, the Scottish hammer, the caber toss, the sheaf toss and the weight over the bar.\n- **Tartan**: Cameron of Erracht, Lamont ancient, Murray of Atholl, Fraser hunting and Buchanan.\n- **Grumble**: a turned ankle, a crosswind, a borrowed caber, a slipped grip and a soft run-up.\nEvery thrower has a different best throw, event, tartan and grumble, so within each category every item is used exactly once.",
+  "clues": [
+    "Angus Dunbar and 40 feet are one throw step apart in best throw order, either way round. At least one of these is true: the thrower who wears Murray of Atholl and 32 feet are one throw step apart in best throw order, either way round; or Angus Dunbar does not throw 36 feet.",
+    "40 feet falls strictly between the thrower who wears Fraser hunting and the thrower who wears Murray of Atholl in best throw order, matching neither; either of those two may be the shorter. The thrower who wears Murray of Atholl throws exactly 16 feet further than the thrower who complains of a turned ankle.",
+    "The thrower who complains of a turned ankle throws exactly one throw step shorter than the thrower who wears Cameron of Erracht.",
+    "Lachlan Cree wearing Lamont ancient and the Lamont ancient wearer not throwing 36 feet do not both hold; either may hold alone, or neither. Rab Souter does not wear Lamont ancient.",
+    "The thrower who wears Lamont ancient falls strictly between the thrower who competes in the weight for distance and the thrower who competes in the weight over the bar in best throw order, matching neither; either of those two may be the shorter.",
+    "The thrower who complains of a slipped grip falls strictly between the thrower who competes in the weight for distance and Morag Inglis in best throw order, matching neither; either of those two may be the shorter.",
+    "If the thrower who complains of a slipped grip and Lachlan Cree are one throw step apart in best throw order, either way round, then Rab Souter throws 36 feet.",
+    "At least one of these is true: the thrower who competes in the weight over the bar and the thrower who complains of a slipped grip are one throw step apart in best throw order, either way round; or Lachlan Cree competes in the sheaf toss.",
+    "At least one of these is true: the thrower who competes in the weight over the bar and the thrower who complains of a slipped grip are one throw step apart in best throw order, either way round; or the thrower who competes in the Scottish hammer does not wear Lamont ancient.",
+    "The thrower who complains of a borrowed caber throws longer than 40 feet. The thrower who competes in the Scottish hammer throws exactly one throw step shorter than 44 feet.",
+    "Fiona Strachan throws exactly one throw step shorter than the thrower who competes in the sheaf toss, who in turn throws shorter than the thrower who complains of a soft run-up.",
+    "Morag Inglis does not compete in the caber toss, and the thrower who competes in the caber toss does not complain of a crosswind."
+  ],
+  "model": "subagent",
+  "attempt": 1,
+  "verdict": "pass"
+}

@@ -572,3 +572,118 @@ def test_the_link_chain_rewrite_keeps_the_same_facts():
             continue
         assert count_solutions(puzzle.schema, rewritten, limit=2) == 1, path.stem
     assert touched >= 2, f"the rewrite fired on {touched} clues, so this proves little"
+
+
+# ---------------------------------------------------------------------------
+# a relation to a literal spine item is a direct fact in disguise
+# ---------------------------------------------------------------------------
+
+
+def test_one_step_from_a_named_month_states_the_month(schema):
+    """"Exactly one month earlier than February" is January, said the long way.
+
+    Both ends of an ``immediately_before`` carry a position, so naming one of
+    them with a literal spine item fixes the other outright. Rendering that as
+    arithmetic makes the solver compute what the clue could have stated -- the
+    same defect as a clue naming its subject twice, one layer down.
+    """
+    assert ImmediatelyBefore(R("Leocadia"), R("February")).render(schema) == (
+        "Leocadia harvests in January."
+    )
+    # And the other way round: the spine item leads, so the entity is after it.
+    assert ImmediatelyBefore(R("February"), R("Leocadia")).render(schema) == (
+        "Leocadia harvests in March."
+    )
+
+
+def test_the_gloss_describes_the_sentence_the_narrator_is_handed(schema):
+    """A gloss contradicting its own sentence is worse than no gloss.
+
+    The narrator gets both, so the gloss for a pinned fact has to talk about
+    the position, not about consecutiveness the sentence no longer mentions.
+    """
+    atom = ImmediatelyBefore(R("Leocadia"), R("February"))
+    assert "January" in atom.gloss(schema)
+    assert "consecutive" not in atom.gloss(schema)
+    # The unpinned case still explains the direction, which is the whole risk.
+    plain = ImmediatelyBefore(R("Leocadia"), R("Taavi"))
+    assert "do not reverse it" in plain.gloss(schema).casefold()
+
+
+def test_an_entity_to_entity_step_keeps_its_relation(schema):
+    """Non-vacuity: the rewrite must not swallow the ordinary case."""
+    text = ImmediatelyBefore(R("Leocadia"), R("Taavi")).render(schema)
+    assert "exactly one month earlier" in text
+    assert "with no month in between" in text
+
+
+def test_a_step_off_the_end_of_the_spine_keeps_its_relation(schema):
+    """Nothing sits one month before January, so there is no position to state.
+
+    The atom is unsatisfiable, which is the generator's business rather than
+    the renderer's; what matters here is that the renderer does not invent a
+    month outside the spine.
+    """
+    text = ImmediatelyBefore(R("Leocadia"), R("January")).render(schema)
+    assert "exactly one month earlier" in text
+    for month in MONTHS:
+        assert f"harvests in {month}" not in text
+
+
+@pytest.mark.parametrize("month", MONTHS)
+def test_an_adjacent_is_never_rewritten_into_a_position(schema, month):
+    """Deliberately left alone: the edge is a real, if small, deduction.
+
+    "Leocadia and January are one month apart" pins February just as firmly,
+    but only once the solver notices there is no month before January, and
+    that noticing is worth keeping.
+
+    Every month is checked, because only three of the four are load-bearing
+    and the vacuous one is the tempting case to write. Wiring the pinning
+    helper into [Adjacent] leaves "Leocadia and January" alone -- the helper
+    reads ``immediately_before``, so January takes it one step off the bottom
+    of the spine and it declines. A test using January alone therefore passes
+    whether ``adjacent`` is rewritten or not; it was written that way first,
+    and the probe that was supposed to break it did not. February and March
+    would be rewritten outright *wrongly* -- "one month apart from March" is
+    February or April, not February -- and April would be rewritten correctly
+    but unwantedly.
+    """
+    text = Adjacent(R("Leocadia"), R(month)).render(schema)
+    assert "exactly one month apart" in text
+    assert "in one direction or the other" in text
+    for other in MONTHS:
+        assert f"harvests in {other}" not in text
+
+
+@pytest.mark.parametrize("seed", [11, 12, 13, 14, 15, 16])
+def test_a_pinned_clue_states_the_position_the_solution_has(seed):
+    """The rewrite has to be *right*, not merely plausible.
+
+    Easy to get backwards: ``immediately_before(a, b)`` puts ``b`` after
+    ``a``, so a named spine item on the right means the entity sits one step
+    *lower*, and on the left one step higher. This checks the rendered
+    sentence against the recorded solution, which is the only authority on
+    where the entity actually is.
+    """
+    puzzle = generate(PuzzleSpec(difficulty="easy", seed=seed, strict_band=False))
+    schema = puzzle.schema
+    checked = 0
+    for clue in puzzle.clues:
+        for atom in clue.atoms:
+            if atom.kind != "immediately_before":
+                continue
+            refs = atom.refs()
+            spine = [r for r in refs if schema.is_spine(r)]
+            other = [r for r in refs if not schema.is_spine(r)]
+            if len(spine) != 1 or not other:
+                continue
+            position = puzzle.solution.position(other[0])
+            item = schema.spine.items[position]
+            assert item in atom.render(schema), (
+                f"{atom.render(schema)!r} does not name {item!r}, where the "
+                f"solution puts {other[0].key!r}"
+            )
+            checked += 1
+    if checked == 0:
+        pytest.skip("this seed produced no clue pinned by a named spine item")
